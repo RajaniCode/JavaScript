@@ -1,0 +1,6 @@
+Resources
+
+• Source Code [https://github.com/codeschool/ES2015SoupToBits]
+• ES2015: The Shape of JavaScript to Come [https://www.codeschool.com/courses/es2015-the-shape-of-javascript-to-come]
+• Starter code for using Babel with Gulp and Browserify [https://github.com/codeschool/babel-with-gulp]
+• Code School Forum [http://discuss.codeschool.io/]

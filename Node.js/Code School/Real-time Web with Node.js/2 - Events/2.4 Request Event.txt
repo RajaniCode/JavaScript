@@ -1,0 +1,63 @@
+2.4 Request Event
+
+Just like you saw in the video, refactor the HTTP server code to explicitly bind a callback to the 'request' event using the on function.
+
+1. Add an event listener on the server variable that listens to the request event. The event listener should take a callback function with two arguments, request and response.
+
+Answer:
+
+var server = http.createServer();
+server.on('request', function(request, response){});
+
+app.js
+
+var http = require('http');
+
+var server = http.createServer();
+server = http.createServer(function(request, response) {});//Not Required
+server.on('request', function(request, response){});
+server.listen(8080);
+
+2. Move the logic for handling the request from the http.createServer() callback to your new 'request' event listener. Remember to remove the http.createServer() callback once the code has been moved.
+
+Answer: 
+
+var server = http.createServer();
+server.on('request', function(request, response){
+  response.writeHead(200);
+  response.write("Hello, this is dog");
+  response.end();
+});
+
+app.js
+
+var http = require('http');
+
+var server = http.createServer();
+server = http.createServer(function(request, response) {}); //Not Required
+server.on('request', function(request, response){
+  response.writeHead(200);
+  response.write("Hello, this is dog");
+  response.end();
+});
+server.listen(8080);
+
+3. Remove the original request callback.
+
+Answer: 
+
+Remove the following:
+
+server = http.createServer(function(request, response) {});
+
+app.js
+
+var http = require('http');
+
+var server = http.createServer();
+server.on('request', function(request, response){
+response.writeHead(200);
+  response.write("Hello, this is dog");
+  response.end();
+});
+server.listen(8080);

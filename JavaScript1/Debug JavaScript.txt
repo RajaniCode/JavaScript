@@ -1,0 +1,203 @@
+#
+if (thisThing) {    
+  debugger;
+}
+
+#
+var animals = [
+  { animal: 'Horse', name: 'Henry', age: 43 },
+  { animal: 'Dog', name: 'Fred', age: 13 },
+  { animal: 'Cat', name: 'Frodo', age: 18 }
+];
+ 
+console.table(animals);
+
+# 
+console.time('Timer1');
+ 
+var items = [];
+ 
+for(var i = 0; i < 100000; i++){
+  items.push({index: i});
+}
+
+console.timeEnd('Timer1');
+
+
+#
+var car;
+
+var func1 = function() {
+  func2();
+}
+
+var func2 = function() {
+  func4();
+}
+
+var func3 = function() {
+}
+
+var func4 = function() {
+  car = new Car();
+  car.funcX();
+}
+
+var Car = function() {
+
+  this.brand = 'volvo';
+  this.color = 'red';
+
+  this.funcX = function() {
+    this.funcY();
+  }
+
+  this.funcY = function() {
+    this.funcZ();
+  }
+
+  this.funcZ = function() {
+    console.trace('trace car');
+  }
+}
+
+func1();
+
+var car; 
+var func1 = function() {
+  func2();
+} 
+
+var func2 = function() {
+  func4();
+}
+
+var func3 = function() {
+} 
+
+var func4 = function() {
+  car = new Car();
+  car.funcX();
+}
+
+var Car = function() {
+
+  this.brand = 'volvo';
+  this.color = 'red';
+
+  this.funcX = function() {
+    this.funcY();
+  }
+
+  this.funcY = function() {
+    this.funcZ();
+  }
+
+  this.funcZ = function() {
+    console.trace('trace car');
+  }
+}
+
+func1();
+
+#
+var car;
+
+var func1 = function() {
+  func2();
+}
+
+var func2 = function() {
+  func4();
+}
+
+var func3 = function() {
+}
+
+var func4 = function() {
+  car = new Car();
+  car.funcX();
+}
+
+var Car = function() {
+
+  this.brand = 'volvo';
+  this.color = 'red';
+
+  this.funcX = function() {
+    this.funcY();
+  }
+
+  this.funcY = function() {
+    this.funcZ();
+  }
+
+  this.funcZ = function() {
+    console.trace('trace car');
+  }
+}
+
+func1();
+
+var car; 
+var func1 = function() {
+  func2();
+} 
+
+var func2 = function() {
+  func4();
+}
+
+var func3 = function() {
+} 
+
+var func4 = function() {
+  car = new Car();
+  car.funcX();
+}
+
+var Car = function() {
+
+  this.brand = 'volvo';
+  this.color = 'red';
+
+  this.funcX = function() {
+    this.funcY();
+  }
+
+  this.funcY = function() {
+    this.funcZ();
+  }
+
+  this.funcZ = function() {
+    console.trace('trace car');
+  }
+}
+
+func1();
+
+debug(car.funcY);
+
+car.funcY;
+
+
+#
+console.todo = function(msg) {
+  console.log(' % c % s % s % s', 'color: yellow; background - color: black;', '–', msg, '–');
+}
+ 
+console.important = function(msg) {
+  console.log(' % c % s % s % s', 'color: brown; font - weight: bold; text - decoration: underline;', '–', msg, '–');
+}
+ 
+console.todo("This is something that' s need to be fixed");
+console.important('This is an important message');
+
+#
+var func1 = function(x, y, z) {
+  //....
+};
+
+monitor(func1);
+
+func1(1, 2);

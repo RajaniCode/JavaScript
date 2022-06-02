@@ -1,0 +1,30 @@
+6.12 Advanced Generators
+
+
+Check all other valid ways we can use our topicList() generator function.
+
+function *topicList(){
+  yield "ES2015";
+  yield "Semi-colons: good or bad?";
+  yield "TypeScript";
+}
+
+[Single Answer]
+
+let names = [...topicList()];
+console.log( names );
+
+let [first, ...rest] = topicList();
+console.log( first, rest );
+
+import list from topicList();
+console.log( list );
+
+
+Answer:
+
+let names = [...topicList()];
+console.log( names );
+
+let [first, ...rest] = topicList();
+console.log( first, rest );

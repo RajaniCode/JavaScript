@@ -1,0 +1,275 @@
+https://github.com/RajaniCode/CodeBreakerProject
+
+https://www.codeschool.com/projects/build-a-code-breaker-game-with-javascript/build
+
+https://www.codeschool.com/projects/build-a-code-breaker-game-with-javascript#course-intro-video
+
+Project Overview
+
+Employ JavaScript best practices and elements to build a game called Code Breaker (based on the popular board game Mastermind).
+
+The game randomly generates a hidden code, and the player gets 10 attempts to guess that code based on provided feedback.
+
+What You'll Need
+You'll need a GitHub account, Git installed locally, and a code editor.
+
+Never used Git and don't have a code editor? We have a video that walks you through all the steps you'll need to set this up.
+
+Live Demo
+
+Wondering what this project will look like when you've completed it? Follow this link [https://codeschool-projects.github.io/CodeBreakerProject/] to see a live version of it.
+
+Step 1: Authenticate with GitHub
+
+We'll need to know your GitHub username to complete this project.
+
+Step 2:  Fork the Repo
+
+In a new window, head over to GitHub and Fork thecodeschool-projects/CodeBreakerProjectrepo [https://github.com/codeschool-projects/CodeBreakerProject] into your account. Once you've done that on GitHub, let us know!
+
+Step 3: Clone down your fork of the repo locally. You can copy and paste either version of this line into your terminal.
+
+Use SSH	
+
+[
+Use SSH
+git clone git@github.com:RajaniCode/CodeBreakerProject.git
+]
+
+Use HTTPS
+git clone https://github.com/RajaniCode/CodeBreakerProject.git
+
+How do I Clone a repo on GitHub? [https://www.codeschool.com/projects/build-a-code-breaker-game-with-javascript/build#fork-video]
+
+# Git Bash ############################################################################################################################
+
+[
+Aspire@Acer MINGW64 /
+$ cd "E:\Working\JavaScript\JavaScript\Code School\Projects\Build-a-Code-Breaker-Game-With-JavaScript"
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/JavaScript/Code School/Projects/Build-a-Code-Breaker-Game-With-JavaScript
+$ git clone https://github.com/RajaniCode/CodeBreakerProject.git
+Cloning into 'CodeBreakerProject'...
+remote: Counting objects: 319, done.
+Receiving objects:  73% (233/3remote: Total 319 (delta 0), reused 0 (delta 0), pack-reused 319
+Receiving objects: 100% (319/319), 56.51 KiB | 6.00 KiB/s, done.
+Resolving deltas: 100% (136/136), done.
+]
+
+#######################################################################################################################################
+
+Step 4: Open this project's directory in a text editor to complete this project. 
+
+A text editor like Atom [https://atom.io/] or Sublime Text [https://www.sublimetext.com/] will do the job. You will make changes to the src/assets/main.js file to satisfy the requirements.
+
+Build
+
+Satisfy the list of requirements below, commit, and push your code to GitHub.
+
+Step 5: Create setHiddenFields Function
+Create a function named setHiddenFields that sets the answer variable equal to a randomly generated whole number between 0 and 9999.
+
+Hint: Math.random() can be used to randomly generate a number between 0 and 1 (up to 18 decimal points) and Math.floor(input) can be used to round down to the nearest whole number.
+
+Step 6: Make sure the hidden input answer's value is exactly 4 characters long
+In our setHiddenFields function we need to make sure the hidden input answer is exactly 4 characters long. (If our random number generates "42", we want to set the value of answer to "0042".)
+
+Hint: In order to add a zero to the front of an answer, it must be a string, not a number. You can convert numbers to strings with .toString(). We can create a while loop that runs while answer.length is less than 4 that puts a 0 before answer's current value.
+
+Step 7: Set the hidden input attempt's value to zero
+In our setHiddenFields function we should also set the hidden input attempt to 0.
+
+Step 8: Only set the answer and attempt hidden inputs when they aren't already set
+Call the setHiddenFields function in the body of the guess function, but also write some logic so that it's only called when answer and attempt haven't already been set.
+
+Hint: we can use an if condition to only run our code when answer or attempt is empty ('').
+
+Step 9: Create setMessage function
+Create a setMessage function with one parameter. This function should set the message label to whatever is provided to the parameter.
+
+Hint: With a label, you'll want to set its .innerHTML, not its .value.
+
+Step 10: Create validateInput function
+Create a function validateInput with one parameter. If the parameter has a length of 4 return true, otherwise use the setMessage function to set the message label to "Guesses must be exactly 4 characters long." then return false
+
+Step 11: Call the validateInput function from the guess function
+Create an if condition block that uses validateInput with a parameter of input.value as the conditional. If validateInput returns false, then use return false to stop execution of the guess function, otherwise we should increment the attempt hidden input by 1.
+
+Hint: You can negate a value on the if statement by using the exclamation point, like this: if(!someValue).
+
+Step 12: Create getResults function
+Create a getResults function that has one parameter. In this function, we need to add the results of the user's guess to our results div's innerHTML. Each result should begin with <div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6"> where input is the value the user guessed. Then for each character, you should add <span class="glyphicon glyphicon-ok"></span> if the character is in the correct position in the answer, a <span class="glyphicon glyphicon-transfer"></span> if the character is in the answer but isn't in the right position, and <span class="glyphicon glyphicon-remove"></span> if the number isn't in the answer at all. Don't forget to close your divs!
+
+Hint: You can create a variable to hold the initial div, then add each character's results to that variable in a for loop, then add the closing div tags after the loop. After which you can just set the results element's innerHTML to that variable.
+
+Step 13: Check for correct guess
+In our getResults function create a variable that counts how many characters were guessed correctly, if all characters were guessed correctly the function should return true otherwise false
+
+Step 14: Setup Win Condition
+Add a call to the getResults function at the end of our guess function. If getResults returns true use the setMessage function to set the message label to "You Win! :)".
+
+Step 15: Setup Lose Condition
+If getResults returns false and the hidden input attempt value is greater than or equal to 10 use the setMessage function to set the message label to "You Lose! :(".
+
+Step 16: Continue Play Condition
+If neither a win or lose condition is met use the setMessage function to set the message label to "Incorrect, try again.".
+
+Step 17: Create a showAnswer function
+Create a function showAnswer that has one parameter. This function should set the innerHTML of the code label to the value of the answer hidden input. In addition to this it should take the parameter as a true or false (indicating if the player won or lost) if the parameter is true add success to code's className otherwise it should add failure. (note the space before success and failure)
+
+Step 18: Create a showReplay function
+Create a function showReplay with no parameters. This function will change the style.display of guessing-div div to none and the style.display of the replay-div div to block making it so the user can start over after they win or lose the game.
+
+Step 19: Add showAnswer and showReplay to Win / Lose Conditions
+When a player wins in addition to setMessage call, they should also call showAnswer passing true for it's parameter, and finally make a call to showReplay. When the player loses they should call showAnswer with false for the parameter and then showReplay.
+
+When you're ready, commit your code and push it to GitHub. We'll checkout your repository and validate all of the build tasks are done.
+
+If you're having trouble, you can watch the Answer Video [https://www.codeschool.com/projects/build-a-code-breaker-game-with-javascript/build#answer-video] to see one way of completing this project.
+
+
+$ cd CodeBreakerProject
+
+$ npm --version
+
+$ npm install
+
+$ npm start
+
+http://localhost:3000
+
+$ npm test
+
+
+# Build-a-Code-Breaker-Game-With-JavaScript/CodeBreakerProject/src/assets/main.js
+********************************************************************************************************
+
+let answer = document.getElementById('answer');
+let attempt = document.getElementById('attempt');
+
+function guess() {
+    let input = document.getElementById('user-guess');
+    //add functionality to guess function here
+	if (answer.value == '' || attempt.value == '') {
+	 setHiddenFields();		 
+	}
+	
+	if(!validateInput(input.value)) {
+	  return false;
+	}
+	
+	attempt.value++;
+	
+	if(getResults(input.value)) {
+		setMessage("You Win! :)");
+		showAnswer(true);
+		showReplay();
+	}
+	else if(attempt.value >= 10) {
+		setMessage("You Lose! :(");
+		showAnswer(false);
+		showReplay();
+	}
+	else {
+	    setMessage("Incorrect, try again.");
+	}
+}
+
+//implement new functions here
+function setHiddenFields() {	
+	answer.value = Math.floor(Math.random() * 10000).toString();   
+    while (answer.value.length < 4) {
+        answer.value = "0" + answer.value;
+    }
+    attempt.value = 0;
+    return answer.value;    
+}
+
+// console.log(setHiddenFields());
+
+function setMessage(msg) {
+	let message = document.getElementById('message');
+	message.innerHTML = msg;
+}
+
+function validateInput(input) {
+	if (input.toString().length != 4) {
+		setMessage("Guesses must be exactly 4 characters long.");
+	    return false;
+	}
+	return true;
+}
+
+function getResults(input) {	
+	let html = '<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">';
+
+	for(let i = 0; i < input.length; i++) {
+		if (input.charAt(i) == answer.value.charAt(i)) {
+			html += '<span class="glyphicon glyphicon-ok"></span>';
+		}
+		else if (answer.value.indexOf(input.charAt(i)) > -1) {
+			html += '<span class="glyphicon glyphicon-transfer"></span>';
+		}
+		else {
+			html += '<span class="glyphicon glyphicon-remove"></span>';
+		}
+	}
+	
+	html += '</div></div>';
+	document.getElementById('results').innerHTML += html;
+	if (input == answer.value){
+		return true;
+	}
+	return false;
+}
+
+function showAnswer(success) {
+	let code = document.getElementById('code');	
+	code.innerHTML = answer.value;	
+	if(success) {
+	    code.className = ' success';
+	}
+	else {
+	    code.className = ' failure';
+	}	
+}
+
+function showReplay() {
+    document.getElementById('guessing-div').style.display = 'none';
+	document.getElementById('replay-div').style.display = 'block';
+}
+
+********************************************************************************************************
+
+
+$ npm start
+
+http://localhost:3000
+
+$ npm test
+
+# When you're ready, commit your code and push it to GitHub. We'll checkout your repository and validate all of the build tasks are done.
+
+$ git status
+
+$ git branch
+
+$ git add .
+
+$ git status
+
+$ git branch
+
+# NOTE
+[
+$ git config user.email "rajanicode@gmail.com"
+
+
+$ git config user.name "RajaniCode"
+]
+
+$ git commit -a -m "Project Solution"
+
+$ git push origin master
+
+$ git commit

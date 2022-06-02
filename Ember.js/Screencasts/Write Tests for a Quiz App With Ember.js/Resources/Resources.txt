@@ -1,0 +1,10 @@
+Resources
+
+• Github Starting Code [https://github.com/codeschool/TryEmberSoupToBits1/tree/complete]
+• Ember CLI [https://ember-cli.com/]
+• QUnit [https://qunitjs.com/]
+• Asynchronous Test Helpers in Ember [https://guides.emberjs.com/v2.3.0/testing/acceptance/#toc_asynchronous-helpers]
+• JSHint [http://jshint.com/]
+• jshint2.vim [https://github.com/Shutnik/jshint2.vim]
+• ember-cli-mirage [http://www.ember-cli-mirage.com/]
+• JSON:API [http://jsonapi.org/]

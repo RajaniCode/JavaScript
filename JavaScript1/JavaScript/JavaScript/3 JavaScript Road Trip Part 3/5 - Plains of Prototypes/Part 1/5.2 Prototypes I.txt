@@ -1,0 +1,80 @@
+5.2 Prototypes I
+
+The cowboy-devs at the Plains of Prototypes need your help! They have multiple lists of cattle being imported from different regions. Each individual bovine is represented as an object, and those objects are contained within an array. Here’s an example:
+
+var canyonCows = [
+  {name: "Bessie", type: "cow", hadCalf: "Burt"},
+  {name: "Donald", type: "bull", hadCalf: null},
+  {name: "Esther", type: "calf", hadCalf: null},
+  {name: "Burt", type: "calf", hadCalf: null},
+  {name: "Sarah", type: "cow", hadCalf: "Esther"},
+  {name: "Samson", type: "bull", hadCalf: null},
+  {name: "Delilah", type: "cow", hadCalf: null}
+];
+
+The only problem is that the cowboy-devs don’t have time to go through all of the lists and count each specific type of cattle that’s being imported. Instead, they want to create a countCattle prototype function that returns the total number of cattle:
+
+    Add a function called countCattle to the Array prototype. This will allow the cowboy-devs to call the function on any array list (like the canyonCows array).
+    The function should take in a kind parameter.
+    Inside the function, set up a numKind variable to keep track of how many bulls, cows, or calves are present in the array.
+    Use a for loop to loop through all of the array values. You can use this to refer to the current list.
+    If the type property of the current array value matches the kind parameter, then increment your numKind variable.
+    After your loop, return the numKind variable for the total number of cattle.
+
+Note: You do not need to call the countCattle function. We’ll call it when testing your code. You also do not need to include the canyonCows array in your code submission.
+
+Answer:
+
+cows.js
+
+Array.prototype.countCattle = function (kind) {
+    var numKind = 0;
+    for (var i = 0; i < this["length"]; i++) {
+        if (this[i]["type"] === kind) {
+            numKind++;
+        }
+    }
+    return numKind;
+};
+
+//Note
+//canyonCows["countCattle"]("cow");
+
+//Note
+/*
+canyonCows["countCattle"] = function (kind) {
+    var numKind = 0;
+    for (var i = 0; i < canyonCows["length"]; i++) {                
+        if (canyonCows[i]["type"] === kind) {
+            numKind++;
+        }
+    }
+    return numKind;
+};
+*/
+
+//Note
+/*
+canyonCows["countCattle"] = function (kind) {
+    var numKind = 0;
+    for (var i = 0; i < this["length"]; i++) {                
+        if (this[i]["type"] === kind) {
+            numKind++;
+        }
+    }
+    return numKind;
+};
+*/
+
+//Note
+/*
+function countCattle(kind) {
+    var numKind = 0;
+    for (var i = 0; i < canyonCows["length"]; i++) {
+        if (canyonCows[i]["type"] === kind) {
+            numKind++;
+        }
+    }
+    return numKind;
+};
+*/

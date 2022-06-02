@@ -1,0 +1,16 @@
+Model Instance
+
+
+Now that we have our Appointment model class, let's create our first instance and assign it to the appointment variable. Pass in a title for the appointment when creating it.
+
+Note Check out the JS Source tab below that will display relevant code for this challenge.
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+
+APPLICATION.JS
+
+var appointment;
+
+Answer: var appointment = new Appointment({title: "Backbone.js"});

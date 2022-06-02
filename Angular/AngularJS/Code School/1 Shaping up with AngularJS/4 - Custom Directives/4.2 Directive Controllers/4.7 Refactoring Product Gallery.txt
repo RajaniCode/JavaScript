@@ -1,0 +1,96 @@
+4.7 Refactoring Product Gallery
+
+Now that we've separated the Product Tabs, why not separate the Gallery too?
+
+
+1. Create an element directive called productGallery.
+
+Answer: 
+
+app.js
+
+    app.directive('productGallery', function(){
+    return {
+      restrict: 'E'
+  	};  
+  });
+
+2. Tell your new directive to use the product-gallery.html template with the templateUrl attribute.
+
+Answer:
+
+app.js
+
+    app.directive('productGallery', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-gallery.html',      
+  	};  
+  });
+
+3. Give our productGallery directive all the gallery functionality that is currently inside our GalleryController. Make sure that you do not delete the GalleryController yet. We don't want to break the site.
+
+Answer:
+
+app.js
+
+  app.directive('productGallery', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-gallery.html',
+      controller: function() { 
+        this.current = 0;
+        this.setCurrent = function(imageNumber){
+          this.current = imageNumber || 0;
+        };    
+      },
+      controllerAs: 'gallery'
+    };  
+  });
+
+4. Put the gallery div inside of the provided product-gallery.html. Remove the ng-controller from the div inside the file once moved.
+
+Answer:
+
+index.html
+
+Move to the foolowing:
+
+product-gallery.html
+
+<div ng-show="product.images.length">
+  <div class="img-wrap">
+    <img ng-src="{{product.images[gallery.current]}}" />
+  </div>
+  <ul class="img-thumbnails clearfix">
+    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+      <img ng-src="{{image}}" />
+    </li>
+  </ul> 
+</div>
+
+5. Now remove the image gallery div from index.html and the GalleryController from app.js. 
+
+Answer:
+
+app.js
+
+Remove the following:
+
+  app.controller('GalleryController', function(){
+    this.current = 0;
+    this.setCurrent = function(imageNumber){
+      this.current = imageNumber || 0;
+    };
+  });
+
+6. Use our new productGallery directive where the gallery div used to be in our index.html.
+
+Answer:
+
+index.html
+
+<product-gallery></product-gallery>
+
+
+

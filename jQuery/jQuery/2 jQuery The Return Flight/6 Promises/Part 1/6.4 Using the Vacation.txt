@@ -1,0 +1,57 @@
+6.4 Using the Vacation
+
+Lets edit the original code to use the Vacation object we just created. Add a .done() callback function to your Vacation object that will run the same function as our current success callback.
+
+HTML
+
+<div class="vacation-location">
+  <h3 class="location">London, UK</h3>
+  <p class="price"></p>
+  <button>Update Price</button>
+</div>
+
+vacation.js
+
+var Vacation = {
+  getPrice: function(location){
+   var promise = $.ajax('/vacation/prices', {
+     data: {q: location}
+   });
+
+   return promise;
+  }
+}
+
+AJAX Result
+
+{
+  price: 2600
+}
+
+application.js
+
+$(document).ready(function() {
+  $('button').on('click', function(){
+    var location = $('.location').text();
+    $.ajax('/vacation/prices', {
+      data: {q: location},
+      success: function(result){
+        $('.price').text(result.price);
+      }
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $('button').on('click', function(){
+    var location = $('.location').text();
+    var promise = Vacation.getPrice(location);
+    promise.done(function(result){
+        $('.price').text(result.price);
+      });
+  });
+});

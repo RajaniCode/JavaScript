@@ -1,0 +1,19 @@
+2.8 Generate a Route
+
+Generate a route named 'polls' using Ember CLI.
+
+
+Type help to see the help menu
+
+quiz$ ember generate route polls
+
+version: 1.13.13
+installing route
+  create app/routes/polls.js
+  create app/templates/polls.hbs
+updating router
+  add route polls
+installing route-test
+  create tests/unit/routes/polls-test.js
+Success!
+quiz$

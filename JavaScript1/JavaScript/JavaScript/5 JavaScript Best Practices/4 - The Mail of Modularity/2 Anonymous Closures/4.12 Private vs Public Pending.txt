@@ -1,0 +1,21 @@
+4.12 Private vs Public Pending
+
+Another solid wall appears after a lengthy trek. On its surface, broken phrases appear in glowing script. Aiedra whispers, as if to herself,
+
+    "Knowledge will provide the key. Demonstrate your understanding of a module's complexity. Think carefully… find the right precision."
+
+__________ properties are __________ in the local scope of the __________.
+__________properties are built within the __________ which is then __________ to become the __________.
+Access to __________ data is thus possible only because of __________ within the larger __________.
+
+As you ponder the answers you push back thoughts that she has been here before.
+
+    Public, returned, module, Bound, function, executed, closure, module, properties, namespace
+
+    Module, closed, function expression, Public, module, accessed, namespace, Private, object, module
+
+    Private, created, function expression, Public, object, returned, namespace, private, closure, module
+
+    Namespace, used, file, Private, function expression, assigned, module, public, objects, namespace
+
+Answer: Private, created, function expression, Public, object, returned, namespace, private, closure, module

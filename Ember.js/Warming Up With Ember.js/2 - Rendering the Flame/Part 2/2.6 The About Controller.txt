@@ -1,0 +1,365 @@
+2.6 The About Controller
+
+We went ahead and styled up the index template a bit in the second since you finished it. Fire Sprites are just that efficient!
+
+We realized that our customers want to know who they are buying from. In order to do this we’ll make the About page a little more flashy by including details about the author. Follow the tasks below to add a bit of content to the About page.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class="jumbotron">
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class="tagline">
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>Browse All {{productCount}} Items &raquo;</p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+
+1. Our About page will need to get its properties from somewhere. Create a class that will provide it with some data.
+
+Answer: App.AboutController = Ember.Controller.extend({});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({});
+
+2. Add a property called contactName to your new class, and display it on the About page.
+
+Answer: <p>{{contactName}}</p>
+
+app.js: 
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia'
+});
+
+app.js
+
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia'
+});
+
+index.html: <p>{{contactName}}</p>
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class="jumbotron">
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class="tagline">
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>Browse All {{productCount}} Items &raquo;</p>     
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+     <p>{{contactName}}</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+3. There’s an image of this site’s owner on the server at images/avatar.png. Create a property called avatar and show the image on the About page.
+
+Answer: avatar: 'images/avatar.png'
+
+app.js:
+
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png'
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png'
+});
+
+index.html: <img {{bind-attr src='avatar'}} alt='Avatar' />
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class="jumbotron">
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class="tagline">
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>Browse All {{productCount}} Items &raquo;</p>     
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+     <p>{{contactName}}</p>
+     <img {{bind-attr src='avatar'}} alt='Avatar' />
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+4. Give an indicator if the store is open right now, by creating an open property and using it in your template. We’re closed on Sundays, and you can get the day of the week in JavaScript using (new Date()).getDay(). This will return 0-6, starting with Sunday. Make sure open returns a different message on Sunday than every other day.
+
+Answer: 
+
+open: function() {
+  return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+}.property()
+
+app.js:
+
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+index.html: <p>Current Status: {{open}}.</p>
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class="jumbotron">
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class="tagline">
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>Browse All {{productCount}} Items &raquo;</p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+    <p>{{contactName}}</p>
+    <img {{bind-attr src='avatar'}} alt='Avatar' />
+    <p>Current Status: {{open}}.</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>

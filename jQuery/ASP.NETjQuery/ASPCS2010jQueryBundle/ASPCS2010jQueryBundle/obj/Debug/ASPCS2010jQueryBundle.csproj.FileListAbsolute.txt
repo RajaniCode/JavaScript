@@ -1,0 +1,5 @@
+C:\Users\Rajani\Desktop\ASPCS2010jQueryBundle\ASPCS2010jQueryBundle\bin\ASPCS2010jQueryBundle.dll
+C:\Users\Rajani\Desktop\ASPCS2010jQueryBundle\ASPCS2010jQueryBundle\bin\ASPCS2010jQueryBundle.pdb
+C:\Users\Rajani\Desktop\ASPCS2010jQueryBundle\ASPCS2010jQueryBundle\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Rajani\Desktop\ASPCS2010jQueryBundle\ASPCS2010jQueryBundle\obj\Debug\ASPCS2010jQueryBundle.dll
+C:\Users\Rajani\Desktop\ASPCS2010jQueryBundle\ASPCS2010jQueryBundle\obj\Debug\ASPCS2010jQueryBundle.pdb

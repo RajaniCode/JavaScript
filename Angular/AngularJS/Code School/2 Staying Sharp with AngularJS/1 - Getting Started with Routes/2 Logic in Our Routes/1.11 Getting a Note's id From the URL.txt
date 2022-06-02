@@ -1,0 +1,5 @@
+1.11 Getting a Note's id From the URL
+
+We can gain access to the note's id in the following URL: http://example.com/#/notes/42 by injecting [ ] the service into the NotesShowController.
+
+Answer: $routeParams

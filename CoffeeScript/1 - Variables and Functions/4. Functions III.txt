@@ -1,0 +1,27 @@
+Functions III
+
+Given the code below, change the greet function so that it accepts two arguments instead of just one. It should alert both arguments, separated by a single white space.
+
+CoffeeScript:
+greet = (message) ->
+  alert message
+
+JavaScript:
+var greet;
+greet = function(message) {
+  return alert(message);
+};
+
+
+Answer:
+
+CoffeeScript:
+greet = (argument1, argument2) ->
+  alert argument1 + ' ' + argument2
+
+
+JavaScript:
+var greet;
+greet = function(argument1, argument2) {
+  return alert(argument1 + ' ' + argument2);
+};

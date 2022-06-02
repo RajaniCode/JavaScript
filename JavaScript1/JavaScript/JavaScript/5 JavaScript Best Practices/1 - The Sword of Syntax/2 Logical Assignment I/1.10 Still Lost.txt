@@ -1,0 +1,10 @@
+1.10 Still Lost
+
+The strange assignment morphs and changes in front of you, an enigma in code.
+
+var lost;
+var darkness = true;
+
+lost = undefined || darkness;
+
+Answer: true

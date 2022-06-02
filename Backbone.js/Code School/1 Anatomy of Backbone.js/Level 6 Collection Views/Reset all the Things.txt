@@ -1,0 +1,63 @@
+Reset all the Things
+
+
+It's Monday morning and time to reset all the appointments for the week. You hear a screech from down the hall and seconds later Dr. Goodparts barges red-faced into your office because the DOM didn't update when he reset the collection.
+
+Update the AppointmentListView to listen for the collection's reset event to call the render function.
+
+Make sure you include the context argument to ensure render is called with the correct context.
+
+MODELS
+
+var Appointment = Backbone.Model.extend({});
+ 
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment
+});
+
+VIEWS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span class="<%= if(cancelled) print("cancelled") %>">' +
+                        '<%= title %></span>' +
+                        '<a href="#">x</a>'),
+  
+ 
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
+});
+
+APPLICATION.JS
+
+var AppointmentListView = Backbone.View.extend({
+  initialize: function(){
+    this.collection.on('add', this.addOne, this);
+  },
+  render: function(){
+    this.collection.forEach(this.addOne, this);
+  },
+  addOne: function(model){
+    var appointmentView = new AppointmentView({model: model});
+    appointmentView.render();
+    this.$el.append(appointmentView.el);
+  }
+});
+
+Answer:
+
+var AppointmentListView = Backbone.View.extend({
+  initialize: function(){
+    this.collection.on('add', this.addOne, this);
+    this.collection.on('reset', this.render, this);
+  },
+  render: function(){
+    this.collection.forEach(this.addOne, this);
+  },
+  addOne: function(model){
+    var appointmentView = new AppointmentView({model: model});
+    appointmentView.render();
+    this.$el.append(appointmentView.el);
+  }
+});

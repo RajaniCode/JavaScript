@@ -1,0 +1,61 @@
+3.4 Beggar Bird
+
+A hungry beggar bird wanders across your path.
+
+This particular beggar bird is a Stringseeker: it eats stringy bits only. That means fun treats like "42", not yucky numbers such as 42! Sometimes, however, stray numbers find their way into your foodPouch.
+
+Change the feedBird function so that the number in your pouch is not alerted to our string-seeking bird.
+
+dhuun.js
+
+var strength = true;
+var fear = false;
+var pack = {
+  foodPouch: ["carrot", "mystery meat", "apple", 42],
+  addFood: function(foodItem){
+    this.foodPouch = this.foodPouch || [];
+    this.foodPouch.push(foodItem);
+  },
+  gobbleFood: function(foodItem){
+    return(this.foodPouch.indexOf(foodItem) > 0 ) ?
+    this.foodPouch.splice(this.foodPouch.indexOf(foodItem), 1)[0] :
+    alert("Your pack lacks" + foodItem + ", Dhuun.");
+  },
+  feedBird: function(birdFood){
+    for (var i = 0; i < this.foodPouch.length; i++) {
+      if(this.foodPouch[i] == birdFood){
+        alert("Feed beggar bird " + this.foodPouch[i]);
+      }
+    }
+  }
+};
+
+pack.feedBird("42");
+
+Answer: if(this.foodPouch[i] === birdFood){
+
+dhuun.js
+
+var strength = true;
+var fear = false;
+var pack = {
+  foodPouch: ["carrot", "mystery meat", "apple", 42],
+  addFood: function(foodItem){
+    this.foodPouch = this.foodPouch || [];
+    this.foodPouch.push(foodItem);
+  },
+  gobbleFood: function(foodItem){
+    return(this.foodPouch.indexOf(foodItem) > 0 ) ?
+    this.foodPouch.splice(this.foodPouch.indexOf(foodItem), 1)[0] :
+    alert("Your pack lacks" + foodItem + ", Dhuun.");
+  },
+  feedBird: function(birdFood){
+    for (var i = 0; i < this.foodPouch.length; i++) {
+      if(this.foodPouch[i] === birdFood){
+        alert("Feed beggar bird " + this.foodPouch[i]);
+      }
+    }
+  }
+};
+
+pack.feedBird("42");

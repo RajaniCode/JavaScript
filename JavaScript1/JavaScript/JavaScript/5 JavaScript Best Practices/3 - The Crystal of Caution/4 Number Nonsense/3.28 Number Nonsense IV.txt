@@ -1,0 +1,11 @@
+3.28 Number Nonsense IV
+
+parseInt() will accept any radix value between [ ] & [ ] upon which to base the numerical string it has received.
+
+Answer:
+
+2
+
+36
+
+

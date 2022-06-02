@@ -1,0 +1,31 @@
+3.6 Removing From the DOM
+
+We should probably remove that "Book Now" button until we can implement it. Go ahead and remove it from the page.
+
+HTML
+
+<div id="tours">
+  <h1>Guided Tours</h1>
+  <ul>
+    <li class="usa tour">
+      <h2>New York, New York</h2>
+      <span class="details">$1,899 for 7 nights</span>
+      <button class="book">Book Now</button>
+    <span>Call 1-555-jquery-air to book this tour</span></li>
+  </ul>
+</div>
+
+application.js
+
+var message = $("<span>Call 1-555-jquery-air to book this tour</span>");
+$(".usa").append(message);
+
+Answer
+
+$('button').remove();
+
+application.js
+
+var message = $("<span>Call 1-555-jquery-air to book this tour</span>");
+$(".usa").append(message);
+$('button').remove();

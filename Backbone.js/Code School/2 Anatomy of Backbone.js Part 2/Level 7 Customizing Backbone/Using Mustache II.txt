@@ -1,0 +1,33 @@
+Using Mustache II
+
+
+As you can see in our Appointment view below, we are rendering the list of possible dates an appointment could occur. possibleDates is an attribute on the Appointment model, and it's value is always an array of strings.
+
+Convert the view below to use Mustache.
+
+APPLICATION.JS
+
+App.Views.Appointment = Backbone.View.extend({
+  template: _.template('<h2><%= title %></h2>' + 
+    'Possible Dates: <ul><% _.each(possibleDates, function(date) { %>' +
+      '<li><%= date %></li>' +
+    '<% }); %></ul>'),
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  }
+});
+
+Answer:
+
+App.Views.Appointment = Backbone.View.extend({
+  template: Mustache.compile('<h2>{{ title }}</h2>' + 
+    'Possible Dates: <ul>{{#possibleDates}}' +
+      '<li>{{.}}</li>' +
+    '{{/possibleDates}}</ul>'),
+  
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  }
+});

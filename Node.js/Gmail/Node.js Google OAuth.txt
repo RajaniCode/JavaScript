@@ -1,0 +1,119 @@
+## Google APIs 
+https://code.google.com/apis/console [rajaninodejs@gmail.com] # [https://nodejs.org]
+
+# Project name 
+NodejsApp
+Project ID
+nodejsapp-146706
+Project number
+1608243935
+
+https://console.developers.google.com/apis/credentials/oauthclient?project=nodejsapp-146706
+
+# OAuthconsent screen
+Email address
+rajaninodejs@gmail.com
+Product name shown to users
+NodejsAppSample
+
+https://console.developers.google.com/apis/credentials/oauthclient?project=nodejsapp-146706
+
+# Create client ID
+Application type
+Web application
+Name
+NodejsAppWebClient
+
+Restrictions
+Enter JavaScript origins, redirect URIs, or both
+Authorized JavaScript origins
+http://localhost:3000
+
+Authorized redirect URIs
+http://localhost:3000/complete/google-oauth2/
+https://developers.google.com/oauthplayground
+
+OAuth client
+Client ID
+1021516826947-ibdvc2rg1tfdnmtoc0cn6o8841qpu93k.apps.googleusercontent.com
+Client secret
+6aCHWwQFRBx83vBKjUkxi1cp
+
+##  Google Developers
+https://developers.google.com/oauthplayground
+
+# OAuth 2.0 configuration
+OAuth flow: Server-side
+OAuth endpoints: Google
+Authorization endpoint: https://accounts.google.com/o/oauth2/v2/auth
+Token endpoint: https://www.googleapis.com/oauth2/v4/token
+Access token location: Authorization header w/ Bearer prefix
+Access type: Offline
+Force prompt: Consent Screen
+[Select] Use your own OAuth credentials
+You will need to list the URL https://developers.google.com/oauthplayground as a valid redirect URI in your Google APIs Console's project. 
+Then enter the client ID and secret assigned to a web application on your project below:
+
+OAuth Client ID:  
+1021516826947-ibdvc2rg1tfdnmtoc0cn6o8841qpu93k.apps.googleusercontent.com
+OAuth Client secret:  
+6aCHWwQFRBx83vBKjUkxi1cp
+Note: Your credentials will be sent to our server as we need to proxy the request. Your credentials will not be logged.
+
+# OAuth 2.0 Playground
+Step 1 Select & authorize APIs 
+Select: Gmail API v1 -> https://mail.google.com
+<Authorize APIs>
+
+Step 2 Exchange authorization code for tokens
+Authorization code: 
+4/IHGUhPTSKItwtNY3xQW5Fo49-Umkq1o_zUCjpXNzgig
+<Exchange authorization code for tokens>
+[
+Refresh token: 
+1/PQtQ3Ehla8tJ3kpdNHP6vSo-dMwsfvTUW0MHPQWlcmI
+Access token: 
+ya29.Ci-KA0v446ykvTV98_VHrRnPkx0onqQz2V4wq_q8FyZ8ie4fDXZZbNutI7xCrJoSDw
+]
+The access token will expire in 3600 seconds.
+Note: The OAuth Playground does not store refresh tokens, but as refresh tokens never expire, user should go to their Google Account Authorized Access page if they would like to manually revoke them.
+
+Step 3 Configure request to API
+Construct your HTTP request by specifying the URI, HTTP Method, headers, content type and request body.
+Then click the "Send the request" button to initiate the HTTP Request.
+
+HTTP Method: GET Add headers:0
+
+Request URI:  https://
+Enter request body: 0  
+Content-Type: application/json
+Send the request  
+List possible operations
+Note: The OAuth access token in Step 2 will be added to the Authorization header of the request.
+
+# Request / Response
+Request / Response
+POST /oauth2/v4/token HTTP/1.1
+Host: www.googleapis.com
+Content-length: 279
+content-type: application/x-www-form-urlencoded
+user-agent: google-oauth-playground
+code=4%2FIHGUhPTSKItwtNY3xQW5Fo49-Umkq1o_zUCjpXNzgig&redirect_uri=https%3A%2F%2Fdevelopers.google.com%2Foauthplayground&client_id=1021516826947-ibdvc2rg1tfdnmtoc0cn6o8841qpu93k.apps.googleusercontent.com&client_secret=6aCHWwQFRBx83vBKjUkxi1cp&scope=&grant_type=authorization_code
+HTTP/1.1 200 OK
+Content-length: 208
+X-xss-protection: 1; mode=block
+X-content-type-options: nosniff
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Vary: Origin,X-Origin
+Server: GSE
+Pragma: no-cache
+Cache-control: no-cache, no-store, max-age=0, must-revalidate
+Date: Wed, 02 Nov 2016 10:03:42 GMT
+X-frame-options: SAMEORIGIN
+Content-type: application/json; charset=UTF-8
+{
+  "access_token": "ya29.Ci-KA0v446ykvTV98_VHrRnPkx0onqQz2V4wq_q8FyZ8ie4fDXZZbNutI7xCrJoSDw", 
+  "token_type": "Bearer", 
+  "expires_in": 3600, 
+  "refresh_token": "1/PQtQ3Ehla8tJ3kpdNHP6vSo-dMwsfvTUW0MHPQWlcmI"
+}

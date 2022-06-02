@@ -1,0 +1,293 @@
+2.5 The Index Controller
+
+Time to get acquainted with Ember Controllers! Follow the tasks below to output a few properties on our homepage.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+
+1. Create a new Controller that will provide properties for our homepage.
+
+Answer: App.IndexController = Ember.Controller.extend({});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({})
+
+2. In the controller, create a property called productsCount set to any number you want and show it on the homepage.
+
+Answer: 
+
+app.js: App.IndexController = Ember.Controller.extend({
+	productsCount: 5
+});
+
+app.js 
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+	productsCount: 5
+});
+
+
+index.html: <p>There are {{productsCount}} products</p>
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+    <p>There are {{productsCount}} products</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+3. Output the date the homepage was accessed by creating a time property and using it on the homepage. Make time a function that returns the today’s date using toDateString.
+
+Answer: logo: 'images/logo-small.png'
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+	productsCount: 5,
+  logo: 'images/logo-small.png'
+});
+
+index.html: <img {{bind-attr src='logo'}} alt='Logo' />
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+    <p>There are {{productsCount}} products</p>
+    <img {{bind-attr src='logo'}} alt='Logo' />
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>    
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+4. Output the date the homepage was accessed by creating a time property and using it on the homepage. Make time a function that returns the today’s date using toDateString.
+
+Answer: 
+
+time: function() {
+  return (new Date()).toDateString();
+}.property()
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+});
+App.IndexController = Ember.Controller.extend({
+	productsCount: 5,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+
+index.html: <p>Rendered on {{time}}</p>
+
+index.html 
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+    <p>There are {{productsCount}} products</p>
+    <img {{bind-attr src='logo'}} alt='Logo' />
+    <p>Rendered on {{time}}</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>    
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>

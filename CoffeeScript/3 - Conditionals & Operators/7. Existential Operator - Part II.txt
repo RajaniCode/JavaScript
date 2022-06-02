@@ -1,0 +1,35 @@
+Existential Operator - Part II
+
+Use the existential operator (the ?) to make sure the checkLevel and resetLevel functions are defined before calling them.
+
+CoffeeScript:
+if level?
+  checkLevel(level)
+else
+  resetLevel()
+
+JavaScript:
+if (typeof level !== "undefined" && level !== null) {
+  checkLevel(level);
+} else {
+  resetLevel();
+}
+
+Answer:
+
+CoffeeScript:
+if level?
+  checkLevel?(level)
+else
+  resetLevel?()
+
+JavaScript:
+if (typeof level !== "undefined" && level !== null) {
+  if (typeof checkLevel === "function") {
+    checkLevel(level);
+  }
+} else {
+  if (typeof resetLevel === "function") {
+    resetLevel();
+  }
+}

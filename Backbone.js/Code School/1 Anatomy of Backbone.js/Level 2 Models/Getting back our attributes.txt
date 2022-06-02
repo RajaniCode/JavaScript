@@ -1,0 +1,18 @@
+Getting back our attributes
+
+We've already seen how we can use get to access attributes on a model instance, but what if we wanted them all at once?
+
+Use the console.log function to log the JSON of the appointment instance using toJSON. If you don't remember how toJSON works, consult the Backbone Model docs.
+
+JS SOURCE
+	
+var Appointment = Backbone.Model.extend({});
+
+APPLICATION.JS
+
+var appointment = new Appointment({id: 1});
+
+Answer:
+
+var appointment = new Appointment({id: 1});
+console.log(appointment.toJSON());

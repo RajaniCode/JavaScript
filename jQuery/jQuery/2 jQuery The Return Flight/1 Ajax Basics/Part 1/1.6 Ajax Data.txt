@@ -1,0 +1,54 @@
+1.6 Ajax Data
+
+You've decided you only want to get photos of london. Use the data option of the $.ajax function to pass a location option. Get the location from the data-location on the #tour element using the data method.
+
+HTML
+
+<div id="tour" data-location="london">
+  <button>Get Photos</button>
+  <ul class="photos">
+
+  </ul>
+</div>
+
+AJAX Result
+
+<li>
+  <img src="/assets/photos/paris1.jpg">
+  <span style="display: none;">Arc de Triomphe</span>
+</li>
+<li>
+  <img src="/assets/photos/paris2.jpg">
+  <span style="display: none;">The Eiffel Tower</span>
+</li>
+<li>
+  <img src="/assets/photos/london.jpg">
+  <span style="display: none;">London</span>
+</li>
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() {
+    $.ajax('/photos.html', {
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      }
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() {
+    $.ajax('/photos.html', {
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      },
+      data: { "location": $('#tour').data('location')}
+    });
+  });
+});

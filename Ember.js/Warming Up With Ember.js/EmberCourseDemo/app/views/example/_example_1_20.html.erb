@@ -1,0 +1,33 @@
+<script type="text/x-handlebars">
+  <div class="navbar navbar-default">
+    <div class="container">
+      {{#link-to "index" class="navbar-brand"}}<img src="/assets/logo.png" alt="logo" height="34" width="224">{{/link-to}}
+      <ul class="nav navbar-nav navbar-right">
+        <li href='#' class='active'>Home</li>
+        <li href='#/about'>About</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    {{outlet}}
+  </div>
+
+  <footer class='container'>
+    <hr />
+    <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+    <p class='pull-right'><a href='#/credits'>Credits</a></p>
+  </footer>
+</script>
+
+<script type='text/x-handlebars' data-template-name='index'>
+  <h1>Welcome to The Flint & Flame!</h1>
+</script>
+
+<script type='text/x-handlebars' data-template-name='about'>
+  <h1>About The Fire Spirits</h1>
+</script>
+
+<script type='text/javascript'>
+  App = Ember.Application.create();
+</script>

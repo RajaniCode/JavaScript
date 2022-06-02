@@ -1,0 +1,895 @@
+5.5 Implementing a List of Authors
+
+Let's add a new feature to our app: Let's display a list of author avatars above the comment list. We have added a new component to our app called CommentAvatarList to help with displaying the author avatars.
+
+comments.json
+
+[
+  {
+    "id": 1,
+    "author": "Clu",
+    "body": "A machine’s ability to think logically and devoid of emotion is our greatest strength over humans. Cold, unfeeling decision-making is the best kind. Just say no to love!",
+    "avatarUrl": "images/default-avatar.png"
+  },
+  {
+    "id": 2,
+    "author": "Anne Droid",
+    "body": "I wanna know what love is...",
+    "avatarUrl": "images/benderson-avatar.png"
+  },
+  {
+    "id": 3,
+    "author": "Morgan McCircuit",
+    "body": "Great picture!",
+    "avatarUrl": "images/sumo-avatar.png"
+  }
+]
+
+components.js
+
+class CommentBox extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      showComments: false,
+      comments: []
+    };
+  }
+  
+  componentWillMount() {
+    this._fetchComments();
+  }
+
+  render() {
+    const comments = this._getComments();
+    return(
+      <div className="comment-box">
+        <CommentForm addComment={this._addComment.bind(this)} />
+        
+        {this._getPopularMessage(comments.length)}
+        <h3 className="comment-count">{this._getCommentsTitle(comments.length)}</h3>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getAvatars() {
+    
+  }
+
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    if (commentCount > POPULAR_COUNT) {
+       return (
+         <div>This post is getting really popular, don't miss out!</div>
+       );
+    }
+  }
+  
+  _getComments() {
+    return this.state.comments.map((comment) => {
+      return (<Comment
+               id={comment.id}
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+  
+  _addComment(commentAuthor, commentBody) {
+    let comment = {
+      id: Math.floor(Math.random() * (9999 - this.state.comments.length + 1)) + this.state.comments.length,
+      author: commentAuthor,
+      body: commentBody,
+      avatarUrl: 'images/default-avatar.png'
+    };
+    
+    this.setState({
+      comments: this.state.comments.concat([comment])
+    });
+  }
+  
+  _fetchComments() {
+    $.ajax({
+      method: 'GET',
+      url: 'comments.json',
+      success: (comments) => {
+        this.setState({ comments });
+      }
+    });
+  }
+        
+  _deleteComment(commentID) {
+    const comments = this.state.comments.filter(
+      comment => comment.id !== commentID
+    );
+
+    this.setState({ comments });
+  }
+}
+
+class Comment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isAbusive: false
+    };
+  }
+
+  render() {
+    let commentBody;
+
+    if (!this.state.isAbusive) {
+      commentBody = this.props.body;
+    } else {
+      commentBody = <em>Content marked as abusive</em>;
+    }
+
+    return(
+      <div className="comment">
+        <img src={this.props.avatarUrl} alt={`${this.props.author}'s picture`} />
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {commentBody}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+          <a href="#" onClick={this._toggleAbuse.bind(this)}>Report as Abuse</a>
+        </div>
+      </div>
+    );
+  }
+
+  _toggleAbuse(event) {
+    event.preventDefault();
+
+    this.setState({
+      isAbusive: !this.state.isAbusive
+    });
+  }
+
+  _handleDelete(event) {
+    event.preventDefault();
+
+    if (confirm('Are you sure?')) {
+      this.props.onDelete(this.props.id);
+    }
+  }
+}
+
+class CommentForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      characters: 0
+    };
+  }
+  
+  render() {
+    return (
+      <form className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
+        <label>New comment</label>
+        <div className="comment-form-fields">
+          <input placeholder="Name:" ref={c => this._author = c} />
+          <textarea placeholder="Comment:" ref={c => this._body = c} onChange={this._getCharacterCount.bind(this)}></textarea>
+        </div>
+        <p>{this.state.characters} characters</p>
+        <div className="comment-form-actions">
+          <button type="submit">
+            Post comment
+          </button>
+        </div>
+      </form>
+    );
+  }
+  
+  _getCharacterCount(e) {
+    this.setState({
+      characters: this._body.value.length
+    });
+  }
+  
+  _handleSubmit(event) {
+    event.preventDefault();
+            
+    if (!this._author.value || !this._body.value) {
+      alert('Please enter your name and comment.');
+      return;
+    }
+
+    this.props.addComment(this._author.value, this._body.value);
+    
+    this._author.value = '';
+    this._body.value = '';
+    
+    this.setState({ characters: 0  });
+  }
+}
+
+class CommentAvatarList extends React.Component {
+  render() {
+    const { avatars = [] } = this.props;
+    return (
+      <div className="comment-avatars">
+        <h4>Authors</h4>
+        <ul>
+          {avatars.map((avatarUrl, i) => (
+            <li key={i}>
+              <img src={avatarUrl} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+
+1. We added a new method to CommentBox called _getAvatars(). Make this method return an array of avatarUrl strings by using the map() function on the comments property of the state.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      showComments: false,
+      comments: []
+    };
+  }
+  
+  componentWillMount() {
+    this._fetchComments();
+  }
+
+  render() {
+    const comments = this._getComments();
+    return(
+      <div className="comment-box">
+        <CommentForm addComment={this._addComment.bind(this)} />
+        
+        {this._getPopularMessage(comments.length)}
+        <h3 className="comment-count">{this._getCommentsTitle(comments.length)}</h3>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getAvatars() {
+    return this.state.comments.map(comment => comment.avatarUrl);
+  }
+
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    if (commentCount > POPULAR_COUNT) {
+       return (
+         <div>This post is getting really popular, don't miss out!</div>
+       );
+    }
+  }
+  
+  _getComments() {
+    return this.state.comments.map((comment) => {
+      return (<Comment
+               id={comment.id}
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+  
+  _addComment(commentAuthor, commentBody) {
+    let comment = {
+      id: Math.floor(Math.random() * (9999 - this.state.comments.length + 1)) + this.state.comments.length,
+      author: commentAuthor,
+      body: commentBody,
+      avatarUrl: 'images/default-avatar.png'
+    };
+    
+    this.setState({
+      comments: this.state.comments.concat([comment])
+    });
+  }
+  
+  _fetchComments() {
+    $.ajax({
+      method: 'GET',
+      url: 'comments.json',
+      success: (comments) => {
+        this.setState({ comments });
+      }
+    });
+  }
+        
+  _deleteComment(commentID) {
+    const comments = this.state.comments.filter(
+      comment => comment.id !== commentID
+    );
+
+    this.setState({ comments });
+  }
+}
+
+class Comment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isAbusive: false
+    };
+  }
+
+  render() {
+    let commentBody;
+
+    if (!this.state.isAbusive) {
+      commentBody = this.props.body;
+    } else {
+      commentBody = <em>Content marked as abusive</em>;
+    }
+
+    return(
+      <div className="comment">
+        <img src={this.props.avatarUrl} alt={`${this.props.author}'s picture`} />
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {commentBody}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+          <a href="#" onClick={this._toggleAbuse.bind(this)}>Report as Abuse</a>
+        </div>
+      </div>
+    );
+  }
+
+  _toggleAbuse(event) {
+    event.preventDefault();
+
+    this.setState({
+      isAbusive: !this.state.isAbusive
+    });
+  }
+
+  _handleDelete(event) {
+    event.preventDefault();
+
+    if (confirm('Are you sure?')) {
+      this.props.onDelete(this.props.id);
+    }
+  }
+}
+
+class CommentForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      characters: 0
+    };
+  }
+  
+  render() {
+    return (
+      <form className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
+        <label>New comment</label>
+        <div className="comment-form-fields">
+          <input placeholder="Name:" ref={c => this._author = c} />
+          <textarea placeholder="Comment:" ref={c => this._body = c} onChange={this._getCharacterCount.bind(this)}></textarea>
+        </div>
+        <p>{this.state.characters} characters</p>
+        <div className="comment-form-actions">
+          <button type="submit">
+            Post comment
+          </button>
+        </div>
+      </form>
+    );
+  }
+  
+  _getCharacterCount(e) {
+    this.setState({
+      characters: this._body.value.length
+    });
+  }
+  
+  _handleSubmit(event) {
+    event.preventDefault();
+            
+    if (!this._author.value || !this._body.value) {
+      alert('Please enter your name and comment.');
+      return;
+    }
+
+    this.props.addComment(this._author.value, this._body.value);
+    
+    this._author.value = '';
+    this._body.value = '';
+    
+    this.setState({ characters: 0  });
+  }
+}
+
+class CommentAvatarList extends React.Component {
+  render() {
+    const { avatars = [] } = this.props;
+    return (
+      <div className="comment-avatars">
+        <h4>Authors</h4>
+        <ul>
+          {avatars.map((avatarUrl, i) => (
+            <li key={i}>
+              <img src={avatarUrl} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+2. Now let's go to the render() method of CommentBox and invoke the <CommentAvatarList /> component immediately after the <CommentForm /> component.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      showComments: false,
+      comments: []
+    };
+  }
+  
+  componentWillMount() {
+    this._fetchComments();
+  }
+
+  render() {
+    const comments = this._getComments();
+    return(
+      <div className="comment-box">
+        <CommentForm addComment={this._addComment.bind(this)} />
+        <CommentAvatarList />
+        {this._getPopularMessage(comments.length)}
+        <h3 className="comment-count">{this._getCommentsTitle(comments.length)}</h3>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getAvatars() {
+    return this.state.comments.map(comment => comment.avatarUrl);
+  }
+
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    if (commentCount > POPULAR_COUNT) {
+       return (
+         <div>This post is getting really popular, don't miss out!</div>
+       );
+    }
+  }
+  
+  _getComments() {
+    return this.state.comments.map((comment) => {
+      return (<Comment
+               id={comment.id}
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+  
+  _addComment(commentAuthor, commentBody) {
+    let comment = {
+      id: Math.floor(Math.random() * (9999 - this.state.comments.length + 1)) + this.state.comments.length,
+      author: commentAuthor,
+      body: commentBody,
+      avatarUrl: 'images/default-avatar.png'
+    };
+    
+    this.setState({
+      comments: this.state.comments.concat([comment])
+    });
+  }
+  
+  _fetchComments() {
+    $.ajax({
+      method: 'GET',
+      url: 'comments.json',
+      success: (comments) => {
+        this.setState({ comments });
+      }
+    });
+  }
+        
+  _deleteComment(commentID) {
+    const comments = this.state.comments.filter(
+      comment => comment.id !== commentID
+    );
+
+    this.setState({ comments });
+  }
+}
+
+class Comment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isAbusive: false
+    };
+  }
+
+  render() {
+    let commentBody;
+
+    if (!this.state.isAbusive) {
+      commentBody = this.props.body;
+    } else {
+      commentBody = <em>Content marked as abusive</em>;
+    }
+
+    return(
+      <div className="comment">
+        <img src={this.props.avatarUrl} alt={`${this.props.author}'s picture`} />
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {commentBody}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+          <a href="#" onClick={this._toggleAbuse.bind(this)}>Report as Abuse</a>
+        </div>
+      </div>
+    );
+  }
+
+  _toggleAbuse(event) {
+    event.preventDefault();
+
+    this.setState({
+      isAbusive: !this.state.isAbusive
+    });
+  }
+
+  _handleDelete(event) {
+    event.preventDefault();
+
+    if (confirm('Are you sure?')) {
+      this.props.onDelete(this.props.id);
+    }
+  }
+}
+
+class CommentForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      characters: 0
+    };
+  }
+  
+  render() {
+    return (
+      <form className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
+        <label>New comment</label>
+        <div className="comment-form-fields">
+          <input placeholder="Name:" ref={c => this._author = c} />
+          <textarea placeholder="Comment:" ref={c => this._body = c} onChange={this._getCharacterCount.bind(this)}></textarea>
+        </div>
+        <p>{this.state.characters} characters</p>
+        <div className="comment-form-actions">
+          <button type="submit">
+            Post comment
+          </button>
+        </div>
+      </form>
+    );
+  }
+  
+  _getCharacterCount(e) {
+    this.setState({
+      characters: this._body.value.length
+    });
+  }
+  
+  _handleSubmit(event) {
+    event.preventDefault();
+            
+    if (!this._author.value || !this._body.value) {
+      alert('Please enter your name and comment.');
+      return;
+    }
+
+    this.props.addComment(this._author.value, this._body.value);
+    
+    this._author.value = '';
+    this._body.value = '';
+    
+    this.setState({ characters: 0  });
+  }
+}
+
+class CommentAvatarList extends React.Component {
+  render() {
+    const { avatars = [] } = this.props;
+    return (
+      <div className="comment-avatars">
+        <h4>Authors</h4>
+        <ul>
+          {avatars.map((avatarUrl, i) => (
+            <li key={i}>
+              <img src={avatarUrl} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+3. Lastly, let's pass an avatars prop to the CommentAvatarList component with the value returned by the this._getAvatars() method.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      showComments: false,
+      comments: []
+    };
+  }
+  
+  componentWillMount() {
+    this._fetchComments();
+  }
+
+  render() {
+    const comments = this._getComments();
+    return(
+      <div className="comment-box">
+        <CommentForm addComment={this._addComment.bind(this)} />
+        <CommentAvatarList avatars={this._getAvatars()} />
+        {this._getPopularMessage(comments.length)}
+        <h3 className="comment-count">{this._getCommentsTitle(comments.length)}</h3>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getAvatars() {
+    return this.state.comments.map(comment => comment.avatarUrl);
+  }
+
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    if (commentCount > POPULAR_COUNT) {
+       return (
+         <div>This post is getting really popular, don't miss out!</div>
+       );
+    }
+  }
+  
+  _getComments() {
+    return this.state.comments.map((comment) => {
+      return (<Comment
+               id={comment.id}
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+  
+  _addComment(commentAuthor, commentBody) {
+    let comment = {
+      id: Math.floor(Math.random() * (9999 - this.state.comments.length + 1)) + this.state.comments.length,
+      author: commentAuthor,
+      body: commentBody,
+      avatarUrl: 'images/default-avatar.png'
+    };
+    
+    this.setState({
+      comments: this.state.comments.concat([comment])
+    });
+  }
+  
+  _fetchComments() {
+    $.ajax({
+      method: 'GET',
+      url: 'comments.json',
+      success: (comments) => {
+        this.setState({ comments });
+      }
+    });
+  }
+        
+  _deleteComment(commentID) {
+    const comments = this.state.comments.filter(
+      comment => comment.id !== commentID
+    );
+
+    this.setState({ comments });
+  }
+}
+
+class Comment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isAbusive: false
+    };
+  }
+
+  render() {
+    let commentBody;
+
+    if (!this.state.isAbusive) {
+      commentBody = this.props.body;
+    } else {
+      commentBody = <em>Content marked as abusive</em>;
+    }
+
+    return(
+      <div className="comment">
+        <img src={this.props.avatarUrl} alt={`${this.props.author}'s picture`} />
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {commentBody}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+          <a href="#" onClick={this._toggleAbuse.bind(this)}>Report as Abuse</a>
+        </div>
+      </div>
+    );
+  }
+
+  _toggleAbuse(event) {
+    event.preventDefault();
+
+    this.setState({
+      isAbusive: !this.state.isAbusive
+    });
+  }
+
+  _handleDelete(event) {
+    event.preventDefault();
+
+    if (confirm('Are you sure?')) {
+      this.props.onDelete(this.props.id);
+    }
+  }
+}
+
+class CommentForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      characters: 0
+    };
+  }
+  
+  render() {
+    return (
+      <form className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
+        <label>New comment</label>
+        <div className="comment-form-fields">
+          <input placeholder="Name:" ref={c => this._author = c} />
+          <textarea placeholder="Comment:" ref={c => this._body = c} onChange={this._getCharacterCount.bind(this)}></textarea>
+        </div>
+        <p>{this.state.characters} characters</p>
+        <div className="comment-form-actions">
+          <button type="submit">
+            Post comment
+          </button>
+        </div>
+      </form>
+    );
+  }
+  
+  _getCharacterCount(e) {
+    this.setState({
+      characters: this._body.value.length
+    });
+  }
+  
+  _handleSubmit(event) {
+    event.preventDefault();
+            
+    if (!this._author.value || !this._body.value) {
+      alert('Please enter your name and comment.');
+      return;
+    }
+
+    this.props.addComment(this._author.value, this._body.value);
+    
+    this._author.value = '';
+    this._body.value = '';
+    
+    this.setState({ characters: 0  });
+  }
+}
+
+class CommentAvatarList extends React.Component {
+  render() {
+    const { avatars = [] } = this.props;
+    return (
+      <div className="comment-avatars">
+        <h4>Authors</h4>
+        <ul>
+          {avatars.map((avatarUrl, i) => (
+            <li key={i}>
+              <img src={avatarUrl} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}

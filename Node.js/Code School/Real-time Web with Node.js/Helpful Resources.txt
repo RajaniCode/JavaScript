@@ -1,0 +1,12 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• NodeJS API Docs [http://nodejs.org/api/]
+• npm registry [https://www.npmjs.org/]
+• HowtoNode [http://howtonode.org/]
+• Stream Handbook [https://github.com/substack/stream-handbook]
+• The Little Redis Book [http://openmymind.net/2012/1/23/The-Little-Redis-Book/]
+• Socket.io [http://socket.io/docs/]
+• Express 4 API [http://expressjs.com/4x/api.html]
+• NodeUP Podcast [http://nodeup.com/]

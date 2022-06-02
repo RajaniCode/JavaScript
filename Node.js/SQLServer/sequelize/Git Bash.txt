@@ -1,0 +1,91 @@
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ node -v
+v10.9.0
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ npm -v
+6.2.0
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ cd "D:\RajaniS Master Folder\Node.js\SQL Server\sequelize"
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/sequelize
+$ node s.js
+internal/modules/cjs/loader.js:583
+    throw err;
+    ^
+
+Error: Cannot find module 'sequelize'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\s.js:1:81)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/sequelize
+$ npm install sequelize
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\package.json'
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\package.json'
+npm WARN sequelize No description
+npm WARN sequelize No repository field.
+npm WARN sequelize No README data
+npm WARN sequelize No license field.
+
++ sequelize@5.21.5
+added 21 packages from 93 contributors and audited 22 packages in 1.617s
+found 0 vulnerabilities
+
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/sequelize
+$ node s.js
+D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:81
+        throw new Error(`Please install ${moduleName} package manually`);
+        ^
+
+Error: Please install tedious package manually
+    at ConnectionManager._loadDialectModule (D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\node_modules\sequelize\lib\dialects\abstract\connection-manag
+er.js:81:15)
+    at new ConnectionManager (D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:17:21)
+    at new MssqlDialect (D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\node_modules\sequelize\lib\dialects\mssql\index.js:14:30)
+    at new Sequelize (D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\node_modules\sequelize\lib\sequelize.js:324:20)
+    at Object.<anonymous> (D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\s.js:3:19)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:266:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:596:3)
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/sequelize
+$ npm install mssql
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\package.json'
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\sequelize\package.json'
+npm WARN sequelize No description
+npm WARN sequelize No repository field.
+npm WARN sequelize No README data
+npm WARN sequelize No license field.
+
++ mssql@6.1.0
+added 86 packages from 184 contributors and audited 177 packages in 7.805s
+found 0 vulnerabilities
+
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/sequelize
+$ node s.js
+tedious deprecated The default value for `config.options.enableArithAbort` will change from `false` to `true` in the next major version of `tedious`. Set the va
+lue to `true` or `false` explicitly to silence this message. node_modules\sequelize\lib\dialects\mssql\connection-manager.js:63:26
+Executing (default): SELECT 1+1 AS result
+Connection has been established successfully.
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/sequelize
+$

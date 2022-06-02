@@ -1,0 +1,8 @@
+1.8 Lost In The Brush
+
+Below you'll see a rather mysteriously constructed assignment.
+
+var lost;
+lost = 4 || undefined;
+
+Answer: 4

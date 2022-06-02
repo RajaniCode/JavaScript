@@ -1,0 +1,106 @@
+1.23 Switch It Up
+
+You've entered the airy mystery of the Sans Temple in search of the final Lamp of Legibility. A caretaker approaches Aiedra and confers softly in the shadow. She returns to you with a request from the temple's attendants.
+
+    "The temple's caretakers find their directional function a bit tedious and processor-intensive. switch it up, won't you? Replace the if-else blocks with a switch block that uses an excellent case statement for EACH one of the possible direction values. And Dhuun…don't forget to break!"
+
+app.js
+
+function sansTemple(direction){
+  var happensNext;
+    if(direction == "right hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "left hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "forward hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "lower tunnel") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "hidden door") {
+      happensNext = "You go through the door into a room. A small, very dark room, that smells of dust and sulfur..."
+    } else {
+      happensNext = "You stand there, gaping, not moving. Aiedra wonders, are you alive?"
+    }
+  return happensNext;
+}
+sansTemple();
+
+
+Answer: 
+
+    /*
+    if(direction == "right hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "left hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "forward hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "lower tunnel") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "hidden door") {
+      happensNext = "You go through the door into a room. A small, very dark room, that smells of dust and sulfur..."
+    } else {
+      happensNext = "You stand there, gaping, not moving. Aiedra wonders, are you alive?"
+    }
+    */
+    switch(direction){
+    case "right hallway" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+    case "left hallway" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+    case "forward hallway" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+    case "lower tunnel" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+      case "hidden door" : 
+        happensNext = "You go through the door into a room. A small, very dark room, that smells of dust and sulfur..."
+        break;
+    default: 
+        happensNext = "You stand there, gaping, not moving. Aiedra wonders, are you alive?"
+  } 
+
+app.js
+
+function sansTemple(direction){
+  var happensNext;
+    /*
+    if(direction == "right hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "left hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "forward hallway") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "lower tunnel") {
+      happensNext = "You find a door, it is locked. You head back from where you came."
+    } else if(direction == "hidden door") {
+      happensNext = "You go through the door into a room. A small, very dark room, that smells of dust and sulfur..."
+    } else {
+      happensNext = "You stand there, gaping, not moving. Aiedra wonders, are you alive?"
+    }
+    */
+    switch(direction){
+    case "right hallway" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+    case "left hallway" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+    case "forward hallway" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+    case "lower tunnel" : 
+        happensNext = "You find a door, it is locked. You head back from where you came."
+        break;
+      case "hidden door" : 
+        happensNext = "You go through the door into a room. A small, very dark room, that smells of dust and sulfur..."
+        break;
+    default: 
+        happensNext = "You stand there, gaping, not moving. Aiedra wonders, are you alive?"
+  }  
+  return happensNext;
+}
+sansTemple();

@@ -1,0 +1,21 @@
+3.6 Printing to the Console
+
+In the oldFaithful.js file, write a single statement that prints the following string to the browser console using string concatenation and the existing variables to produce the correct format:
+
+"Old Faithful" at Yellowstone National Park
+Average eruption height today: 145
+Number of eruptions: 4
+
+Answer:
+
+console.log('"Old Faithful" at Yellowstone National Park' + '\n' +
+'Average eruption height today: ' + avgHeight + '\n' +
+'Number of eruptions: ' + numEruptions);
+
+oldFaithful.js
+
+var avgHeight = 145;
+var numEruptions = 4;
+console.log('"Old Faithful" at Yellowstone National Park' + '\n' +
+'Average eruption height today: ' + avgHeight + '\n' +
+'Number of eruptions: ' + numEruptions);

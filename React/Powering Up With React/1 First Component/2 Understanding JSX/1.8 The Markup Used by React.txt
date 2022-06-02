@@ -1,0 +1,13 @@
+1.8 The Markup Used by React
+
+The markup we return from render() methods in React components is called:
+
+[Single Answer]
+
+XHTML
+UML
+JSX
+XML
+
+
+Answer: JSX

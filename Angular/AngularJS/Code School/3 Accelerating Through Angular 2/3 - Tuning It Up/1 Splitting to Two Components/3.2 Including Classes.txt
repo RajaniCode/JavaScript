@@ -1,0 +1,6 @@
+3.2 Including Classes
+
+In order for Class B to be imported into another file, Class B needs to use the [ ] keyword.
+
+
+Answer: export

@@ -1,0 +1,26 @@
+JS to CS - Part III
+
+Convert the commented jQuery to CoffeeScript and use CoffeeScript-style string interpolation.
+
+# $('#newCoffee a').click(function() {
+#   var coffee, name;
+#   name = prompt('Name of coffee:');
+#   coffee = $("<li>" + name + "</li>");
+#   $('ul.drink').append(coffee);
+# });
+
+Answer:
+
+CoffeeScript:
+$('#newCoffee a').click ->
+  name = prompt('Name of coffee:')
+  coffee = $("<li> #{name} </li>")
+  $('ul.drink').append(coffee)
+
+JavaScript:
+$('#newCoffee a').click(function() {
+  var coffee, name;
+  name = prompt('Name of coffee:');
+  coffee = $("<li> " + name + " </li>");
+  return $('ul.drink').append(coffee);
+});

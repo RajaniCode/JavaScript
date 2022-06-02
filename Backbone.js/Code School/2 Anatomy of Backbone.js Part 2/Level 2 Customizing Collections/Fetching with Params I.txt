@@ -1,0 +1,25 @@
+Fetching with Params I
+
+
+The server team has implemented a feature for limiting the appointments pulled down based on the appointment date. In the code below, update the fetch call to pass an extra param so that the URL is like: /appointments?since=2013-01-01
+
+JSON RESPONSE
+
+// Get /appointments
+{
+  "per_page": 10, "page": 1, "total": 50,
+  "appointments": [
+    { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+  ]
+}
+
+APPLICATION.JS
+
+var appointments = new Appointments();
+appointments.fetch();
+
+Answer:
+
+var appointments = new Appointments();
+appointments.fetch();
+appointments.fetch({data: { since: 2013-01-01 }});

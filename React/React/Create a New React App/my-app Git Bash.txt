@@ -1,0 +1,474 @@
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ date
+Thu Dec  2 22:01:23 IST 2021
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ export PATH=$PATH:"/C/Users/Rajani/Downloads/Node.js/node-v16.13.0-win-x64/"
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ node --version
+v16.13.0
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm --version
+8.1.0
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npx --version
+8.1.0
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm -g list
+C:\Users\Rajani\Downloads\Node.js\node-v16.13.0-win-x64
++-- corepack@0.10.0
++-- npm@8.1.0
+
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm view npm version
+8.1.4
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm view npm
+
+npm@8.1.4 | Artistic-2.0 | deps: 70 | versions: 455
+a package manager for JavaScript
+https://docs.npmjs.com/
+
+keywords: install, modules, package manager, package.json
+
+bin: npm, npx
+
+dist
+.tarball: https://registry.npmjs.org/npm/-/npm-8.1.4.tgz
+.shasum: ea3666739f316f1999103ae99b542c50b9b3cca1
+.integrity: sha512-CRwzIUmJQiBCkME3nZj/4tLExlWwdEFl/4dUhKoa/NpW8dbwRO5pb7YzHAU1y2AJvS0B+Ju7sXeBlWsr6OH5rw==
+.unpackedSize: 8.7 MB
+
+dependencies:
+@isaacs/string-locale-compare: *
+@npmcli/arborist: *
+@npmcli/ci-detect: *
+@npmcli/config: *
+@npmcli/map-workspaces: *
+@npmcli/package-json: *
+@npmcli/run-script: *
+abbrev: *
+ansicolors: *
+ansistyles: *
+archy: *
+cacache: *
+chalk: *
+chownr: *
+cli-columns: *
+cli-table3: *
+columnify: *
+fastest-levenshtein: *
+glob: *
+graceful-fs: *
+hosted-git-info: *
+ini: *
+init-package-json: *
+is-cidr: *
+(...and 46 more.)
+
+maintainers:
+- fritzy <fritzy@github.com>
+- isaacs <i@izs.me>
+- darcyclarke <darcy@darcyclarke.me>
+- ruyadorno <ruyadorno@hotmail.com>
+- nlf <quitlahok@gmail.com>
+- gar <gar+npm@danger.computer>
+- lukekarrys <luke@lukekarrys.com>
+
+dist-tags:
+latest-1: 1.4.29
+latest-2: 2.15.12
+latest-3: 3.10.10
+latest-4: 4.6.1
+latest-5: 5.10.0
+latest-6: 6.14.15
+latest-7: 7.24.2
+latest: 8.1.4
+next-2: 2.15.12
+next-3: 3.10.10
+next-4: 4.6.1
+next-5: 5.10.0
+next-6: 6.14.15
+next-7: 7.24.2
+next-8: 8.1.4
+
+published a week ago by fritzy <fritzy@github.com>
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm show npm version
+8.1.4
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm show npm
+
+npm@8.1.4 | Artistic-2.0 | deps: 70 | versions: 455
+a package manager for JavaScript
+https://docs.npmjs.com/
+
+keywords: install, modules, package manager, package.json
+
+bin: npm, npx
+
+dist
+.tarball: https://registry.npmjs.org/npm/-/npm-8.1.4.tgz
+.shasum: ea3666739f316f1999103ae99b542c50b9b3cca1
+.integrity: sha512-CRwzIUmJQiBCkME3nZj/4tLExlWwdEFl/4dUhKoa/NpW8dbwRO5pb7YzHAU1y2AJvS0B+Ju7sXeBlWsr6OH5rw==
+.unpackedSize: 8.7 MB
+
+dependencies:
+@isaacs/string-locale-compare: *
+@npmcli/arborist: *
+@npmcli/ci-detect: *
+@npmcli/config: *
+@npmcli/map-workspaces: *
+@npmcli/package-json: *
+@npmcli/run-script: *
+abbrev: *
+ansicolors: *
+ansistyles: *
+archy: *
+cacache: *
+chalk: *
+chownr: *
+cli-columns: *
+cli-table3: *
+columnify: *
+fastest-levenshtein: *
+glob: *
+graceful-fs: *
+hosted-git-info: *
+ini: *
+init-package-json: *
+is-cidr: *
+(...and 46 more.)
+
+maintainers:
+- fritzy <fritzy@github.com>
+- isaacs <i@izs.me>
+- darcyclarke <darcy@darcyclarke.me>
+- ruyadorno <ruyadorno@hotmail.com>
+- nlf <quitlahok@gmail.com>
+- gar <gar+npm@danger.computer>
+- lukekarrys <luke@lukekarrys.com>
+
+dist-tags:
+latest-1: 1.4.29
+latest-2: 2.15.12
+latest-3: 3.10.10
+latest-4: 4.6.1
+latest-5: 5.10.0
+latest-6: 6.14.15
+latest-7: 7.24.2
+latest: 8.1.4
+next-2: 2.15.12
+next-3: 3.10.10
+next-4: 4.6.1
+next-5: 5.10.0
+next-6: 6.14.15
+next-7: 7.24.2
+next-8: 8.1.4
+
+published a week ago by fritzy <fritzy@github.com>
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm view corepack
+
+corepack@0.10.0 | MIT | deps: none | versions: 13
+https://github.com/nodejs/corepack#readme
+
+bin: corepack, pnpm, pnpx, yarn, yarnpkg
+
+dist
+.tarball: https://registry.npmjs.org/corepack/-/corepack-0.10.0.tgz
+.shasum: ef4621ddf4fdc418df7514fa228abea2c6a17303
+.integrity: sha512-aYNDvUd909DbxnC6XQtcvwEANhfis724VSifk/ADAAgJTc9cabKHR3tREJge0nIBr67vVEo1YPuLKgrnu7r99g==
+.unpackedSize: 569.5 kB
+
+maintainers:
+- arcanis <nison.mael@gmail.com>
+
+dist-tags:
+latest: 0.10.0
+
+published a month ago by arcanis <nison.mael@gmail.com>
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm view corepack version
+0.10.0
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm show corepack
+
+corepack@0.10.0 | MIT | deps: none | versions: 13
+https://github.com/nodejs/corepack#readme
+
+bin: corepack, pnpm, pnpx, yarn, yarnpkg
+
+dist
+.tarball: https://registry.npmjs.org/corepack/-/corepack-0.10.0.tgz
+.shasum: ef4621ddf4fdc418df7514fa228abea2c6a17303
+.integrity: sha512-aYNDvUd909DbxnC6XQtcvwEANhfis724VSifk/ADAAgJTc9cabKHR3tREJge0nIBr67vVEo1YPuLKgrnu7r99g==
+.unpackedSize: 569.5 kB
+
+maintainers:
+- arcanis <nison.mael@gmail.com>
+
+dist-tags:
+latest: 0.10.0
+
+published a month ago by arcanis <nison.mael@gmail.com>
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npm show corepack version
+0.10.0
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ npx create-react-app my-app
+npm WARN exec The following package was not found and will be installed: create-react-app
+npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
+
+Creating a new React app in C:\Users\Rajani\Documents\Cloud\Google\Tech2021\JavaScript\React\React\my-app.
+
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts with cra-template...
+
+
+added 1901 packages, and audited 1902 packages in 5m
+
+153 packages are looking for funding
+  run `npm fund` for details
+
+27 vulnerabilities (16 moderate, 9 high, 2 critical)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+
+Initialized a git repository.
+
+Installing template dependencies using npm...
+
+added 57 packages, and audited 1959 packages in 22s
+
+154 packages are looking for funding
+  run `npm fund` for details
+
+27 vulnerabilities (16 moderate, 9 high, 2 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+Removing template package using npm...
+
+
+removed 1 package, and audited 1958 packages in 11s
+
+154 packages are looking for funding
+  run `npm fund` for details
+
+27 vulnerabilities (16 moderate, 9 high, 2 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+Git commit not created Error: Command failed: git commit -m "Initialize project using Create React App"
+    at checkExecSyncError (node:child_process:826:11)
+    at execSync (node:child_process:900:15)
+    at tryGitCommit (C:\Users\Rajani\Documents\Cloud\Google\Tech2021\JavaScript\React\React\my-app\node_modules\react-scripts\scripts\init.js:62:5)
+    at module.exports (C:\Users\Rajani\Documents\Cloud\Google\Tech2021\JavaScript\React\React\my-app\node_modules\react-scripts\scripts\init.js:352:25)
+    at [eval]:3:14
+    at Script.runInThisContext (node:vm:129:12)
+    at Object.runInThisContext (node:vm:305:38)
+    at node:internal/process/execution:81:19
+    at [eval]-wrapper:6:22
+    at evalScript (node:internal/process/execution:80:60) {
+  status: 128,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 4464,
+  stdout: null,
+  stderr: null
+}
+Removing .git directory...
+
+Success! Created my-app at C:\Users\Rajani\Documents\Cloud\Google\Tech2021\JavaScript\React\React\my-app
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd my-app
+  npm start
+
+Happy hacking!
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React
+$ cd my-app
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app
+$ cd src
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app/src
+$ rm -f *
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app/src
+$ cd ..
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app
+$ touch src/index.css
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app
+$ cat src/index.css
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app
+$ touch src/index.js
+
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app
+$ cat src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square" onClick={function() { console.log('click'); }}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square value={i} />;
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+Rajani@Samsung MINGW64 ~/Documents/Cloud/Google/Tech2021/JavaScript/React/React/my-app
+$ npm start
+
+> my-app@0.1.0 start
+> react-scripts start
+
+i ?wds?: Project is running at http://192.168.43.177/
+i ?wds?: webpack output is served from
+i ?wds?: Content not from webpack is served from C:\Users\Rajani\Documents\Cloud\Google\Tech2021\JavaScript\React\React\my-app\public
+i ?wds?: 404s will fallback to /
+Starting the development server...
+
+Compiled successfully!
+
+You can now view my-app in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.43.177:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.

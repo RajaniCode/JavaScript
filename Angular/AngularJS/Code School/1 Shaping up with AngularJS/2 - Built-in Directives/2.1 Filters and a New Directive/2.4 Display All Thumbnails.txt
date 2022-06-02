@@ -1,0 +1,103 @@
+2.4 Display All Thumbnails
+
+Our 2-dimensional clients have worked hard to produce multiple images for 
+their gems. Display all the thumbnails inside our gallery without repeating 
+yourself by using an Angular directive on the li.thumbnail element.          
+
+
+1. Make the li's repeat for each image in the image array. Use the variable image as your identifier.
+
+Answer: <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+
+
+2. Now that we have image available from our ng-repeat let's replace the product.images[0] with it.
+
+<img ng-src="{{product.images[0]}}" />
+
+Use the ng-show directive to make sure our image gallery is only displayed if a product has images.
+
+Answer: <img ng-src="{{image}}"/>
+
+
+
+
+index.html
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <!--  Product Container  -->
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+      <!-- Image Gallery  -->
+      <div class="gallery">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[0]}}" />
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}"/>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+app.js
+
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function() {
+    this.products = gems;
+  });
+
+  var gems = [{
+    name: 'Azurite',
+    description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
+    shine: 8,
+    price: 110.50,
+    rarity: 7,
+    color: '#CCC',
+    faces: 14,
+    images: [
+      "images/gem-02.gif",
+      "images/gem-05.gif",
+      "images/gem-09.gif"
+    ]
+  }, {
+    name: 'Bloodstone',
+    description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+    shine: 9,
+    price: 22.90,
+    rarity: 6,
+    color: '#EEE',
+    faces: 12,
+    images: [
+      "images/gem-01.gif",
+      "images/gem-03.gif",
+      "images/gem-04.gif"
+    ]
+  }, {
+    name: 'Zircon',
+    description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+    shine: 70,
+    price: 1100,
+    rarity: 2,
+    color: '#000',
+    faces: 6,
+    images: [
+      "images/gem-06.gif",
+      "images/gem-07.gif",
+      "images/gem-10.gif"
+    ]
+  }];
+})();

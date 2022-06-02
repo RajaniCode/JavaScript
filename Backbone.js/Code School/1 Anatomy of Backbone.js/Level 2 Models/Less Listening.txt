@@ -1,0 +1,31 @@
+Less Listening
+
+Dr. Goodparts browser crashed because of too many alerts.
+
+Instead of listening for all attribute changes, just listen and alert when changes are made to the cancelled attribute.
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+var appointment = new Appointment();
+
+APPLICATION.JS
+
+appointment.on('change', function(){
+  alert("Hey Dr. Goodparts, your appointment has changed!");
+});
+
+Answer:
+
+var doThing = function(){
+  alert("Hey Dr. Goodparts, your appointment has changed!");
+};
+appointment.on('change:cancelled', doThing);
+
+//Note:
+var doThing = function(){
+  alert("Hey Dr. Goodparts, your appointment has changed!");
+};
+//appointment.on('change', doThing);
+//appointment.off('change', doThing);
+appointment.on('change:cancelled', doThing);

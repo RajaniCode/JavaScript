@@ -1,0 +1,13 @@
+2.17 Jumbo String
+
+What is the fastest way to merge this array into one jumbo string?
+
+var array = ["The", "Inverted", "Peninsula", "reminds", "you", "of", "something", "just", "at", "the", "fringe", ",", "just", "out", "of", "grasp", "."];
+
+    Loop over each index and use the string concatenation operator.
+
+    Call the Array prototype's join() method on array.
+
+    Use the concat() method of the String prototype.
+
+Answer: Call the Array prototype's join() method on array.

@@ -1,0 +1,28 @@
+4.2 Refactoring Description Tab
+
+Notice that we have created an empty html file called product-description.html. Separate out the Description Tab's content into the new html file. Include the product-description.html in our index where it belongs.
+
+
+index.html
+
+1. Separate out our description tab into product-description.html.
+
+Answer:
+
+<!--  Description Tab's Content  -->
+<div ng-show="tab.isSet(1)" ng-include="'product-description.html'">
+</div>
+
+OR (Self-closing tags. Note: Some browsers don't support self-closing tags when using custom elements)
+
+<div ng-show="tab.isSet(1)" ng-include="'product-description.html'"/>
+product.description.html
+
+<!-- Move the description tab here! -->
+
+<blockquote>{{product.description}}</blockquote>
+
+
+2. Include product-description.html inside the description tab.
+
+Answer: <div ng-show="tab.isSet(1)" ng-include="'product-description.html'"/>

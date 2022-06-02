@@ -1,0 +1,6 @@
+4.7 Passing Data From Child to Parent
+
+In React, we can pass callback functions from parent to child components to allow two-way communication. We do that by assigning values to [ ].
+.
+
+Answer: props

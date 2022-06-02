@@ -1,0 +1,31 @@
+4.10 Issues With Objects as Maps
+
+
+Given this initial code:
+
+let author1 = { name: "Sam" };
+let author2 = { name: "Tyler" };
+
+let mostRecentReply = {};
+
+mostRecentReply[author1] = "ES2015";
+mostRecentReply[author2] = "Semi-colons: Good or Bad?";
+What will be the output of the following code?
+
+console.log( mostRecentReply[author1] );
+console.log( mostRecentReply[author2] );
+
+[Single Answer]
+
+ES2015
+Semi-colons: Good or Bad?
+
+This code generates a SyntaxError
+
+Semi-colons: Good or Bad?
+Semi-colons: Good or Bad?
+
+
+Answer:
+Semi-colons: Good or Bad?
+Semi-colons: Good or Bad?

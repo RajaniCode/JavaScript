@@ -1,0 +1,50 @@
+6.4 Catching Errors From Promises
+
+
+We've refactored our code and extended the functionality to filter out replies marked as abuse. However, any errors that occur during the execution of our Promise will break our code. Let's fix that.
+
+filter-replies.js
+
+getReplies(1)
+.then(function(replies){
+  return replies.filter( reply => !reply.isAbuse );
+})
+.then(function(filteredReplies){
+  console.log( filteredReplies );
+})
+ ;
+
+
+1. At the end of the chain, add a call to the catch() method. This method call takes a callback with 1 argument, the error.
+
+Answer:
+
+filter-replies.js
+
+getReplies(1)
+.then(function(replies){
+  return replies.filter( reply => !reply.isAbuse );
+})
+.then(function(filteredReplies){
+  console.log( filteredReplies );
+})
+.catch(function(error){
+  
+} );
+
+2. From inside the callback, log the error to the console using console.log().
+
+Answer:
+
+filter-replies.js
+
+getReplies(1)
+.then(function(replies){
+  return replies.filter( reply => !reply.isAbuse );
+})
+.then(function(filteredReplies){
+  console.log( filteredReplies );
+})
+.catch(function(error){
+  console.log(error);
+} );

@@ -1,0 +1,59 @@
+1.11 JSX and Collections
+
+Let's iterate through a collection using JSX.
+
+components.js
+
+class RobotItems extends React.Component {
+  render() {
+    const topics = ["React", "JSX", "JavaScript", "Programming"];
+    return (
+      <div>
+        <h3>Topics I am interested in</h3>
+        <ul>
+          
+        </ul>
+      </div>
+    );
+  }
+}
+
+1. Using the map() method on the topics array, let's start by returning an empty <li> element for each item.
+
+Answer:
+
+components.js
+
+class RobotItems extends React.Component {
+  render() {
+    const topics = ["React", "JSX", "JavaScript", "Programming"];
+    return (
+      <div>
+        <h3>Topics I am interested in</h3>
+        <ul>
+          {topics.map(topic => <li></li>)}
+        </ul>
+      </div>
+    );
+  }
+}
+
+2. Using the single argument to the callback function passed to map(), render each topic inside the <li> tag.
+
+Answer:
+
+components.js
+
+class RobotItems extends React.Component {
+  render() {
+    const topics = ["React", "JSX", "JavaScript", "Programming"];
+    return (
+      <div>
+        <h3>Topics I am interested in</h3>
+        <ul>
+          {topics.map(topic => <li>{topic}</li>)}
+        </ul>
+      </div>
+    );
+  }
+}

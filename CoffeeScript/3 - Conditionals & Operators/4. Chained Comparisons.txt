@@ -1,0 +1,31 @@
+Chained Comparisons
+
+Rewrite the if below to use CoffeeScript's chained comparisons syntax.
+
+CoffeeScript:
+if lowLevel < newLevel && newLevel < highLevel
+  alert 'ok'
+else
+  alert 'abnormal caffeine level'
+
+JavaScript:
+if (lowLevel < newLevel && newLevel < highLevel) {
+  alert('ok');
+} else {
+  alert('abnormal caffeine level');
+}
+
+Answer:
+
+CoffeeScript:
+if lowLevel < newLevel < highLevel
+  alert 'ok'
+else
+  alert 'abnormal caffeine level'
+
+JavaScript:
+if ((lowLevel < newLevel && newLevel < highLevel)) {
+  alert('ok');
+} else {
+  alert('abnormal caffeine level');
+}

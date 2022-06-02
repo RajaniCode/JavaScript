@@ -1,0 +1,12 @@
+2.2 A Common Template
+
+What is the name of the outermost template that is available in all Ember applications?
+
+[Single Answer]
+
+Base template
+Default template
+Application template
+
+
+Answer: Application template

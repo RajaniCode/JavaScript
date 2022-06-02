@@ -1,0 +1,6 @@
+1.4 The Rendering Process
+
+Before React makes any changes to the page, it generates an in-memory representation of the DOM called the [  ] DOM.
+
+
+Answer: virtual

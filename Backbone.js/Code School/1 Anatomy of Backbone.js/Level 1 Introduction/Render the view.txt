@@ -1,0 +1,24 @@
+Render the view
+
+Time to show Dr. Goodparts his first appointment. Render the appointmentView instance and then insert its top-level element into #app using $('#app').html().
+
+JS SOURCE
+var Appointment = Backbone.Model.extend({});
+var appointment = new Appointment();
+appointment.set('title', 'My knee hurts');
+var AppointmentView = Backbone.View.extend({
+  render: function(){
+    $(this.el).html('<li>' + this.model.get('title') + '</li>');
+  }
+});
+var appointmentView = new AppointmentView({model: appointment});
+
+APPLICATION.JS
+
+appointmentView; 
+$('#app').html();
+
+Answer: 
+
+appointmentView.render(); 
+$('#app').html(appointmentView.el);

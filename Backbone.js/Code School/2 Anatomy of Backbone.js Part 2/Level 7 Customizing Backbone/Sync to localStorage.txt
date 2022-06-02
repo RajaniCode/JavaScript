@@ -1,0 +1,66 @@
+Sync to localStorage
+250
+
+Well that was quick. Dr. Goodparts has changed his mind and now wants to be able to update and delete appointments again. Unfortunately, the server team has defected to Dr. Jay Query and so we've had to use HTML5 localStorage to store our appointments.
+
+Below we've started to implement the localStorage strategy, handling the "read" and "create" methods. In this challenge, write the code to handle the "delete" method.
+
+APPLICATION.JS
+
+App.Models.Appointment = Backbone.Model.extend({
+  sync: function(method, model, options){
+    options = options || {};
+
+    switch(method){
+      case 'delete':
+      break;
+      case 'update':
+      break;
+      case 'create':
+        var key = "Appointment-" + model.id;
+        localStorage.setItem(key, JSON.stringify(model));
+      break;
+      case 'read':
+        var key = "Appointment-" + model.id;
+        var result = localStorage.getItem(key);
+        if(result){
+          result = JSON.parse(result);
+          options.success && options.success(result);
+        }else if(options.error){
+          options.error("Couldn't find Appointment with id=" + model.id);
+        }
+      break;
+    }
+  }
+});
+
+Answer:
+
+App.Models.Appointment = Backbone.Model.extend({
+  sync: function(method, model, options){
+    options = options || {};
+
+    switch(method){
+      case 'delete':
+        var key = "Appointment-" + model.id;
+        localStorage.removeItem(key, JSON.stringify(model));
+      break;
+      case 'update':
+      break;
+      case 'create':
+        var key = "Appointment-" + model.id;
+        localStorage.setItem(key, JSON.stringify(model));
+      break;
+      case 'read':
+        var key = "Appointment-" + model.id;
+        var result = localStorage.getItem(key);
+        if(result){
+          result = JSON.parse(result);
+          options.success && options.success(result);
+        }else if(options.error){
+          options.error("Couldn't find Appointment with id=" + model.id);
+        }
+      break;
+    }
+  }
+});

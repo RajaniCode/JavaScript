@@ -1,0 +1,13 @@
+4.3 Using the Submit Event
+
+Which synthetic event do we use to capture form submissions in React?
+
+[Single Answer]
+
+submit
+theSubmitEvent
+eventSubmit
+onSubmit
+
+
+Answer: onSubmit

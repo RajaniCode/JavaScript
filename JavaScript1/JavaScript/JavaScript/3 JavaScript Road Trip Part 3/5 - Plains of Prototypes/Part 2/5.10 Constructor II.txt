@@ -1,0 +1,65 @@
+5.10 Constructor II
+
+Now that we’ve got a Fencepost constructor function, let’s create some posts! The cowboy-devs need three new posts for the Plains:
+
+x: -3,
+y: 4,
+postNum: 18
+
+x: 5,
+y: -1,
+postNum: 19
+
+x: -2,
+y: 10,
+postNum: 20
+
+Use your Fencepost constructor function to create these new posts. Name each of your posts post<number> with the correct number from the postNum property.
+
+Then, connect them with the sendRopeTo function using the following criteria, and remember that one connection requires ropes to be sent from both posts:
+
+    If two posts both have even-numbered y coordinates, they should be connected.
+    If two posts both have odd-numbered x coordinates, they should be connected.
+
+
+posts.js
+
+function Fencepost(x, y, postNum) {
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+  this.sendRopeTo = function(connectedPost) {
+    this.connectionsTo.push(connectedPost);
+  };
+}
+
+// create post18, post19, and post20
+
+
+
+// establish post connections
+
+
+Answer:
+
+posts.js
+
+function Fencepost(x, y, postNum) {
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+  this.sendRopeTo = function(connectedPost) {
+    this.connectionsTo.push(connectedPost);
+  };
+}
+
+// create post18, post19, and post20
+var post18 =  Fencepost(-3, 4, 18);
+var post19 = Fencepost(5, -1, 19);
+var post20 = Fencepost(-2, 10, 20);
+
+// establish post connections
+post18.sendRopeTo(post20);
+post18.sendRopeTo(post19);

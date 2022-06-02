@@ -1,0 +1,29 @@
+3.12 Fowl Feeding Fun
+
+Having seen the wonderous array of birds inhabiting the dunes, you wish to feed them…but your bird feeding attempt was stopped by bothersome line #7 when you entered it into the console.
+
+function Bird(){}
+function DatatypeBird(){...}
+function SyntaxBird(){...}
+DatatypeBird.prototype = Object.create(Bird.prototype);
+SyntaxBird.prototype   = Object.create(Bird.prototype);
+
+TryCatchTaster.prototype = Object.create(SyntaxBird.prototype);
+
+var NumberNommer = function(){...};
+
+NumberNommer.prototype = Object.create(DatatypeBird.prototype);
+
+var duneInhabitants = [NumberNommer, StringSeeker, TryCatchTaster, 
+                       SwitchSnagger, TernaryTracker, BooleanBiter];
+
+// for birds inhabiting the dunes, call feedBird()
+
+Which sort of error is inhibiting this fowl-feeding fun?
+
+    syntax
+
+    run-time
+
+Answer: run-time
+Answer: 

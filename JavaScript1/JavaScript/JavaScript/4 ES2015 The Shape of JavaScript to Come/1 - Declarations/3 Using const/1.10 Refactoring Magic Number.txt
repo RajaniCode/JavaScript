@@ -1,0 +1,47 @@
+1.10 Refactoring Magic Number
+
+
+Let's refactor the code on the right and make it more expressive.
+
+validate-message.js
+
+function validateMessage(author, message){
+  
+  if(message.length > 140){
+    message = _trimMessage(message);
+  }
+
+  _postMessage(author, message);
+}
+
+
+1. Create a const named MAX_MESSAGE_LENGTH and assign 140 to it.
+
+Answer:
+
+validate-message.js
+
+function validateMessage(author, message){
+  const MAX_MESSAGE_LENGTH = 140;
+  if(message.length > 140){
+    message = _trimMessage(message);
+  }
+
+  _postMessage(author, message);
+}
+
+
+2. Now replace the magic number in the conditional with the newly created const.
+
+Answer:
+
+validate-message.js
+
+function validateMessage(author, message){
+  const MAX_MESSAGE_LENGTH = 140;
+  if(message.length > MAX_MESSAGE_LENGTH){
+    message = _trimMessage(message);
+  }
+
+  _postMessage(author, message);
+}

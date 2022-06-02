@@ -1,0 +1,24 @@
+Limited Sync
+
+
+Dr. Goodparts has instituted a new (possibly controversial) policy: Appointments can not be changed. The office can create appointments, but they will no longer be able to update them or delete them.
+
+To comply with this new policy, modify the Appointment model's sync function below to only work on read and create, but not on delete and update.
+
+APPLICATION.JS
+
+App.Models.Appointment = Backbone.Model.extend({
+  sync: function(method, model, options){
+    Backbone.sync(method, model, options);    
+  }
+});
+
+Answer:
+
+App.Models.Appointment = Backbone.Model.extend({
+  sync: function(method, model, options){
+    if (method === "read" || method === "create"){
+      Backbone.sync(method, model, options); 
+    }
+  }
+});

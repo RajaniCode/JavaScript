@@ -1,0 +1,7 @@
+Resources
+
+• babel.js promise docs [https://babeljs.io/docs/learn-es2015/#promises] [https://babeljs.io/learn-es2015/] [https://babeljs.io/learn-es2015/#ecmascript-2015-features-promises]
+• Ember RSVP.Promise API docs [http://emberjs.com/api/classes/RSVP.Promise.html]
+• rsvp.js project [https://github.com/tildeio/rsvp.js/]
+• More videos about Promises [https://www.emberscreencasts.com/tags/promises]
+

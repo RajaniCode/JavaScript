@@ -1,0 +1,45 @@
+Using Mustache III
+250
+
+possibleDates has changed from an Array of strings to an Array of objects with day and time properties. Update the Mustache template below to render the li tag with both day and time inside them, like so:
+
+<li>Tuesday at 3:00pm</li>
+
+EXAMPLE
+
+var appointment = new App.Models.Appointment({title: "Foo", possibleDates: [
+    { day: "Friday", time: "3:00pm"}, {day: "Tuesday", time: "9:00am"}
+  ]
+});
+
+var appointmentView = App.Views.Appointment({model: appointment});
+
+APPLICATION.JS
+
+App.Views.Appointment = Backbone.View.extend({
+  template: Mustache.compile('<h2>{{ title }}</h2>' + 
+    'Possible Dates: <ul>{{#possibleDates}}' +
+      '<li>{{.}}</li>' +
+    '{{/possibleDates}}</ul>'),
+  
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  }
+});
+
+Answer:
+
+App.Views.Appointment = Backbone.View.extend({
+  template: Mustache.compile('<h2>{{ title }}</h2>' + 
+    'Possible Dates: <ul>{{#possibleDates}}' +
+      '<li>{{ day }} at {{ time }}</li>' +
+    '{{/possibleDates}}</ul>'),
+  
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  }
+});
+
+

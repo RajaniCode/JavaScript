@@ -1,0 +1,20 @@
+Fetch silently
+
+
+Wouldn't ya know, our users don't like getting alerts every time we fetch new data for our collection.
+
+Update the fetch call below to not fire the reset event.
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment
+});
+var appointments = new AppointmentList();
+
+APPLICATION.JS
+
+appointments.fetch();
+
+Answer: appointments.fetch({silent: true});

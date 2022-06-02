@@ -1,0 +1,60 @@
+4.12 Adding Entries to a Map Object
+
+
+Complete the following code.
+
+total-replies.js
+
+let author1 = { name: "Sam" };
+let author2 = { name: "Tyler" };
+
+let totalReplies = ;
+
+console.log( `Total Replies: ${totalReplies.get(author1)}` );
+console.log( `Total Replies: ${totalReplies.get(author2)}` );
+
+
+1. First, create a new Map object and assign it to the totalReplies variable.
+
+Answer:
+
+total-replies.js
+
+let author1 = { name: "Sam" };
+let author2 = { name: "Tyler" };
+
+let totalReplies = new Map();
+
+console.log( `Total Replies: ${totalReplies.get(author1)}` );
+console.log( `Total Replies: ${totalReplies.get(author2)}` );
+
+2. Using the set() method, add an entry in the totalReplies Map for the author1 object with the value of 42.
+
+Answer:
+
+total-replies.js
+
+let author1 = { name: "Sam" };
+let author2 = { name: "Tyler" };
+
+let totalReplies = new Map();
+totalReplies.set(author1, 42);
+
+console.log( `Total Replies: ${totalReplies.get(author1)}` );
+console.log( `Total Replies: ${totalReplies.get(author2)}` );
+
+3. Finally, add an entry in the totalReplies Map for the author2 object with the value of 15.
+
+Answer:
+
+total-replies.js
+
+let author1 = { name: "Sam" };
+let author2 = { name: "Tyler" };
+
+let totalReplies = new Map();
+totalReplies.set(author1, 42);
+totalReplies.set(author2, 15);
+
+console.log( `Total Replies: ${totalReplies.get(author1)}` );
+console.log( `Total Replies: ${totalReplies.get(author2)}` );

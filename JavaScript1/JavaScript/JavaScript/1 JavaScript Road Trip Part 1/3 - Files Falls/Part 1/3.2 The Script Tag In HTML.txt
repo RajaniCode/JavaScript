@@ -1,0 +1,42 @@
+3.2 The Script Tag In HTML
+
+In the index.html file, add a <script> tag inside the <head> section to tell our HTML file that we want to execute some JavaScript code.
+
+Call your JavaScript file oldFaithful.js. Assume that your .js file is in the same folder as your index.html file.
+
+index.html
+
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Welcome to the JavaScript Express!</h1>
+  </body>
+</html>
+
+Answer: <script type="text/javascript" src="oldFaithful.js"></script>
+
+Note:
+
+http://stackoverflow.com/questions/4195427/is-the-type-attribute-necessary-for-script-tags
+
+For HTML 4.x, the type attribute is required. (W3):
+
+This attribute specifies the scripting language of the element's contents and overrides the default scripting language. The scripting language is specified as a content type (e.g., "text/javascript"). Authors must supply a value for this attribute. There is no default value for this attribute.
+
+For HTML 5, it is optional. If it is not specified, it defaults to text/javascript. (W3):
+
+The type attribute gives the language of the script or format of the data. If the attribute is present, its value must be a valid MIME type. The charset parameter must not be specified. The default, which is used if the attribute is absent, is "text/javascript".
+
+
+
+index.html
+
+<html>
+  <head>
+    <script type="text/javascript" src="oldFaithful.js"></script>
+  </head>
+  <body>
+    <h1>Welcome to the JavaScript Express!</h1>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+2.3 Property Puzzle
+
+You hear Aiedra speak as you continue through the brush of the invertedPeninsula:
+
+    "We find ourselves currently within the bitersBog on the invertedPeninsula, a rather dangerous place for memory, overwritten data, and of course, speed. The creatures here, despite our recommendations, have added many methods to the Array prototype. Now, they are confused as to how their populationGetter function should be built. In such a situation, tell me, Dhuun, what sort of loop will allow us to build the variable list as a single string of the Inverted Pensinsula's critters?"
+
+Array.prototype.killTheInsolent = function(){};
+Array.prototype.countPopulace = function(){};
+Array.prototype.countUndeadPopulace = function(){};
+Array.prototype.insecticide = function(){};
+Array.prototype.shadowProvider = function(){};
+
+var bitersBog = {
+  critters: ["Nipping Global Variable", 
+             "Sneaky For-in", 
+             "Bulging Blocking Script"]
+}
+   
+populationGetter(bitersBog); 
+
+function populationGetter( location ){
+  var list = "";
+  // What sort of loop should go here, Dhuun?
+  return list.trim();
+}
+
+Which type of loop will help you build a list of only the critters within the bitersBog?
+
+For Loop or For-In Loop
+
+Answer: For Loop

@@ -1,0 +1,66 @@
+6.7 Promising Errors
+
+We just realized: what happens if an error is returned with our ajax call? Our custom promise isn't setup to handle errors. We need to add an error handler that can reject your promise. Go ahead and create this error handler and make sure to pass some sort of error message to the reject() function.
+
+HTML
+
+<div class="vacation-location">
+  <h3 class="location">London, UK</h3>
+  <p class="price"></p>
+  <button>Update Price</button>
+</div>
+
+application.js
+
+$(document).ready(function() {
+  $('button').on(click, function(){
+    var location = $('.location').text();
+    Vacation.getPrice(location).done(function(result){
+      $('.price').text(result.price);
+    });
+  });
+});
+
+AJAX Result
+
+{
+  price: 2600
+}
+
+vacation.js
+
+var Vacation = {
+  getPrice: function(location){
+    var promise = $.Deferred();
+    $.ajax({
+      url: '/vacation/prices',
+      data: {q: location},
+      success: function(result){
+        promise.resolve(result.price);
+      }
+    });
+    return promise;
+  }
+}
+
+Answer:
+
+vacation.js
+
+var Vacation = {
+  getPrice: function(location){
+    var promise = $.Deferred();
+    $.ajax({
+      url: '/vacation/prices',
+      data: {q: location},
+      success: function(result){
+        promise.resolve(result.price);
+      },
+      error: function(){
+        var error = 'invalid location';
+        promise.reject(error);
+      }
+    });
+    return promise;
+  }
+}

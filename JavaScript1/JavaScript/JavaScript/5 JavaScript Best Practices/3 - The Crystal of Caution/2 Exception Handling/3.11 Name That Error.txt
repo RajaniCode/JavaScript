@@ -1,0 +1,9 @@
+3.11 Name That Error
+
+A [ ] error can be detected by the JavaScript parser before the program is ever executed, whereas a error can be the result of trying to execute perfectly valid javascript.
+
+Answer: 
+
+syntax
+
+runtime //Note also: run-time

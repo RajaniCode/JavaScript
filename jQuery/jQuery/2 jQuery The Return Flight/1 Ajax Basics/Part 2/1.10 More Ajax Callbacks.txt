@@ -1,0 +1,69 @@
+1.10 More Ajax Callbacks
+
+Things are working fine, but we could make it better. While the server is responding, the traveler has no indication that anything is happening.
+
+Our designers have added some special styling to account for this. Before the ajax command is sent, add a class of is-fetching to our #tour element, then remove this class after the request is complete.
+
+HTML
+
+<div id="tour" data-location="london">
+  <button>Get Photos</button>
+  <ul class="photos">
+
+  </ul>
+</div>
+
+AJAX Result
+
+<li>
+  <img src="/assets/photos/paris1.jpg">
+  <span style="display: none;">Arc de Triomphe</span>
+</li>
+<li>
+  <img src="/assets/photos/paris2.jpg">
+  <span style="display: none;">The Eiffel Tower</span>
+</li>
+<li>
+  <img src="/assets/photos/london.jpg">
+  <span style="display: none;">London</span>
+</li>
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() {
+    $.ajax('/photos.html', {
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      },
+      error: function() {
+        $('.photos').html('<li>There was a problem fetching the latest photos. Please try again.</li>');
+      },
+      timeout: 3000
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() {
+    $.ajax('/photos.html', {
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      },
+      error: function() {
+        $('.photos').html('<li>There was a problem fetching the latest photos. Please try again.</li>');
+      },
+      timeout: 3000,
+      beforeSend: function() {
+      	$("#tour").addClass("is-fetching");
+      },
+      complete: function() {
+      	$("#tour").removeClass("is-fetching");
+      }
+    });
+  });
+});

@@ -1,0 +1,13 @@
+4.18 Limitations With Array
+
+
+Which of the following describes a limitation of Arrays?
+
+[Single Answer]
+
+Arrays cannot be used in for...of loops.
+Arrays don't enforce uniqueness of items. Duplicate entries are allowed.
+Arrays are not part of ES2015.
+
+
+Answer: Arrays don't enforce uniqueness of items. Duplicate entries are allowed.

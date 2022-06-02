@@ -1,0 +1,39 @@
+5.15 Exporting Classes
+
+
+Complete the following code to export the TagManager class using the default type export.
+
+[ ] [ ] class TagManager {
+  constructor(topicId){
+    this.topicId = topicId;
+  }
+  
+  addTag(tagName){
+    API.createTag(tagName, this.topicId);
+  }
+  
+  removeTag(tagName){
+    API.deleteTag(tagName, this.topicId);
+  }
+}
+
+
+Answer:
+export
+default
+
+Note:
+
+[export] [default] class TagManager {
+  constructor(topicId){
+    this.topicId = topicId;
+  }
+  
+  addTag(tagName){
+    API.createTag(tagName, this.topicId);
+  }
+  
+  removeTag(tagName){
+    API.deleteTag(tagName, this.topicId);
+  }
+}

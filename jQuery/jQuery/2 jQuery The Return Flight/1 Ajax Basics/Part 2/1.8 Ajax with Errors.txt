@@ -1,0 +1,62 @@
+1.8 Ajax with Errors
+
+Sometimes things go wrong. Maybe our server went down, or the traveler visiting our page lost their internet connection and can no longer access our site.
+
+Let's account for this case by adding an error callback that will set the contents of the .photos element to a message in an li element letting the traveler know that something went wrong and to try again. You can write whatever you'd like for this message.
+
+HTML
+
+<div id="tour" data-location="london">
+  <button>Get Photos</button>
+  <ul class="photos">
+
+  </ul>
+</div>
+
+AJAX Result
+
+<li>
+  <img src="/assets/photos/paris1.jpg">
+  <span style="display: none;">Arc de Triomphe</span>
+</li>
+<li>
+  <img src="/assets/photos/paris2.jpg">
+  <span style="display: none;">The Eiffel Tower</span>
+</li>
+<li>
+  <img src="/assets/photos/london.jpg">
+  <span style="display: none;">London</span>
+</li>
+
+application.js
+
+$(document).ready(function() {
+  var el = $("#tour");
+  el.on("click", "button", function() {
+    $.ajax('/photos.html', {
+      data: {location: el.data('location')},
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      }
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  var el = $("#tour");
+  el.on("click", "button", function() {
+    $.ajax('/photos.html', {
+      data: {location: el.data('location')},
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      },
+      error: function() {
+        $('.photos').html('<li>There was a problem fetching the latest photos. Please try again.</li>');
+      }
+    });
+  });
+});

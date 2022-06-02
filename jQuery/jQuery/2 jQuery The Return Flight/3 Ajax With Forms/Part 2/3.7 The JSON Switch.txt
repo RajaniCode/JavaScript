@@ -1,0 +1,51 @@
+3.7 The JSON Switch
+
+Our form is working now! We're able to submit and see a response message from the server. We'd like to tweak this message a little bit, but since we're getting HTML back from the server, it wouldn't be easy. Luckily, we know that our server can also respond with a JSON version of this same response.
+
+Update our existing $.ajax call to make the request setting the dataType to json, and update the success callback to set the HTML of the .tour element to a message of your choice that uses the description, price, number of nights and confirmation number.
+
+HTML
+
+<div class="tour" data-daily-price="357">
+  <h2>Paris, France Tour</h2>
+  <p>$<span id="total">2,499</span> for <span id="nights-count">7</span> Nights</p>
+  <form action="/book" method="POST">
+    <p>
+      <label for="nights">Number of Nights</label>
+    </p>
+    <p>
+      <input name="nights" id="nights" value="7" type="number">
+    </p>
+    <input value="book" type="submit">
+  </form>
+</div>
+
+AJAX Result
+
+{ 
+  description: 'Paris, France Tour',
+  price: 2499.0,
+  nights: 7,
+  confirmation: 'ef63kd'
+}
+
+application.js
+
+$(document).ready(function() {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    $.ajax('/book', {
+      type: 'POST',
+      dataType: 'json',
+      data: $('form').serialize(),
+      success: function(response) {
+        var message = $("<p></p>");
+        message.append("Destination: " + response.description + ". ");
+        message.append("Price: " + response.price + ". ");
+        message.append("Nights: " + response.nights + ". ");
+        message.append("Confirmation: " + response.confirmation + ".");
+        $('.tour').html(message);
+      }
+    });
+  });
+});

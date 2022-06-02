@@ -1,0 +1,972 @@
+
+Aspire@Acer MINGW64 /
+$ cd "E:\Working\JavaScript\Node.js\TODO\Outlook\GitHub\nodejs-connect-rest-sample-master"
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/Node.js/TODO/Outlook/GitHub/nodejs-connect-rest-sample-master
+$ node --version
+v4.4.7
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/Node.js/TODO/Outlook/GitHub/nodejs-connect-rest-sample-master
+$ npm --version
+2.15.8
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/Node.js/TODO/Outlook/GitHub/nodejs-connect-rest-sample-master
+$ npm install
+npm WARN deprecated minimatch@2.0.10: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated to-iso-string@0.0.2: to-iso-string has been deprecated, use @segment/to-iso-string instead.
+npm WARN deprecated jade@0.26.3: Jade has been renamed to pug, please install the latest version of pug instead of jade
+npm WARN optional dep failed, continuing fsevents@1.0.14
+npm WARN deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated graceful-fs@1.2.3: graceful-fs v3.0.0 and before will fail on node releases >= v7.0. Please update to graceful-fs@^4.0.0 as soon as possible. Use 'npm ls graceful-fs' to find it in the tree.
+node-uuid@1.4.7 node_modules\node-uuid
+
+eslint-config-airbnb@6.2.0 node_modules\eslint-config-airbnb
+
+oauth@0.9.14 node_modules\oauth
+
+serve-favicon@2.3.0 node_modules\serve-favicon
++-- etag@1.7.0
++-- fresh@0.3.0
++-- parseurl@1.3.1
++-- ms@0.7.1
+
+cookie-parser@1.3.5 node_modules\cookie-parser
++-- cookie@0.1.3
++-- cookie-signature@1.0.6
+
+debug@2.2.0 node_modules\debug
++-- ms@0.7.1
+
+morgan@1.6.1 node_modules\morgan
++-- on-headers@1.0.1
++-- basic-auth@1.0.4
++-- depd@1.0.1
++-- on-finished@2.3.0 (ee-first@1.1.1)
+
+express-session@1.14.2 node_modules\express-session
++-- on-headers@1.0.1
++-- cookie-signature@1.0.6
++-- parseurl@1.3.1
++-- utils-merge@1.0.0
++-- cookie@0.3.1
++-- depd@1.1.0
++-- crc@3.4.1
++-- uid-safe@2.1.3 (base64-url@1.3.3, random-bytes@1.0.0)
+
+cookie-session@1.2.0 node_modules\cookie-session
++-- on-headers@1.0.1
++-- cookies@0.5.0 (keygrip@1.0.1)
+
+eslint-plugin-react@4.3.0 node_modules\eslint-plugin-react
+
+body-parser@1.13.3 node_modules\body-parser
++-- bytes@2.1.0
++-- content-type@1.0.2
++-- depd@1.0.1
++-- qs@4.0.0
++-- on-finished@2.3.0 (ee-first@1.1.1)
++-- http-errors@1.3.1 (inherits@2.0.3, statuses@1.3.0)
++-- iconv-lite@0.4.11
++-- type-is@1.6.13 (media-typer@0.3.0, mime-types@2.1.12)
++-- raw-body@2.1.7 (unpipe@1.0.0, bytes@2.4.0, iconv-lite@0.4.13)
+
+express@4.13.4 node_modules\express
++-- escape-html@1.0.3
++-- array-flatten@1.1.1
++-- cookie-signature@1.0.6
++-- utils-merge@1.0.0
++-- content-type@1.0.2
++-- fresh@0.3.0
++-- vary@1.0.1
++-- etag@1.7.0
++-- parseurl@1.3.1
++-- range-parser@1.0.3
++-- cookie@0.1.5
++-- merge-descriptors@1.0.1
++-- path-to-regexp@0.1.7
++-- content-disposition@0.5.1
++-- methods@1.1.2
++-- depd@1.1.0
++-- qs@4.0.0
++-- on-finished@2.3.0 (ee-first@1.1.1)
++-- finalhandler@0.4.1 (unpipe@1.0.0)
++-- proxy-addr@1.0.10 (forwarded@0.1.0, ipaddr.js@1.0.5)
++-- send@0.13.1 (destroy@1.0.4, statuses@1.2.1, ms@0.7.1, mime@1.3.4, http-errors@1.3.1)
++-- type-is@1.6.13 (media-typer@0.3.0, mime-types@2.1.12)
++-- accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.12)
++-- serve-static@1.10.3 (send@0.13.2)
+
+mocha@2.5.3 node_modules\mocha
++-- escape-string-regexp@1.0.2
++-- commander@2.3.0
++-- diff@1.4.0
++-- growl@1.9.2
++-- supports-color@1.2.0
++-- to-iso-string@0.0.2
++-- mkdirp@0.5.1 (minimist@0.0.8)
++-- glob@3.2.11 (inherits@2.0.3, minimatch@0.3.0)
++-- jade@0.26.3 (commander@0.6.1, mkdirp@0.3.0)
+
+gulp@3.9.1 node_modules\gulp
++-- interpret@1.0.1
++-- pretty-hrtime@1.0.2
++-- deprecated@0.0.1
++-- archy@1.0.0
++-- minimist@1.2.0
++-- tildify@1.2.0 (os-homedir@1.0.2)
++-- v8flags@2.0.11 (user-home@1.1.1)
++-- semver@4.3.6
++-- chalk@1.1.3 (escape-string-regexp@1.0.5, ansi-styles@2.2.1, supports-color@2.0.0, has-ansi@2.0.0, strip-ansi@3.0.1)
++-- orchestrator@0.3.7 (stream-consume@0.1.0, sequencify@0.0.7, end-of-stream@0.1.5)
++-- vinyl-fs@0.3.14 (strip-bom@1.0.0, vinyl@0.4.6, graceful-fs@3.0.11, defaults@1.0.3, through2@0.6.5, mkdirp@0.5.1, glob-stream@3.1.18, glob-watcher@0.0.6)
++-- liftoff@2.3.0 (lodash.isstring@4.0.1, lodash.isplainobject@4.0.6, lodash.mapvalues@4.6.0, rechoir@0.6.2, extend@3.0.0, flagged-respawn@0.3.2, resolve@1.1.7, fined@1.0.2, findup-sync@0.4.3)
++-- gulp-util@3.0.7 (array-differ@1.0.0, lodash._reinterpolate@3.0.0, array-uniq@1.0.3, beeper@1.1.0, lodash._reevaluate@3.0.0, lodash._reescape@3.0.0, object-assign@3.0.0, replace-ext@0.0.1, fancy-log@1.2.0, has-gulplog@0.1.0, vinyl@0.5.3, gulplog@1.0.0, lodash.template@3.6.2, through2@2.0.1, multipipe@0.1.2, dateformat@1.0.12)
+
+gulp-nodemon@2.2.1 node_modules\gulp-nodemon
++-- colors@1.1.2
++-- event-stream@3.3.4 (pause-stream@0.0.11, from@0.1.3, duplexer@0.1.1, stream-combiner@0.0.4, map-stream@0.1.0, split@0.3.3, through@2.3.8)
++-- nodemon@1.11.0 (ignore-by-default@1.0.1, undefsafe@0.0.3, ps-tree@1.1.0, es6-promise@3.3.1, minimatch@3.0.3, touch@1.0.0, lodash.defaults@3.1.2, chokidar@1.6.1, update-notifier@0.5.0)
+
+hbs@3.1.1 node_modules\hbs
++-- walk@2.2.1 (forEachAsync@2.2.1)
++-- handlebars@3.0.0 (optimist@0.6.1, source-map@0.1.43, uglify-js@2.3.6)
+
+selenium-webdriver@2.53.3 node_modules\selenium-webdriver
++-- tmp@0.0.24
++-- adm-zip@0.4.4
++-- ws@1.1.1 (options@0.0.6, ultron@1.0.2)
++-- rimraf@2.5.4 (glob@7.1.1)
++-- xml2js@0.4.4 (xmlbuilder@8.2.2, sax@0.6.1)
+
+eslint-plugin-import@1.16.0 node_modules\eslint-plugin-import
++-- lodash.endswith@4.2.1
++-- contains-path@0.1.0
++-- object-assign@4.1.0
++-- lodash.findindex@4.6.0
++-- lodash.find@4.6.0
++-- lodash.cond@4.5.2
++-- builtin-modules@1.1.1
++-- has@1.0.1 (function-bind@1.1.0)
++-- doctrine@1.3.0 (isarray@1.0.0, esutils@2.0.2)
++-- minimatch@3.0.3 (brace-expansion@1.1.6)
++-- pkg-dir@1.0.0 (find-up@1.1.2)
++-- pkg-up@1.0.0 (find-up@1.1.2)
++-- eslint-import-resolver-node@0.2.3 (resolve@1.1.7)
++-- es6-set@0.1.4 (d@0.1.1, es6-symbol@3.1.0, event-emitter@0.3.4, es6-iterator@2.0.0, es5-ext@0.10.12)
++-- es6-map@0.1.4 (d@0.1.1, es6-symbol@3.1.0, event-emitter@0.3.4, es6-iterator@2.0.0, es5-ext@0.10.12)
+
+eslint@2.13.1 node_modules\eslint
++-- path-is-inside@1.0.2
++-- path-is-absolute@1.0.1
++-- imurmurhash@0.1.4
++-- pluralize@1.2.1
++-- ignore@3.2.0
++-- globals@9.12.0
++-- estraverse@4.2.0
++-- strip-json-comments@1.0.4
++-- esutils@2.0.2
++-- progress@1.1.8
++-- text-table@0.2.0
++-- is-resolvable@1.0.0 (tryit@1.0.3)
++-- user-home@2.0.0 (os-homedir@1.0.2)
++-- doctrine@1.5.0 (isarray@1.0.0)
++-- optionator@0.8.2 (fast-levenshtein@2.0.5, type-check@0.3.2, wordwrap@1.0.0, deep-is@0.1.3, prelude-ls@1.1.2)
++-- levn@0.3.0 (type-check@0.3.2, prelude-ls@1.1.2)
++-- json-stable-stringify@1.0.1 (jsonify@0.0.0)
++-- shelljs@0.6.1
++-- require-uncached@1.0.2 (resolve-from@1.0.1, caller-path@0.1.0)
++-- chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, has-ansi@2.0.0, strip-ansi@3.0.1)
++-- concat-stream@1.5.2 (inherits@2.0.3, typedarray@0.0.6, readable-stream@2.0.6)
++-- mkdirp@0.5.1 (minimist@0.0.8)
++-- glob@7.1.1 (inherits@2.0.3, fs.realpath@1.0.0, inflight@1.0.6, once@1.4.0, minimatch@3.0.3)
++-- is-my-json-valid@2.15.0 (generate-function@2.0.0, jsonpointer@4.0.0, xtend@4.0.1, generate-object-property@1.2.0)
++-- inquirer@0.12.0 (ansi-regex@2.0.0, strip-ansi@3.0.1, ansi-escapes@1.4.0, through@2.3.8, rx-lite@3.1.2, cli-width@2.1.0, figures@1.7.0, string-width@1.0.2, readline2@1.0.1, cli-cursor@1.0.2, run-async@0.1.0)
++-- espree@3.3.2 (acorn@4.0.3, acorn-jsx@3.0.1)
++-- file-entry-cache@1.3.1 (object-assign@4.1.0, flat-cache@1.2.1)
++-- js-yaml@3.6.1 (esprima@2.7.3, argparse@1.0.9)
++-- table@3.8.3 (slice-ansi@0.0.4, ajv-keywords@1.1.1, string-width@2.0.0, ajv@4.8.2)
++-- es6-map@0.1.4 (d@0.1.1, es6-symbol@3.1.0, event-emitter@0.3.4, es6-iterator@2.0.0, es6-set@0.1.4, es5-ext@0.10.12)
++-- escope@3.6.0 (esrecurse@4.1.0, es6-weak-map@2.0.1)
++-- lodash@4.16.6
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/Node.js/TODO/Outlook/GitHub/nodejs-connect-rest-sample-master
+$ npm list
+nodejs-connect-rest-sample@1.0.0 E:\Working\JavaScript\Node.js\TODO\Outlook\GitHub\nodejs-connect-rest-sample-master
++-- body-parser@1.13.3
+¦ +-- bytes@2.1.0
+¦ +-- content-type@1.0.2
+¦ +-- depd@1.0.1
+¦ +-- http-errors@1.3.1
+¦ ¦ +-- inherits@2.0.3
+¦ ¦ +-- statuses@1.3.0
+¦ +-- iconv-lite@0.4.11
+¦ +-- on-finished@2.3.0
+¦ ¦ +-- ee-first@1.1.1
+¦ +-- qs@4.0.0
+¦ +-- raw-body@2.1.7
+¦ ¦ +-- bytes@2.4.0
+¦ ¦ +-- iconv-lite@0.4.13
+¦ ¦ +-- unpipe@1.0.0
+¦ +-- type-is@1.6.13
+¦   +-- media-typer@0.3.0
+¦   +-- mime-types@2.1.12
+¦     +-- mime-db@1.24.0
++-- cookie-parser@1.3.5
+¦ +-- cookie@0.1.3
+¦ +-- cookie-signature@1.0.6
++-- cookie-session@1.2.0
+¦ +-- cookies@0.5.0
+¦ ¦ +-- keygrip@1.0.1
+¦ +-- on-headers@1.0.1
++-- debug@2.2.0
+¦ +-- ms@0.7.1
++-- eslint@2.13.1
+¦ +-- chalk@1.1.3
+¦ ¦ +-- ansi-styles@2.2.1
+¦ ¦ +-- escape-string-regexp@1.0.5
+¦ ¦ +-- has-ansi@2.0.0
+¦ ¦ ¦ +-- ansi-regex@2.0.0
+¦ ¦ +-- strip-ansi@3.0.1
+¦ ¦ ¦ +-- ansi-regex@2.0.0
+¦ ¦ +-- supports-color@2.0.0
+¦ +-- concat-stream@1.5.2
+¦ ¦ +-- inherits@2.0.3
+¦ ¦ +-- readable-stream@2.0.6
+¦ ¦ ¦ +-- core-util-is@1.0.2
+¦ ¦ ¦ +-- isarray@1.0.0
+¦ ¦ ¦ +-- process-nextick-args@1.0.7
+¦ ¦ ¦ +-- string_decoder@0.10.31
+¦ ¦ ¦ +-- util-deprecate@1.0.2
+¦ ¦ +-- typedarray@0.0.6
+¦ +-- doctrine@1.5.0
+¦ ¦ +-- isarray@1.0.0
+¦ +-- es6-map@0.1.4
+¦ ¦ +-- d@0.1.1
+¦ ¦ +-- es5-ext@0.10.12
+¦ ¦ +-- es6-iterator@2.0.0
+¦ ¦ +-- es6-set@0.1.4
+¦ ¦ +-- es6-symbol@3.1.0
+¦ ¦ +-- event-emitter@0.3.4
+¦ +-- escope@3.6.0
+¦ ¦ +-- es6-weak-map@2.0.1
+¦ ¦ ¦ +-- d@0.1.1
+¦ ¦ ¦ +-- es5-ext@0.10.12
+¦ ¦ ¦ +-- es6-iterator@2.0.0
+¦ ¦ ¦ +-- es6-symbol@3.1.0
+¦ ¦ +-- esrecurse@4.1.0
+¦ ¦   +-- estraverse@4.1.1
+¦ ¦   +-- object-assign@4.1.0
+¦ +-- espree@3.3.2
+¦ ¦ +-- acorn@4.0.3
+¦ ¦ +-- acorn-jsx@3.0.1
+¦ ¦   +-- acorn@3.3.0
+¦ +-- estraverse@4.2.0
+¦ +-- esutils@2.0.2
+¦ +-- file-entry-cache@1.3.1
+¦ ¦ +-- flat-cache@1.2.1
+¦ ¦ ¦ +-- circular-json@0.3.1
+¦ ¦ ¦ +-- del@2.2.2
+¦ ¦ ¦ ¦ +-- globby@5.0.0
+¦ ¦ ¦ ¦ ¦ +-- array-union@1.0.2
+¦ ¦ ¦ ¦ ¦ ¦ +-- array-uniq@1.0.3
+¦ ¦ ¦ ¦ ¦ +-- arrify@1.0.1
+¦ ¦ ¦ ¦ +-- is-path-cwd@1.0.0
+¦ ¦ ¦ ¦ +-- is-path-in-cwd@1.0.0
+¦ ¦ ¦ ¦ ¦ +-- is-path-inside@1.0.0
+¦ ¦ ¦ ¦ +-- pify@2.3.0
+¦ ¦ ¦ ¦ +-- pinkie-promise@2.0.1
+¦ ¦ ¦ ¦ ¦ +-- pinkie@2.0.4
+¦ ¦ ¦ ¦ +-- rimraf@2.5.4
+¦ ¦ ¦ +-- graceful-fs@4.1.9
+¦ ¦ ¦ +-- write@0.2.1
+¦ ¦ +-- object-assign@4.1.0
+¦ +-- glob@7.1.1
+¦ ¦ +-- fs.realpath@1.0.0
+¦ ¦ +-- inflight@1.0.6
+¦ ¦ ¦ +-- wrappy@1.0.2
+¦ ¦ +-- inherits@2.0.3
+¦ ¦ +-- minimatch@3.0.3
+¦ ¦ ¦ +-- brace-expansion@1.1.6
+¦ ¦ ¦   +-- balanced-match@0.4.2
+¦ ¦ ¦   +-- concat-map@0.0.1
+¦ ¦ +-- once@1.4.0
+¦ ¦   +-- wrappy@1.0.2
+¦ +-- globals@9.12.0
+¦ +-- ignore@3.2.0
+¦ +-- imurmurhash@0.1.4
+¦ +-- inquirer@0.12.0
+¦ ¦ +-- ansi-escapes@1.4.0
+¦ ¦ +-- ansi-regex@2.0.0
+¦ ¦ +-- cli-cursor@1.0.2
+¦ ¦ ¦ +-- restore-cursor@1.0.1
+¦ ¦ ¦   +-- exit-hook@1.1.1
+¦ ¦ ¦   +-- onetime@1.1.0
+¦ ¦ +-- cli-width@2.1.0
+¦ ¦ +-- figures@1.7.0
+¦ ¦ ¦ +-- escape-string-regexp@1.0.5
+¦ ¦ ¦ +-- object-assign@4.1.0
+¦ ¦ +-- readline2@1.0.1
+¦ ¦ ¦ +-- code-point-at@1.0.1
+¦ ¦ ¦ ¦ +-- number-is-nan@1.0.1
+¦ ¦ ¦ +-- is-fullwidth-code-point@1.0.0
+¦ ¦ ¦ ¦ +-- number-is-nan@1.0.1
+¦ ¦ ¦ +-- mute-stream@0.0.5
+¦ ¦ +-- run-async@0.1.0
+¦ ¦ ¦ +-- once@1.4.0
+¦ ¦ ¦   +-- wrappy@1.0.2
+¦ ¦ +-- rx-lite@3.1.2
+¦ ¦ +-- string-width@1.0.2
+¦ ¦ ¦ +-- code-point-at@1.0.1
+¦ ¦ ¦ ¦ +-- number-is-nan@1.0.1
+¦ ¦ ¦ +-- is-fullwidth-code-point@1.0.0
+¦ ¦ ¦   +-- number-is-nan@1.0.1
+¦ ¦ +-- strip-ansi@3.0.1
+¦ ¦ +-- through@2.3.8
+¦ +-- is-my-json-valid@2.15.0
+¦ ¦ +-- generate-function@2.0.0
+¦ ¦ +-- generate-object-property@1.2.0
+¦ ¦ ¦ +-- is-property@1.0.2
+¦ ¦ +-- jsonpointer@4.0.0
+¦ ¦ +-- xtend@4.0.1
+¦ +-- is-resolvable@1.0.0
+¦ ¦ +-- tryit@1.0.3
+¦ +-- js-yaml@3.6.1
+¦ ¦ +-- argparse@1.0.9
+¦ ¦ ¦ +-- sprintf-js@1.0.3
+¦ ¦ +-- esprima@2.7.3
+¦ +-- json-stable-stringify@1.0.1
+¦ ¦ +-- jsonify@0.0.0
+¦ +-- levn@0.3.0
+¦ ¦ +-- prelude-ls@1.1.2
+¦ ¦ +-- type-check@0.3.2
+¦ +-- lodash@4.16.6
+¦ +-- mkdirp@0.5.1
+¦ ¦ +-- minimist@0.0.8
+¦ +-- optionator@0.8.2
+¦ ¦ +-- deep-is@0.1.3
+¦ ¦ +-- fast-levenshtein@2.0.5
+¦ ¦ +-- prelude-ls@1.1.2
+¦ ¦ +-- type-check@0.3.2
+¦ ¦ +-- wordwrap@1.0.0
+¦ +-- path-is-absolute@1.0.1
+¦ +-- path-is-inside@1.0.2
+¦ +-- pluralize@1.2.1
+¦ +-- progress@1.1.8
+¦ +-- require-uncached@1.0.2
+¦ ¦ +-- caller-path@0.1.0
+¦ ¦ ¦ +-- callsites@0.2.0
+¦ ¦ +-- resolve-from@1.0.1
+¦ +-- shelljs@0.6.1
+¦ +-- strip-json-comments@1.0.4
+¦ +-- table@3.8.3
+¦ ¦ +-- ajv@4.8.2
+¦ ¦ ¦ +-- co@4.6.0
+¦ ¦ +-- ajv-keywords@1.1.1
+¦ ¦ +-- slice-ansi@0.0.4
+¦ ¦ +-- string-width@2.0.0
+¦ ¦   +-- is-fullwidth-code-point@2.0.0
+¦ ¦   +-- strip-ansi@3.0.1
+¦ ¦     +-- ansi-regex@2.0.0
+¦ +-- text-table@0.2.0
+¦ +-- user-home@2.0.0
+¦   +-- os-homedir@1.0.2
++-- eslint-config-airbnb@6.2.0
++-- eslint-plugin-import@1.16.0
+¦ +-- builtin-modules@1.1.1
+¦ +-- contains-path@0.1.0
+¦ +-- doctrine@1.3.0
+¦ ¦ +-- esutils@2.0.2
+¦ ¦ +-- isarray@1.0.0
+¦ +-- es6-map@0.1.4
+¦ ¦ +-- d@0.1.1
+¦ ¦ +-- es5-ext@0.10.12
+¦ ¦ +-- es6-iterator@2.0.0
+¦ ¦ +-- es6-symbol@3.1.0
+¦ ¦ +-- event-emitter@0.3.4
+¦ +-- es6-set@0.1.4
+¦ ¦ +-- d@0.1.1
+¦ ¦ +-- es5-ext@0.10.12
+¦ ¦ +-- es6-iterator@2.0.0
+¦ ¦ +-- es6-symbol@3.1.0
+¦ ¦ +-- event-emitter@0.3.4
+¦ +-- eslint-import-resolver-node@0.2.3
+¦ ¦ +-- resolve@1.1.7
+¦ +-- has@1.0.1
+¦ ¦ +-- function-bind@1.1.0
+¦ +-- lodash.cond@4.5.2
+¦ +-- lodash.endswith@4.2.1
+¦ +-- lodash.find@4.6.0
+¦ +-- lodash.findindex@4.6.0
+¦ +-- minimatch@3.0.3
+¦ ¦ +-- brace-expansion@1.1.6
+¦ ¦   +-- balanced-match@0.4.2
+¦ ¦   +-- concat-map@0.0.1
+¦ +-- object-assign@4.1.0
+¦ +-- pkg-dir@1.0.0
+¦ ¦ +-- find-up@1.1.2
+¦ ¦   +-- path-exists@2.1.0
+¦ ¦   +-- pinkie-promise@2.0.1
+¦ ¦     +-- pinkie@2.0.4
+¦ +-- pkg-up@1.0.0
+¦   +-- find-up@1.1.2
+¦     +-- path-exists@2.1.0
+¦     +-- pinkie-promise@2.0.1
+¦       +-- pinkie@2.0.4
++-- eslint-plugin-react@4.3.0
++-- express@4.13.4
+¦ +-- accepts@1.2.13
+¦ ¦ +-- mime-types@2.1.12
+¦ ¦ ¦ +-- mime-db@1.24.0
+¦ ¦ +-- negotiator@0.5.3
+¦ +-- array-flatten@1.1.1
+¦ +-- content-disposition@0.5.1
+¦ +-- content-type@1.0.2
+¦ +-- cookie@0.1.5
+¦ +-- cookie-signature@1.0.6
+¦ +-- depd@1.1.0
+¦ +-- escape-html@1.0.3
+¦ +-- etag@1.7.0
+¦ +-- finalhandler@0.4.1
+¦ ¦ +-- unpipe@1.0.0
+¦ +-- fresh@0.3.0
+¦ +-- merge-descriptors@1.0.1
+¦ +-- methods@1.1.2
+¦ +-- on-finished@2.3.0
+¦ ¦ +-- ee-first@1.1.1
+¦ +-- parseurl@1.3.1
+¦ +-- path-to-regexp@0.1.7
+¦ +-- proxy-addr@1.0.10
+¦ ¦ +-- forwarded@0.1.0
+¦ ¦ +-- ipaddr.js@1.0.5
+¦ +-- qs@4.0.0
+¦ +-- range-parser@1.0.3
+¦ +-- send@0.13.1
+¦ ¦ +-- destroy@1.0.4
+¦ ¦ +-- http-errors@1.3.1
+¦ ¦ ¦ +-- inherits@2.0.3
+¦ ¦ +-- mime@1.3.4
+¦ ¦ +-- ms@0.7.1
+¦ ¦ +-- statuses@1.2.1
+¦ +-- serve-static@1.10.3
+¦ ¦ +-- send@0.13.2
+¦ ¦   +-- destroy@1.0.4
+¦ ¦   +-- http-errors@1.3.1
+¦ ¦   ¦ +-- inherits@2.0.3
+¦ ¦   +-- mime@1.3.4
+¦ ¦   +-- ms@0.7.1
+¦ ¦   +-- statuses@1.2.1
+¦ +-- type-is@1.6.13
+¦ ¦ +-- media-typer@0.3.0
+¦ ¦ +-- mime-types@2.1.12
+¦ ¦   +-- mime-db@1.24.0
+¦ +-- utils-merge@1.0.0
+¦ +-- vary@1.0.1
++-- express-session@1.14.2
+¦ +-- cookie@0.3.1
+¦ +-- cookie-signature@1.0.6
+¦ +-- crc@3.4.1
+¦ +-- depd@1.1.0
+¦ +-- on-headers@1.0.1
+¦ +-- parseurl@1.3.1
+¦ +-- uid-safe@2.1.3
+¦ ¦ +-- base64-url@1.3.3
+¦ ¦ +-- random-bytes@1.0.0
+¦ +-- utils-merge@1.0.0
++-- gulp@3.9.1
+¦ +-- archy@1.0.0
+¦ +-- chalk@1.1.3
+¦ ¦ +-- ansi-styles@2.2.1
+¦ ¦ +-- escape-string-regexp@1.0.5
+¦ ¦ +-- has-ansi@2.0.0
+¦ ¦ ¦ +-- ansi-regex@2.0.0
+¦ ¦ +-- strip-ansi@3.0.1
+¦ ¦ ¦ +-- ansi-regex@2.0.0
+¦ ¦ +-- supports-color@2.0.0
+¦ +-- deprecated@0.0.1
+¦ +-- gulp-util@3.0.7
+¦ ¦ +-- array-differ@1.0.0
+¦ ¦ +-- array-uniq@1.0.3
+¦ ¦ +-- beeper@1.1.0
+¦ ¦ +-- dateformat@1.0.12
+¦ ¦ ¦ +-- get-stdin@4.0.1
+¦ ¦ ¦ +-- meow@3.7.0
+¦ ¦ ¦   +-- camelcase-keys@2.1.0
+¦ ¦ ¦   ¦ +-- camelcase@2.1.1
+¦ ¦ ¦   +-- decamelize@1.2.0
+¦ ¦ ¦   +-- loud-rejection@1.6.0
+¦ ¦ ¦   ¦ +-- currently-unhandled@0.4.1
+¦ ¦ ¦   ¦ ¦ +-- array-find-index@1.0.2
+¦ ¦ ¦   ¦ +-- signal-exit@3.0.1
+¦ ¦ ¦   +-- map-obj@1.0.1
+¦ ¦ ¦   +-- normalize-package-data@2.3.5
+¦ ¦ ¦   ¦ +-- hosted-git-info@2.1.5
+¦ ¦ ¦   ¦ +-- is-builtin-module@1.0.0
+¦ ¦ ¦   ¦ ¦ +-- builtin-modules@1.1.1
+¦ ¦ ¦   ¦ +-- validate-npm-package-license@3.0.1
+¦ ¦ ¦   ¦   +-- spdx-correct@1.0.2
+¦ ¦ ¦   ¦   ¦ +-- spdx-license-ids@1.2.2
+¦ ¦ ¦   ¦   +-- spdx-expression-parse@1.0.4
+¦ ¦ ¦   +-- object-assign@4.1.0
+¦ ¦ ¦   +-- read-pkg-up@1.0.1
+¦ ¦ ¦   ¦ +-- find-up@1.1.2
+¦ ¦ ¦   ¦ ¦ +-- path-exists@2.1.0
+¦ ¦ ¦   ¦ ¦ +-- pinkie-promise@2.0.1
+¦ ¦ ¦   ¦ ¦   +-- pinkie@2.0.4
+¦ ¦ ¦   ¦ +-- read-pkg@1.1.0
+¦ ¦ ¦   ¦   +-- load-json-file@1.1.0
+¦ ¦ ¦   ¦   ¦ +-- graceful-fs@4.1.9
+¦ ¦ ¦   ¦   ¦ +-- parse-json@2.2.0
+¦ ¦ ¦   ¦   ¦ ¦ +-- error-ex@1.3.0
+¦ ¦ ¦   ¦   ¦ ¦   +-- is-arrayish@0.2.1
+¦ ¦ ¦   ¦   ¦ +-- pify@2.3.0
+¦ ¦ ¦   ¦   ¦ +-- pinkie-promise@2.0.1
+¦ ¦ ¦   ¦   ¦ ¦ +-- pinkie@2.0.4
+¦ ¦ ¦   ¦   ¦ +-- strip-bom@2.0.0
+¦ ¦ ¦   ¦   ¦   +-- is-utf8@0.2.1
+¦ ¦ ¦   ¦   +-- path-type@1.1.0
+¦ ¦ ¦   ¦     +-- graceful-fs@4.1.9
+¦ ¦ ¦   ¦     +-- pify@2.3.0
+¦ ¦ ¦   ¦     +-- pinkie-promise@2.0.1
+¦ ¦ ¦   ¦       +-- pinkie@2.0.4
+¦ ¦ ¦   +-- redent@1.0.0
+¦ ¦ ¦   ¦ +-- indent-string@2.1.0
+¦ ¦ ¦   ¦ ¦ +-- repeating@2.0.1
+¦ ¦ ¦   ¦ ¦   +-- is-finite@1.0.2
+¦ ¦ ¦   ¦ ¦     +-- number-is-nan@1.0.1
+¦ ¦ ¦   ¦ +-- strip-indent@1.0.1
+¦ ¦ ¦   +-- trim-newlines@1.0.0
+¦ ¦ +-- fancy-log@1.2.0
+¦ ¦ ¦ +-- time-stamp@1.0.1
+¦ ¦ +-- gulplog@1.0.0
+¦ ¦ ¦ +-- glogg@1.0.0
+¦ ¦ ¦   +-- sparkles@1.0.0
+¦ ¦ +-- has-gulplog@0.1.0
+¦ ¦ ¦ +-- sparkles@1.0.0
+¦ ¦ +-- lodash._reescape@3.0.0
+¦ ¦ +-- lodash._reevaluate@3.0.0
+¦ ¦ +-- lodash._reinterpolate@3.0.0
+¦ ¦ +-- lodash.template@3.6.2
+¦ ¦ ¦ +-- lodash._basecopy@3.0.1
+¦ ¦ ¦ +-- lodash._basetostring@3.0.1
+¦ ¦ ¦ +-- lodash._basevalues@3.0.0
+¦ ¦ ¦ +-- lodash._isiterateecall@3.0.9
+¦ ¦ ¦ +-- lodash.escape@3.2.0
+¦ ¦ ¦ ¦ +-- lodash._root@3.0.1
+¦ ¦ ¦ +-- lodash.keys@3.1.2
+¦ ¦ ¦ ¦ +-- lodash._getnative@3.9.1
+¦ ¦ ¦ ¦ +-- lodash.isarguments@3.1.0
+¦ ¦ ¦ ¦ +-- lodash.isarray@3.0.4
+¦ ¦ ¦ +-- lodash.restparam@3.6.1
+¦ ¦ ¦ +-- lodash.templatesettings@3.1.1
+¦ ¦ +-- multipipe@0.1.2
+¦ ¦ ¦ +-- duplexer2@0.0.2
+¦ ¦ ¦   +-- readable-stream@1.1.14
+¦ ¦ ¦     +-- core-util-is@1.0.2
+¦ ¦ ¦     +-- inherits@2.0.3
+¦ ¦ ¦     +-- isarray@0.0.1
+¦ ¦ ¦     +-- string_decoder@0.10.31
+¦ ¦ +-- object-assign@3.0.0
+¦ ¦ +-- replace-ext@0.0.1
+¦ ¦ +-- through2@2.0.1
+¦ ¦ ¦ +-- readable-stream@2.0.6
+¦ ¦ ¦ ¦ +-- core-util-is@1.0.2
+¦ ¦ ¦ ¦ +-- inherits@2.0.3
+¦ ¦ ¦ ¦ +-- isarray@1.0.0
+¦ ¦ ¦ ¦ +-- process-nextick-args@1.0.7
+¦ ¦ ¦ ¦ +-- string_decoder@0.10.31
+¦ ¦ ¦ ¦ +-- util-deprecate@1.0.2
+¦ ¦ ¦ +-- xtend@4.0.1
+¦ ¦ +-- vinyl@0.5.3
+¦ ¦   +-- clone@1.0.2
+¦ ¦   +-- clone-stats@0.0.1
+¦ +-- interpret@1.0.1
+¦ +-- liftoff@2.3.0
+¦ ¦ +-- extend@3.0.0
+¦ ¦ +-- findup-sync@0.4.3
+¦ ¦ ¦ +-- detect-file@0.1.0
+¦ ¦ ¦ ¦ +-- fs-exists-sync@0.1.0
+¦ ¦ ¦ +-- is-glob@2.0.1
+¦ ¦ ¦ ¦ +-- is-extglob@1.0.0
+¦ ¦ ¦ +-- micromatch@2.3.11
+¦ ¦ ¦ ¦ +-- arr-diff@2.0.0
+¦ ¦ ¦ ¦ ¦ +-- arr-flatten@1.0.1
+¦ ¦ ¦ ¦ +-- array-unique@0.2.1
+¦ ¦ ¦ ¦ +-- braces@1.8.5
+¦ ¦ ¦ ¦ ¦ +-- expand-range@1.8.2
+¦ ¦ ¦ ¦ ¦ ¦ +-- fill-range@2.2.3
+¦ ¦ ¦ ¦ ¦ ¦   +-- is-number@2.1.0
+¦ ¦ ¦ ¦ ¦ ¦   +-- isobject@2.1.0
+¦ ¦ ¦ ¦ ¦ ¦   ¦ +-- isarray@1.0.0
+¦ ¦ ¦ ¦ ¦ ¦   +-- randomatic@1.1.5
+¦ ¦ ¦ ¦ ¦ ¦   +-- repeat-string@1.6.1
+¦ ¦ ¦ ¦ ¦ +-- preserve@0.2.0
+¦ ¦ ¦ ¦ ¦ +-- repeat-element@1.1.2
+¦ ¦ ¦ ¦ +-- expand-brackets@0.1.5
+¦ ¦ ¦ ¦ ¦ +-- is-posix-bracket@0.1.1
+¦ ¦ ¦ ¦ +-- extglob@0.3.2
+¦ ¦ ¦ ¦ +-- filename-regex@2.0.0
+¦ ¦ ¦ ¦ +-- is-extglob@1.0.0
+¦ ¦ ¦ ¦ +-- kind-of@3.0.4
+¦ ¦ ¦ ¦ ¦ +-- is-buffer@1.1.4
+¦ ¦ ¦ ¦ +-- normalize-path@2.0.1
+¦ ¦ ¦ ¦ +-- object.omit@2.0.1
+¦ ¦ ¦ ¦ ¦ +-- for-own@0.1.4
+¦ ¦ ¦ ¦ ¦ ¦ +-- for-in@0.1.6
+¦ ¦ ¦ ¦ ¦ +-- is-extendable@0.1.1
+¦ ¦ ¦ ¦ +-- parse-glob@3.0.4
+¦ ¦ ¦ ¦ ¦ +-- glob-base@0.3.0
+¦ ¦ ¦ ¦ ¦ ¦ +-- glob-parent@2.0.0
+¦ ¦ ¦ ¦ ¦ +-- is-dotfile@1.0.2
+¦ ¦ ¦ ¦ +-- regex-cache@0.4.3
+¦ ¦ ¦ ¦   +-- is-equal-shallow@0.1.3
+¦ ¦ ¦ ¦   +-- is-primitive@2.0.0
+¦ ¦ ¦ +-- resolve-dir@0.1.1
+¦ ¦ ¦   +-- expand-tilde@1.2.2
+¦ ¦ ¦   ¦ +-- os-homedir@1.0.2
+¦ ¦ ¦   +-- global-modules@0.2.3
+¦ ¦ ¦     +-- global-prefix@0.1.4
+¦ ¦ ¦     ¦ +-- ini@1.3.4
+¦ ¦ ¦     ¦ +-- osenv@0.1.3
+¦ ¦ ¦     ¦ ¦ +-- os-homedir@1.0.2
+¦ ¦ ¦     ¦ ¦ +-- os-tmpdir@1.0.2
+¦ ¦ ¦     ¦ +-- which@1.2.11
+¦ ¦ ¦     ¦   +-- isexe@1.1.2
+¦ ¦ ¦     +-- is-windows@0.2.0
+¦ ¦ +-- fined@1.0.2
+¦ ¦ ¦ +-- expand-tilde@1.2.2
+¦ ¦ ¦ ¦ +-- os-homedir@1.0.2
+¦ ¦ ¦ +-- lodash.assignwith@4.2.0
+¦ ¦ ¦ +-- lodash.isempty@4.4.0
+¦ ¦ ¦ +-- lodash.pick@4.4.0
+¦ ¦ ¦ +-- parse-filepath@1.0.1
+¦ ¦ ¦   +-- is-absolute@0.2.6
+¦ ¦ ¦   ¦ +-- is-relative@0.2.1
+¦ ¦ ¦   ¦ ¦ +-- is-unc-path@0.1.1
+¦ ¦ ¦   ¦ ¦   +-- unc-path-regex@0.1.2
+¦ ¦ ¦   ¦ +-- is-windows@0.2.0
+¦ ¦ ¦   +-- map-cache@0.2.2
+¦ ¦ ¦   +-- path-root@0.1.1
+¦ ¦ ¦     +-- path-root-regex@0.1.2
+¦ ¦ +-- flagged-respawn@0.3.2
+¦ ¦ +-- lodash.isplainobject@4.0.6
+¦ ¦ +-- lodash.isstring@4.0.1
+¦ ¦ +-- lodash.mapvalues@4.6.0
+¦ ¦ +-- rechoir@0.6.2
+¦ ¦ +-- resolve@1.1.7
+¦ +-- minimist@1.2.0
+¦ +-- orchestrator@0.3.7
+¦ ¦ +-- end-of-stream@0.1.5
+¦ ¦ ¦ +-- once@1.3.3
+¦ ¦ ¦   +-- wrappy@1.0.2
+¦ ¦ +-- sequencify@0.0.7
+¦ ¦ +-- stream-consume@0.1.0
+¦ +-- pretty-hrtime@1.0.2
+¦ +-- semver@4.3.6
+¦ +-- tildify@1.2.0
+¦ ¦ +-- os-homedir@1.0.2
+¦ +-- v8flags@2.0.11
+¦ ¦ +-- user-home@1.1.1
+¦ +-- vinyl-fs@0.3.14
+¦   +-- defaults@1.0.3
+¦   ¦ +-- clone@1.0.2
+¦   +-- glob-stream@3.1.18
+¦   ¦ +-- glob@4.5.3
+¦   ¦ ¦ +-- inflight@1.0.6
+¦   ¦ ¦ ¦ +-- wrappy@1.0.2
+¦   ¦ ¦ +-- inherits@2.0.3
+¦   ¦ ¦ +-- once@1.4.0
+¦   ¦ ¦   +-- wrappy@1.0.2
+¦   ¦ +-- glob2base@0.0.12
+¦   ¦ ¦ +-- find-index@0.1.1
+¦   ¦ +-- minimatch@2.0.10
+¦   ¦ ¦ +-- brace-expansion@1.1.6
+¦   ¦ ¦   +-- balanced-match@0.4.2
+¦   ¦ ¦   +-- concat-map@0.0.1
+¦   ¦ +-- ordered-read-streams@0.1.0
+¦   ¦ +-- unique-stream@1.0.0
+¦   +-- glob-watcher@0.0.6
+¦   ¦ +-- gaze@0.5.2
+¦   ¦   +-- globule@0.1.0
+¦   ¦     +-- glob@3.1.21
+¦   ¦     ¦ +-- graceful-fs@1.2.3
+¦   ¦     ¦ +-- inherits@1.0.2
+¦   ¦     +-- lodash@1.0.2
+¦   ¦     +-- minimatch@0.2.14
+¦   ¦       +-- lru-cache@2.7.3
+¦   ¦       +-- sigmund@1.0.1
+¦   +-- graceful-fs@3.0.11
+¦   ¦ +-- natives@1.1.0
+¦   +-- mkdirp@0.5.1
+¦   ¦ +-- minimist@0.0.8
+¦   +-- strip-bom@1.0.0
+¦   ¦ +-- first-chunk-stream@1.0.0
+¦   ¦ +-- is-utf8@0.2.1
+¦   +-- through2@0.6.5
+¦   ¦ +-- readable-stream@1.0.34
+¦   ¦ ¦ +-- core-util-is@1.0.2
+¦   ¦ ¦ +-- inherits@2.0.3
+¦   ¦ ¦ +-- isarray@0.0.1
+¦   ¦ ¦ +-- string_decoder@0.10.31
+¦   ¦ +-- xtend@4.0.1
+¦   +-- vinyl@0.4.6
+¦     +-- clone@0.2.0
+¦     +-- clone-stats@0.0.1
++-- gulp-nodemon@2.2.1
+¦ +-- colors@1.1.2
+¦ +-- event-stream@3.3.4
+¦ ¦ +-- duplexer@0.1.1
+¦ ¦ +-- from@0.1.3
+¦ ¦ +-- map-stream@0.1.0
+¦ ¦ +-- pause-stream@0.0.11
+¦ ¦ +-- split@0.3.3
+¦ ¦ +-- stream-combiner@0.0.4
+¦ ¦ +-- through@2.3.8
+¦ +-- nodemon@1.11.0
+¦   +-- chokidar@1.6.1
+¦   ¦ +-- anymatch@1.3.0
+¦   ¦ ¦ +-- arrify@1.0.1
+¦   ¦ ¦ +-- micromatch@2.3.11
+¦   ¦ ¦   +-- arr-diff@2.0.0
+¦   ¦ ¦   ¦ +-- arr-flatten@1.0.1
+¦   ¦ ¦   +-- array-unique@0.2.1
+¦   ¦ ¦   +-- braces@1.8.5
+¦   ¦ ¦   ¦ +-- expand-range@1.8.2
+¦   ¦ ¦   ¦ ¦ +-- fill-range@2.2.3
+¦   ¦ ¦   ¦ ¦   +-- is-number@2.1.0
+¦   ¦ ¦   ¦ ¦   +-- isobject@2.1.0
+¦   ¦ ¦   ¦ ¦   ¦ +-- isarray@1.0.0
+¦   ¦ ¦   ¦ ¦   +-- randomatic@1.1.5
+¦   ¦ ¦   ¦ ¦   +-- repeat-string@1.6.1
+¦   ¦ ¦   ¦ +-- preserve@0.2.0
+¦   ¦ ¦   ¦ +-- repeat-element@1.1.2
+¦   ¦ ¦   +-- expand-brackets@0.1.5
+¦   ¦ ¦   ¦ +-- is-posix-bracket@0.1.1
+¦   ¦ ¦   +-- extglob@0.3.2
+¦   ¦ ¦   +-- filename-regex@2.0.0
+¦   ¦ ¦   +-- is-extglob@1.0.0
+¦   ¦ ¦   +-- kind-of@3.0.4
+¦   ¦ ¦   ¦ +-- is-buffer@1.1.4
+¦   ¦ ¦   +-- normalize-path@2.0.1
+¦   ¦ ¦   +-- object.omit@2.0.1
+¦   ¦ ¦   ¦ +-- for-own@0.1.4
+¦   ¦ ¦   ¦ ¦ +-- for-in@0.1.6
+¦   ¦ ¦   ¦ +-- is-extendable@0.1.1
+¦   ¦ ¦   +-- parse-glob@3.0.4
+¦   ¦ ¦   ¦ +-- glob-base@0.3.0
+¦   ¦ ¦   ¦ +-- is-dotfile@1.0.2
+¦   ¦ ¦   +-- regex-cache@0.4.3
+¦   ¦ ¦     +-- is-equal-shallow@0.1.3
+¦   ¦ ¦     +-- is-primitive@2.0.0
+¦   ¦ +-- async-each@1.0.1
+¦   ¦ +-- glob-parent@2.0.0
+¦   ¦ +-- inherits@2.0.3
+¦   ¦ +-- is-binary-path@1.0.1
+¦   ¦ ¦ +-- binary-extensions@1.7.0
+¦   ¦ +-- is-glob@2.0.1
+¦   ¦ ¦ +-- is-extglob@1.0.0
+¦   ¦ +-- path-is-absolute@1.0.1
+¦   ¦ +-- readdirp@2.1.0
+¦   ¦   +-- graceful-fs@4.1.9
+¦   ¦   +-- readable-stream@2.1.5
+¦   ¦   ¦ +-- buffer-shims@1.0.0
+¦   ¦   ¦ +-- core-util-is@1.0.2
+¦   ¦   ¦ +-- isarray@1.0.0
+¦   ¦   ¦ +-- process-nextick-args@1.0.7
+¦   ¦   ¦ +-- string_decoder@0.10.31
+¦   ¦   ¦ +-- util-deprecate@1.0.2
+¦   ¦   +-- set-immediate-shim@1.0.1
+¦   +-- es6-promise@3.3.1
+¦   +-- ignore-by-default@1.0.1
+¦   +-- lodash.defaults@3.1.2
+¦   ¦ +-- lodash.assign@3.2.0
+¦   ¦ ¦ +-- lodash._baseassign@3.2.0
+¦   ¦ ¦ ¦ +-- lodash._basecopy@3.0.1
+¦   ¦ ¦ +-- lodash._createassigner@3.1.1
+¦   ¦ ¦ ¦ +-- lodash._bindcallback@3.0.1
+¦   ¦ ¦ ¦ +-- lodash._isiterateecall@3.0.9
+¦   ¦ ¦ +-- lodash.keys@3.1.2
+¦   ¦ ¦   +-- lodash._getnative@3.9.1
+¦   ¦ ¦   +-- lodash.isarguments@3.1.0
+¦   ¦ ¦   +-- lodash.isarray@3.0.4
+¦   ¦ +-- lodash.restparam@3.6.1
+¦   +-- minimatch@3.0.3
+¦   ¦ +-- brace-expansion@1.1.6
+¦   ¦   +-- balanced-match@0.4.2
+¦   ¦   +-- concat-map@0.0.1
+¦   +-- ps-tree@1.1.0
+¦   +-- touch@1.0.0
+¦   ¦ +-- nopt@1.0.10
+¦   ¦   +-- abbrev@1.0.9
+¦   +-- undefsafe@0.0.3
+¦   +-- update-notifier@0.5.0
+¦     +-- chalk@1.1.3
+¦     ¦ +-- ansi-styles@2.2.1
+¦     ¦ +-- escape-string-regexp@1.0.5
+¦     ¦ +-- has-ansi@2.0.0
+¦     ¦ ¦ +-- ansi-regex@2.0.0
+¦     ¦ +-- strip-ansi@3.0.1
+¦     ¦ ¦ +-- ansi-regex@2.0.0
+¦     ¦ +-- supports-color@2.0.0
+¦     +-- configstore@1.4.0
+¦     ¦ +-- graceful-fs@4.1.9
+¦     ¦ +-- mkdirp@0.5.1
+¦     ¦ ¦ +-- minimist@0.0.8
+¦     ¦ +-- object-assign@4.1.0
+¦     ¦ +-- os-tmpdir@1.0.2
+¦     ¦ +-- osenv@0.1.3
+¦     ¦ ¦ +-- os-homedir@1.0.2
+¦     ¦ +-- uuid@2.0.3
+¦     ¦ +-- write-file-atomic@1.2.0
+¦     ¦ ¦ +-- imurmurhash@0.1.4
+¦     ¦ ¦ +-- slide@1.1.6
+¦     ¦ +-- xdg-basedir@2.0.0
+¦     ¦   +-- os-homedir@1.0.2
+¦     +-- is-npm@1.0.0
+¦     +-- latest-version@1.0.1
+¦     ¦ +-- package-json@1.2.0
+¦     ¦   +-- got@3.3.1
+¦     ¦   ¦ +-- duplexify@3.5.0
+¦     ¦   ¦ ¦ +-- end-of-stream@1.0.0
+¦     ¦   ¦ ¦ ¦ +-- once@1.3.3
+¦     ¦   ¦ ¦ ¦   +-- wrappy@1.0.2
+¦     ¦   ¦ ¦ +-- inherits@2.0.3
+¦     ¦   ¦ ¦ +-- readable-stream@2.1.5
+¦     ¦   ¦ ¦ ¦ +-- buffer-shims@1.0.0
+¦     ¦   ¦ ¦ ¦ +-- core-util-is@1.0.2
+¦     ¦   ¦ ¦ ¦ +-- isarray@1.0.0
+¦     ¦   ¦ ¦ ¦ +-- process-nextick-args@1.0.7
+¦     ¦   ¦ ¦ ¦ +-- string_decoder@0.10.31
+¦     ¦   ¦ ¦ ¦ +-- util-deprecate@1.0.2
+¦     ¦   ¦ ¦ +-- stream-shift@1.0.0
+¦     ¦   ¦ +-- infinity-agent@2.0.3
+¦     ¦   ¦ +-- is-redirect@1.0.0
+¦     ¦   ¦ +-- is-stream@1.1.0
+¦     ¦   ¦ +-- lowercase-keys@1.0.0
+¦     ¦   ¦ +-- nested-error-stacks@1.0.2
+¦     ¦   ¦ ¦ +-- inherits@2.0.3
+¦     ¦   ¦ +-- object-assign@3.0.0
+¦     ¦   ¦ +-- prepend-http@1.0.4
+¦     ¦   ¦ +-- read-all-stream@3.1.0
+¦     ¦   ¦ ¦ +-- pinkie-promise@2.0.1
+¦     ¦   ¦ ¦ ¦ +-- pinkie@2.0.4
+¦     ¦   ¦ ¦ +-- readable-stream@2.1.5
+¦     ¦   ¦ ¦   +-- buffer-shims@1.0.0
+¦     ¦   ¦ ¦   +-- core-util-is@1.0.2
+¦     ¦   ¦ ¦   +-- inherits@2.0.3
+¦     ¦   ¦ ¦   +-- isarray@1.0.0
+¦     ¦   ¦ ¦   +-- process-nextick-args@1.0.7
+¦     ¦   ¦ ¦   +-- string_decoder@0.10.31
+¦     ¦   ¦ ¦   +-- util-deprecate@1.0.2
+¦     ¦   ¦ +-- timed-out@2.0.0
+¦     ¦   +-- registry-url@3.1.0
+¦     ¦     +-- rc@1.1.6
+¦     ¦       +-- deep-extend@0.4.1
+¦     ¦       +-- ini@1.3.4
+¦     ¦       +-- minimist@1.2.0
+¦     ¦       +-- strip-json-comments@1.0.4
+¦     +-- repeating@1.1.3
+¦     ¦ +-- is-finite@1.0.2
+¦     ¦   +-- number-is-nan@1.0.1
+¦     +-- semver-diff@2.1.0
+¦     ¦ +-- semver@5.3.0
+¦     +-- string-length@1.0.1
+¦       +-- strip-ansi@3.0.1
+¦         +-- ansi-regex@2.0.0
++-- hbs@3.1.1
+¦ +-- handlebars@3.0.0
+¦ ¦ +-- optimist@0.6.1
+¦ ¦ ¦ +-- minimist@0.0.10
+¦ ¦ ¦ +-- wordwrap@0.0.3
+¦ ¦ +-- source-map@0.1.43
+¦ ¦ ¦ +-- amdefine@1.0.0
+¦ ¦ +-- uglify-js@2.3.6
+¦ ¦   +-- async@0.2.10
+¦ ¦   +-- optimist@0.3.7
+¦ ¦     +-- wordwrap@0.0.3
+¦ +-- walk@2.2.1
+¦   +-- forEachAsync@2.2.1
+¦     +-- sequence@2.2.1
++-- mocha@2.5.3
+¦ +-- commander@2.3.0
+¦ +-- diff@1.4.0
+¦ +-- escape-string-regexp@1.0.2
+¦ +-- glob@3.2.11
+¦ ¦ +-- inherits@2.0.3
+¦ ¦ +-- minimatch@0.3.0
+¦ ¦   +-- lru-cache@2.7.3
+¦ ¦   +-- sigmund@1.0.1
+¦ +-- growl@1.9.2
+¦ +-- jade@0.26.3
+¦ ¦ +-- commander@0.6.1
+¦ ¦ +-- mkdirp@0.3.0
+¦ +-- mkdirp@0.5.1
+¦ ¦ +-- minimist@0.0.8
+¦ +-- supports-color@1.2.0
+¦ +-- to-iso-string@0.0.2
++-- morgan@1.6.1
+¦ +-- basic-auth@1.0.4
+¦ +-- depd@1.0.1
+¦ +-- on-finished@2.3.0
+¦ ¦ +-- ee-first@1.1.1
+¦ +-- on-headers@1.0.1
++-- node-uuid@1.4.7
++-- oauth@0.9.14
++-- selenium-webdriver@2.53.3
+¦ +-- adm-zip@0.4.4
+¦ +-- rimraf@2.5.4
+¦ ¦ +-- glob@7.1.1
+¦ ¦   +-- fs.realpath@1.0.0
+¦ ¦   +-- inflight@1.0.6
+¦ ¦   ¦ +-- wrappy@1.0.2
+¦ ¦   +-- inherits@2.0.3
+¦ ¦   +-- minimatch@3.0.3
+¦ ¦   ¦ +-- brace-expansion@1.1.6
+¦ ¦   ¦   +-- balanced-match@0.4.2
+¦ ¦   ¦   +-- concat-map@0.0.1
+¦ ¦   +-- once@1.4.0
+¦ ¦   ¦ +-- wrappy@1.0.2
+¦ ¦   +-- path-is-absolute@1.0.1
+¦ +-- tmp@0.0.24
+¦ +-- ws@1.1.1
+¦ ¦ +-- options@0.0.6
+¦ ¦ +-- ultron@1.0.2
+¦ +-- xml2js@0.4.4
+¦   +-- sax@0.6.1
+¦   +-- xmlbuilder@8.2.2
++-- serve-favicon@2.3.0
+  +-- etag@1.7.0
+  +-- fresh@0.3.0
+  +-- ms@0.7.1
+  +-- parseurl@1.3.1
+
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/Node.js/TODO/Outlook/GitHub/nodejs-connect-rest-sample-master
+$ npm start
+
+> nodejs-connect-rest-sample@1.0.0 start E:\Working\JavaScript\Node.js\TODO\Outlook\GitHub\nodejs-connect-rest-sample-master
+> mocha ./tests/confTest.js && node ./bin/www
+
+
+
+  ADAL
+    v Checking clientID and clientSecret in authHelper.js
+
+
+  1 passing (16ms)
+
+GET / 302 35.318 ms - 54
+GET /login 200 238.089 ms - 1482
+GET /stylesheets/style.css 200 10.535 ms - 647
+GET /img/favicon.ico 200 4.412 ms - 7358
+GET /login?code=OAQABAAAAAADRNYRQ3dhRSrm-4K-adpCJk6vJ8TWhiI24XRP0UbcX1Bob1-C2KB-H1qZN7AhuCA9JDi1phOpev7k-eC0NiGTtgIrKkueCI03tbPapg5YXzLjcjMxbXDtxyYhF1QyoWhuNvoBj7bYB3_oRBNfZ_Y_eywa7-s5elSUtM76Lsq0nAm2Gg6oqASvvKkgaQIrXEsZoEB19k6Z60gvpC4AoyEk1Zx2Nu01xo2B_3-LwPFKGL5KURp9netC-U0TaXKBNQC8e-Bt2bkeKz3xeW69Iy1V0MstUs93QNY8jvmdHgxDZe8Pa6FR6k_M9WdQj88TBhQWZSYC07KdySLXD4vYPU9IJZ3vtc1pZvo27SkrcNMXnp7uz97vaBpC99E_G8kMLhAeujHOVm7pMTGNtwfEssZ_pne3LVcbefamw3_BwNQJ8mZw5E3FqbDLxQ9nXV6iTw6ntCbVL92YcVRWv3QfGKdXExrZznR0LMT4iJO6MulzO8ok6fJmerDe3zw4MuxPZSAiLgHkSw-oD0CJ5DW9ELdWtfDHeBVsJgo0b6oSJh14pCdt5VHK00U7ORM2s0v84XMSkwpb0Td_VeleK448IRuYWU3M2NwPuWe-vlHpk-7xILDKWbN2-_Ax7ZAx1gCrEiOPmyxTfHpH7pI7b8MLnT90Z3uu_Q4rhCj2jx3_8tb0aE18EXjvg02RTE-ZNg8yjuD3idmy2_UiiRtfDlK6X2De1NULlGwfYFFECjP9UGrTYaEdN6cbvQCfKllB1rhhSJPtYkBmZBNoj3d-Jb3n-vvEFAENdjxjRbw28hxFWfXtctwgXv9Zg_xs0owFyuPJuQCWKPZUyxcs1726WYnwu74TEIAA&state=abcd&session_state=d7ee3234-9f3e-4353-a348-14a3cbb70254 302 1172.643 ms - 46
+GET / 200 2211.222 ms - 1636
+GET /stylesheets/style.css 304 10.628 ms - -
+POST / 200 6234.713 ms - 1795
+GET /stylesheets/style.css 304 3.862 ms - -
+POST / 200 689.586 ms - 1797
+GET /stylesheets/style.css 304 3.951 ms - -
+GET /disconnect 302 6.410 ms - 86
+GET / 302 2.726 ms - 54
+GET /login 200 10.569 ms - 1482
+GET /stylesheets/style.css 304 2.293 ms - -

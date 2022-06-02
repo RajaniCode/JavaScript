@@ -1,0 +1,57 @@
+1.5 Read File in Server
+
+Now that you know how to create an HTTP server and how to read a file off the filesystem in a non-blocking way, let's try to combine the two.
+
+Instead of just writing a string to the HTTP response, write the contents of index.html to the response instead.
+
+
+1. After response.writeHead(200), add a call to fs.readFile() that reads index.html asynchronously. Remember to pass a callback function, that accepts an error parameter, and a contents parameter.
+
+Answer: var contents = fs.readFile('index.html', function(err, contents){});
+
+app.js
+
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function(request, response) {
+  response.writeHead(200);
+  var contents = fs.readFile('index.html', function(err, contents){});
+  response.end();
+}).listen(8080);
+
+2. Now that you have the file contents, write it to the response.
+
+Answer: response.write(contents);
+
+app.js
+
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function(request, response) {
+  response.writeHead(200);
+  var contents = fs.readFile('index.html', function(err, contents){
+  response.write(contents);
+  });
+  response.end();
+}).listen(8080);
+
+3. To finish up, end the response after the file contents have been written.
+
+Answer: response.end();
+
+app.js
+
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function(request, response) {
+  response.writeHead(200);
+  var contents = fs.readFile('index.html', function(err, contents){
+  response.write(contents);
+  response.end();
+  });  
+}).listen(8080);
+
+

@@ -1,0 +1,32 @@
+Functions V
+
+Change the greet function so that it uses CoffeeScript-style string interpolation.
+
+CoffeeScript:
+greet = (name='Stranger') ->
+  "Hello, " + name
+
+JavaScript:
+var greet;
+greet = function(name) {
+  if (name == null) {
+    name = 'Stranger';
+  }
+  return "Hello, " + name;
+};
+
+
+Answer:
+
+CoffeeScript:
+greet = (name='Stranger') ->
+  "Hello, #{name}"
+
+JavaScript:
+var greet;
+greet = function(name) {
+  if (name == null) {
+    name = 'Stranger';
+  }
+  return "Hello, " + name;
+};

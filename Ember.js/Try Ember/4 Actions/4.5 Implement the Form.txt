@@ -1,0 +1,212 @@
+4.5 Implement the Form
+
+Now that a new Poll record is available, it's time to implement the new Poll functionality on the landing page.
+
+app/templates/index.hbs
+<header class="header">
+  <h2>New Poll</h2>
+  <p>Use the form below to create a new poll.</p>
+</header>
+
+<main class="card card--light">
+  <form class="form">
+    <fieldset class="form-field">
+      <label class="form-label">Question</label>
+      <input class="form-input" type="text">
+    </fieldset>
+
+    {{#each model.options as |option|}}
+      <fieldset class="form-field">
+        <label class="form-label">Option</label>
+        <input class="form-input" type="text">
+      </fieldset>
+    {{/each}}
+
+    <button class="btn btn--primary btn--form">Submit!</button>
+  </form>
+</main>
+
+<footer class="footer">
+  {{#link-to "polls"}}Find a question to answer{{/link-to}}
+
+  <p class="footer-copyright">
+    <span class="footer-copyright-text">&copy; Woodland Wanderer Whatchamacallits</span>
+  </p>
+</footer>
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    createPoll(poll) {
+      this.get('store').createPoll(poll);
+      this.transitionTo('polls.poll', poll);
+    }
+  },
+
+  model() {
+    return this.get('store').newPoll();
+  },
+
+  store: Ember.inject.service()
+});
+
+1. Update the index template to use an {{input}} helper for the Poll question. Remember, the Poll's question will be model.question in the template.
+
+Answer: 
+app/templates/index.hbs
+<header class="header">
+  <h2>New Poll</h2>
+  <p>Use the form below to create a new poll.</p>
+</header>
+
+<main class="card card--light">
+  <form class="form">
+    <fieldset class="form-field">
+      <label class="form-label">Question</label>
+      {{input class="form-input" type="text" value=model.question}}
+    </fieldset>
+
+    {{#each model.options as |option|}}
+      <fieldset class="form-field">
+        <label class="form-label">Option</label>
+        <input class="form-input" type="text">
+      </fieldset>
+    {{/each}}
+
+    <button class="btn btn--primary btn--form">Submit!</button>
+  </form>
+</main>
+
+<footer class="footer">
+  {{#link-to "polls"}}Find a question to answer{{/link-to}}
+
+  <p class="footer-copyright">
+    <span class="footer-copyright-text">&copy; Woodland Wanderer Whatchamacallits</span>
+  </p>
+</footer>
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    createPoll(poll) {
+      this.get('store').createPoll(poll);
+      this.transitionTo('polls.poll', poll);
+    }
+  },
+
+  model() {
+    return this.get('store').newPoll();
+  },
+
+  store: Ember.inject.service()
+});
+
+2. Update the index template to use {{input}} helpers for the Option values. Remember, the Option's value will be option.value within the iterator.
+
+Answer:
+app/templates/index.hbs
+<header class="header">
+  <h2>New Poll</h2>
+  <p>Use the form below to create a new poll.</p>
+</header>
+
+<main class="card card--light">
+  <form class="form">
+    <fieldset class="form-field">
+      <label class="form-label">Question</label>
+      {{input class="form-input" type="text" value=model.question}}
+    </fieldset>
+
+    {{#each model.options as |option|}}
+      <fieldset class="form-field">
+        <label class="form-label">Option</label>
+        {{input class="form-input" type="text" value=option.value}}
+      </fieldset>
+    {{/each}}
+
+    <button class="btn btn--primary btn--form">Submit!</button>
+  </form>
+</main>
+
+<footer class="footer">
+  {{#link-to "polls"}}Find a question to answer{{/link-to}}
+
+  <p class="footer-copyright">
+    <span class="footer-copyright-text">&copy; Woodland Wanderer Whatchamacallits</span>
+  </p>
+</footer>
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    createPoll(poll) {
+      this.get('store').createPoll(poll);
+      this.transitionTo('polls.poll', poll);
+    }
+  },
+
+  model() {
+    return this.get('store').newPoll();
+  },
+
+  store: Ember.inject.service()
+});
+
+3. Add an action to the <form> that triggers a createPoll action, passing the Poll ( model) to the action. Remember to indicate the event type on which the action should trigger!
+
+Answer:
+app/templates/index.hbs
+<header class="header">
+  <h2>New Poll</h2>
+  <p>Use the form below to create a new poll.</p>
+</header>
+
+<main class="card card--light">
+  <form class="form" {{action "createPoll" model on="submit"}}>
+    <fieldset class="form-field">
+      <label class="form-label">Question</label>
+      {{input class="form-input" type="text" value=model.question}}
+    </fieldset>
+
+    {{#each model.options as |option|}}
+      <fieldset class="form-field">
+        <label class="form-label">Option</label>
+        {{input class="form-input" type="text" value=option.value}}
+      </fieldset>
+    {{/each}}
+
+    <button class="btn btn--primary btn--form">Submit!</button>
+  </form>
+</main>
+
+<footer class="footer">
+  {{#link-to "polls"}}Find a question to answer{{/link-to}}
+
+  <p class="footer-copyright">
+    <span class="footer-copyright-text">&copy; Woodland Wanderer Whatchamacallits</span>
+  </p>
+</footer>
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    createPoll(poll) {
+      this.get('store').createPoll(poll);
+      this.transitionTo('polls.poll', poll);
+    }
+  },
+
+  model() {
+    return this.get('store').newPoll();
+  },
+
+  store: Ember.inject.service()
+});

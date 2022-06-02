@@ -1,0 +1,3 @@
+Get element class: $(this).attr('class');
+
+Get element id: $(this).attr('id');

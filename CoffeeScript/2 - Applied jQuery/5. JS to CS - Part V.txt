@@ -1,0 +1,26 @@
+JS to CS - Part V
+
+Convert the commented jQuery code below to CoffeeScript
+
+# $('.drink li').mouseenter(function() {
+#   $(this).find('span').show();
+# });
+# $('.drink li').mouseleave(function() {
+#   $(this).find('span').hide();
+# });
+
+Answer:
+
+CoffeeScript:
+$('.drink li').mouseenter ->
+  $(@).find('span').show()
+$('.drink li').mouseleave ->
+  $(@).find('span').hide()
+
+JavaScript:
+$('.drink li').mouseenter(function() {
+  return $(this).find('span').show();
+});
+$('.drink li').mouseleave(function() {
+  return $(this).find('span').hide();
+});

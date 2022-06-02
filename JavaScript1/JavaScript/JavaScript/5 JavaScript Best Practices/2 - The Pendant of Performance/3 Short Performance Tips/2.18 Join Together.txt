@@ -1,0 +1,11 @@
+2.18 Join Together
+
+A console appears floating before you, and Aiedra points to it with a dark arm.
+
+    "Using your new knowledge of native methods, merge this array into one sentence. Quickly now, do it the fastest way you know how. You should be able to accomplish this with a single line."
+
+  var array = ["The", "Inverted", "Peninsula", "reminds", "you", "of", 
+               "something", "just", "at", "the", "fringe", ",", 
+               "just", "out", "of", "grasp", "."];
+
+Answer: array.join(" ");

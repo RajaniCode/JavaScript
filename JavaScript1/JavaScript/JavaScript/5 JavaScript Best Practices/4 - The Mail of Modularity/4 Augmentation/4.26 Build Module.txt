@@ -1,0 +1,88 @@
+4.26 Build Module
+
+When you provide the correct answer, one of the corridors fades away entirely. A single entrance is left on the flat surface of the wall, as if the second had never existed.
+
+"Happily, you have avoided being lost in the Caves of Clarity forever," remarks Aiedra. "And though there is no way back, you have revealed the way forward."
+
+You step into the corridor and raise your torch. Almost instantly, a long pool of hot, liquid magma appears at your feet.
+
+"Before the Caves of Clarity bestows its gift upon you, you must give it a gift of your own." Aiedra points to the magma barrier. "To eliminate the barrier, you'll need to augment the CAVESOFCLARITY module with one piece of private data, and one public property that retrieves it. A series of tasks will complete your modifications."
+
+sandcript.js (Empty file)
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = function () {
+
+  var treasureChests = 3;
+  var bats = 345;
+
+  return {
+    stalactites: 4235,
+    stalagmites: 3924,
+    SECRET: {
+      openChest: function(){
+        treasureChests--;
+        alert("DA DADADA DAAAAAAA!");
+      }
+    }
+  };
+}();
+
+1. To the right is the new augmentation file for the caves, sandscript.js. First, build a namespace for your augmented module, and assign to it an empty function expression that is immediately invoked.
+
+Answer: 
+
+sandcript.js
+
+CAVESOFCLARITY = function(caves){
+}();
+
+2. Next, provide your function expression with the old module object to use. Call your function expression's parameter caves.
+
+Answer:
+
+CAVESOFCLARITY = function(caves){
+}(CAVESOFCLARITY);
+
+
+3. Create a new private property called sandScript, and assign to it the empty string "".
+
+Answer: var sandScript = "";
+
+sandcript.js
+
+CAVESOFCLARITY = function(caves){
+  var sandScript = "";
+}(CAVESOFCLARITY);
+
+4. Create a new public method in the module called setSandScript. This method should take in a string parameter called message, and assign that message as the private property sandScript's value.
+
+Answer:
+
+caves.setSandScript = function(message){
+    sandScript = message;
+};
+
+sandcript.js
+
+CAVESOFCLARITY = function(caves){
+  var sandScript = "";
+  caves.setSandScript = function(message){
+    sandScript = message;
+  };
+}(CAVESOFCLARITY);
+
+5. Return your newly augmented module back to the namespace name.
+
+Answer: return caves;
+
+sandcript.js
+
+CAVESOFCLARITY = function(caves){
+  var sandScript = "";
+  caves.setSandScript = function(message){
+    sandScript = message;
+  };
+  return caves;
+}(CAVESOFCLARITY);

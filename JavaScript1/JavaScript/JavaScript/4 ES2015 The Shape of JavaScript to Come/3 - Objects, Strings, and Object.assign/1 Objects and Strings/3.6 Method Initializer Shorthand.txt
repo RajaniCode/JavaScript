@@ -1,0 +1,70 @@
+3.6 Method Initializer Shorthand
+
+
+Let's refactor the code on the right to use some new ES2015 features.
+
+build-metadata.js
+
+function buildMetadata(object){
+  let id = parseInt(object.id);
+  let lastUpdatedAt = object.updatedAt || object.createdAt;
+  let hashCode = _buildHashCode(object);
+  
+  
+  
+  return { 
+    id, 
+    lastUpdatedAt, 
+    hashCode,
+    isSecureHash: function() {
+      return hashCode >= 32;
+    }
+  };
+}
+
+
+1. First, change the isSecureHash property to use the new method initializer shorthand.
+
+Answer:
+
+build-metadata.js
+
+function buildMetadata(object){
+  let id = parseInt(object.id);
+  let lastUpdatedAt = object.updatedAt || object.createdAt;
+  let hashCode = _buildHashCode(object);
+  
+  
+  
+  return { 
+    id, 
+    lastUpdatedAt, 
+    hashCode,
+    isSecureHash() {
+      return hashCode >= 32;
+    }
+  };
+}
+
+2. By now, the number 32 inside the isSecureHash should be an obvious bad smell. Create a new const named SECURE_HASH_CODE_LENGTH and replace this magic number inside the conditional with the new const.
+
+Answer:
+
+build-metadata.js
+
+function buildMetadata(object){
+  let id = parseInt(object.id);
+  let lastUpdatedAt = object.updatedAt || object.createdAt;
+  let hashCode = _buildHashCode(object);
+  const SECURE_HASH_CODE_LENGTH = 32; 
+  
+   
+  return { 
+    id, 
+    lastUpdatedAt, 
+    hashCode,
+    isSecureHash() {
+      return hashCode >= SECURE_HASH_CODE_LENGTH;
+    }
+  };
+}

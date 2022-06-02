@@ -1,0 +1,22 @@
+2.24 Included Or Not
+
+As you peruse the code as it stands, Aiedra wonders aloud whether there will be any impact of one test upon the other. Her tone does not seem to allow no response.
+
+var array = ["Inverted Peninsula", ", ", "Inverted Peninsula", 
+             ", ", "I", "—", "P", "...", "hmmm", "."];
+             
+var internalThoughts = "";
+
+console.time("Test");
+internalThoughts = array.join(" ");
+console.time("innerTest");
+console.log(internalThoughts);
+console.timeEnd("innerTest");
+console.timeEnd("Test");
+
+True or False? The time it takes to run console.time("innerTest"); will not be added to the value of console.time("Test");'s result.'
+
+True or False
+
+
+Answer: False

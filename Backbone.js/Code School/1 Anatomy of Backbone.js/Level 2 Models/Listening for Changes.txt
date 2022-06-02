@@ -1,0 +1,20 @@
+Listening for Changes
+
+Dr. Goodparts is upset that he wasn't notified when we changed his last appointment to cancelled.
+
+Add a listener to the appointment model instance to pop-up an alert box (using alert) whenever any of the model attributes change.
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+
+APPLICATION.JS
+
+var appointment = new Appointment({id: 1});
+
+Answer:
+
+var appointment = new Appointment({id: 1});
+appointment.on('change', function(){
+  alert('Model attributes changed');
+});

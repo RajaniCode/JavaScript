@@ -1,0 +1,397 @@
+4.5 Racing
+
+Time to implement the "Enter Race" button and "Cancel Race" link.
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  ngOnInit() {
+    this.races = RACES;
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+  
+}
+
+app/races.component.html
+
+<main class="container" role="main">
+<h2>Cash left to enter races: <span>{{cashLeft() | currency:'USD':true}}</span> </h2>
+<ul>
+  <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="race.image" [alt]="race.imageDescription">
+      </div>
+      <table class="race-info">
+        <tr>
+          <td>
+            <h3>{{race.name}}</h3>
+            <p class="date">{{race.date | date:'MMM d, y, h:MM a'}}</p>
+            <p class="description">{{race.about}}</p>
+          </td>
+          <td>
+            <p class="price">{{race.entryFee | currency:'USD':true}}</p>
+          </td>
+          <td>
+            <button class="button" *ngIf="!race.isRacing"   >Enter Race</button>
+            <div *ngIf="race.isRacing">
+              <p class="status">Racing</p>
+              <button class="button-cancel" >Cancel Race</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<div class="price-total">
+  <h3>Total cost:</h3>
+  <p>{{totalCost() | currency:'USD':true}}</p>
+</div>
+</main>
+
+1. First (because it's a little easier), let’s listen for the click event on the "Cancel Race" link and tell it to call the cancelRace() method. (Don’t forget to send the current race in.)
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  ngOnInit() {
+    this.races = RACES;
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+  
+}
+
+app/races.component.html
+
+<main class="container" role="main">
+<h2>Cash left to enter races: <span>{{cashLeft() | currency:'USD':true}}</span> </h2>
+<ul>
+  <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="race.image" [alt]="race.imageDescription">
+      </div>
+      <table class="race-info">
+        <tr>
+          <td>
+            <h3>{{race.name}}</h3>
+            <p class="date">{{race.date | date:'MMM d, y, h:MM a'}}</p>
+            <p class="description">{{race.about}}</p>
+          </td>
+          <td>
+            <p class="price">{{race.entryFee | currency:'USD':true}}</p>
+          </td>
+          <td>
+            <button class="button" *ngIf="!race.isRacing"   >Enter Race</button>
+            <div *ngIf="race.isRacing">
+              <p class="status">Racing</p>
+              <button class="button-cancel" (click)="cancelRace(race)">Cancel Race</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<div class="price-total">
+  <h3>Total cost:</h3>
+  <p>{{totalCost() | currency:'USD':true}}</p>
+</div>
+</main>
+
+2. Now let's implement the cancelRace() method in our component. It’ll simply need to set the race's isRacing to false.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  ngOnInit() {
+    this.races = RACES;
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+  cancelRace(race){
+    race.isRacing = false;
+  }
+}
+
+app/races.component.html
+
+<main class="container" role="main">
+<h2>Cash left to enter races: <span>{{cashLeft() | currency:'USD':true}}</span> </h2>
+<ul>
+  <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="race.image" [alt]="race.imageDescription">
+      </div>
+      <table class="race-info">
+        <tr>
+          <td>
+            <h3>{{race.name}}</h3>
+            <p class="date">{{race.date | date:'MMM d, y, h:MM a'}}</p>
+            <p class="description">{{race.about}}</p>
+          </td>
+          <td>
+            <p class="price">{{race.entryFee | currency:'USD':true}}</p>
+          </td>
+          <td>
+            <button class="button" *ngIf="!race.isRacing" (click)="enterRace(race)">Enter Race</button>
+            <div *ngIf="race.isRacing">
+              <p class="status">Racing</p>
+              <button class="button-cancel" (click)="cancelRace(race)">Cancel Race</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<div class="price-total">
+  <h3>Total cost:</h3>
+  <p>{{totalCost() | currency:'USD':true}}</p>
+</div>
+</main>
+
+3. Next, let's implement the "Enter Race" button by listening for a click and then calling the enterRace() method.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  ngOnInit() {
+    this.races = RACES;
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+  cancelRace(race){
+    race.isRacing = false;
+  }
+
+}
+
+app/races.component.html
+
+<main class="container" role="main">
+<h2>Cash left to enter races: <span>{{cashLeft() | currency:'USD':true}}</span> </h2>
+<ul>
+  <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="race.image" [alt]="race.imageDescription">
+      </div>
+      <table class="race-info">
+        <tr>
+          <td>
+            <h3>{{race.name}}</h3>
+            <p class="date">{{race.date | date:'MMM d, y, h:MM a'}}</p>
+            <p class="description">{{race.about}}</p>
+          </td>
+          <td>
+            <p class="price">{{race.entryFee | currency:'USD':true}}</p>
+          </td>
+          <td>
+            <button class="button" *ngIf="!race.isRacing" (click)="enterRace(race)">Enter Race</button>
+            <div *ngIf="race.isRacing">
+              <p class="status">Racing</p>
+              <button class="button-cancel" (click)="cancelRace(race)">Cancel Race</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<div class="price-total">
+  <h3>Total cost:</h3>
+  <p>{{totalCost() | currency:'USD':true}}</p>
+</div>
+</main>
+
+4. Here's where things get a little tricky. First, take a look at the cashLeft() method we wrote for you in races.component.ts. This returns how much cash we have left to enter races.
+
+Define an enterRace() method that checks to see if cashLeft() is greater than the race entryFee. If it is, then enter us in the race by setting isRacing to true, otherwise pop up a JavaScript alert() that says "You don't have enough cash".
+
+Answer:
+
+app/races.component.ts
+
+<main class="container" role="main">
+<h2>Cash left to enter races: <span>{{cashLeft() | currency:'USD':true}}</span> </h2>
+<ul>
+  <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="race.image" [alt]="race.imageDescription">
+      </div>
+      <table class="race-info">
+        <tr>
+          <td>
+            <h3>{{race.name}}</h3>
+            <p class="date">{{race.date | date:'MMM d, y, h:MM a'}}</p>
+            <p class="description">{{race.about}}</p>
+          </td>
+          <td>
+            <p class="price">{{race.entryFee | currency:'USD':true}}</p>
+          </td>
+          <td>
+            <button class="button" *ngIf="!race.isRacing" (click)="enterRace(race)">Enter Race</button>
+            <div *ngIf="race.isRacing">
+              <p class="status">Racing</p>
+              <button class="button-cancel" (click)="cancelRace(race)">Cancel Race</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<div class="price-total">
+  <h3>Total cost:</h3>
+  <p>{{totalCost() | currency:'USD':true}}</p>
+</div>
+</main>
+
+app/races.component.html
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  ngOnInit() {
+    this.races = RACES;
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+  cancelRace(race){
+    race.isRacing = false;
+  }
+  enterRace(race){
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    }
+    else {      
+      alert("You don't have enough cash");
+      race.isRacing = false;
+    }
+  }
+}

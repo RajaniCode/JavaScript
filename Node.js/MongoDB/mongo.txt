@@ -1,0 +1,1 @@
+mongo "mongodb+srv://rajanimongodbfreecluster-7b2fn.mongodb.net/test"  --username rajanimongodb --password RhLaPUA41ov8FiL2

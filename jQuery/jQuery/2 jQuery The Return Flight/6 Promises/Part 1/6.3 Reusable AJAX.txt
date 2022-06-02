@@ -1,0 +1,48 @@
+6.3 Reusable AJAX
+
+You have a piece of javascript code which uses an AJAX call to find the vacation price of cities. This code may be useful to use in a few different parts of your site. Lets go ahead and rewrite this to make it reusable.
+
+Create a Vacation JavaScript object which contains a getPrice function which takes one argument: location. Add the AJAX call currently in the application.js file to the getPrice function. Make sure this function returns a promise. Our "Update Price" button won't call it yet, but we'll do that next.
+
+HTML
+
+<div class="vacation-location">
+  <h3 class="location">London, UK</h3>
+  <p class="price"></p>
+  <button>Update Price</button>
+</div>
+
+application.js
+
+$(document).ready(function(){
+  $('button').on(click, function(){
+    var location = $('.location').text();
+    $.ajax('/vacation/prices', {
+      data: {q: location},
+      success: function(result){
+        $('.price').text(result.price);
+      }
+    });
+  });
+});
+
+AJAX Result
+
+{
+  price: 2600
+}
+
+vacation.js
+
+Answer:
+
+vacation.js
+
+var Vacation = {
+  getPrice: function(location){
+    var promise = $.ajax('/vacation/prices', {
+      data: {q: location}
+    });
+    return promise;
+  }
+}

@@ -1,0 +1,13 @@
+2.11 DOM Manipulation
+
+Where is the proper place to access the HTML element within a directive?
+
+    Inside a directive's controller
+
+    Inside a directive's link function
+
+    Inside a directive's manipulator
+
+Answer: Inside a directive's link function
+
+Note: The link function of a directive runs after the directive has been compiled and linked up

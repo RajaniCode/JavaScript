@@ -1,0 +1,140 @@
+4.6 Refactoring Product Tabs
+
+We feel like the Product Tabs section could be better managed if it were a directive.
+
+
+1. Create an element directive called productTabs. 
+
+Answer:
+
+app.js
+
+  app.directive('productTabs', function(){
+    return {
+      restrict: 'E'
+  	};  
+  });
+
+2. Tell your new directive to use the product-tabs.html template with the templateUrl attribute.
+
+Answer:
+
+app.js
+
+  app.directive('productTabs', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-tabs.html',
+      controller:function() { },
+      controllerAs: 'tabs'
+
+  	};  
+  }); 
+
+3. Give our productTabs directive all the tab functionality that is currently inside our TabController. Make sure that you do not delete the TabController yet. We don't want to break the site.
+
+Answer: 
+
+app.js
+
+  app.directive('productTabs', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-tabs.html',
+      controller: function() { 
+        this.tab = 1;
+        this.isSet = function(checkTab) {
+          return this.tab === checkTab;
+          };
+
+        this.setTab = function(setTab) {
+          this.tab = setTab;
+          };    
+      },
+      controllerAs: 'tabs'
+  	};  
+  }); 
+
+4. Add the controllerAs attribute to your directive setting it to tab so the directive knows what all the references to tab in product-tabs.html are.
+
+Answer:
+
+app.js
+
+  app.directive('productTabs', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'product-tabs.html',
+      controller: function() { 
+        this.tab = 1;
+        this.isSet = function(checkTab) {
+          return this.tab === checkTab;
+          };
+
+        this.setTab = function(setTab) {
+          this.tab = setTab;
+          };    
+      },
+      controllerAs: 'tab'
+  	};  
+  });
+
+5. Put the tabs section inside of the provided product-tabs.html. Remove the ng-controller from the section inside the file once moved.
+
+Answer:
+
+index.html
+
+Move to the following:
+
+product-tabs.html
+
+<section>
+<ul class="nav nav-pills">
+  <li ng-class="{ active:tab.isSet(1) }">
+    <a href ng-click="tab.setTab(1)">Description</a>
+  </li>
+  <li ng-class="{ active:tab.isSet(2) }">
+    <a href ng-click="tab.setTab(2)">Specs</a>
+  </li>
+  <li ng-class="{ active:tab.isSet(3) }">
+    <a href ng-click="tab.setTab(3)">Reviews</a>
+  </li>
+</ul>
+
+<!--  Description Tab's Content  -->
+<div ng-show="tab.isSet(1)" ng-include="'product-description.html'">
+</div>
+
+<!--  Spec Tab's Content  -->
+<div product-specs ng-show="tab.isSet(2)"></div>
+
+<!--  Review Tab's Content  -->
+<product-reviews ng-show="tab.isSet(3)"></product-reviews>
+</section>
+
+
+6. Now remove the product tabs section from index.html and the TabController from app.js. 
+
+Answer:
+
+app.js
+
+Remove the following:
+
+  app.controller("TabController", function() {
+    this.tab = 1;
+
+    this.isSet = function(checkTab) {
+      return this.tab === checkTab;
+    };
+
+    this.setTab = function(setTab) {
+      this.tab = setTab;
+    };
+  });
+
+
+7. Use our new productTabs directive where the tabs section used to be in our index.html.
+
+Answer: <product-tabs ng-show="tab.isSet(1)"> </product-tabs>  

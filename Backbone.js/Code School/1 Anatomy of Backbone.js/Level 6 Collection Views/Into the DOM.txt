@@ -1,0 +1,35 @@
+Into the DOM
+
+
+Wow, you are a hard worker! Let's see it pay off by rendering our collection view and inserting it into the DOM. Using the append or html jQuery methods, insert the top-level element into the #app div.
+
+MODELS
+
+var Appointment = Backbone.Model.extend({});
+ 
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment
+});
+
+VIEWS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span class="<%= if(cancelled) print("cancelled") %>">' +
+                        '<%= title %></span>' +
+                        '<a href="#">x</a>'),
+  
+ 
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
+});
+
+APPLICATION.JS
+
+var appointmentsView = new AppointmentListView({collection: appointmentList});
+
+Answer:
+
+appointmentsView.render();
+$('#app').html(appointmentsView.el);

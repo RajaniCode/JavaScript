@@ -1,0 +1,7 @@
+2.2 Scope-a-dope
+
+When using the controllerAs syntax, the controller's context (this) attaches things to the current scope behind the scenes.
+
+True or False
+
+Answer: True

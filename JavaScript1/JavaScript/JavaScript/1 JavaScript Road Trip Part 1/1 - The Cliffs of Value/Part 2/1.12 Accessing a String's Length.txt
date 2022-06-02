@@ -1,0 +1,9 @@
+1.12 Accessing a String's Length
+
+Create a single String whose length is equal to the result of the following expression:
+
+(10 * 3) / 2 + 3 * 6
+
+Then, submit your answer by using the length property of your new String.
+
+Answer: "1.12 Accessing a String's Length.".length

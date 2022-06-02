@@ -1,0 +1,9 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+Backbone Docs [http://backbonejs.org/]
+Backbone.js on Rails [https://workshops.thoughtbot.com/backbone-js-on-rails]
+Recipes with Backbone [http://recipeswithbackbone.com/]
+Backbone Patterns [http://ricostacruz.com/backbone-patterns/]
+Todo Example App Source [https://github.com/codeschool-courses/anatomyofbackbone]

@@ -1,0 +1,452 @@
+3.4 Implement the Service
+
+Now that the Poll and Option models exist, implement the store service to use them. The service has already been updated to create a local, private array of Poll records.
+
+app/services/store.js
+import Ember from 'ember';
+
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    return [
+      { id: '1', question: 'Which Poisonous Plant Are You?' },
+      { id: '2', question: 'Which Is Your Favorite Woodland Wanderer Way?' }
+    ];
+  }
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return {
+      id: params.poll_id,
+      question: 'This is poll #' + params.poll_id
+    };
+  }
+  
+  
+  
+});
+
+1. Import the Option and Poll models into the store service as Option and Poll, respectively.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    return [
+      { id: '1', question: 'Which Poisonous Plant Are You?' },
+      { id: '2', question: 'Which Is Your Favorite Woodland Wanderer Way?' }
+    ];
+  }
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return {
+      id: params.poll_id,
+      question: 'This is poll #' + params.poll_id
+    };
+  }
+  
+  
+  
+});
+
+2. Create a getPolls() function in the store to return the polls array.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+    getPolls() {
+    return polls;
+  }
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    return [
+      { id: '1', question: 'Which Poisonous Plant Are You?' },
+      { id: '2', question: 'Which Is Your Favorite Woodland Wanderer Way?' }
+    ];
+  }
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return {
+      id: params.poll_id,
+      question: 'This is poll #' + params.poll_id
+    };
+  }
+  
+  
+  
+});
+
+3. Add a getPollById() function to the store that accepts an id argument. In it, use findBy() to return the Poll record which contains a matching id property value.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+    getPolls() { return polls; }
+    getPollById(id) { return polls.findBy('id', id); }
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    return [
+      { id: '1', question: 'Which Poisonous Plant Are You?' },
+      { id: '2', question: 'Which Is Your Favorite Woodland Wanderer Way?' }
+    ];
+  }
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return {
+      id: params.poll_id,
+      question: 'This is poll #' + params.poll_id
+    };
+  }
+  
+  
+  
+});
+
+4. Update the polls and polls/poll routes to add a new store property to each. Use Ember to inject the store service into it.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+    getPolls() { return polls; }
+    getPollById(id) { return polls.findBy('id', id); }
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    const store = this.get('store');
+    return store.getPolls();
+  },
+  store: Ember.inject.service()
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return {
+      id: params.poll_id,
+      question: 'This is poll #' + params.poll_id
+    };
+  },
+  store: Ember.inject.service()
+  
+  
+  
+});
+
+5. Update the polls route's model to replace the hard-coded data and instead use the store service to return its getPolls() result.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+    getPolls() { return polls; }
+    getPollById(id) { return polls.findBy('id', id); }
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    const store = this.get('store');
+    return store.getPolls();
+  },
+  store: Ember.inject.service()
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return {
+      id: params.poll_id,
+      question: 'This is poll #' + params.poll_id
+    };
+  },
+  store: Ember.inject.service()
+  
+  
+  
+});
+
+6. Update the polls/poll route's model to return the store service's getPollById() result. Remember to pass the params.poll_id property to it.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade' }),
+      Option.create({ id: '2', value: 'Hemlock' }),
+      Option.create({ id: '3', value: 'Rhubarb' })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty' }),
+      Option.create({ id: '5', value: 'Integrity' }),
+      Option.create({ id: '6', value: 'Patience' })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+    getPolls() { return polls; }
+    getPollById(id) { return polls.findBy('id', id); }
+});
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    const store = this.get('store');
+    return store.getPolls();
+  },
+  store: Ember.inject.service()
+  
+  
+  
+});
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    const id = params.poll_id;
+    const store = this.get('store');
+    return store.getPollById(id);
+  },
+  store: Ember.inject.service()
+  
+  
+  
+});

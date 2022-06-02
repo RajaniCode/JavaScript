@@ -1,0 +1,35 @@
+
+$ npm test
+
+> code-breaker-project@1.0.0 test E:\Working\JavaScript\JavaScript\Code School\Projects\Build-a-Code-Breaker-Game-With-JavaScript\CodeBreakerProject
+> mocha -t 20000 test/*.spec.js
+
+
+
+  CodeBreaker :
+    setHiddenFields()
+      v should set the `value` of element `answer` to a random whole number between 0 and 9999. @randomNumber
+      v should set the `value` of element `answer` to a number exactly 4 characters long. @answerLength
+      v should set the `value` of element `attempt` to 0. @setAttempt
+      v should only run if the `value` of elements `attempt` or `answer` are empty. @preventClearing
+    setMessage()
+      v should accept one parameter and set the `innerHTML` of element `message` to that parameter. @setMessage
+    validateInput()
+      v should accept one parameter and return `true` only when that parameter's `length` is 4. @validateInput
+      v should run when `guess` runs @runValidation
+    getResults() @getResults
+      v should accept one parameter and add to the `results` element's `innerHTML` based on how close the parameter is to the value of element `answer`. Each result should begin with `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where `input` is the function's parameter. Foreach character in `input`: add `<span class="glyphicon glyphicon-ok"></span>` if the character is in the element `answer`s `value` and in the correct position, add `<span class="glyphicon glyphicon-transfer"></span>` if the character is in element `answer``s `value`, but is not in the correct position, and add `<span class="glyphicon glyphicon-remove"></span>` if the character is not in `answer`'s `value` at all. @getResults
+      v should return `true` if element `answer`'s `value` and parameter match, otherwise return `false` @correctGuess
+    guess()
+      v should call `setMessage` with value "You Win! :)" when `getResults` returns `true`. @winCondition
+      v should call `setMessage` with the value "You Lose! :(" when element `attempt`'s `value` is 10 or more and `getResurts` returns false. @loseCondition (44ms)
+      v should call `setMessage` with the value "Incorrect, try again." when element `answer`'s `value` does not match user input, but `attempt`'s `value` is less than 10. @tryAgain
+    showAnswer()
+      v should accept one parameter and set the `innerHTML` of element `code` to match element `answer`'s value. If parameter is `true` element `code` should have ` success` added to it's `className` otherwise ` failure` should be added to it`s `className`. (Note: the spaces before ` success` and ` failure` are required) @showAnswer
+    showReplay()
+      v should set element `guessing-div`'s `style` to "display:none" element `replay-div`'s `style` to "display:block". @showReplay
+    guess()
+      v should call `showAnswer` and `showReplay` when either the player guesses correctly, or runs out of attempts. If player wins provide `true` to the `showAnswer` call, otherwise `false`. @winLoseConditions (64ms)
+
+
+  15 passing (7s)

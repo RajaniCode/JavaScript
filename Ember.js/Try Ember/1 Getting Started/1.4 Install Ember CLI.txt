@@ -1,0 +1,12 @@
+1.4 Install Ember CLI
+
+Which of the following commands installs Ember CLI?
+
+[Single Answer]
+
+apt-get install ember-cli
+npm install -g ember-cli
+gem install ember-cli
+
+
+Answer: npm install -g ember-cli

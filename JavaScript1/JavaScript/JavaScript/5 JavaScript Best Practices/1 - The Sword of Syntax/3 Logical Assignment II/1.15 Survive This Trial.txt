@@ -1,0 +1,16 @@
+1.15 Survive This Trial
+
+Startled, you snap your head up and realize you are no longer moving forward.
+
+Aiedra, in all her mystery, floats in an odd, ethereal way above the ground, waiting for you to follow. You start to panic as you realize you are sinking in a small pit of quicksand.
+
+You look up to Aiedra, pleadingly, and she speaks:
+
+    "Here you will learn to help yourself. Build a way out of this trial. Use these variables to avoid sinking. The presence of strength and the absence of fear are required. In order to truly survive this trial, you must use your lifeline – the double ampersand."
+
+var strength = true;
+var fear = false;
+
+Use a logical assignment that checks the values of strength and fear. Examine the existing values closely; they hint at the correct logic that will allow survival.
+
+Answer: var surviveThisTrial = strength && !fear;

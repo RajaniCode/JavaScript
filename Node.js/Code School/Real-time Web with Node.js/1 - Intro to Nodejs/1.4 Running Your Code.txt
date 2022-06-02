@@ -1,0 +1,30 @@
+1.4 Running Your Code
+
+While you could go to the website and easily install node, we happen to have a console below where you can practice running node applications.
+
+Go ahead and run that file we just created to read a file off the filesystem with
+node file_read.js
+
+Answer:  node file_read.js
+
+Console:
+
+Type help to see the help menu
+
+$ help
+
+The following commands are available:
+
+    help - Displays the help menu
+    hint - Displays a hint related to the error that you see
+    next - Moves to the next challenge
+    reset - Resets the challenge as if you refreshed the page
+
+$ node file_read.js
+
+<html><p>Hello, this is Dog</p></html>
+
+Congratulations, you're correct!
+
+
+

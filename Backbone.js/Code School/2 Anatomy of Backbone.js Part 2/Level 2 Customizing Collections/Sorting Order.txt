@@ -1,0 +1,30 @@
+Sorting Order
+
+
+Dr. Goodparts just sent us this email "Love the new sorting, but please flip it and reverse it", Update the comparator below to sort by date in reverse order
+
+EXAMPLE
+
+var app1 = new Appointment({date: "2013-01-01"});
+var app2 = new Appointment({date: "2013-02-01"});
+var app3 = new Appointment({date: "2013-01-15"});
+var app4 = new Appointment({date: "2013-01-09"});
+var appointments = new Appointments();
+appointments.add(app1);
+appointments.add(app2);
+appointments.add(app3);
+appointments.add(app4);
+
+APPLICATION.JS
+
+var Appointments = Backbone.Collection.extend({
+  comparator: 'date'
+});
+
+Answer:
+
+var Appointments = Backbone.Collection.extend({
+  comparator: function(app1, app2) {
+    return app1.get('date') < app2.get('date');
+  }
+}); 

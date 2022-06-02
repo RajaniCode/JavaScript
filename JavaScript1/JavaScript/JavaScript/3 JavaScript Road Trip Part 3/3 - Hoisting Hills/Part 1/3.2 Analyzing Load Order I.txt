@@ -1,0 +1,45 @@
+3.2 Analyzing Load Order I
+
+Below is a function with multiple functions inside. Using your new knowledge of hoisting, analyze the load order of the thisIsWeird function. Your job is to find out which function gets returned.
+
+    If none of the functions get returned, log an "ERROR" string to the console.
+    If an undefined value gets returned, log an "undefined" string to the console.
+    If one of the functions gets returned, log a string to the console with the name of the "unused" variable from within the function that is getting returned.
+
+function thisIsWeird() {
+  function secret() {
+    var unused3;
+  }
+  var result;
+  function secret() {
+    var unused1;
+  }
+  result = secret;
+  function secret() {
+    var unused2;
+  }
+  return result;
+}
+
+Answer:
+
+console.log("unused2");
+
+Note:
+
+thisIsWeird(); //4
+
+function thisIsWeird() {
+  function secret() {
+    var unused3;
+  }
+  var result; //1
+  function secret() {
+    var unused1;
+  }
+  result = secret;//2
+  function secret() { //3
+    var unused2;//4
+  }
+  return result;
+}

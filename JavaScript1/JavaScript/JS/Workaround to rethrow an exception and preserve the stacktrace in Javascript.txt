@@ -1,0 +1,51 @@
+http://stackoverflow.com/questions/9006490/is-there-any-workaround-to-rethrow-an-exception-and-preserve-the-stacktrace-in-j
+
+Question: Is there any workaround to rethrow an exception and preserve the stacktrace in Javascript?
+
+I know that Chrome has a known bug [http://code.google.com/p/chromium/issues/detail?id=60240] not preserving the stacktrace when rethrowing an exception in Javascript.
+
+I have the following code running in Chrome:
+
+try {
+    try {
+      runCodeThatMayThrowAnException();
+    } catch (e) {
+        // I'm handing the exception here (displaying a nice message or whatever)
+        // Now I want to rethrow the exception
+        throw (e);
+    }
+} catch (e) {
+    // The stacktrace was lost here :(
+}
+
+Is there any way to keep the stacktrace? A jQuery plug-in maybe? Any workaround or ideas?
+
+Answer:
+
+In the final catch block try
+
+    throw e.stack;
+
+And I mean the very last one (the one going to the browser). If you nest your try/catch deeper, you'd need to change your previous throws.
+
+function throwError() {
+    var test = _undefined.propertyAccess;
+}
+
+try {
+    try {
+        try {
+            throwError();
+        } catch (e) {
+            alert("exception: " + e.stack);
+            throw e;
+        }
+    } catch (e) {
+        console.log(e.stack);
+        throw e;
+    }
+} catch (e) {
+    throw e.stack;
+}
+
+What an odd bug.

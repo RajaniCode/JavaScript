@@ -1,0 +1,40 @@
+2.23 Can You Fix It?
+
+What is going on with this test? No time is being given for the innermost test. Can you fix it?
+
+app.js
+
+var array = ["Inverted Peninsula", ",", 
+  "Inverted Peninsula", ", ", "I", "—", 
+  "P", "...", "hmmm", "."];
+var internalThoughts = "";
+
+console.time("Test");
+
+internalThoughts = array.join(" ");
+
+console.time("innerTest");
+console.log(internalThoughts);
+console.time("innerTest");
+
+console.timeEnd("Test");
+
+
+Answer: console.timeEnd("innerTest");
+
+app.js
+
+var array = ["Inverted Peninsula", ",", 
+  "Inverted Peninsula", ", ", "I", "—", 
+  "P", "...", "hmmm", "."];
+var internalThoughts = "";
+
+console.time("Test");
+
+internalThoughts = array.join(" ");
+
+console.time("innerTest");
+console.log(internalThoughts);
+console.timeEnd("innerTest");
+
+console.timeEnd("Test");

@@ -1,0 +1,10 @@
+2.3 Variable II
+
+Declare a second variable and call it ageIn5Years and assign its value with an expression that uses the existing age variable.
+
+Answer:
+
+application.js
+
+var age = 10;
+var ageIn5Years = age + 5;

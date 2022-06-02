@@ -1,0 +1,5 @@
+Resources
+
+• Babel [http://babeljs.io/blog/2015/10/31/setting-up-babel-6/] [https://babeljs.io/blog/2015/10/31/setting-up-babel-6]
+• Node [https://nodejs.org/en/]
+• ES2015: The Shape of JavaScript to Come [https://www.codeschool.com/courses/es2015-the-shape-of-javascript-to-come/]

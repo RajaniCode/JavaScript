@@ -1,0 +1,24 @@
+2.11 Nested Routes and Paths
+
+With the current application route hierarchy:
+
+Router.map(function() {
+  this.route('polls', function() {
+    this.route('poll', { path: '/:poll_id' });
+  });
+});
+
+When the browser requests /polls, which route will be used?
+
+[Single Answer]
+
+The polls route
+The polls/poll route
+The polls/index route
+
+
+Answer: The polls/index route
+
+Note: The polls route is now a parent route and isn't directly navigable. Instead, there is a generated child route that'll be used.
+
+Note: The polls/poll route would be used if the path had a poll_id defined (like /polls/123). Instead, it'll use a sibling route.

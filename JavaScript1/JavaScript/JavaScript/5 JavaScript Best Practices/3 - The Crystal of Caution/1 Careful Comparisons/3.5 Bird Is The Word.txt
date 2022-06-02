@@ -1,0 +1,32 @@
+3.5 Bird Is The Word
+
+Read over the following code, paying special attention to NumberNommer and Bird.
+
+function Bird(){};
+function DatatypeBird(){};
+function SyntaxBird(){};
+DatatypeBird.prototype = Object.create(Bird.prototype);
+SyntaxBird.prototype   = Object.create(Bird.prototype);
+
+var TryCatchTaster = function(){};
+TryCatchTaster.prototype = Object.create(SyntaxBird.prototype);
+
+var NumberNommer = function(){};
+NumberNommer.prototype = Object.create(DatatypeBird.prototype);
+
+var duneInhabitants = [
+  NumberNommer,
+  StringSeeker, 
+  TryCatchTaster, 
+  SwitchSnagger, 
+  TernaryTracker, 
+  BooleanBiter
+];
+
+NumberNommer is a new instance of Bird.
+
+    true
+
+    false
+
+Answer: true

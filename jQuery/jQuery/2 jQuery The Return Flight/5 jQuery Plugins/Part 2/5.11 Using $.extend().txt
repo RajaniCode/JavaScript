@@ -1,0 +1,82 @@
+5.11 Using $.extend()
+
+We'll need to update our plugin to accept and use an options JavaScript Object that we're passing in. Looks like someone started refactoring the show method already to use a variable called settings, which uses a count and a tour key in settings.
+
+Create a variable, settings, that defaults the count to 3, and sets tour to the current tour element -- $(this). Then, update the call to photofy on load to pass in a JavaScript object with a count of 1.
+
+HTML
+
+<a href="#" class="show-photos">Show All Photos</a>
+<ul id="tourprices">
+  <li class="tour" data-loc="london,uk">
+    London, UK
+    <ul class="photos">
+      <li><img src="/assets/photos/london.jpg"></li>
+      <li><img src="/assets/photos/london.jpg"></li>
+      <li><img src="/assets/photos/london.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+
+  <li class="tour" data-loc="paris,france">
+    Paris, France
+    <ul class="photos">
+      <li><img src="/assets/photos/paris1.jpg"></li>
+      <li><img src="/assets/photos/paris1.jpg"></li>
+      <li><img src="/assets/photos/paris1.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+
+  <li class="tour" data-loc="New York, NY, USA">
+    New York, NY, USA
+    <ul class="photos">
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+</ul>
+
+application.js
+
+$.fn.photofy = function(options) {
+  this.each(function() {
+    var show = function(e) {
+       e.preventDefault();
+       settings.tour
+               .addClass('is-showing-photofy')
+               .find('.photos')
+               .find('li:gt('+(settings.count-1)+')').hide();
+     }
+     
+     settings.tour.on('click.photofy', '.see-photos', show);
+  });
+}
+
+$(document).ready(function() {
+  $('.tour').photofy({ count: 1});
+});
+
+Answer:
+
+application.js
+
+$.fn.photofy = function(options) {
+  this.each(function() {
+    //var show = function(e) {
+       //e.preventDefault();      
+    //}
+     var settings = $.extend({ count: 3 }, options);
+     $(this).addClass('is-showing-photofy').find('.photos').find('li:gt('+($(this).count-1)+')').hide();
+     $(this).on('click.photofy', '.see-photos', settings);
+  });
+}
+
+$(document).ready(function() {
+  $('.tour').photofy({ count: 1});
+});

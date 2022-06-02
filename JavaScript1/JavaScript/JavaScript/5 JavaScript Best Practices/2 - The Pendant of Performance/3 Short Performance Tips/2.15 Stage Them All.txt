@@ -1,0 +1,16 @@
+2.15 Stage Them All
+
+Aiedra nods gravely.
+
+    "You seem to have learned much. Truly, this place is plagued by performance issues of all sorts. In every file I see, there are multiple page re-flows, because of tenacious DOM updates in JavaScript files. I wonder, Dhuun, do you know what sort of HTML structure should be used when many subsequent additions to the DOM are necessary?"
+
+Use a to add conjunct elements, instead of touching the DOM over and over again.
+
+Use a
+[ ]
+to add conjunct elements, instead of touching the DOM over and over again.
+
+Answer: Fragment
+
+
+

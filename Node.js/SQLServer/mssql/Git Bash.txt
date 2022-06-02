@@ -1,0 +1,81 @@
+rajanis@MSSPLLAP165 MINGW64 /
+$ node -v
+v10.9.0
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ npm -v
+6.2.0
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ cd "D:\RajaniS Master Folder\Node.js\SQL Server\mssql"
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/mssql
+$ node connect.js
+internal/modules/cjs/loader.js:583
+    throw err;
+    ^
+
+Error: Cannot find module 'express'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (D:\RajaniS Master Folder\Node.js\SQL Server\mssql\connect.js:1:77)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/mssql
+$ npm install express
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\mssql\package.json'
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\mssql\package.json'
+npm WARN mssql No description
+npm WARN mssql No repository field.
+npm WARN mssql No README data
+npm WARN mssql No license field.
+
++ express@4.17.1
+added 50 packages from 37 contributors and audited 126 packages in 1.891s
+found 0 vulnerabilities
+
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/mssql
+$ node connect.js
+Listening on port 5000...
+Error: Cannot find module 'mssql'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at D:\RajaniS Master Folder\Node.js\SQL Server\mssql\connect.js:6:15
+    at Layer.handle [as handle_request] (D:\RajaniS Master Folder\Node.js\SQL Server\mssql\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\RajaniS Master Folder\Node.js\SQL Server\mssql\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\RajaniS Master Folder\Node.js\SQL Server\mssql\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\RajaniS Master Folder\Node.js\SQL Server\mssql\node_modules\express\lib\router\layer.js:95:5)
+    at D:\RajaniS Master Folder\Node.js\SQL Server\mssql\node_modules\express\lib\router\index.js:281:22
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/mssql
+$ npm install mssql
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\mssql\package.json'
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\mssql\package.json'
+npm WARN mssql No description
+npm WARN mssql No repository field.
+npm WARN mssql No README data
+npm WARN mssql No license field.
+
++ mssql@6.1.0
+added 84 packages from 185 contributors and audited 415 packages in 6.604s
+found 0 vulnerabilities
+
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/mssql
+$ node connect.js
+Listening on port 5000...
+
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/mssql
+$

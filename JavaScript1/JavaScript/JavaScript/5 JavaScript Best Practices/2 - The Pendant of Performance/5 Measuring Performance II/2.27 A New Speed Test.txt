@@ -1,0 +1,136 @@
+2.27 A New Speed Test
+
+Create and run a new SpeedTest to test how long our populationGetter takes to run. Name it whatever you wish, just remember, a SpeedTest does not start itself. Also, to get closer to the truth, have it repeat 100000 times.
+
+1. Create a new speedTest by passing the function, populationGetter, inhabitants, and an amount of repetitions to the SpeedTest constructor function.
+
+Answer:
+
+//function speedTest (populationGetter, inhabitants, repetitions) {
+function testSpeed (populationGetter, inhabitants, repetitions) {
+    this.populationGetter = populationGetter;
+    this.inhabitants = inhabitants; 
+    this.repetitions = repetitions || 1000;
+  	this.average = 0;
+}
+
+// var speedTest = new SpeedTest(populationGetter, inhabitants, 100000);
+var testSpeed = new SpeedTest(populationGetter, inhabitants, 100000);
+
+proto.js
+
+var IP = ["Nipping Global Variable", "Sneaky Forin", "Bulging Blocking Script"],
+GH = ["Switch Blocks", "Pesky Gnat", "Aiedra"],
+inhabitants = [IP,GH];
+
+function populationGetter(popn){
+  var list = "";
+  for(var i = 0, x = popn.length; i < x; i++){
+    for(var j = 0; j < popn[i].length; j++){
+      list += (popn[i][j] + ", ");
+    }
+  }
+  return list;
+}
+
+populationGetter(inhabitants);
+// var speedTest = new SpeedTest(populationGetter, inhabitants, 100000);
+function testSpeed (populationGetter, inhabitants, repetitions) {
+    this.populationGetter = populationGetter;
+    this.inhabitants = inhabitants; 
+    this.repetitions = repetitions || 1000;
+  	this.average = 0;
+}
+
+// var speedTest = new SpeedTest(populationGetter, inhabitants, 100000);
+var testSpeed = new SpeedTest(populationGetter, inhabitants, 100000);
+
+speedTest.js
+
+var SpeedTest = function(testImplement,testParams,repetitions){
+  this.testImplement = testImplement;
+  this.testParams = testParams;
+  this.repetitions = repetitions || 10000;
+  this.average = 0;
+};
+
+SpeedTest.prototype = {
+  startTest: function(){
+    if( this.testImplement( this.testParams ) === false ){
+      alert("Yo, man, that test failed with those parameters.");
+      return;
+    }
+    var beginTime, endTime, sumTimes = 0;
+    for (var i = 0, x = this.repetitions; i < x; i++){
+      beginTime = +new Date();
+      this.testImplement( this.testParams );
+      endTime = +new Date();
+      sumTimes += endTime - beginTime;
+    }
+    this.average = sumTimes / this.repetitions;
+    return console.log("Average execution across " + this.repetitions + ": " + this.average);
+  }
+};
+
+2. Start the new speed test after it's been created.
+
+Answer: testSpeed.startTest();
+
+proto.js
+
+var IP = ["Nipping Global Variable", "Sneaky Forin", "Bulging Blocking Script"],
+GH = ["Switch Blocks", "Pesky Gnat", "Aiedra"],
+inhabitants = [IP,GH];
+
+function populationGetter(popn){
+  var list = "";
+  for(var i = 0, x = popn.length; i < x; i++){
+    for(var j = 0; j < popn[i].length; j++){
+      list += (popn[i][j] + ", ");
+    }
+  }
+  return list;
+}
+
+populationGetter(inhabitants);
+//function speedTest (populationGetter, inhabitants, repetitions) {
+function testSpeed (populationGetter, inhabitants, repetitions) {
+    this.populationGetter = populationGetter;
+    this.inhabitants = inhabitants; 
+    this.repetitions = repetitions || 1000;
+  	this.average = 0;
+}
+
+// var speedTest = new SpeedTest(populationGetter, inhabitants, 100000);
+var testSpeed = new SpeedTest(populationGetter, inhabitants, 100000);
+// speedTest.startTest();
+testSpeed.startTest();
+
+speedTest.js
+
+var SpeedTest = function(testImplement,testParams,repetitions){
+  this.testImplement = testImplement;
+  this.testParams = testParams;
+  this.repetitions = repetitions || 10000;
+  this.average = 0;
+};
+
+SpeedTest.prototype = {
+  startTest: function(){
+    if( this.testImplement( this.testParams ) === false ){
+      alert("Yo, man, that test failed with those parameters.");
+      return;
+    }
+    var beginTime, endTime, sumTimes = 0;
+    for (var i = 0, x = this.repetitions; i < x; i++){
+      beginTime = +new Date();
+      this.testImplement( this.testParams );
+      endTime = +new Date();
+      sumTimes += endTime - beginTime;
+    }
+    this.average = sumTimes / this.repetitions;
+    return console.log("Average execution across " + this.repetitions + ": " + this.average);
+  }
+};
+
+

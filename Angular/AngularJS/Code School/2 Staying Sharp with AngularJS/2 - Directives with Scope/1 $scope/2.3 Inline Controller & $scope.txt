@@ -1,0 +1,126 @@
+2.3 Inline Controller & $scope
+
+We have already separated out the duplicate note code into nw-card.html.
+Clean up the template using $scope syntax instead of controllerAs.
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler').directive('nwCard', [function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/directives/nw-card.html',
+    controller: function() {
+      this.header = 'Note Title';
+      this.description = 'A lovely note description.';
+    },
+    controllerAs: 'card'
+  };
+}]);
+
+
+templates/directives/nw-card.html
+
+<div class="card" title="{{card.header}}">
+  <h2 class="h3">{{card.header}}</h2>
+  <p>{{card.description}}</p>
+</div>
+
+templates/pages/notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notesCtrl.notes">
+        <nw-card></nw-card>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+1. Inject the $scope service into the controller.
+
+Answer: 
+
+function($scope) {
+      this.header = 'Note Title';
+      this.description = 'A lovely note description.';
+    }
+
+js/directives/nw-card.js
+
+2. Delete the unnecessary alias for our controller.
+
+Answer: //controllerAs: 'card'
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler').directive('nwCard', [function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/directives/nw-card.html',
+    controller: function($scope) {
+      this.header = 'Note Title';
+      this.description = 'A lovely note description.';
+    },
+    //controllerAs: 'card'
+  };
+}]);
+
+3. Set the header property on the controller's $scope instead of this. Note: We do not want to modify the string.
+
+Answer: $scope.header = 'Note Title';
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler').directive('nwCard', [function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/directives/nw-card.html',
+    controller: function($scope) {
+      $scope.header = 'Note Title';
+      this.description = 'A lovely note description.';
+    },
+  };
+}]);
+
+4. Set description property on the controller's $scope instead of this. Note: We do not want to modify the string.
+
+Answer: $scope.description = 'A lovely note description.';
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler').directive('nwCard', [function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/directives/nw-card.html',
+    controller: function($scope) {
+      $scope.header = 'Note Title';
+      $scope.description = 'A lovely note description.';
+    },
+  };
+}]);
+
+5. Display the header and description on the nw-card.html page.
+
+Answer: $scope.description = 'A lovely note description.';
+
+6. Display the header and description on the nw-card.html page.
+
+templates/directives/nw-card.html
+
+<div class="card" title="{{card.header}}">
+  <h2 class="h3">{{card.header}}</h2>
+  <p>{{card.description}}</p>
+</div>
+
+Answer:
+
+<div class="card" title="{{header}}">
+  <h2 class="h3">{{header}}</h2>
+  <p>{{description}}</p>
+</div>

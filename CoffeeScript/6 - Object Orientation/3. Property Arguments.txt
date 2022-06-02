@@ -1,0 +1,44 @@
+Property Arguments
+
+Refactor the constructor to use property arguments. Also, set @level to be an optional argument by setting its default value to 0.
+
+CoffeeScript:
+class Coffee
+  constructor: (name, level) ->
+    @name = name
+    @level = level or 0
+
+  isRussian: -> @name is 'Russian'
+
+JavaScript:
+var Coffee;
+Coffee = (function() {
+  function Coffee(name, level) {
+    this.name = name;
+    this.level = level || 0;
+  }
+  Coffee.prototype.isRussian = function() {
+    return this.name === 'Russian';
+  };
+  return Coffee;
+})();
+
+Answer:
+
+CoffeeScript:
+class Coffee
+  constructor: (@name, @level = 0) ->
+  isRussian: -> @name is 'Russian'
+
+JavaScript:
+var Coffee;
+Coffee = (function() {
+  function Coffee(name, level) {
+    this.name = name;
+    this.level = level != null ? level : 0;
+  }
+  Coffee.prototype.isRussian = function() {
+    return this.name === 'Russian';
+  };
+  return Coffee;
+})();

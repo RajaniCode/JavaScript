@@ -1,0 +1,228 @@
+2.10 Mapping Components
+
+The render() method in CommentBox is now expecting the method _getComments() to return an array of comments.
+
+Let's implement this method by returning an array of Comment components. We'll use the map() function to return an array of Comment components from the commentList array.
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        <h4 className="comment-count">{comments.length} comments</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getComments() {
+    const commentList = [
+      { id: 1, author: 'Clu', body: 'Just say no to love!' },
+      { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...' }
+    ];    
+
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+1. Add an avatarUrl property to each element in the commentList array and set the values to 'images/default-avatar.png'.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        <h4 className="comment-count">{comments.length} comments</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getComments() {
+    const commentList = [
+      { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+      { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];    
+
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+2. Let's make _getComments() return an array of Comment components by calling the map() method of commentList and having it return a Component for each item in the array.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        <h4 className="comment-count">{comments.length} comments</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getComments() {
+    const commentList = [
+       { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+       { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];    
+    return commentList.map(() => { return (<Comment />); });
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+3. Now let's pass these properties as props to each Comment component: author, body, and avatarUrl. Don't forget that the callback to map takes an argument that represents each element from the calling object.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        <h4 className="comment-count">{comments.length} comments</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getComments() {
+    const commentList = [
+       { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+       { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];    
+    return commentList.map((comment) => { return (<Comment 
+        author={comment.author} body={comment.body} avatarUrl={comment.avatarUrl} />); });
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+4. Our console is showing a warning because we're not passing a key prop with a unique identifier for each comment in the array. Let's add a key prop to each Comment component and use comment.id as the unique identifier.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        <h4 className="comment-count">{comments.length} comments</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getComments() {
+    const commentList = [
+       { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+       { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];    
+    return commentList.map((comment) => { return (<Comment
+        author={comment.author} body={comment.body} avatarUrl={comment.avatarUrl} key={comment.id} />); });
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}

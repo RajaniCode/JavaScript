@@ -1,0 +1,11 @@
+2.8 Complex Variable
+
+Declare a variable called index14 and assign to it the character contained at that index in the string:
+
+4_r t#f g; jw ? 3k2 1 !
+
+Remember that you can assign a single character manually, or use a helpful method on the entire string.
+
+Answer: 
+
+var index14 = "4_r t#f g; jw ? 3k2 1 !".charAt(14);

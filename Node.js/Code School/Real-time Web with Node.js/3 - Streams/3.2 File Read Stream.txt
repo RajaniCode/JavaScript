@@ -1,0 +1,73 @@
+3.2 File Read Stream
+
+Lets use the fs module to read a file and log its contents to the console.
+
+1. Use the fs module to create a Readable stream for fruits.txt. Store the new stream in a variable called file.
+
+Answer: var file = fs.createReadStream("fruits.txt");
+
+app.js
+
+var fs = require('fs');
+var file = fs.createReadStream("fruits.txt");
+
+2. Next, listen to the readable event on the newly created stream and give it a callback.
+
+Answer: file.on('readable', function() {});
+
+app.js
+
+var fs = require('fs');
+var file = fs.createReadStream("fruits.txt");
+file.on('readable', function() {});
+
+Note: The event callback should accept no arguments.
+
+3. Inside the callback, read the data chunks from the stream and print them to the console using console.log() - you might want to use a while loop to do this. Don't forget to call toString() on the data before printing it.
+
+Answer: 
+
+file.on('readable', function() {
+  var chunk = null;
+  while (null !== (chunk = file.read())){
+    console.log(chunk.toString());
+  }
+});
+
+app.js
+
+var fs = require('fs');
+var file = fs.createReadStream("fruits.txt");
+file.on('readable', function() {
+  var chunk = null;
+  while (null !== (chunk = file.read())){
+    console.log(chunk.toString());
+  }
+});
+
+
+Note:
+
+var http = require('http');
+
+http.createServer(function(request, response){
+  response.writeHead(200);
+  request.on('readable', function(){
+    var chunk = null;
+    while(null !== (chunk = request.read())){
+      //console.log(chunk.toString());
+      response.write(chunk);
+    }
+  });
+  request.end('end', function(){
+    response.end();
+  });
+}).listen(8080);
+
+Note: Helper method to pipe the two operations (write to writable stream as soon as read from readable stream)
+
+http.createServer(function(request, response) {
+  response.writeHead(200);
+  request.pipe(response);
+}).listen(8080);
+

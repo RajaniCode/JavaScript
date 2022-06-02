@@ -1,0 +1,86 @@
+4.3 Export A Function
+
+Notice the app.js file with the myRequest function below. Let's refactor myRequest out to its own my_request.js module.
+
+1. Move the myRequest function and the http require into my_request.js
+
+Answer: 
+
+Move the following to my_request.js
+
+var http = require('http');
+
+var myRequest = function(message) {
+  var request = http.request('http://codeschool.com', function(response) {
+    response.pipe(process.stdout, { end: false });
+  });
+
+  request.write(message);
+  request.end();
+};
+
+app.js
+
+myRequest('Hello, this is dog.');
+
+my_request.js
+
+var http = require('http');
+
+var myRequest = function(message) {
+  var request = http.request('http://codeschool.com', function(response) {
+    response.pipe(process.stdout, { end: false });
+  });
+
+  request.write(message);
+  request.end();
+};
+
+2. Export the myRequest function.
+
+Answer: module.exports = myRequest;
+
+my_request.js
+
+var http = require('http');
+
+var myRequest = function(message) {
+  var request = http.request('http://codeschool.com', function(response) {
+    response.pipe(process.stdout, { end: false });
+  });
+
+  request.write(message);
+  request.end();
+};
+module.exports = myRequest;
+
+app.js
+
+myRequest('Hello, this is dog.');
+
+3. Require the my_request.js module in app.js.
+
+Answer: var myRequest = require('./my_request');
+
+Note: ./ and without .js
+
+app.js
+
+var myRequest = require('./my_request');
+myRequest('Hello, this is dog.');
+
+my_request.js
+
+var http = require('http');
+
+var myRequest = function(message) {
+  var request = http.request('http://codeschool.com', function(response) {
+    response.pipe(process.stdout, { end: false });
+  });
+
+  request.write(message);
+  request.end();
+};
+module.exports = myRequest;
+
+

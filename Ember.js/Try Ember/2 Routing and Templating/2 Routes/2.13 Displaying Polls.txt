@@ -1,0 +1,74 @@
+2.13 Displaying Polls
+
+Using the route data that you've just created, display and link to the Polls in the application.
+
+app/templates/polls.hbs
+{{outlet}}
+
+app/templates/polls/poll.hbs
+This is a poll.
+
+1. List all of the polls on the polls template using the following HTML snippet. Use an {{#each}} iterator to loop over the Polls. Remember: model is the collection of Polls in the template.
+
+{{outlet}}
+
+<h4>Check out previous questions from Woodland Wanderers:</h4>
+
+<ul>
+  {{!-- {{#each}} goes here --}}
+    <li>{{poll.question}}</li>
+  {{!-- don't forget to close the {{#each}} --}}
+</ul>
+
+Answer:
+app/templates/polls.hbs
+{{outlet}}
+
+<h4>Check out previous questions from Woodland Wanderers:</h4>
+
+<ul>
+  {{#each model as |poll|}}
+    <li>{{poll.question}}</li>
+  {{/each}}
+</ul>
+
+app/templates/polls/poll.hbs
+This is a poll.
+
+2. Update the Poll listing to {{#link-to}} each poll. To do so, link to the "polls.poll" route and don't forget to pass it the Poll to show!
+
+Answer:
+app/templates/polls.hbs
+{{outlet}}
+
+<h4>Check out previous questions from Woodland Wanderers:</h4>
+
+<ul>
+  {{#each model as |poll|}}
+    <li>
+      {{#link-to "polls.poll" poll}}{{poll.question}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+
+app/templates/polls/poll.hbs
+This is a poll.
+
+3. Display the Poll's question property on the polls/poll template within an <h3> element. You can replace the old "This is a poll." content from the last level.
+
+Answer:
+app/templates/polls.hbs
+{{outlet}}
+
+<h4>Check out previous questions from Woodland Wanderers:</h4>
+
+<ul>
+  {{#each model as |poll|}}
+    <li>
+      {{#link-to "polls.poll" poll}}{{poll.question}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+
+app/templates/polls/poll.hbs
+<h3>{{model.question}}</h3>

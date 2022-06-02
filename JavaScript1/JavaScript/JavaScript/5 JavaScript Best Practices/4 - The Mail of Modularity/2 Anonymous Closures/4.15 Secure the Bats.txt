@@ -1,0 +1,44 @@
+4.15 Secure the Bats
+
+Aiedra appears to hear something far away. She is quiet for a moment.
+
+    The Caves sing silently to me. They want to protect their creatures. Modify your existing module to make the bats data private.
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = function () {
+          
+  var treasureChests = 3;
+
+  return {
+    stalactites: 4235,
+    stalagmites: 3924,
+    bats: 345,
+    SECRET: {
+      openChest: function(){
+        treasureChests--;
+        alert("DA DADADA DAAAAAAA!");
+      }
+    }
+  };
+}();
+
+Answer: var bats = 345;
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = function () {          
+  var treasureChests = 3;
+  var bats = 345;
+  return {
+    stalactites: 4235,
+    stalagmites: 3924,
+    
+    SECRET: {
+      openChest: function(){
+        treasureChests--;
+        alert("DA DADADA DAAAAAAA!");
+      }
+    }
+  };
+}();

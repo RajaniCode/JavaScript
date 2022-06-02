@@ -1,0 +1,21 @@
+JS to CS - Part IV
+
+Convert the commented jQuery code below to CoffeeScript. Use @ instead of this.
+
+# $('.drink li a').click(function(e) {
+#   e.preventDefault();
+#   alert($(this).text());
+# });
+
+Answer:
+
+CoffeeScript:
+$('.drink li a').click (e) -> 
+  e.preventDefault()
+  alert($(@).text())
+
+JavaScript:
+$('.drink li a').click(function(e) {
+  e.preventDefault();
+  return alert($(this).text());
+});

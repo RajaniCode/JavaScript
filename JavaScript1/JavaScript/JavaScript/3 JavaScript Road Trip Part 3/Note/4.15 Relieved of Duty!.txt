@@ -1,0 +1,74 @@
+4.15 Relieved of Duty!
+
+Vehicle objects now contain objects that represent ranger-devs. We want to keep track of which ranger-devs are assigned to patrol duty on specific vehicles. The vehicle3 object is provided in the challenge editor as an example.
+
+We need to get the offDuty rangers out of the vehicle while holding on to their objects for further use, as well as renumbering the rangers who should remain onDuty in the vehicle.
+
+    Build a relieveDuty function that accepts a vehicle object and a day of the week as parameters.
+
+    Use a for loop along with the numRangers property to search through all of the ranger objects contained within the vehicle object.
+
+    Sort all ranger objects into offDuty and onDuty arrays based on their dayOff property. The offDuty array will be returned from the function. The onDuty array will contain remaining rangers that need to be renumbered.
+
+    Adjust the numRangers property by subtracting the number of offDuty rangers.
+
+    Shift all rangers from the onDuty array back to the vehicle object. Their property names should be rebuilt with ranger numbers starting from 1.
+
+    Lastly, call the relieveDuty function and pass in vehicle3 and "Friday". The resulting array of objects should be stored in a variable called offToday.
+
+Use the hints as you get stuck!
+
+ocean.js
+
+var vehicle3 = {
+  type: "Submarine", capacity: 8, storedAt: "Underwater Outpost",
+  ranger1: {name: "Gregg Pollack", skillz: "Lasering", dayOff: "Friday"},
+  ranger2: {name: "Bijan Boustani", skillz: "Working", dayOff: "Saturday"},
+  ranger3: {name: "Ashley Smith", skillz: "Torpedoing", dayOff: "Friday"},
+  ranger4: {name: "Mark Krupinski", skillz: "Sniping", dayOff: "Wednesday"},
+  numRangers: 4
+};
+
+Answer:
+
+ocean.js
+
+var vehicle3 = {
+  type: "Submarine", capacity: 8, storedAt: "Underwater Outpost",
+  ranger1: {name: "Gregg Pollack", skillz: "Lasering", dayOff: "Friday"},
+  ranger2: {name: "Bijan Boustani", skillz: "Working", dayOff: "Saturday"},
+  ranger3: {name: "Ashley Smith", skillz: "Torpedoing", dayOff: "Friday"},
+  ranger4: {name: "Mark Krupinski", skillz: "Sniping", dayOff: "Wednesday"},
+  numRangers: 4
+};
+
+function relieveDuty(vehicle, day) {
+    var offDuty = [];
+    var onDuty = [];
+    var count = vehicle.numRangers;
+    for (var i = 0; i < vehicle.numRangers; i++) {
+        //list += location["ranger" + eval("i + 1")].name + ", man the " + location.weaponBulbs[location["ranger" + eval("i + 1")].station - 1][0] + "!\n";
+
+        if (vehicle["ranger" + eval("i + 1")].dayOff === "Friday")
+        {
+            offDuty.push(vehicle["ranger" + eval("i + 1")]);
+            delete vehicle["ranger" + eval("i + 1")];
+            count--;
+        }
+        else
+        {
+            onDuty.push(vehicle["ranger" + eval("i + 1")]);
+            delete vehicle["ranger" + eval("i + 1")];
+            count--;
+        }
+
+    }
+    vehicle.numRangers = count;
+    for (var i = 0; i < onDuty.length; i++) {
+        vehicle["ranger" + eval("i + 1")] = onDuty[i];
+        vehicle.numRangers++;
+    }
+    return offDuty;
+}
+
+var offToday = relieveDuty(vehicle3, "Friday");

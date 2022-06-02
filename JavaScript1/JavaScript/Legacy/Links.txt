@@ -1,0 +1,7 @@
+http://www.quirksmode.org/js/detect.html
+
+http://www.java-scripts.net/javascripts/Calendar-Popup.phtml
+
+http://www.javascriptkit.com/script/cutindex1a.shtml
+
+http://www.javascriptkit.com/script/script2/buttoncalendar.shtml

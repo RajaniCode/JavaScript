@@ -1,0 +1,21 @@
+1.11 Contents In Your Pocket
+
+You, Dhuun, still have no memories from your previous journeys. As you continue trudging through the tall grass, you search your pockets for clues to who you are…
+
+Use your new skills in logical assignment to shorten this default-designed ternary conditional.
+
+
+Answer: var pocketContents = pocketStuff || [] ;
+
+
+app.js
+
+Question:
+
+var pocketStuff = ["Dragon Tooth", "Adventure Diary", "Silver Tiger Coin"];
+var pocketContents = pocketStuff ? pocketStuff : [] ;
+
+Answer:
+
+var pocketStuff = ["Dragon Tooth", "Adventure Diary", "Silver Tiger Coin"];
+var pocketContents = pocketStuff || [] ;

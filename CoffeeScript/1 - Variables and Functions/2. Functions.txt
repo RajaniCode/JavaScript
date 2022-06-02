@@ -1,0 +1,15 @@
+Functions
+
+Define a function named greet that takes no argument and alerts 'Hello CoffeeScript'
+
+Answer:
+
+CoffeeScript:
+greet = -> 
+  alert 'Hello CoffeeScript'
+
+JavaScript:
+var greet;
+greet = function() {
+  return alert('Hello CoffeeScript');
+};

@@ -1,0 +1,7 @@
+Resources
+
+• Powering Up With React [https://www.codeschool.com/courses/powering-up-with-react]
+• Source Code [https://github.com/codeschool/WatchUsBuild-React]
+• React Documentation [https://facebook.github.io/react/docs/hello-world.html]
+• React Router [https://github.com/ReactTraining/react-router]
+• Code School Forum [https://www.codeschool.com/discuss/]

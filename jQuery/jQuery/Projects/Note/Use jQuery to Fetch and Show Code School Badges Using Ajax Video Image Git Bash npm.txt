@@ -1,0 +1,616 @@
+
+Aspire@Acer MINGW64 /
+$ cd "E:\Working\JavaScript\jQuery\Code School\Projects"
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects
+$ git clone https://github.com/RajaniCode/jQueryBadgesProject.git
+Cloning into 'jQueryBadgesProject'...
+remote: Counting objects: 98, done.
+remote: Total 98 (delta 0), reused 0 (delta 0), pack-reused 98
+Unpacking objects: 100% (98/98), done.
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects
+$ cd jQueryBadgesProject
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ npm --version
+2.15.8
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ npm install
+npm WARN optional dep failed, continuing fsevents@1.0.15
+npm WARN deprecated node-uuid@1.4.7: use uuid module instead
+javascript-sandbox@1.0.2 node_modules\javascript-sandbox
+
+chai@3.5.0 node_modules\chai
++-- assertion-error@1.0.2
++-- type-detect@1.0.0
++-- deep-eql@0.1.3 (type-detect@0.1.1)
+
+sinon@1.17.6 node_modules\sinon
++-- formatio@1.1.1
++-- samsam@1.1.2
++-- lolex@1.3.2
++-- util@0.10.3 (inherits@2.0.1)
+
+mocha@3.2.0 node_modules\mocha
++-- diff@1.4.0
++-- browser-stdout@1.3.0
++-- escape-string-regexp@1.0.5
++-- growl@1.9.2
++-- json3@3.3.2
++-- supports-color@3.1.2 (has-flag@1.0.0)
++-- commander@2.9.0 (graceful-readlink@1.0.1)
++-- debug@2.2.0 (ms@0.7.1)
++-- mkdirp@0.5.1 (minimist@0.0.8)
++-- lodash.create@3.1.1 (lodash._basecreate@3.0.3, lodash._isiterateecall@3.0.9, lodash._baseassign@3.2.0)
++-- glob@7.0.5 (path-is-absolute@1.0.1, inherits@2.0.3, fs.realpath@1.0.0, inflight@1.0.6, once@1.4.0, minimatch@3.0.3)
+
+jsdom@9.8.3 node_modules\jsdom
++-- html-encoding-sniffer@1.0.1
++-- webidl-conversions@3.0.1
++-- content-type-parser@1.0.1
++-- acorn-globals@1.0.9
++-- array-equal@1.0.0
++-- abab@1.0.3
++-- sax@1.2.1
++-- xml-name-validator@2.0.1
++-- symbol-tree@3.2.0
++-- nwmatcher@1.3.9
++-- cssom@0.3.1
++-- tough-cookie@2.3.2 (punycode@1.4.1)
++-- iconv-lite@0.4.15
++-- whatwg-url@3.1.0 (tr46@0.0.3)
++-- parse5@1.5.1
++-- whatwg-encoding@1.0.1 (iconv-lite@0.4.13)
++-- acorn@2.7.0
++-- escodegen@1.8.1 (estraverse@1.9.3, esutils@2.0.2, esprima@2.7.3, optionator@0.8.2, source-map@0.2.0)
++-- request@2.79.0 (aws-sign2@0.6.0, tunnel-agent@0.4.3, forever-agent@0.6.1, oauth-sign@0.8.2, caseless@0.11.0, is-typedarray@1.0.0, stringstream@0.0.5, aws4@1.5.0, isstream@0.1.2, json-stringify-safe@5.0.1, extend@3.0.0, uuid@3.0.1, qs@6.3.0, combined-stream@1.0.5, mime-types@2.1.13, form-data@2.1.2, hawk@3.1.3, http-signature@1.1.1, har-validator@2.0.6)
++-- cssstyle@0.2.37
+
+browser-sync@2.18.5 node_modules\browser-sync
++-- emitter-steward@1.0.0
++-- server-destroy@1.0.1
++-- dev-ip@1.0.1
++-- qs@6.2.1
++-- ua-parser-js@0.7.12
++-- immutable@3.8.1
++-- browser-sync-client@2.4.4 (fresh@0.3.0, etag@1.7.0)
++-- http-proxy@1.15.2 (eventemitter3@1.2.0, requires-port@1.0.0)
++-- opn@4.0.2 (object-assign@4.1.0, pinkie-promise@2.0.1)
++-- resp-modifier@6.0.2 (debug@2.4.5, minimatch@3.0.3)
++-- fs-extra@1.0.0 (klaw@1.3.1, jsonfile@2.4.0, graceful-fs@4.1.11)
++-- connect@3.5.0 (utils-merge@1.0.0, parseurl@1.3.1, debug@2.2.0, finalhandler@0.5.0)
++-- serve-static@1.11.1 (escape-html@1.0.3, encodeurl@1.0.1, parseurl@1.3.1, send@0.14.1)
++-- eazy-logger@3.0.2 (tfunk@3.0.2)
++-- chokidar@1.6.1 (path-is-absolute@1.0.1, inherits@2.0.3, async-each@1.0.1, glob-parent@2.0.0, is-glob@2.0.1, anymatch@1.3.0, is-binary-path@1.0.1, readdirp@2.1.0)
++-- socket.io@1.6.0 (object-assign@4.1.0, socket.io-adapter@0.5.0, has-binary@0.1.7, debug@2.3.3, socket.io-parser@2.3.1, engine.io@1.8.0)
++-- micromatch@2.3.11 (filename-regex@2.0.0, is-extglob@1.0.0, is-glob@2.0.1, normalize-path@2.0.1, extglob@0.3.2, array-unique@0.2.1, expand-brackets@0.1.5, regex-cache@0.4.3, arr-diff@2.0.0, kind-of@3.1.0, object.omit@2.0.1, parse-glob@3.0.4, braces@1.8.5)
++-- socket.io-client@1.6.0 (to-array@0.1.4, component-emitter@1.2.1, indexof@0.0.1, component-bind@1.0.0, backo2@1.0.2, object-component@0.0.3, has-binary@0.1.7, debug@2.3.3, parseuri@0.0.5, socket.io-parser@2.3.1, engine.io-client@1.8.0)
++-- serve-index@1.8.0 (escape-html@1.0.3, parseurl@1.3.1, batch@0.5.3, http-errors@1.5.1, mime-types@2.1.13, accepts@1.3.3, debug@2.2.0)
++-- yargs@6.4.0 (get-caller-file@1.0.2, decamelize@1.2.0, camelcase@3.0.0, y18n@3.2.1, which-module@1.0.0, set-blocking@2.0.0, yargs-parser@4.2.0, require-main-filename@1.0.1, require-directory@2.1.1, window-size@0.2.0, cliui@3.2.0, os-locale@1.4.0, string-width@1.0.2, read-pkg-up@1.0.1)
++-- localtunnel@1.8.2 (openurl@1.1.0, debug@2.2.0, yargs@3.29.0, request@2.78.0)
++-- bs-recipes@1.3.2
++-- portscanner@2.1.1 (async@1.5.2, is-number-like@1.0.7)
++-- rx@4.1.0
++-- easy-extender@2.3.2 (lodash@3.10.1)
++-- browser-sync-ui@0.6.2 (async-each-series@0.1.1, connect-history-api-fallback@1.3.0, stream-throttle@0.1.3, weinre@2.0.0-pre-I0Z7U9OV)
+
+babel-register@6.18.0 node_modules\babel-register
++-- home-or-tmp@2.0.0 (os-homedir@1.0.2, os-tmpdir@1.0.2)
++-- source-map-support@0.4.6 (source-map@0.5.6)
++-- mkdirp@0.5.1 (minimist@0.0.8)
++-- babel-core@6.21.0 (slash@1.0.0, babel-messages@6.8.0, babel-template@6.16.0, path-is-absolute@1.0.1, babel-helpers@6.16.0, private@0.1.6, json5@0.5.1, babylon@6.14.1, convert-source-map@1.3.0, source-map@0.5.6, debug@2.4.5, babel-types@6.21.0, minimatch@3.0.3, babel-code-frame@6.20.0, babel-generator@6.21.0, babel-traverse@6.21.0)
++-- babel-runtime@6.20.0 (regenerator-runtime@0.10.1)
++-- lodash@4.17.2
++-- core-js@2.4.1
+
+babel-preset-es2015@6.18.0 node_modules\babel-preset-es2015
++-- babel-plugin-transform-es2015-arrow-functions@6.8.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-template-literals@6.8.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-modules-commonjs@6.18.0 (babel-plugin-transform-strict-mode@6.18.0, babel-template@6.16.0, babel-types@6.21.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-modules-systemjs@6.19.0 (babel-template@6.16.0, babel-helper-hoist-variables@6.18.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-spread@6.8.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-destructuring@6.19.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-object-super@6.8.0 (babel-helper-replace-supers@6.18.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-function-name@6.9.0 (babel-types@6.21.0, babel-helper-function-name@6.18.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-unicode-regex@6.11.0 (regexpu-core@2.0.0, babel-helper-regex@6.18.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-computed-properties@6.8.0 (babel-template@6.16.0, babel-helper-define-map@6.18.0, babel-runtime@6.20.0)
++-- babel-plugin-check-es2015-constants@6.8.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-block-scoped-functions@6.8.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-literals@6.8.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-block-scoping@6.21.0 (babel-template@6.16.0, babel-types@6.21.0, babel-traverse@6.21.0, lodash@4.17.2, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-shorthand-properties@6.18.0 (babel-types@6.21.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-modules-amd@6.18.0 (babel-template@6.16.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-typeof-symbol@6.18.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-for-of@6.18.0 (babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-modules-umd@6.18.0 (babel-template@6.16.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-duplicate-keys@6.8.0 (babel-types@6.21.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-sticky-regex@6.8.0 (babel-helper-regex@6.18.0, babel-types@6.21.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-parameters@6.21.0 (babel-helper-get-function-arity@6.18.0, babel-helper-call-delegate@6.18.0, babel-template@6.16.0, babel-types@6.21.0, babel-traverse@6.21.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-es2015-classes@6.18.0 (babel-helper-replace-supers@6.18.0, babel-messages@6.8.0, babel-helper-optimise-call-expression@6.18.0, babel-helper-function-name@6.18.0, babel-template@6.16.0, babel-helper-define-map@6.18.0, babel-types@6.21.0, babel-traverse@6.21.0, babel-runtime@6.20.0)
++-- babel-plugin-transform-regenerator@6.21.0 (regenerator-transform@0.9.8)
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ npm start
+
+> project-html-portfolio@1.0.0 start E:\Working\JavaScript\jQuery\Code School\Projects\jQueryBadgesProject
+> browser-sync start --server ./src --files ./src
+
+[BS] Access URLs:
+ --------------------------------------
+       Local: http://localhost:3000
+    External: http://192.168.43.89:3000
+ --------------------------------------
+          UI: http://localhost:3001
+ UI External: http://192.168.43.89:3001
+ --------------------------------------
+[BS] Serving files from: ./src
+[BS] Watching files...
+
+
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ npm test
+
+> project-html-portfolio@1.0.0 test E:\Working\JavaScript\jQuery\Code School\Projects\jQueryBadgesProject
+> mocha -t 20000 --compilers js:babel-register test/*.spec.js
+
+
+
+  The webpage
+{ user:
+   { username: 'RajaniCode',
+     member_since: '2015-04-25T12:51:25.542Z',
+     total_score: 685895,
+     avatar: 'http://gravatar.com/avatar/1b8d487b7c68a2760ae9a78699905fa2.jpg?s=80&r=pg' },
+  courses:
+   { completed:
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ],
+     in_progress:
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] },
+  badges:
+   [ { name: 'Completed CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/34/completed-coffeescript-a0e4e657cfa6157c594a8a2304c49d4b.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Beta Student',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/11/beta-student-5c0493ccace79db56d3c05719d6f189e.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies' },
+     { name: 'Completed Rails for Zombies',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/1/completed-rails-for-zombies-245a73e57217e92710e1e15ce206f6e1.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies' },
+     { name: 'Level 1 on ES2015: The Shape of JavaScript to Come',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/576/level-1-on-es2015-the-shape-of-javascript-to-come-9fe76219e758da8911fd550c1a1afcba.png',
+       course_url: 'http://www.codeschool.com/courses/es2015-the-shape-of-javascript-to-come' },
+     { name: 'Level 1 on JavaScript Road Trip Part 1',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/297/level-1-on-javascript-road-trip-part-1-ff645bd94243922a90b775da5ee2647c.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-road-trip-part-1' },
+     { name: 'Level 1 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/108/level-1-on-real-time-web-with-node-js-a10449b7ff71615313f1ae8895a063c9.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Level 1 on The Sequel to SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/513/level-1-on-the-sequel-to-sql-e1ab0eb7c5188c529a85e0444ae03249.png',
+       course_url: 'http://www.codeschool.com/courses/the-sequel-to-sql' },
+     { name: 'Level 1 on Anatomy of Backbone.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/95/level-1-on-anatomy-of-backbone-js-7ead7e2bbe1129c239cb78f69622c4ca.png',
+       course_url: 'http://www.codeschool.com/courses/anatomy-of-backbone-js' },
+     { name: 'Level 1 on Building Blocks of Express.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/470/level-1-on-building-blocks-of-express-js-e9373438816eeb01a39ccea4ce56c36a.png',
+       course_url: 'http://www.codeschool.com/courses/building-blocks-of-express-js' },
+     { name: 'Level 1 on Shaping up with Angular.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/393/level-1-on-shaping-up-with-angular-js-692c3614fa425d233878a702003d2f98.png',
+       course_url: 'http://www.codeschool.com/courses/shaping-up-with-angular-js' },
+     { name: 'Level 1 on CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/35/level-1-on-coffeescript-f77bf03f7bfbe6c7c80e824edc4694b8.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Level 1 on Rails for Zombies 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/26/level-1-on-rails-for-zombies-2-cfb6d7850ec88fa3917d650740003eb8.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-2' },
+     { name: 'Level 1 on Powering Up With React',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/625/level-1-on-powering-up-with-react-14b125522aef48b39898b2227e4afd33.png',
+       course_url: 'http://www.codeschool.com/courses/powering-up-with-react' },
+     { name: 'Level 1 on Try SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/487/level-1-on-try-sql-68a76aafef4bc08e8b2715d63ee1fa79.png',
+       course_url: 'http://www.codeschool.com/courses/try-sql' },
+     { name: 'Level 1 on JavaScript Road Trip Part 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/301/level-1-on-javascript-road-trip-part-2-baf68d7f42f8b6b5f185a356de5690b2.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-road-trip-part-2' },
+     { name: 'Level 1 on jQuery: The Return Flight',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/267/level-1-on-jquery-the-return-flight-53a2e4c530f99e6216252c3839ac1eb9.png',
+       course_url: 'http://www.codeschool.com/courses/jquery-the-return-flight' },
+     { name: 'Level 1 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/198/level-1-on-discover-devtools-f048aefdc0cede79cff1a4ba6dcf3498.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 1 on JavaScript Best Practices',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/431/level-1-on-javascript-best-practices-dbf4a18275286110037ee1051cbe3f6a.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-best-practices' },
+     { name: 'Level 1 on Rails for Zombies Redux',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/134/level-1-on-rails-for-zombies-redux-2ba020b1379910903e2f8724a8199404.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-redux' },
+     { name: 'Level 1 on The Magical Marvels of MongoDB',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/540/level-1-on-the-magical-marvels-of-mongodb-b8ff6f0cdcaed6b7cfdbb71087230fa6.png',
+       course_url: 'http://www.codeschool.com/courses/the-magical-marvels-of-mongodb' },
+     { name: 'Level 1 on Accelerating Through Angular 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/640/level-1-on-accelerating-through-angular-2-e0782235267f7b8e14932706bd01fb15.png',
+       course_url: 'http://www.codeschool.com/courses/accelerating-through-angular-2' },
+     { name: 'Level 1 on Ruby Bits',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/140/level-1-on-ruby-bits-fd61bce30b5dc59e032d0e90900b34a4.png',
+       course_url: 'http://www.codeschool.com/courses/ruby-bits' },
+     { name: 'Level 1 on Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/463/level-1-on-try-ruby-8f8cc28e53daef6fe36a6b8b94bbef47.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Completed Original Zombies',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/5/completed-original-zombies-199542c65455e524eb639ade2c4ed0d3.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies' },
+     { name: 'Level 2 on Accelerating Through Angular 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/641/level-2-on-accelerating-through-angular-2-443fedc56af23bc7b194ccd7ed83393a.png',
+       course_url: 'http://www.codeschool.com/courses/accelerating-through-angular-2' },
+     { name: 'Level 2 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/199/level-2-on-discover-devtools-52287c443e9bdd209aa663f2806b110f.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 2 on Powering Up With React',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/626/level-2-on-powering-up-with-react-f7e0f8d3ffffcfa6619a8934ed94c327.png',
+       course_url: 'http://www.codeschool.com/courses/powering-up-with-react' },
+     { name: 'Level 2 on jQuery: The Return Flight',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/268/level-2-on-jquery-the-return-flight-8451c5234c1ece3329669618656e38eb.png',
+       course_url: 'http://www.codeschool.com/courses/jquery-the-return-flight' },
+     { name: 'Level 2 on JavaScript Best Practices',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/432/level-2-on-javascript-best-practices-79bffdc90ec0ff126fc1659ba99011ba.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-best-practices' },
+     { name: 'Level 2 on The Magical Marvels of MongoDB',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/541/level-2-on-the-magical-marvels-of-mongodb-9666be0ee1083fa52e7a7a345ce443f4.png',
+       course_url: 'http://www.codeschool.com/courses/the-magical-marvels-of-mongodb' },
+     { name: 'Level 2 on Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/464/level-2-on-try-ruby-bf5966ddc34f9845341e38c5c3fe3986.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Level 2 on JavaScript Road Trip Part 1',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/298/level-2-on-javascript-road-trip-part-1-e568b2c31b1fd0da0dc94cc4d5452150.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-road-trip-part-1' },
+     { name: 'Level 2 on The Sequel to SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/514/level-2-on-the-sequel-to-sql-3b14743cbce827c0dd23ff6329cc821e.png',
+       course_url: 'http://www.codeschool.com/courses/the-sequel-to-sql' },
+     { name: 'OZ: Original Zombie',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/6/oz-original-zombie-aa089dd48f978e040a1f00e995a7b2f3.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies' },
+     { name: 'Level 2 on CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/36/level-2-on-coffeescript-7d75f2c33d88098128a8e87f75a3e1ea.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Level 2 on Try SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/488/level-2-on-try-sql-e66f986bc557122ddc6d9a9f1dbb75d2.png',
+       course_url: 'http://www.codeschool.com/courses/try-sql' },
+     { name: 'Level 2 on Shaping up with Angular.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/394/level-2-on-shaping-up-with-angular-js-e87b03dfe5b569bc9c1a67769f8bec3a.png',
+       course_url: 'http://www.codeschool.com/courses/shaping-up-with-angular-js' },
+     { name: 'Level 2 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/109/level-2-on-real-time-web-with-node-js-5daa007e77d89ef14f79b5d66331360c.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Level 2 on Anatomy of Backbone.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/96/level-2-on-anatomy-of-backbone-js-84b8479da9d9cd7b9e52fa14752b24d1.png',
+       course_url: 'http://www.codeschool.com/courses/anatomy-of-backbone-js' },
+     { name: 'Level 2 on Building Blocks of Express.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/471/level-2-on-building-blocks-of-express-js-7054ece3b9779e70e0b34457f82d9071.png',
+       course_url: 'http://www.codeschool.com/courses/building-blocks-of-express-js' },
+     { name: 'Level 2 on JavaScript Road Trip Part 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/302/level-2-on-javascript-road-trip-part-2-e691e2995191012f4d5ff4bf9664cc05.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-road-trip-part-2' },
+     { name: 'Level 2 on Rails for Zombies 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/27/level-2-on-rails-for-zombies-2-296b00028b4e97a1beb4917bff1bc1dd.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-2' },
+     { name: 'Level 2 on Rails for Zombies Redux',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/135/level-2-on-rails-for-zombies-redux-84161b6c606aa55fc878380c3680b572.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-redux' },
+     { name: 'Level 3 on Try SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/489/level-3-on-try-sql-742329712308c860e3b37ab1a46bb78f.png',
+       course_url: 'http://www.codeschool.com/courses/try-sql' },
+     { name: 'Level 3 on Rails for Zombies Redux',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/136/level-3-on-rails-for-zombies-redux-f3ccde89280aa8d6a325e97390fabcd0.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-redux' },
+     { name: 'Level 3 on jQuery: The Return Flight',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/269/level-3-on-jquery-the-return-flight-f8832ed11d58dcd18951900378b75cfb.png',
+       course_url: 'http://www.codeschool.com/courses/jquery-the-return-flight' },
+     { name: 'Level 3 on Powering Up With React',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/627/level-3-on-powering-up-with-react-9842a416a9e9136d0f45ba7320942f55.png',
+       course_url: 'http://www.codeschool.com/courses/powering-up-with-react' },
+     { name: 'Level 3 on Shaping up with Angular.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/395/level-3-on-shaping-up-with-angular-js-4f55a8624ff150ec2bdfae93c5dcb687.png',
+       course_url: 'http://www.codeschool.com/courses/shaping-up-with-angular-js' },
+     { name: 'Level 3 on JavaScript Best Practices',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/433/level-3-on-javascript-best-practices-85675b292fa04dd8eb4d7f58a7f5a9e7.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-best-practices' },
+     { name: 'Level 3 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/110/level-3-on-real-time-web-with-node-js-b1417387e1a459f52edf9eb2c8d38e17.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Level 3 on Anatomy of Backbone.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/97/level-3-on-anatomy-of-backbone-js-c034e9abd7f37a57456b58ac9ebd75da.png',
+       course_url: 'http://www.codeschool.com/courses/anatomy-of-backbone-js' },
+     { name: 'Level 3 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/200/level-3-on-discover-devtools-c8de9b66f985af73c84dc5316ba5f0a7.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 3 on Accelerating Through Angular 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/642/level-3-on-accelerating-through-angular-2-0666345752352b7e145f92dc2474ae88.png',
+       course_url: 'http://www.codeschool.com/courses/accelerating-through-angular-2' },
+     { name: 'Level 3 on The Sequel to SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/515/level-3-on-the-sequel-to-sql-c3b7fede9e0268d0aad29c82d48d4a08.png',
+       course_url: 'http://www.codeschool.com/courses/the-sequel-to-sql' },
+     { name: 'Level 3 on Building Blocks of Express.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/472/level-3-on-building-blocks-of-express-js-24fe3496ef4a565bc856e002b4e5b5c3.png',
+       course_url: 'http://www.codeschool.com/courses/building-blocks-of-express-js' },
+     { name: 'Level 3 on CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/37/level-3-on-coffeescript-60cd33d99fa6fdcd648bbce438cccd71.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Level 3 on JavaScript Road Trip Part 1',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/299/level-3-on-javascript-road-trip-part-1-ae7652ab8f363e27fea8afe06cee30e3.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-road-trip-part-1' },
+     { name: 'Level 3 on Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/465/level-3-on-try-ruby-8ca933ada1d70b7475054e647126d5ae.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Level 4 on Shaping up with Angular.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/396/level-4-on-shaping-up-with-angular-js-5964ff970d4f869304b754366a3c92a2.png',
+       course_url: 'http://www.codeschool.com/courses/shaping-up-with-angular-js' },
+     { name: 'Level 4 on JavaScript Best Practices',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/434/level-4-on-javascript-best-practices-d4e9474e7e997185fb83e1921471339b.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-best-practices' },
+     { name: 'Level 4 on Powering Up With React',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/628/level-4-on-powering-up-with-react-d7edd1e22e49f07b177cc26042579bf7.png',
+       course_url: 'http://www.codeschool.com/courses/powering-up-with-react' },
+     { name: 'Level 4 on Accelerating Through Angular 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/643/level-4-on-accelerating-through-angular-2-7a63c07139596b7acd896903cdc743d1.png',
+       course_url: 'http://www.codeschool.com/courses/accelerating-through-angular-2' },
+     { name: 'Level 4 on The Sequel to SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/516/level-4-on-the-sequel-to-sql-ad0777053c3fc2cb4729f7d63bd6fac2.png',
+       course_url: 'http://www.codeschool.com/courses/the-sequel-to-sql' },
+     { name: 'Level 4 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/111/level-4-on-real-time-web-with-node-js-40677c1248751bf00501eb044e3e480a.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Level 4 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/201/level-4-on-discover-devtools-1db49f4cc579cc46c699d40d9030c6e6.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 4 on Rails for Zombies Redux',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/137/level-4-on-rails-for-zombies-redux-60c9d341a1b0853a359ce6d19275df03.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-redux' },
+     { name: 'Level 4 on Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/466/level-4-on-try-ruby-5995aa3d90b4dfb9faae1eb1c4ba8868.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Level 4 on CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/38/level-4-on-coffeescript-0be5bd7c0b29c44c7d17f4c2a47b7ba6.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Level 4 on Building Blocks of Express.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/473/level-4-on-building-blocks-of-express-js-c1b7a56c886a016abd1e79931dbe70cd.png',
+       course_url: 'http://www.codeschool.com/courses/building-blocks-of-express-js' },
+     { name: 'Level 5 on Building Blocks of Express.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/474/level-5-on-building-blocks-of-express-js-01d282c90892f0326d9e8acb822d272c.png',
+       course_url: 'http://www.codeschool.com/courses/building-blocks-of-express-js' },
+     { name: 'Level 5 on Accelerating Through Angular 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/644/level-5-on-accelerating-through-angular-2-3ef2eee6f806d07ffe0749f0bc866547.png',
+       course_url: 'http://www.codeschool.com/courses/accelerating-through-angular-2' },
+     { name: 'Level 5 on Powering Up With React',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/629/level-5-on-powering-up-with-react-bf31e69336b232c8337a2b843006f6ab.png',
+       course_url: 'http://www.codeschool.com/courses/powering-up-with-react' },
+     { name: 'Level 5 on The Sequel to SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/517/level-5-on-the-sequel-to-sql-6e2f151d694196ed6df3435caf404201.png',
+       course_url: 'http://www.codeschool.com/courses/the-sequel-to-sql' },
+     { name: 'Level 5 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/112/level-5-on-real-time-web-with-node-js-d5996b2e8692e0932e226ef7b562a04b.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Level 5 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/202/level-5-on-discover-devtools-cc71130225e45bd429d527a05391f52f.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 5 on Shaping up with Angular.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/397/level-5-on-shaping-up-with-angular-js-742684cfda41644aecdeda714ad70952.png',
+       course_url: 'http://www.codeschool.com/courses/shaping-up-with-angular-js' },
+     { name: 'Level 5 on CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/39/level-5-on-coffeescript-0734f86f298c10945c31a17b12486ec2.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Level 5 on Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/467/level-5-on-try-ruby-333c6e45375f4851ff31be67e27522c8.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Level 6 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/113/level-6-on-real-time-web-with-node-js-dfe8fa5c82ad5b96a6897bb057936ac3.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Level 6 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/203/level-6-on-discover-devtools-a3f29b28168635896ed33b944b0f7c7f.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 6 on Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/468/level-6-on-try-ruby-27d94753bf1d50003f5d9ee6fa3aff7a.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Level 6 on CoffeeScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/450/level-6-on-coffeescript-3af60f34c640bce8064cad54b883c421.png',
+       course_url: 'http://www.codeschool.com/courses/coffeescript' },
+     { name: 'Level 7 on Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/204/level-7-on-discover-devtools-9c04cfa5b5c8350b1810fded35a62c45.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Level 7 on Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/460/level-7-on-real-time-web-with-node-js-2eb9f85029055c1bc33cbc513067048b.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: '50,000th User',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/19/50-000th-user-e9b352849701ad5b4e811389074ed2c9.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies' },
+     { name: 'Completed Try Ruby',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/24/completed-try-ruby-220eaa3eedcaf47135a02158592095cb.png',
+       course_url: 'http://www.codeschool.com/courses/try-ruby' },
+     { name: 'Completed Real-time Web with Node.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/107/completed-real-time-web-with-node-js-c8408b2b17ff6492d3f4d241c0db322d.png',
+       course_url: 'http://www.codeschool.com/courses/real-time-web-with-node-js' },
+     { name: 'Completed Try Git',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/121/completed-try-git-b54d1cd9fa940e4a3c1925056d38eca2.png',
+       course_url: 'http://www.codeschool.com/courses/try-git' },
+     { name: 'Code School Enrollment',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/123/code-school-enrollment-3ba86b46cdeffc308d1a7d640ee5f9bd.png',
+       course_url: 'http://www.codeschool.com/enroll' },
+     { name: 'Completed Rails for Zombies Redux',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/133/completed-rails-for-zombies-redux-0f73c361c3d5070ca2fa7951e65cbf39.png',
+       course_url: 'http://www.codeschool.com/courses/rails-for-zombies-redux' },
+     { name: 'Completed Discover DevTools',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/197/completed-discover-devtools-b769c8b681384be3ad04cdf813b4a62c.png',
+       course_url: 'http://www.codeschool.com/courses/discover-devtools' },
+     { name: 'Completed JavaScript Road Trip Part 1',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/296/completed-javascript-road-trip-part-1-b9f5af5196fb596271f7f97b6b477d24.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-road-trip-part-1' },
+     { name: 'Completed Shaping up with Angular.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/392/completed-shaping-up-with-angular-js-83ceb89bd5255391f25230727ae3f019.png',
+       course_url: 'http://www.codeschool.com/courses/shaping-up-with-angular-js' },
+     { name: 'Completed JavaScript Best Practices',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/435/completed-javascript-best-practices-320e73d2694215bc24264e74a2f76528.png',
+       course_url: 'http://www.codeschool.com/courses/javascript-best-practices' },
+     { name: 'Journeyperson',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/497/journeyperson-7d6eea0f0d15e9c2fed170689934b4b4.png',
+       course_url: null },
+     { name: 'Wayfarer',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/498/wayfarer-40cc9baa2715dd61a6feef3bd57b93b7.png',
+       course_url: null },
+     { name: 'Apprentice',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/534/apprentice-0f19184c0b7fc1eaa3e9c89e758c5d99.png',
+       course_url: null },
+     { name: 'Bullseye',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/582/bullseye-11b609ec6bac32b255919f670f1966b0.png',
+       course_url: null },
+     { name: 'Don’t Call It a Comeback',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/586/don-t-call-it-a-comeback-7cfb316705652ce367498e3a324de047.png',
+       course_url: null },
+     { name: 'Adventurer',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/532/adventurer-2b3c43359d7f3f9962ddee6f44874b25.png',
+       course_url: null },
+     { name: 'Festivus for the Rest of Us',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/585/festivus-for-the-rest-of-us-befce33e97803d99cad13b8efe5d851d.png',
+       course_url: null },
+     { name: 'Mobile Maven',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/584/mobile-maven-50fbe55af7a771048363d4ca774eb346.png',
+       course_url: null },
+     { name: 'Completed Building Blocks of Express.js',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/475/completed-building-blocks-of-express-js-51227acf5773414563c2dcd82c14ca10.png',
+       course_url: 'http://www.codeschool.com/courses/building-blocks-of-express-js' },
+     { name: 'Accelerating Through Angular 2',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/645/accelerating-through-angular-2-e6bdfefbcf188faad87fbea650881a03.png',
+       course_url: 'http://www.codeschool.com/courses/accelerating-through-angular-2' },
+     { name: 'Course Complete',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/624/course-complete-9735ab04d353c7aa4d5677ebefa7823c.png',
+       course_url: 'http://www.codeschool.com/courses/powering-up-with-react' },
+     { name: 'Try JavaScript',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/512/try-javascript-90ab37a21c1408c353181a9e4c27869c.png',
+       course_url: 'http://www.javascript.com' },
+     { name: 'Try SQL',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/490/try-sql-2eeaad2f3a3ad35a5fed7b63563ec9b8.png',
+       course_url: 'http://www.codeschool.com/courses/try-sql' },
+     { name: 'Course Complete',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/518/course-complete-61a5b8d40f49efccf26fd3e84619545b.png',
+       course_url: 'http://www.codeschool.com/courses/the-sequel-to-sql' },
+     { name: 'Rookie',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/530/rookie-0fa91bd64fa59be22b5e5600807d1057.png',
+       course_url: null },
+     { name: 'Scout',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/531/scout-54448d7074a378e1ee249cf9be818f73.png',
+       course_url: null },
+     { name: 'Cadet',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/495/cadet-068d8b9938da926dce6ea4911d6adfc6.png',
+       course_url: null },
+     { name: 'Tenderfoot',
+       badge: 'https://d1ffx7ull4987f.cloudfront.net/images/achievements/large_badge/496/tenderfoot-59d41c72e7dafb6adafe6802e288d636.png',
+       course_url: null } ] }
+    the jQuery.ajax should
+      v call method @ajax
+      v call with an options object as argument @ajax
+      v call with the url property @ajax
+      v call with correct URL @ajax
+      v call with the jsonp dataType property @ajax
+      v call with the success property @ajax
+    the DOM should
+      v have the #badges element @course-elements
+      v have at least one child element @course-elements
+      v have child with the course class name @course-elements
+      v have x elements within the #badges @course-elements
+      v have h3 tags with the course titles @course-titles
+      v have an img with the badge url @course-images (40ms)
+      v have an anchor pointing to the course url @course-buttons
+
+
+  13 passing (3s)
+
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   src/assets/main.js
+        modified:   test/response.mock.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git branch
+* master
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git add .
+warning: CRLF will be replaced by LF in src/assets/main.js.
+The file will have its original line endings in your working directory.
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   src/assets/main.js
+        modified:   test/response.mock.json
+
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git branch
+* master
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git commit -a -m "Project Solution"
+[master b3d3ce2] Project Solution
+ 2 files changed, 21 insertions(+), 5 deletions(-)
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git push origin master
+Username for 'https://github.com': RajaniCode
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 1.01 KiB | 0 bytes/s, done.
+Total 7 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/RajaniCode/jQueryBadgesProject.git
+   56c6e2c..b3d3ce2  master -> master
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$ git commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+
+Aspire@Acer MINGW64 /e/Working/JavaScript/jQuery/Code School/Projects/jQueryBadgesProject (master)
+$

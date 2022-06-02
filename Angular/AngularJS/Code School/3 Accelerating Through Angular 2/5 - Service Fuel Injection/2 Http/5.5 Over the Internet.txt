@@ -1,0 +1,531 @@
+5.5 Over the Internet
+
+We've gone ahead and created a races.json file for you, check it out. Let's import and use http to fetch our data.
+
+app/races.json
+
+{
+  "racesData":[
+    {
+      "id": 1,
+      "name": "Daytona Thunderdome",
+      "date": "2512-01-04T14:00:00",
+      "about": "Race through the ruins of an ancient Florida battle arena.",
+      "entryFee": 3200,
+      "isRacing": false,
+      "image": "/images/daytona_thunderdome.jpg",
+      "imageDescription": "Race track with laser lanes"
+    }, {
+      "id": 2,
+      "name": "San Francisco Ruins",
+      "date": "2512-07-03T20:00:00",
+      "about": "Drift down the streets of a city almost sunk under the ocean.",
+      "entryFee": 4700,
+      "isRacing": false,
+      "image": "/images/san_francisco_ruins.jpg",
+      "imageDescription": "Golden Gate Bridge with lasers"
+    }, {
+      "id": 3,
+      "name": "New York City Skyline",
+      "date": "2512-07-12T21:00:00",
+      "about": "Fly between buildings in the electronic sky.",
+      "entryFee": 4300,
+      "isRacing": true,
+      "image": "/images/new_york_city_skyline.jpg",
+      "imageDescription": "Bridge overlooking New York City"
+    }
+  ]
+} 
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+
+  ngOnInit() {
+    this.raceService.getRaces()
+        
+  }
+
+  totalCost() {
+    let sum = 0;
+    if (this.races) {
+      for (let race of this.races) {
+        if (race.isRacing) sum += race.entryFee;
+      }
+    }
+    return sum;
+  }
+
+  castDate(date) {
+    return new Date(date);
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Race } from './race';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class RaceService {
+
+  
+
+  getRaces() {
+    
+  }
+}
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+
+
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header>
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+`,
+  directives: [RacesComponent],
+  providers:[RaceService ]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+} 
+
+1. Inside our app.component.ts, go ahead and import the http library and add it as a provider.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+
+  ngOnInit() {
+    this.raceService.getRaces()
+        
+  }
+
+  totalCost() {
+    let sum = 0;
+    if (this.races) {
+      for (let race of this.races) {
+        if (race.isRacing) sum += race.entryFee;
+      }
+    }
+    return sum;
+  }
+
+  castDate(date) {
+    return new Date(date);
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Race } from './race';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class RaceService {
+
+  
+
+  getRaces() {
+    
+  }
+}
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+import { HTTP_PROVIDERS } from '@angular/http';
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header>
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+`,
+  directives: [RacesComponent],
+  providers:[RaceService, HTTP_PROVIDERS]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+} 
+
+2. Great! Now inside our race.service.ts we've already added the libraries you need, but we could use your help adding a constructor() to inject the http library.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+
+  ngOnInit() {
+    this.raceService.getRaces()
+        
+  }
+
+  totalCost() {
+    let sum = 0;
+    if (this.races) {
+      for (let race of this.races) {
+        if (race.isRacing) sum += race.entryFee;
+      }
+    }
+    return sum;
+  }
+
+  castDate(date) {
+    return new Date(date);
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Race } from './race';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class RaceService {
+
+  
+  constructor(private http: Http) {}
+  getRaces() {
+    
+  }
+}
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+import { HTTP_PROVIDERS } from '@angular/http';
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header>
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+`,
+  directives: [RacesComponent],
+  providers:[RaceService, HTTP_PROVIDERS]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+} 
+
+3. Nice, now let's implement the getRaces() method to call our app/races.json file, and return the racesData array. Make sure you let the compiler know that the array contains items of type Race, which will require using the map() method.
+
+FYI, calling .data won’t work, you'll need to look inside our json file to find where our array is located.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+
+  ngOnInit() {
+    this.raceService.getRaces()
+        
+  }
+
+  totalCost() {
+    let sum = 0;
+    if (this.races) {
+      for (let race of this.races) {
+        if (race.isRacing) sum += race.entryFee;
+      }
+    }
+    return sum;
+  }
+
+  castDate(date) {
+    return new Date(date);
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Race } from './race';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class RaceService {
+
+  constructor(private http: Http) { }
+
+  getRaces() {
+    return this.http.get('app/races.json')
+      .map(response => <Race[]>response.json().racesData);
+  }
+}
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+import { HTTP_PROVIDERS } from '@angular/http'
+
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header>
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+`,
+  directives: [RacesComponent],
+  providers:[RaceService, HTTP_PROVIDERS]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+} 
+
+4. Almost there! Inside the races.component.ts it's time to finish implementing the ngOnInit() method to properly receive the race data.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+
+  ngOnInit() {
+    this.raceService.getRaces()
+    .subscribe(races => this.races = races);
+  }
+
+  totalCost() {
+    let sum = 0;
+    if (this.races) {
+      for (let race of this.races) {
+        if (race.isRacing) sum += race.entryFee;
+      }
+    }
+    return sum;
+  }
+
+  castDate(date) {
+    return new Date(date);
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Race } from './race';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class RaceService {
+
+  constructor(private http: Http) { }
+
+  getRaces() {
+    return this.http.get('app/races.json')
+      .map(response => <Race[]>response.json().racesData);
+  }
+}
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+import { HTTP_PROVIDERS } from '@angular/http'
+
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header>
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+`,
+  directives: [RacesComponent],
+  providers:[RaceService, HTTP_PROVIDERS]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+}

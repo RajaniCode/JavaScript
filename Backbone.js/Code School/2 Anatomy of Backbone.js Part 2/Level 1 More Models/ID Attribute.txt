@@ -1,0 +1,32 @@
+ID Attribute
+
+
+Sweet! But Quick! Before Dr. Goodparts gets back from lunch, update the Appointment model to use the "identifier" string as the idAttribute instead of the default "id", that way you can call appointment.id later on.
+
+JSON RESPONSE
+
+// Get /appointments/1
+{ "appointment": { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+
+APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({
+  parse: function(response){
+    var appointment = response.appointment;
+    appointment.cancelled = appointment.cankelled;
+    delete appointment.cankelled;
+    return appointment;
+  }
+});
+
+Answer:
+
+var Appointment = Backbone.Model.extend({
+  parse: function(response){
+    var appointment = response.appointment;
+    appointment.cancelled = appointment.cankelled;
+    delete appointment.cankelled;
+    return appointment;
+  },
+  idAttribute: 'identifier'
+});

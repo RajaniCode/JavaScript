@@ -1,0 +1,59 @@
+5.11 Named Exports
+
+
+Let's refactor the code on our validators module to be less repetitive.
+
+validators.js
+
+export function isTopicValid(topic){
+  const MAX_TITLE_LENGTH = 20;
+
+  let isValid = !(topic.title.length > MAX_TITLE_LENGTH || topic.author.isBlocked);
+  return isValid;
+}
+
+export function isEmailAuthorized(email){
+  const EMAIL_DOMAIN = "@codeschool.com";
+  return email.indexOf(EMAIL_DOMAIN) > 0;
+}
+
+
+1. Create a single export statement that exports the 2 functions on this module.
+
+Answer:
+
+validators.js
+
+export function isTopicValid(topic){
+  const MAX_TITLE_LENGTH = 20;
+
+  let isValid = !(topic.title.length > MAX_TITLE_LENGTH || topic.author.isBlocked);
+  return isValid;
+}
+
+export function isEmailAuthorized(email){
+  const EMAIL_DOMAIN = "@codeschool.com";
+  return email.indexOf(EMAIL_DOMAIN) > 0;
+}
+
+export  {isTopicValid,  isEmailAuthorized};
+
+2. Remove the original export statements to avoid duplication.
+
+Answer:
+
+validators.js
+
+function isTopicValid(topic){
+  const MAX_TITLE_LENGTH = 20;
+
+  let isValid = !(topic.title.length > MAX_TITLE_LENGTH || topic.author.isBlocked);
+  return isValid;
+}
+
+function isEmailAuthorized(email){
+  const EMAIL_DOMAIN = "@codeschool.com";
+  return email.indexOf(EMAIL_DOMAIN) > 0;
+}
+
+export  {isTopicValid,  isEmailAuthorized};

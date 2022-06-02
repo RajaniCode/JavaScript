@@ -1,0 +1,102 @@
+1.25 Colore Videt Me
+
+Aiedra points to a nearby temple caretaker who scurries by on some meaningful errand.
+
+The caretakers of the Temple have different ranks. Based on these ranks, they receive different inscriptions on their caretaker medallions; each higher rank receives all of the inscriptions of the lower ranks, plus its own unique inscription.
+
+At long last, you will give them the constructor function that builds their medallions in perfect hierarchy and harmony. Follow this list of ranks and their acquired inscriptions to create your constructor in medallions.js using a switch block and hierarchical fall-through. Thus will you light the final Lamp of Legibility.
+
+Here is a list of all of the caretakers and their medallions inscriptions. Each inscription will be a property on the generated CaretakerMedallion object.
+
+All "StyleSensei" caretakers receive:
+
+    innerRing set to "Ars autem est in aeternum"
+
+All "FontFriar" caretakers recieve:
+
+    innerRing set to "Ars autem est in aeternum"
+    circumscribedSquare set to "Venit Comic Sans"
+
+All "PixelPriest" caretakers recieve:
+
+    innerRing set to "Ars autem est in aeternum"
+    circumscribedSquare set to "Venit Comic Sans"
+    bronzeBanner set to "Omne initium est a pixel"
+
+All "ColorCardinal" caretakers recieve:
+
+    innerRing set to "Ars autem est in aeternum"
+    circumscribedSquare set to "Venit Comic Sans"
+    bronzeBanner set to "Omne initium est a pixel"
+    silverStamp set to "Non video colorem, colore videt me"
+
+All "ElementElder" caretakers recieve:
+
+    innerRing set to "Ars autem est in aeternum"
+    circumscribedSquare set to "Venit Comic Sans"
+    bronzeBanner set to "Omne initium est a pixel"
+    silverStamp set to "Non video colorem, colore videt me"
+    goldenEdge set to "Consilium autem liberabit vos"
+
+Answer:
+
+  switch (caretaker) {
+    case "StyleSensei":
+        this.innerRing = "Ars autem est in aeternum";
+        break;
+    case "FontFriar":
+        this.circumscribedSquare = "Venit Comic Sans";
+        break;
+    case "PixelPriest":
+        this.bronzeBanner = "Omne initium est a pixel";
+        break;
+    case "ColorCardinal":
+        this.silverStamp = "Non video colorem, colore videt me";
+    		break;
+    case "ElementElder":
+        this.goldenEdge = "Consilium autem liberabit vos";
+    		break;
+	};
+
+
+medallion.js
+
+function CaretakerMedallion (caretaker){
+  switch (caretaker) {
+    case "StyleSensei":
+        this.innerRing = "Ars autem est in aeternum";
+        break;
+    case "FontFriar":
+        this.circumscribedSquare = "Venit Comic Sans";
+        break;
+    case "PixelPriest":
+        this.bronzeBanner = "Omne initium est a pixel";
+        break;
+    case "ColorCardinal":
+        this.silverStamp = "Non video colorem, colore videt me";
+    		break;
+    case "ElementElder":
+        this.goldenEdge = "Consilium autem liberabit vos";
+    		break;
+	};
+}
+
+// Here's a sample usage of our CaretakerMedallion function with two sample inputs.
+var medallion1 = new CaretakerMedallion("ColorCardinal") 
+/*
+  medallion1 will have the following properties
+  CaretakerMedallion {
+    silverStamp: "Non video colorem, colore videt me", 
+    bronzeBanner: "Omne initium est a pixel", 
+    circumscribedSquare: "Venit Comic Sans", 
+    innerRing: "Ars autem est in aeternum"
+  }
+*/
+
+// What about our StyleSensei? This is what the CaretakerMedallion inner values will be equal to.
+var medallion2 = new CaretakerMedallion("StyleSensei")     
+/* 
+  medallion2 will have the following properties:
+  CaretakerMedallion { innerRing: "Ars autem est in aeternum" }
+*/
+

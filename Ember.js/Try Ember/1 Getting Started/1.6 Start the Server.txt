@@ -1,0 +1,26 @@
+1.6 Start the Server
+
+Start a development server using Ember CLI.
+
+
+Type help to see the help menu
+
+quiz$  ember server
+version: 1.13.13
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+Livereload server on http://localhost:49154
+Serving on http://localhost:4200/
+
+Build successful - 5790ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps: Concat: Vendor                | 4054ms
+Babel                                         | 678ms
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps: Concat: Vendor (1)            | 4054ms
+Babel (7)                                     | 1177ms (168 ms)
+Success!
+quiz$

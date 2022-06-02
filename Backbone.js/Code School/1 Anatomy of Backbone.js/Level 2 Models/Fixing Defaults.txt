@@ -1,0 +1,27 @@
+Fixing Defaults
+
+While messing around in the console, you've discovered a strange bug. Every new Appointment you create has the same exact date, instead of the date and time of when the Appointment instance was created.
+
+This is because new Date() is evaluated once, when the Appointment model is first created, and not re-evaluated every time a new instance is created.
+
+To fix this you'll want to assign a function to c instead of just a plain object. Wrap the object below in a function which returns the object. This will cause the defaults to get evaluated every time a new instance is created.
+
+APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({
+  defaults: {
+    title: 'Checkup',
+    date: new Date()
+  }
+});
+
+Answer: 
+
+var Appointment = Backbone.Model.extend({
+  defaults: function() {
+    return {
+      title: 'Checkup',
+      date: new Date()
+    }
+  }
+});

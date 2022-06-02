@@ -1,0 +1,16 @@
+Service Recipes
+
+Value (Used often)
+The simplest service recipe used for sharing a value that is used throughout your app repeatedly.
+
+Factory (Most commonly used)
+Used for sharing functions and objects across an application.
+
+Service (Rarely used)
+Shares instances of methods and objects.
+
+Provider (Commonly used)
+Used for sharing methods and objects (like a Factory), but allows for configuration.
+
+Constant
+Shares a value within application configuration.

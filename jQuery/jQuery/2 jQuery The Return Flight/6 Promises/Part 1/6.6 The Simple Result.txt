@@ -1,0 +1,58 @@
+6.6 The Simple Result
+
+You're almost finished! All that's left is to change result.price to result in your application.js.
+
+HTML
+
+<div class="vacation-location">
+  <h3 class="location">London, UK</h3>
+  <p class="price"></p>
+  <button>Update Price</button>
+</div>
+
+vacation.js
+
+var Vacation = {
+ getPrice: function(location){
+   var promise = $.Deferred();
+   $.ajax({
+     url: '/vacation/prices',
+     data: {q: location},
+     success: function(result){
+       promise.resolve(result.price);
+     }
+   });
+   return promise;
+ }
+}
+
+
+AJAX Result
+
+{
+  price: 2600
+}
+
+application.js
+
+$(document).ready(function() {
+  $('button').on('click', function(){
+    var location = $('.location').text();
+    Vacation.getPrice(location).done(function(result){
+      $('.price').text(result.price);
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $('button').on('click', function(){
+    var location = $('.location').text();
+    Vacation.getPrice(location).done(function(result){
+      $('.price').text(result);
+    });
+  });
+});

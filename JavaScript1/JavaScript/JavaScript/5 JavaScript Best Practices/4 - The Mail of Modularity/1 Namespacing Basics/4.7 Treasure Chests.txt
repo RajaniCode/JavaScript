@@ -1,0 +1,41 @@
+4.7 Treasure Chests
+
+The Caves need slightly better protection for their treasureChests. Use your knowledge of things that are 'nested' to build a new container within your existing container. To it, you should add the treasureChests variable, and the method which accompanies the opening of these chests. You may call this container SECRET.
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = {
+  stalactites: 4235,
+  stalagmites: 3924,
+  bats: 345,
+  treasureChests: 3,
+  openChest: function() {
+    this.treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+  }
+};
+
+Answer:
+
+   SECRET: {
+  	treasureChests: 3,
+    openChest: function() {
+    this.treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+  	}
+    }
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = {
+  stalactites: 4235,
+  stalagmites: 3924,
+  bats: 345,
+   SECRET: {
+  	treasureChests: 3,
+    openChest: function() {
+    this.treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+  	}
+    }
+};

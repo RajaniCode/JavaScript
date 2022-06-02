@@ -1,0 +1,49 @@
+2.2 Using filters
+
+In the previous challenge we practiced displaying the prices of gems in our index.html. The first gem, Azurite, now costs $110.50 (due to supply shortages) but our current code doesn't display the price correctly.
+
+
+index.html
+
+1. Use an Angular filter to display the price as a currency.
+
+Answer: <em class="pull-right">{{product.price | currency}}</em>
+
+
+
+
+index.html
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="StoreController as store">
+    <div class="product row" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+    </div>
+  </body>
+</html>
+
+
+app.js
+
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  var gems = [
+    { name: 'Azurite', price: 110.50 },
+    { name: 'Bloodstone', price: 22.90 },
+    { name: 'Zircon', price: 1100 },
+  ];
+})();

@@ -1,0 +1,21 @@
+cd "C:\Users\rajanis\Desktop\Angular.io\ng new"
+node --version
+npm install -g @angular/cli
+ng --version
+npm show ng
+npm show typescript
+npm show angular
+ng new angular-tour-of-heroes
+cd angular-tour-of-heroes
+ng generate component heroes
+ng generate component hero-detail
+ng generate service hero
+ng generate component messages
+ng generate service message
+ng generate module app-routing --flat --module=app
+ng generate component dashboard
+npm install angular-in-memory-web-api --save
+ng generate service InMemoryData
+ng generate component hero-search
+ng serve --open
+

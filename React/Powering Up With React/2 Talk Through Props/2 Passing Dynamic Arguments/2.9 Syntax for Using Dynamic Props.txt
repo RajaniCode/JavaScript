@@ -1,0 +1,13 @@
+2.9 Syntax for Using Dynamic Props
+
+What is the correct syntax to pass the comment.author object property as a prop to the Comment component?
+
+[Single Answer]
+
+<Comment author="comment.author" />
+<Comment author={{comment.author}} />
+<Comment author={comment.author} />
+<Comment author=[comment.author] />
+
+
+Answer: <Comment author={comment.author} />

@@ -1,0 +1,12 @@
+Set the title
+
+Almost there, but before we display anything let's set the title of the appointment instance! Set it to any string, perhaps something you'd like Dr. Goodparts to take a look at (ex. My Backbone Hurts).
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+var appointment = new Appointment();
+
+APPLICATION.JS
+
+Answer: appointment.set({title: "My Backbone Hurts"});

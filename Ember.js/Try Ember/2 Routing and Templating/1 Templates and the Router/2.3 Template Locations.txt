@@ -1,0 +1,8 @@
+2.3 Template Locations
+
+Identify where the application template is located.
+
+When using Ember CLI, the application template is located in the app/[ ] / [ ] .hbs file.
+
+
+Answer: templates / application

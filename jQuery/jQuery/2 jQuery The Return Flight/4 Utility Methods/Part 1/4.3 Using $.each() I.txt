@@ -1,0 +1,91 @@
+4.3 Using $.each() I
+
+Our site has a popup deals page. We need to write the javascript that will load the current available deals. Let's start out by looping over the result with the $.each() function. Within this loop, console.log() each item for now to get an idea of what the data looks like.
+
+HTML
+
+<button>Show Deals</button>
+<h2>Current Deals</h2>
+<div class="deal-0">
+  <h3 class="name"></h3>
+  <p class="price"></p>
+</div>
+
+<div class="deal-1">
+  <h3 class="name"></h3>
+  <p class="price"></p>
+</div>
+
+<div class="deal-2">
+  <h3 class="name"></h3>
+  <p class="price"></p>
+</div>
+
+AJAX Result
+
+[
+  {
+    name: 'Paris, France',
+    price: 550
+  },
+  {
+    name: 'Madrid, Spain',
+    price: 460
+  },
+  {
+    name: 'New York, United States',
+    price: 334
+  }
+]
+
+application.js
+
+$('button').on('click', function() {
+  $.ajax('/cities/deals', {
+    success: function(result) {
+      // your code goes herezz
+    }
+  });
+});
+
+Answer:
+
+$('button').on('click', function() {
+  $.ajax('/cities/deals', {
+    success: function(result) {
+      // your code goes here
+      $.each(result, function (index, dealItem) {
+        console.log(dealItem);
+      });
+    }
+  });
+});
+
+
+//Note
+$('button').on('click', function() {
+  $.ajax('/cities/deals', {
+    success: function(result) {
+      // your code goes here
+      $.each(result, function (index, dealItem) {
+        var deal = $('.deal-' + index);
+        deal.find('h3').html(dealItem.name);
+        deal.find('p').html(dealItem.price);
+      });
+    }
+  });
+});
+
+//Note
+$('button').on('click', function() {
+  $.ajax('/cities/deals', {
+    success: function(result) {
+      // your code goes here
+      $.each(result, function (index, dealItem) {
+        var deal = $('.deal-' + index);
+        alert(deal.find('h3').html(dealItem.name).text());
+        alert(deal.find('p').html(dealItem.price).text());
+      });
+    }
+  });
+});

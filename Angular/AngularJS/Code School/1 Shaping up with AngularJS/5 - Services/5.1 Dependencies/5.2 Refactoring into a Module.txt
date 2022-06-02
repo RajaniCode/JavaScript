@@ -1,0 +1,94 @@
+5.2 Refactoring into a Module
+
+After that we will need a way to encapsulate our directives in order to give our app access to them. We can use a module to do this! It is time for Module inception! There is a new js file provided for you —products.js; extract all store directives(descriptions, specs, reviews, title, gallery, and tabs) and paste them inside this new file. Then create a new module that we will make our original gemStore module require as a dependency.
+
+1. Create a new Module named store-directives to encapsulate our store Directives.
+
+Answer:
+
+product.js
+
+var app = angular.module('store-directives', []);
+
+
+2. Move the Directive definitions from app.js into products.js.
+
+Answer:
+
+app.js
+
+Move to the following:
+
+  app.directive("productDescription", function() {
+    return {
+      restrict: 'E',
+      templateUrl: "product-description.html"
+    };
+  });
+
+  app.directive("productReviews", function() {
+    return {
+      restrict: 'E',
+      templateUrl: "product-reviews.html"
+    };
+  });
+
+  app.directive("productSpecs", function() {
+    return {
+      restrict:"A",
+      templateUrl: "product-specs.html"
+    };
+  });
+
+  app.directive("productTabs", function() {
+    return {
+      restrict: "E",
+      templateUrl: "product-tabs.html",
+      controller: function() {
+        this.tab = 1;
+
+        this.isSet = function(checkTab) {
+          return this.tab === checkTab;
+        };
+
+        this.setTab = function(activeTab) {
+          this.tab = activeTab;
+        };
+      },
+      controllerAs: "tab"
+    };
+  });
+
+  app.directive("productGallery", function() {
+    return {
+      restrict: "E",
+      templateUrl: "product-gallery.html",
+      controller: function() {
+        this.current = 0;
+        this.setCurrent = function(imageNumber){
+          this.current = imageNumber || 0;
+        };
+      },
+      controllerAs: "gallery"
+    };
+  });
+
+3. Give gemStore Module access to the directives by adding a dependency to gemStore's definition.
+
+Answer:
+
+app.js
+
+var app = angular.module('gemStore', ['store-directives']);
+
+4. Link in the new products.js file.
+
+Answer: 
+
+index.html
+
+<script type="text/javascript" src="products.js"></script>
+
+
+
+

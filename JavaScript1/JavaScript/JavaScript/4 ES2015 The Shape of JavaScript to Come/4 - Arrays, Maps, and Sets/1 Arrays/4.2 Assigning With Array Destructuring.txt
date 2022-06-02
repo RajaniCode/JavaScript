@@ -1,0 +1,13 @@
+4.2 Assigning With Array Destructuring
+
+
+Which of the following uses the correct syntax for array destructuring?
+
+[Single Answer]
+
+let {a, b, c} = ["Programming", "Web", "JavaScript"];
+let (a, b, c) = ["Programming", "Web", "JavaScript"];
+let [a, b, c] = ["Programming", "Web", "JavaScript"];
+
+
+Answer: let [a, b, c] = ["Programming", "Web", "JavaScript"];

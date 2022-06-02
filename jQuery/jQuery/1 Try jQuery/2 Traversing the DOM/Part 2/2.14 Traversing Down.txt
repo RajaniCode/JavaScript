@@ -1,0 +1,7 @@
+2.14 Traversing Down
+
+You're looking back through some of your old code, from the time before you knew how to traverse and come across the selector that you used to select all the tours: $('#tours > li'). You immediately realize this can be done better, refactor this to use traversal.
+
+Answer:
+
+$("#tours").children("li");

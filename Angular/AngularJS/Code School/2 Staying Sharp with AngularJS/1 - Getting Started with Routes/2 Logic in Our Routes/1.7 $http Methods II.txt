@@ -1,0 +1,13 @@
+1.7 $http Methods II
+
+What $http method is used for retrieving data?
+
+    $http.put
+
+    $http.post
+
+    $http.get
+
+    $http.delete
+
+Answer: $http.get

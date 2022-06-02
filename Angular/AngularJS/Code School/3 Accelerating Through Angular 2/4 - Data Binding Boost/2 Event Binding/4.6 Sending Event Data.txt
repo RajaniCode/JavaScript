@@ -1,0 +1,13 @@
+4.6 Sending Event Data
+
+Which of the following is the proper syntax for listening for a keypress and sending in the event?
+
+[Single Answer]
+
+<input type="text" (keydown)="call(event)">
+<input type="text" (onkeydown)="call($event)">
+<input type="text" [keydown]="call($event)">
+<input type="text" (keydown)="call($event)">
+
+
+Answer: <input type="text" (keydown)="call($event)">

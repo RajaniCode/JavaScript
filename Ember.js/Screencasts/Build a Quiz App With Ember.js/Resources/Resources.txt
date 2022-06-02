@@ -1,0 +1,8 @@
+Resources
+
+• GitHub Repository [https://github.com/codeschool/WatchUsBuild-QuizAppWithEmber]
+• Node.js Installation [https://nodejs.org/en/download/]
+• Chrome Ember Inspector [https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en]
+• Firefox Ember Inspector [https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/]
+• Dash for OS X [https://kapeli.com/dash]
+• Alfred [https://www.alfredapp.com/]

@@ -1,0 +1,13 @@
+5.8 Benefit of JavaScript Modules
+
+
+Indicate the biggest benefit of using the JavaScript module system.
+
+[Single Answer]
+
+We no longer have to use a build system.
+Code runs faster.
+Avoid polluting the global namespace.
+
+
+Answer: Avoid polluting the global namespace.

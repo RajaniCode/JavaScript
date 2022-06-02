@@ -1,0 +1,25 @@
+Functions II
+
+Given the greet function below, change it so that it accepts a single argument and prints out the value inside the alert.
+
+CoffeeScript:
+greet = ->
+  alert "Hello CoffeeScript"
+
+JavaScript:
+var greet;
+greet = function() {
+  return alert('Hello CoffeeScript');
+};
+
+
+Answer:
+CoffeeScript:
+greet = (message)->
+  alert message
+
+JavaScript:
+var greet;
+greet = function(message) {
+  return alert(message);
+};

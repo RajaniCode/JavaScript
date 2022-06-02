@@ -1,0 +1,41 @@
+4.15 Keyup Event Handler II
+
+Set the content of the #total element to the number the traveler has entered into the form field multiplied by the daily price.
+
+HTML
+
+<div class="tour" data-daily-price="357">
+  <h2>Paris, France Tour</h2>
+  <p>$<span id="total">2,499</span> for <span id="nights-count">7</span> Nights</p>
+  <p>
+    <label for="nights">Number of Nights</label>
+  </p>
+  <p>
+    <input id="nights" value="7" type="number">
+  </p>
+</div>
+
+application.js
+
+$(document).ready(function() {
+  $("#nights").on("keyup", function() {
+    $("#nights-count").text($(this).val());
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $("#nights").on("keyup", function() {
+    $("#nights-count").text($(this).val()); 
+    var nights = +$(this).val();
+    var dailyPrice = +$(this).closest(".tour").data("daily-price");
+    $("#total").text(nights * dailyPrice);
+  });
+});
+
+//Note To get span text
+$('#nights-count').text();
+$('#total').text();  

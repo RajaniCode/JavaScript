@@ -1,0 +1,69 @@
+5.6 Custom Events
+
+What if we wanted to run these in a specific order? By default jQuery will run them in the order they are declared, but we could also control the order by triggering one event from the other.
+
+Change the click.weather event to a new custom event, no longer listening for click. Trigger this event from within the click.photos event handler.
+
+HTML
+
+<ul>
+  <li class="tour" data-loc="london" data-temp="48°">
+    London, UK
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+
+  <li class="tour" data-loc="paris1" data-temp="55°">
+    Paris, France
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+
+  <li class="tour" data-loc="newyork1" data-temp="62°">
+    New York, NY, USA
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+</ul>
+
+application.js
+
+$(document).ready(function(){
+  // Get Weather
+  $('button').on('click.weather', function() {
+    var results = $(this).closest('li').find('.results');
+    results.append('<p>Weather: 74&deg;</p>');
+    $(this).off('click.weather');
+  });
+  
+  // Show Photos
+  $('button').on('click.photos', function() {
+    var tour = $(this).closest('li');
+    var results = tour.find('.results');
+    results.append('<p><img src="/assets/photos/'+tour.data('loc')+'.jpg" /></p>');
+    $(this).off('click.photos');
+  });
+});
+
+
+Answer:
+
+application.js
+
+$(document).ready(function(){
+  // Get Weather
+  $('button').on('click', function() {
+    var results = $(this).closest('li').find('.results');
+    results.append('<p>Weather: 74&deg;</p>');
+    $(this).off('click');
+    $('button').trigger('click');
+  });
+  
+  // Show Photos
+  $('button').on('click.photos', function() {
+    var tour = $(this).closest('li');
+    var results = tour.find('.results');
+    results.append('<p><img src="/assets/photos/'+tour.data('loc')+'.jpg" /></p>');
+    $(this).off('click.photos');
+    $('button').trigger('click.weather');
+  });

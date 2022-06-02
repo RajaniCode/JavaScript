@@ -1,0 +1,129 @@
+1.10 Outside Controller
+
+In order for a new note to be created by a user on the new notes page, we need to add a controller and use the $http service to create a new note. This time around, we'll use an external controller for the new notes page.
+
+    app
+        index.html
+        js
+            app.js
+            controllers
+                notes-create-controller.js
+                notes-show-controller.js
+                notes-edit-controller.js
+                users-show-controller.js
+        vendor
+        templates
+            pages
+                notes
+                    edit.html
+                    new.html
+                    index.html
+                users
+                    index.html
+
+1. Attach the NotesCreateController to the new notes route.
+
+Answer: controller: 'NotesCreateController'
+
+app/js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function($http){
+        var controller = this;
+        $http({method: 'GET', url: '/notes'}).success(function(data){
+          controller.notes = data;
+        });
+      },
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html',
+      controller: 'NotesCreateController'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+2. Give the controller an alias we can reference in the template.
+
+Answer: controllerAs: 'NotesCreateControllerCtrl'
+
+app/js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function($http){
+        var controller = this;
+        $http({method: 'GET', url: '/notes'}).success(function(data){
+          controller.notes = data;
+        });
+      },
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html',
+      controller: 'NotesCreateController',
+      controllerAs: 'NotesCreateControllerCtrl'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+3. Use the ngModel directive to save the data from each form input and textarea in a model called note. Remember the data key on the model matches the form input name. Look at the description textarea in the notes/new.html template for an example.
+
+Answer:
+
+<input name="title" ng-model="note.title" />
+
+<textarea name="content" ng-model="note.content"></textarea>
+
+app/templates/pages/notes/new.html
+
+<div class="new-note">
+  <div class="new-note-container">
+    <form class="form">
+      <fieldset>
+        <label for="title">Title</label>
+        <input name="title" ng-model="note.title" />
+      </fieldset>
+
+      <fieldset>
+        <label for="description">Description</label>
+        <textarea name="description" ng-model="note.description"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <label for="content">Content</label>
+        <textarea name="content" ng-model="note.content"></textarea>
+      </fieldset>
+
+      <button class="btn">Save</button>
+    </form>
+  </div>
+</div>
+
+4. Use the ngClick directive to call the saveNote() function of the controller when the save button is clicked. Remember to pass the note model to the function.
+
+Answer: <button class="btn" ng-click="NotesCreateControllerCtrl.saveNote(note)">Save</button>
+

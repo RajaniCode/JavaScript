@@ -1,0 +1,19 @@
+2.13 Sum
+
+To complete this challenge, you must use an assignment expression and the addition operator in a single statement.
+
+    1. First, determine the three numbers to add together.
+        The number of wheels on a tricycle.
+        The number of events in a decathlon.
+        The number of years depicted in “Seven Years in Tibet”.
+
+    2. Next, create an expression that adds these numbers together to determine the sum.
+
+    3. Now that we know the sum, let’s name our variable. The variable name must meet the following conditions:
+        Begins with the sum spelled out as a word.
+        Ends with the sum as a number.
+        Contains only the sum as a word and sum as a number.
+
+    4. Finally, write a statement that declares our variable using the name from Step 3 and assigns it to the expression from Step 2.
+
+Answer: var twenty20 = 3 + 10 + 7;

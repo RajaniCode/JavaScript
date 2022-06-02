@@ -1,0 +1,32 @@
+Splat Arguments
+
+Change the displayTopPicks function to accept a variable number of suggested coffees by using the splat operator. Use suggested.join(", ") to alert all of the suggested coffees.
+
+CoffeeScript:
+displayTopPicks = (bestCoffee, suggested) ->
+  alert('Top #1 ' + bestCoffee)
+  alert('Suggested: ' + suggested)
+
+JavaScript:
+var displayTopPicks;
+displayTopPicks = function(bestCoffee, suggested) {
+  alert('Top #1 ' + bestCoffee);
+  return alert('Suggested: ' + suggested);
+};
+
+Answer:
+
+CoffeeScript:
+displayTopPicks = (bestCoffee, suggested...) ->
+  alert('Top #1 ' + bestCoffee)
+  alert('Suggested: ' + suggested.join(", "))
+
+JavaScript:
+var displayTopPicks;
+var __slice = Array.prototype.slice;
+displayTopPicks = function() {
+  var bestCoffee, suggested;
+  bestCoffee = arguments[0], suggested = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+  alert('Top #1 ' + bestCoffee);
+  return alert('Suggested: ' + suggested.join(", "));
+};

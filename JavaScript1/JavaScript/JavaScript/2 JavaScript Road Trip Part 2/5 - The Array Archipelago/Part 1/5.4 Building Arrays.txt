@@ -1,0 +1,9 @@
+5.4 Building Arrays
+
+Create an array called values that contains the following contents in order:
+
+    a String
+    a Number
+    a Boolean
+
+Answer: var values = ["string", 1, true];

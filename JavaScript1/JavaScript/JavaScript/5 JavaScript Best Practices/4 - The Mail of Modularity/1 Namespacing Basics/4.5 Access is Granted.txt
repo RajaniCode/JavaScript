@@ -1,0 +1,53 @@
+4.5 Access is Granted
+
+"The HTML page for the Caves of Clarity lurks in darkness now," remarks Aiedra. "It has lost access to the data which was once global. Shine your torch upon this single line, ensuring that openers of chests will hear the music."
+
+index.html
+
+<!DOCTYPE>
+<html>
+  <body>
+    <h1>Level 4 Caves of Clarity</h1>
+    <script type="text/javascript" src="cavesofclarity.js"></script>
+    <button onclick="openChest();"> Open the Secret Treasure! </button>
+  </body>
+</html>
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = {
+  stalactites: 4235,
+  stalagmites: 3924,
+  bats: 345,
+  treasureChests: 3,
+  openChest: function() {
+    this.treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+  }
+};
+
+Answer: CAVESOFCLARITY.openChest();
+
+index.html
+
+<!DOCTYPE>
+<html>
+  <body>
+    <h1>Level 4 Caves of Clarity</h1>
+    <script type="text/javascript" src="cavesofclarity.js"></script>
+    <button onclick="CAVESOFCLARITY.openChest();"> Open the Secret Treasure! </button>
+  </body>
+</html>
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = {
+  stalactites: 4235,
+  stalagmites: 3924,
+  bats: 345,
+  treasureChests: 3,
+  openChest: function() {
+    this.treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+  }
+};

@@ -1,0 +1,57 @@
+3.8 Template Strings
+
+
+Refactor the code on the right to use string templates.
+
+build-topic-element.js
+
+function buildTopicElement(topic){
+  let title = "<h2>" + topic.title + "</h2>";
+  let author = "<small>" + topic.author + "</small>";
+  let body = "<p>" + topic.body + "</p>";
+
+  return { title, author, body };
+}
+
+
+1. Start by changing the title string to use a template string.
+
+Answer:
+
+build-topic-element.js
+
+function buildTopicElement(topic){
+  let title = `<h2> + ${topic.title} + </h2>`;
+  let author = "<small>" + topic.author + "</small>";
+  let body = "<p>" + topic.body + "</p>";
+
+  return { title, author, body };
+}
+
+2. Next, change author to be initialized with a template string.
+
+Answer:
+
+build-topic-element.js
+
+function buildTopicElement(topic){
+  let title = `<h2> + ${topic.title} + </h2>`;
+  let author = `<small> + ${topic.author}+ </small>`;
+  let body = "<p>" + topic.body + "</p>";
+
+  return { title, author, body };
+}
+
+3. Finally, initialize body using a template string.
+
+Answer:
+
+build-topic-element.js
+
+function buildTopicElement(topic){
+  let title = `<h2> + ${topic.title} + </h2>`;
+  let author = `<small> + ${topic.author}+ </small>`;
+  let body = `<p> + ${topic.body} + </p>`;
+
+  return { title, author, body };
+}

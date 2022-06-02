@@ -1,0 +1,15 @@
+1.5 Enter Pesky Gnat
+
+var isHero = true;
+var character;
+
+if (isHero) {
+  character = "Dhuun";
+} else {
+  character = "Pesky Gnat";
+}
+
+What would the above assignment through if-else blocks look like as a ternary conditional? Use the console below to enter an equivalent ternary conditional and press the enter key to submit your answer. You can also use the up-arrow to bring back your previous entry.
+
+
+Answer: var character = isHero ? "Dhuun" : "Pesky Gnat";

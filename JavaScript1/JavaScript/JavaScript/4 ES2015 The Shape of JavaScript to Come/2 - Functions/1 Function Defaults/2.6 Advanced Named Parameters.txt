@@ -1,0 +1,30 @@
+2.6 Advanced Named Parameters
+
+
+Take the following function, which sets a default value for the second parameter:
+
+function setPageThread(name, {popular, expires, activeClass} = {}){
+  // ...
+}
+Mark all the possible ways this function can be invoked without generating an error.
+
+[Multiple Answers]
+
+setPageThread(“ES2015”, {
+  popular: true
+});
+
+setPageThread(“ES2015”, {});
+
+setPageThread(“ES2015”);
+
+
+Answer:
+
+setPageThread(“ES2015”, {
+  popular: true
+});
+
+setPageThread(“ES2015”, {});
+
+setPageThread(“ES2015”);

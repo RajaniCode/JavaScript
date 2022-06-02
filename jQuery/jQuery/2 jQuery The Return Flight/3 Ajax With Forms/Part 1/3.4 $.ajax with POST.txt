@@ -1,0 +1,44 @@
+3.4 $.ajax with POST
+
+We're all set to start handling this form submission using Ajax. within the event handler, we'll need to do a few things. Make an ajax request to the /book URL on the server of type POST. Also pass in the contents of the form as the form data using serialize.
+
+HTML
+
+<div class="tour" data-daily-price="357">
+  <h2>Paris, France Tour</h2>
+  <p>$<span id="total">2,499</span> for <span id="nights-count">7</span> Nights</p>
+  <form action="/book" method="POST">
+    <p>
+      <label for="nights">Number of Nights</label>
+    </p>
+    <p>
+      <input name="nights" id="nights" value="7" type="number">
+    </p>
+    <input value="book" type="submit">
+  </form>
+</div>
+
+AJAX Result
+
+<p>You have successfully reserved a spot on your trip for 7 nights.</p>
+
+application.js
+$(document).ready(function() {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    $.ajax('/book', {
+      type: 'POST',
+      data: $('form').serialize()
+    });
+  });
+});

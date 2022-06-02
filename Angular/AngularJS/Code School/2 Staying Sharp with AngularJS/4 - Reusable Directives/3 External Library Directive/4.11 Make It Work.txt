@@ -1,0 +1,144 @@
+4.11 Make It Work
+
+Using the included external library, SlabText, create a wrapper directive nwSlabText so that we can use it in the NoteWrangler app.
+
+js/directives/nw-slab-text.js
+
+angular.module('NoteWrangler')
+.directive('nwSlabText', function() {
+  
+});
+
+templates/directives/nw-card.html
+
+<div class="card" title="{{title}}">
+  <h2 class="h3">{{header}}</h2>
+  <p>{{description}}</p>
+</div>
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en" ng-app="NoteWrangler">
+
+  <!DOCTYPE html>
+<html lang="en" ng-app="NoteWrangler">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Note Wrangler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/application.css" />
+    <link rel="stylesheet" href="css/vendor/slabtext.css" />
+    <link rel="stylesheet" href="css/bootstrap-popover.css" />
+  </head>
+
+  <body>
+    <div class="nav-wrapper has-dropdown">
+      <div class="nav-content">
+        <div class="wrapper">
+          <div class="nav-content-layout">
+            <nw-nav class="nav-list">
+              <nw-nav-item name="Notes"></nw-nav-item>
+              <nw-nav-item name="Users"></nw-nav-item>
+              <nw-nav-item name="Tweeted Notes"></nw-nav-item>
+            </nw-nav>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero"></div>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <div ng-view></div>
+    </div>
+
+    <!-- Load Js libs -->
+    <script src="./js/vendor/jquery.js"></script>
+    <script src="./js/vendor/angular.js"></script>
+    <script src="./js/vendor/angular-route.js"></script>
+    <script src="./js/vendor/angular-resource.js"></script>
+    <script src="./js/vendor/slabtext.js"></script>
+
+    <!-- NW Scripts -->
+    <script src="./js/app.js"></script>
+    <script src="./js/routes.js"></script>
+
+    <!-- Controllers -->
+    <script src="./js/controllers/notes-create-controller.js"></script>
+    <script src="./js/controllers/notes-edit-controller.js"></script>
+    <script src="./js/controllers/notes-index-controller.js"></script>
+    <script src="./js/controllers/notes-show-controller.js"></script>
+    <script src="./js/controllers/notes-tweeted-controller.js"></script>
+    <script src="./js/controllers/users-index-controller.js"></script>
+    <script src="./js/controllers/users-show-controller.js"></script>
+
+    <!-- Directives -->
+    <script src="./js/directives/nw-card.js"></script>
+    <script src="./js/directives/nw-nav-item.js"></script>
+    <script src="./js/directives/nw-nav.js"></script>
+    <script src="./js/directives/nw-slab-text.js"></script>
+
+    <!-- Services -->
+    <script src="./js/services/note.js"></script>
+    <script src="./js/services/tweetable.js"></script>
+
+  </body>
+</html>
+
+css/vendor/slabtext.css
+
+.slabtexted .slabtext{display:-moz-inline-box;display:inline-block;white-space:nowrap}.slabtextinactive .slabtext{display:inline;white-space:normal;font-size:1em !important;letter-spacing:inherit !important;word-spacing:inherit !important;*letter-spacing:0 !important;*word-spacing:0 !important;}.slabtextdone .slabtext{display:block;line-height:0.9;}
+
+1. Create a link function for the nwSlabText directive.
+
+2. Call the slabText() method on directive's element. Refer to the SlabText docs for the method name.
+
+Answer: 
+
+  return function($scope, element) {
+    element.slabText();
+  };
+
+js/directives/nw-slab-text.js
+
+angular.module('NoteWrangler')
+.directive('nwSlabText', function() {
+  return function($scope, element) {
+    element.slabText();
+  };
+});
+
+3. Add an attribute directive for nwSlabText to the h2 tag in the nw-card.html template.
+
+Answer: <h2 class="h3" nw-slab-text>{{header}}</h2>
+
+templates/directives/nw-card.html
+
+<div class="card" title="{{title}}">
+  <h2 class="h3" nw-slab-text>{{header}}</h2>
+  <p>{{description}}</p>
+</div>
+
+4. We have a problem: the link function of the nwSlabText directive is being called before the element has been populated with data. To solve this, inject and use the $timeout service.
+
+Answer: 
+
+js/directives/nw-slab-text.js
+
+angular.module('NoteWrangler')
+.directive('nwSlabText', function($timeout) {
+  return function($scope, element) {
+    $timeout(function(){
+    	element.slabText();
+    });
+  };
+});
+
+

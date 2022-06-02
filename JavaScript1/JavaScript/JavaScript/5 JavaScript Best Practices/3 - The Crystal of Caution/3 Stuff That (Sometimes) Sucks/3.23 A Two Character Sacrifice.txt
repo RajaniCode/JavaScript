@@ -1,0 +1,38 @@
+3.23 A Two Character Sacrifice
+
+Bring the final sense of clarity to these lands. Make sure the code below is bracketed properly.
+
+tools.js
+
+var toolsForTheBug = [
+  {bug:"termite", tool: "trebuchet"},
+  {bug:"slug", tool: "sling"},
+  {bug:"caterpillar", tool: "catapult"}
+];
+
+function toolAssignment(number, tool)
+  toolsForTheBug[number].tool = tool;
+
+toolAssignment(1, "Sausage");
+
+Answer: 
+
+function toolAssignment(number, tool)
+{
+  toolsForTheBug[number].tool = tool;
+}
+
+tools.js
+
+var toolsForTheBug = [
+  {bug:"termite", tool: "trebuchet"},
+  {bug:"slug", tool: "sling"},
+  {bug:"caterpillar", tool: "catapult"}
+];
+
+function toolAssignment(number, tool)
+{
+  toolsForTheBug[number].tool = tool;
+}
+
+toolAssignment(1, "Sausage");

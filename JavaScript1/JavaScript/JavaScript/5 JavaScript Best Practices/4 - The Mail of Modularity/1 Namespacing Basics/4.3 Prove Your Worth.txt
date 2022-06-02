@@ -1,0 +1,15 @@
+4.3 Prove Your Worth
+
+Riddles riddles are not much fun. Prove your worth Dhuun, the end is nigh.
+
+An application that has multiple files which contain variables with the same name will experience a loss of data in the event of a(n) 1.__________, which erases old data in favor of new (and perhaps wrong) data. This occurs specifically when these variables are declared 2.__________ in multiple files. This error may not be found until 3.__________.
+
+    1) conflict resolution, 2) locally, 3) the authors communicate
+
+    1) overwrite, 2) globally, 3) run-time
+
+    1) namespacing, 2) using var keywords, 3) a namespace is built
+
+    1) global footprint, 2) in namespaces, 3) the code is parsed
+
+Answer: 1) overwrite, 2) globally, 3) run-time

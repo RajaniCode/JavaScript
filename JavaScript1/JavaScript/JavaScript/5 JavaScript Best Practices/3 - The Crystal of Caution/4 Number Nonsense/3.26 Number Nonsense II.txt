@@ -1,0 +1,26 @@
+3.26 Number Nonsense II
+
+Get the number of whole lambs from the following string using a single method call.
+
+var lambString = "57 lazy lambs do bask in the sun.";
+
+Answer: parseInt("57 lazy lambs do bask in the sun.", 10);
+
+Note: radix argument only from 2-36
+
+Console:
+
+> parseInt("57 lazy lambs do bask in the sun.");
+
+57
+
+It's considered best practice to always pass the radix argument to parseInt(string, radix).
+
+> parseInt("57 lazy lambs do bask in the sun.", 10);
+
+57
+
+Congratulations, you're correct!
+
+
+>

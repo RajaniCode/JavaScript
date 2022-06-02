@@ -1,0 +1,16 @@
+App Object
+
+
+Time to get organized. Dr. Goodparts really hates global scope and has ordered that we only have at most 1 object polluting his precious global scope.
+
+Create an object that contains an empty Collections, Models, and Views object. Name the top-level object AppointmentApp.
+
+APPLICATION.JS
+
+Answer:
+
+var AppointmentApp = { 
+  Collections: {},
+  Models: {},
+  Views: {},
+}

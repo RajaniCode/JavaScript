@@ -1,0 +1,10 @@
+export PATH=$PATH:"/C/Users/rajanis/Downloads/Node.js/node-v14.15.5-win-x64/"
+
+set path=%path%;C:\Users\rajanis\Downloads\Node.js\node-v14.15.5-win-x64\
+
+
+
+
+export PATH=$PATH:"/C/Users/rajanis/Downloads/Node.js/node-v12.18.4-win-x64/"
+
+set path=%path%;C:\Users\rajanis\Downloads\Node.js\node-v12.18.4-win-x64\

@@ -1,0 +1,78 @@
+2.8 A Flexible Card Directive
+
+In order to make the nw-card directive reusable, it needs to accept a few attributes.
+
+nw-card.js
+
+angular.module('NoteWrangler')
+.directive('nwCard', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/directives/nw-card.html',
+    
+  };
+});
+
+nw-card.html
+
+<div class="card" title="{{note.header}}">
+  <h2 class="h3">{{note.header}}</h2>
+  <p>{{note.description}}</p>
+</div>
+
+notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes" ng-href="#/notes/{{note.id}}">
+        <nw-card></nw-card>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+1. Give the nw-card directive an isolate scope, and enable it to accept a header and description attribute with two-way bindings.
+
+Answer: 
+
+    scope: {
+      header: "=",
+      description: "="
+    }
+
+nw-card.js
+
+angular.module('NoteWrangler')
+.directive('nwCard', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/directives/nw-card.html',
+    scope: {
+      header: "=",
+      description: "="
+    }
+  };
+});
+
+2. Now make nw-card.html work for both Notes and Users by accessing the header and description directly from the scope.
+
+nw-card.html
+
+<div class="card" title="{{note.header}}">
+  <h2 class="h3">{{note.header}}</h2>
+  <p>{{note.description}}</p>
+</div>
+
+Answer: 
+
+nw-card.html
+
+<div class="card" title="{{header}}">
+  <h2 class="h3">{{header}}</h2>
+  <p>{{description}}</p>
+</div>

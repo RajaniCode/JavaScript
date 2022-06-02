@@ -1,0 +1,110 @@
+Microsoft Windows [Version 10.0.18363.657]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\rajanis>node -v
+v10.9.0
+
+C:\Users\rajanis>npm -v
+6.2.0
+
+C:\Users\rajanis>d:
+
+D:\>cd "D:\RajaniS Master Folder\Node.js\SQL Server\edge-js"
+
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js>SETX EDGE_SQL_CONNECTION_STRING "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=sampledb;User=sa;Password=$qlServer2016"
+
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js>node e.js
+internal/modules/cjs/loader.js:583
+    throw err;
+    ^
+
+Error: Cannot find module 'edge-js'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\e.js:9:12)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js>npm install edge-js
+
+> edge-cs@1.2.1 install D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-cs
+> node tools/install.js
+
+MSBUILD : error MSB1003: Specify a project or solution file. The current working directory does not contain a project or solution file.
+Microsoft (R) Build Engine version 16.4.0+e901037fe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+MSBUILD : error MSB1003: Specify a project or solution file. The current working directory does not contain a project or solution file.
+
+> edge-js@13.0.1 install D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js
+> node tools/install.js
+
+  Restore completed in 564.85 ms for D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\lib\bootstrap\bootstrap.csproj.
+  Restore completed in 564.86 ms for D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\src\double\Edge.js.CSharp\Edge.js.CSharp.csproj.
+  Restore completed in 624.98 ms for D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\src\double\Edge.js\Edge.js.csproj.
+Microsoft (R) Build Engine version 16.4.0+e901037fe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 39.57 ms for D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\src\double\Edge.js\Edge.js.csproj.
+  Restore completed in 39.59 ms for D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\src\double\Edge.js.CSharp\Edge.js.CSharp.csproj.
+  Restore completed in 39.55 ms for D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\lib\bootstrap\bootstrap.csproj.
+  Edge.js -> D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\src\double\Edge.js\bin\Release\netcoreapp1.1\EdgeJs.dll
+  Edge.js.CSharp -> D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\src\double\Edge.js.CSharp\bin\Release\netcoreapp1.1\Edge.js.CSharp.dll
+  bootstrap -> D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\bootstrap.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.26
+Success: platform check for edge.js: node.js x64 v10.9.0
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\package.json'
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\package.json'
+npm WARN edge-js No description
+npm WARN edge-js No repository field.
+npm WARN edge-js No README data
+npm WARN edge-js No license field.
+
++ edge-js@13.0.1
+added 3 packages from 9 contributors and audited 3 packages in 5.527s
+found 0 vulnerabilities
+
+
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js>node e.js
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\lib\edge.js:103
+            throw new Error("Unsupported language '" + language + "'. To compile script in language '" + language +
+            ^
+
+Error: Unsupported language 'sql'. To compile script in language 'sql' an npm module 'edge-sql' must be installed.
+    at Object.exports.func (D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\node_modules\edge-js\lib\edge.js:103:19)
+    at Object.<anonymous> (D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\e.js:12:24)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:266:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:596:3)
+
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js>npm install edge-sql
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\package.json'
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\edge-js\package.json'
+npm WARN edge-js No description
+npm WARN edge-js No repository field.
+npm WARN edge-js No README data
+npm WARN edge-js No license field.
+
++ edge-sql@0.1.2
+added 1 package from 1 contributor and audited 6 packages in 1.641s
+found 0 vulnerabilities
+
+
+D:\RajaniS Master Folder\Node.js\SQL Server\edge-js>node e.js
+Node server listening on port 8080

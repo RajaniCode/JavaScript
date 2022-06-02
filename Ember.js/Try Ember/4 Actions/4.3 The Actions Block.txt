@@ -1,0 +1,12 @@
+4.3 The Actions Block
+
+When defining action handlers within a route, what is the property under which all of the handler functions should be defined?
+
+[Single Answer]
+
+handlers
+actions
+actionHandlers
+
+
+Answer: actions

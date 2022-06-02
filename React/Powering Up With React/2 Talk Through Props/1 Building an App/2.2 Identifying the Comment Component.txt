@@ -1,0 +1,17 @@
+2.2 Identifying the Comment Component
+
+Here is the mockup for the commenting engine that we will be building throughout the rest of this course. Let's go through the exercise of identifying the components that we will be building.
+
+Please refer to 2.2 Identifying the Comment Component.jpg
+
+1. Select all instances of the Comment component.
+
+Answer: Please refer to 2.2 Identifying the Comment Component Answer 1.jpg
+
+2. Select the CommentBox component, also known as the root component of our application.
+
+Answer: Please refer to 2.2 Identifying the Comment Component Answer 2.jpg
+
+3. Select the CommentForm component, where users add new comments.
+
+Answer: Please refer to 2.2 Identifying the Comment Component Answer 3.jpg

@@ -1,0 +1,34 @@
+1.9 Include the JQuery Library
+
+jQuery is pretty awesome, but in order to use it we need to load it into our webpage. Update the following HTML to include the jquery.min.js library at the bottom of the page, just before the </body> tag.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>     
+  </head>
+  <body>
+    <div class="homepage-wrapper">
+      <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+      <p>Fly to New York today for as little as <span>$299.99</span></p>   
+    </div>
+  </body>
+</html>
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>     
+  </head>
+  <body>
+    <div class="homepage-wrapper">
+      <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+      <p>Fly to New York today for as little as <span>$299.99</span></p>   
+    </div>
+     <script src="jquery.min.js"></script>
+  </body>
+</html>

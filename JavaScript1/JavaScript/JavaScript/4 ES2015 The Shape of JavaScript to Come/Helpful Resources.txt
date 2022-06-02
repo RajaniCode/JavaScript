@@ -1,0 +1,12 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• Understanding ES6 [https://leanpub.com/understandinges6]
+• NCZOnline [https://www.nczonline.net/]
+• MDN - JavaScript [https://developer.mozilla.org/en-US/docs/Web/JavaScript]
+• Five Minutes of JavaScript [https://fivejs.codeschool.com/]
+• BabelJS [http://babeljs.io/]
+• Code TV: ES2015 With Babel [https://www.codeschool.com/screencasts/es2015-with-babel]
+• Code TV: ES2015 With Babel and Gulp [https://www.codeschool.com/screencasts/es2015-with-babel-and-gulp]
+• Code School Forum [https://www.codeschool.com/discuss/c/javascript/es-2015]

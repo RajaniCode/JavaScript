@@ -1,0 +1,4 @@
+Resources
+
+• Official page [http://ember-cli.github.io/ember-cli-deploy/] [https://ember-cli.com/user-guide/#deployments]
+• The lighting fast approach [https://www.youtube.com/watch?v=QZVYP3cPcWQ]

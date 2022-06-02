@@ -1,0 +1,56 @@
+4.7 Using $.map() II
+
+Now you need to create the array of html elements. Create an array of li elements, each with the flightNumber and the time from the ajax result. Insert the resulting array into the .flight-times unordered list element.
+
+HTML
+
+<button class="update-available-flights">Get Times</button>
+<div class="flights">
+  <ul class="flight-times">
+
+  </ul>
+</div>
+
+AJAX Result
+
+[
+  {
+    flightNumber: '308',
+    time: 'April 3rd, 5:29pm'
+  },
+  {
+    flightNumber: '298',
+    time: 'April 3rd, 2:46am'
+  },
+  {
+    flightNumber: '421',
+    time: 'April 3rd, 3:35pm'
+  }
+]
+
+application.js
+
+$('.update-available-flights').on('click', function() {
+  $.getJSON('/flights/late', function(result) {
+    var flightElements = $.map(result, function(flightItem, index){
+      // Your code goes here
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$('.update-available-flights').on('click', function() {
+  $.getJSON('/flights/late', function(result) {
+    // Your code goes here
+    var flightElement = $.map(result, function(flight, i) {
+      var flightItem = $('<li></li>');
+      $('<h3>'+flight.flightNumber+'</h3>').appendTo(flightItem);
+			$('<p>'+flight.time+'</p>').appendTo(flightItem);
+      return flightItem;
+    });
+    $('.flight-times').html(flightElement);
+  });
+});

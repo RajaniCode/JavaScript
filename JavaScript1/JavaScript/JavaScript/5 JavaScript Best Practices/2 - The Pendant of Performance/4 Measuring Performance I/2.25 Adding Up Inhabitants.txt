@@ -1,0 +1,74 @@
+2.25 Adding Up Inhabitants
+
+Aiedra rasps:
+
+    "One last thing you must test for me before moving on. Using only one pair of console.time() statements, find out how long it takes to add the inhabitants to accumulating list string."
+
+app.js
+
+Array.prototype.killTheInsolent = function(){};
+Array.prototype.countPopulace = function(){};
+Array.prototype.countUndeadPopulace = function(){};
+Array.prototype.insecticide = function(){};
+Array.prototype.shadowProvider = function(){};
+
+var invertedPeninsula = {
+  inhabitants: ["Nipping Global Variable", "Sneaky For-in", "Bulging Blocking Script"]
+};
+
+function populationGetter(){
+  var population = invertedPeninsula.inhabitants;
+  var list = "";
+
+
+  for(var i = 0, ff = population.length; i < ff; i++){
+    list += (population[i] + " ");
+  }
+
+
+  return list.trim();
+}
+
+populationGetter();
+
+Answer:
+
+  console.time("List Time:");
+
+  for(var i = 0, ff = population.length; i < ff; i++){
+    list += (population[i] + " ");
+  }
+
+  console.timeEnd("List Time:");
+
+
+
+
+app.js
+
+Array.prototype.killTheInsolent = function(){};
+Array.prototype.countPopulace = function(){};
+Array.prototype.countUndeadPopulace = function(){};
+Array.prototype.insecticide = function(){};
+Array.prototype.shadowProvider = function(){};
+
+var invertedPeninsula = {
+  inhabitants: ["Nipping Global Variable", "Sneaky For-in", "Bulging Blocking Script"]
+};
+
+function populationGetter(){
+  var population = invertedPeninsula.inhabitants;
+  var list = "";
+  console.time("List Time:");
+
+  for(var i = 0, ff = population.length; i < ff; i++){
+    list += (population[i] + " ");
+  }
+
+  console.timeEnd("List Time:");
+  return list.trim();
+}
+
+populationGetter();
+
+

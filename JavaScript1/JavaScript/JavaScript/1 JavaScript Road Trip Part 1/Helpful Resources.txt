@@ -1,0 +1,7 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• Useful Methods for Strings [http://www.impressivewebs.com/javascript-string-methods-reference/]
+• Special Characters and Escape Sequences [http://www.javascriptkit.com/jsref/escapesequence.shtml]
+• File Organization with HTML, CSS, and JavaScript Files [http://appcropolis.com/blog/web-technology/organize-html-css-javascript-files/]

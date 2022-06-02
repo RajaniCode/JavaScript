@@ -1,0 +1,21 @@
+4.13 Maps and Objects
+
+
+In the code below, we are not using the most appropriate data structure. What’s wrong with this code?
+
+
+let recentPosts = {};
+
+getPost(postId, (data) => {
+  recentPosts[data.author] = data.title;
+});
+
+
+[Single Answer]
+
+A regular function should be used instead of an arrow function.
+The recentPosts variable should be declared with var instead of let.
+recentPosts should be a Map, since keys are unknown until runtime.
+
+
+Answer: recentPosts should be a Map, since keys are unknown until runtime.

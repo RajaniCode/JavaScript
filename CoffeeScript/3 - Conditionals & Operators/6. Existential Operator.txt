@@ -1,0 +1,27 @@
+Existential Operator
+
+Make use of CoffeeScript's existential operator (the ?) to rewrite the JavaScript code below using CoffeeScript.
+
+CoffeeScript:
+# if (typeof newLevel !== "undefined" && newLevel !== null){
+#   checkLevel(newLevel);
+# } else {
+#   resetLevel();
+# }
+
+JavaScript:
+
+Answer:
+
+CoffeeScript:
+if newLevel?
+  checkLevel(newLevel)
+else 
+  resetLevel()
+
+JavaScript:
+if (typeof newLevel !== "undefined" && newLevel !== null) {
+  checkLevel(newLevel);
+} else {
+  resetLevel();
+}

@@ -1,0 +1,57 @@
+Class Inheritance
+
+Make the Coffee class inherit from Drink and override the serve method to return false if @sleeve is false, otherwise invoke the superclass method. (Note: The Drink class is defined below)
+
+Drink class:
+class Drink
+  sleeve: null
+  serve: ->
+    alert('Pouring drink')
+
+CoffeeScript:
+class Coffee
+  constructor: (@name, @level=0) ->
+
+JavaScript:
+var Coffee;
+Coffee = (function() {
+  function Coffee(name, level) {
+    this.name = name;
+    this.level = level != null ? level : 0;
+  }
+  return Coffee;
+})();
+
+Answer:
+
+CoffeeScript:
+class Coffee extends Drink
+  constructor: (@name, @level=0) ->
+  serve: ->
+    return false if @sleeve is not true
+    super()
+
+JavaScript:
+var Coffee;
+var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
+  for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
+  function ctor() { this.constructor = child; }
+  ctor.prototype = parent.prototype;
+  child.prototype = new ctor;
+  child.__super__ = parent.prototype;
+  return child;
+};
+Coffee = (function() {
+  __extends(Coffee, Drink);
+  function Coffee(name, level) {
+    this.name = name;
+    this.level = level != null ? level : 0;
+  }
+  Coffee.prototype.serve = function() {
+    if (this.sleeve === !true) {
+      return false;
+    }
+    return Coffee.__super__.serve.call(this);
+  };
+  return Coffee;
+})();

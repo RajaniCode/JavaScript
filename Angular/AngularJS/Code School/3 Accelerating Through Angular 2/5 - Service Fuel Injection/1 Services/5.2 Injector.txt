@@ -1,0 +1,6 @@
+5.2 Injector
+
+We tell our dependency injector what it can create and send by registering a [ ] with it.
+
+
+Answer: provider

@@ -1,0 +1,191 @@
+1.9 Inside Route Controller
+
+We want to display notes from the server within our template. Let's get started by creating a controller in our routes file.
+
+    app
+        index.html
+        js
+            app.js
+            vendor
+                jquery.js
+                angular.js
+                angular-route.js
+        templates
+            pages
+                notes
+                    edit.html
+                    new.html
+                    index.html
+                users
+                    edit.html
+                    new.html
+                    index.html
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+templates/pages/notes/index.html
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+1. Create a controller function inside this /notes route.
+
+Answer: controller: function(){}
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function(){}
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+2. Give the newly created controller an alias of notesCtrl so that we can access it from within the notes index template.
+
+Answer: controllerAs: 'notesCtrl'
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function(){},
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+3. We'll need to make a call to the server to retrieve the list of notes data, so we'll need to use the $http service in the controller we just created. Inject the $http service into the controller.
+
+Answer: controller: function($http){},
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function($http){},
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+4. Use the $http() function to make an HTTP request to the /notes URL. Upon success, save the resulting data to a notes variable on the controller.
+
+Answer: 
+
+controller: function($http){
+    var controller = this;
+    $http({method: 'GET', url: '/notes'}).success(function(data){
+      	controller.notes = data;
+       });
+    },
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function($http){
+      	var controller = this;
+        $http({method: 'GET', url: '/notes'}).success(function(data){
+        	controller.notes = data;
+        });
+      },
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);

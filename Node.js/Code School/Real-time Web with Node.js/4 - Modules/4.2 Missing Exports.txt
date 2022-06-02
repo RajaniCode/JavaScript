@@ -1,0 +1,20 @@
+4.2 Missing Exports
+
+Notice the two different files: high_five.js on the left side and app.js on the right. The code as it's written will not work, high_five.js isn't exporting anything.
+
+1. Add the proper exports line to have a successful high five!
+
+Answer: module.exports = highfive;
+
+high_five.js
+
+var highfive = function() {
+  console.log("smack!!");
+};
+module.exports = highfive;
+
+app.js
+
+var highfive = require('./high_five.js');
+highfive();
+

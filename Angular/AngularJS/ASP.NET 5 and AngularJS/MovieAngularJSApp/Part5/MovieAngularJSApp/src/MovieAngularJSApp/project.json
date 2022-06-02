@@ -1,0 +1,52 @@
+﻿{
+  "webroot": "wwwroot",
+  "exclude": [
+    "wwwroot",
+    "bower_components",
+    "node_modules",
+    "grunt"
+  ],
+  "bundleExclude": [
+    "bower.json",
+    "package.json",
+    "gruntfile.js",
+    "bower_components",
+    "node_modules",
+    "grunt"
+  ],
+  "authors": [
+    "Microsoft"
+  ],
+  "description": "Movie App",
+  "compilationOptions": {
+    "define": [
+      "DEBUG"
+    ]
+  },
+  "dependencies": {
+    "Kestrel": "1.0.0-*",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
+    "Microsoft.AspNet.Mvc": "6.0.0-*",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-*",
+    "EntityFramework.InMemory": "7.0.0-*",
+    "EntityFramework.SqlServer": "7.0.0-*",
+    "Microsoft.AspNet.Security.Cookies": "1.0.0-*",
+    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-*",
+    "Microsoft.Framework.ConfigurationModel": "1.0.0-*",
+    "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*"
+  },
+  "commands": {
+    "WebListener": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5102",
+    "Kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5104",
+    "run": "run server.urls=http://localhost:5103"
+  },
+  /*"scripts": {
+    "postrestore": [ "npm install" ],
+    "prepare": [ "grunt bower:install" ]
+  },*/
+  "frameworks": {
+    "aspnet50": {},
+    "aspnetcore50": {}
+  }
+}

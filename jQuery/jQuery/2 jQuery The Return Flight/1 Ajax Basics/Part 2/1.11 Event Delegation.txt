@@ -1,0 +1,93 @@
+1.11 Event Delegation
+
+One other thing we did in Try jQuery was make the labels show up over the photos when we moused over them. For some reason these are no longer working.
+
+It looks like we're trying to define our mouseover events when the DOM loads, but since we're loading them with Ajax it's not finding them. Update these to use event delegation, ensuring they'll work if we load them via Ajax.
+
+HTML
+
+<div id="tour" data-location="london">
+  <button>Get Photos</button>
+  <ul class="photos">
+
+  </ul>
+</div>
+
+AJAX Result
+
+<li>
+  <img src="/assets/photos/paris1.jpg">
+  <span style="display: none;">Arc de Triomphe</span>
+</li>
+<li>
+  <img src="/assets/photos/paris2.jpg">
+  <span style="display: none;">The Eiffel Tower</span>
+</li>
+<li>
+  <img src="/assets/photos/london.jpg">
+  <span style="display: none;">London</span>
+</li>
+
+application.js
+
+$(document).ready(function() {
+  function showPhotos() {
+    $(this).find('span').slideToggle();
+  }
+  $('.photos li').on('mouseenter', showPhotos)
+                 .on('mouseleave', showPhotos);
+
+
+  var el = $("#tour");
+  el.on("click", "button", function() {
+    $.ajax('/photos.html', {
+      data: {location: el.data('location')},
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      },
+      error: function() {
+        $('.photos').html('<li>There was a problem fetching the latest photos. Please try again.</li>');
+      },
+      timeout: 3000,
+      beforeSend: function() {
+        $('#tour').addClass('is-fetching');
+      },
+      complete: function() {
+        $('#tour').removeClass('is-fetching');
+      }
+    });
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  function showPhotos() {
+    $(this).find('span').slideToggle();
+  }
+  $('.photos').on('mouseenter', 'li', showPhotos)
+              .on('mouseleave', 'li', showPhotos);
+
+
+  var el = $("#tour");
+  el.on("click", "button", function() {
+    $.ajax('/photos.html', {
+      data: {location: el.data('location')},
+      success: function(response) {
+        $('.photos').html(response).fadeIn();
+      },
+      error: function() {
+        $('.photos').html('<li>There was a problem fetching the latest photos. Please try again.</li>');
+      },
+      timeout: 3000,
+      beforeSend: function() {
+        $('#tour').addClass('is-fetching');
+      },
+      complete: function() {
+        $('#tour').removeClass('is-fetching');
+      }
+    });
+  });
+});

@@ -1,0 +1,23 @@
+JS to Coffee I
+
+Convert the commented jQuery code below to CoffeeScript
+
+# jQuery(function($) {
+#   $('#newCoffee a').click(function() {
+#     alert('New coffee added');
+#   });
+# });
+
+Answer:
+
+CoffeeScript:
+$ ->
+  $('#newCoffee a').click ->
+    alert('New coffee added')
+
+JavaScript:
+$(function() {
+  return $('#newCoffee a').click(function() {
+    return alert('New coffee added');
+  });
+});

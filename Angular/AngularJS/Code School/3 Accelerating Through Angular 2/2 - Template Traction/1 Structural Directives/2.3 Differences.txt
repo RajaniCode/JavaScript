@@ -1,0 +1,6 @@
+2.3 Differences
+
+A component is simply a directive with a [ ]
+
+
+Answer: template

@@ -1,0 +1,67 @@
+1.10 JSX and Plain JavaScript
+
+Turns out robots are very knowledgeable in the subject of math, thanks to JavaScript! Let's see what they have to say about the value of PI.
+
+components.js
+
+class RobotTime extends React.Component {
+  render() {
+  	
+    return (
+      <div   >
+        The value of PI is approximately 
+      </div>
+    );
+  }
+}
+ 
+1. Before the return statement, create a new variable called pi and assign it the value of PI. In case you don't remember, you can use the built-in Math.PI property from JavaScript.
+
+Answer:
+
+components.js
+
+class RobotTime extends React.Component {
+  render() {
+  	const pi = Math.PI;
+    return (
+      <div   >
+        The value of PI is approximately 
+      </div>
+    );
+  }
+}
+
+2. Reference the pi variable from inside the render() method so that the message returned by our component says: The value of PI is approximately 3.141592653589793.
+
+Answer:
+
+components.js
+
+class RobotTime extends React.Component {
+  render() {
+  	const pi = Math.PI;
+    return (
+      <div   >
+        The value of PI is approximately {pi}
+      </div>
+    );
+  }
+}
+
+3. Lastly, add a CSS class to the component <div> called is-tasty-pie.
+
+Answer:
+
+components.js
+
+class RobotTime extends React.Component {
+  render() {
+  	const pi = Math.PI;
+    return (
+      <div  className="is-tasty-pie">
+        The value of PI is approximately {pi}
+      </div>
+    );
+  }
+}

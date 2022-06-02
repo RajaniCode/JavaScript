@@ -1,0 +1,18 @@
+Fetch with URL
+
+Dr. Goodparts finally ponied up for a server and has seeded it with his first few appointments. Luckily for us, he bought the REST package with the JSON add-on.
+
+Point the root URL of your Appointment model to the /appointments endpoint.
+
+Then, create a new Appointment with an id of 1, and fetch its data from the server.
+
+APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({});
+
+Answer:
+
+var Appointment = Backbone.Model.extend({urlRoot: '/appointments'});
+var appointment = new Appointment({id: 1});
+appointment.fetch();
+

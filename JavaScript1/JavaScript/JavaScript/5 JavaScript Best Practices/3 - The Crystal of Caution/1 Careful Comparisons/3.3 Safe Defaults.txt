@@ -1,0 +1,13 @@
+3.3 Safe Defaults
+
+Triple equals === is a safe default: it checks for matching
+[ ]
+, as well as
+[ ]
+.
+
+Answer: 
+
+value 
+
+type

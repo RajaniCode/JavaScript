@@ -1,0 +1,17 @@
+Force Parse
+
+
+In the Appointment instantiation code below, make sure the attributes get run through our new parse function by passing in the appropriate option to the Appointment constructor
+
+JSON
+
+var data = { "appointment": { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+
+APPLICATION.JS
+
+var appointment = new Appointment(data);
+
+Answer:
+
+var appointment = new Appointment(data, {parse:true});
+appointment.attributes;

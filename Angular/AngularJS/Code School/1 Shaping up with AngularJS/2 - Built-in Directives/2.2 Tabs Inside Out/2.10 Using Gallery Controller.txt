@@ -1,0 +1,11 @@
+2.10 Using Gallery Controller
+
+Now that we've got an awesome GalleryController, let's wire it up to the page:
+
+1. Attach GalleryController to the .gallery element that wraps our gallery; use the alias gallery.
+
+Answer: <div class='gallery' ng-show="product.images.length" ng-Controller="GalleryController as gallery">
+
+2. Change the ng-src directive on the main image to use the current property. You'll need to access the current-th product image.
+
+Answer:  <img ng-src="{{product.images[gallery.current]}}" />

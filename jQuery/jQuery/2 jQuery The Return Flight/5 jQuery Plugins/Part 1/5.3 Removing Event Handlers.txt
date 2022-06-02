@@ -1,0 +1,50 @@
+5.3 Removing Event Handlers
+
+We're prototyping a page right now that will fetch some content from around the web and display it so that our travelers can find out about the weather and see more pictures for destinations they are interested in. In chapter 6 we'll make this content dynamic, but for now we'll hardcode it.
+
+The problem is the button can be clicked any number of times and it'll always append the weather. Update this to instead remove the event handler when it's clicked. Note: You can access the clicked button using $(this).
+
+HTML
+
+<ul>
+  <li class="tour" data-loc="london" data-temp="48°">
+    London, UK
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+
+  <li class="tour" data-loc="paris1" data-temp="55°">
+    Paris, France
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+
+  <li class="tour" data-loc="newyork1" data-temp="62°">
+    New York, NY, USA
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+</ul>
+
+application.js
+
+$(document).ready(function(){
+  // Get Weather
+  $('button').on('click', function() {
+    var results = $(this).closest('li').find('.results');
+    results.append('<p>Weather: 74&deg;</p>');
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function(){
+  // Get Weather
+  $('button').on('click', function() {
+    var results = $(this).closest('li').find('.results');
+    results.append('<p>Weather: 74&deg;</p>');
+    $(this).off('click');
+  });
+});

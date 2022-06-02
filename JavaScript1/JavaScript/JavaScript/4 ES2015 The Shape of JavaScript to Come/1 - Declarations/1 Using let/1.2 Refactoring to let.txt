@@ -1,0 +1,50 @@
+1.2 Refactoring to let
+
+
+Refactor the current code to use the new let keyword.
+
+load-profiles.js
+
+function loadProfiles(userNames){
+  var message = "Loading " + userNames.length + " user(s)";
+
+  _displayFlash(message);
+
+  _fetchProfiles(userNames, function(data){
+    var profiles = data.profiles;
+    _addToPage(profiles);
+  });
+}
+
+
+1. Let's start by replacing the message declaration with a let statement.
+
+Answer:
+
+load-profiles.js
+
+function loadProfiles(userNames){
+ let message = "Loading " + userNames.length + " user(s)";
+  _displayFlash(message);
+
+  _fetchProfiles(userNames, function(data){
+   var profiles = data.profiles;
+    _addToPage(profiles);
+  });
+}
+
+2. Now replace the profiles declaration with a let statement.
+
+Answer:
+
+load-profiles.js
+
+function loadProfiles(userNames){
+ let message = "Loading " + userNames.length + " user(s)";
+  _displayFlash(message);
+
+  _fetchProfiles(userNames, function(data){
+    let profiles = data.profiles;
+    _addToPage(profiles);
+  });
+}

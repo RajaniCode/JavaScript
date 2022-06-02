@@ -1,0 +1,166 @@
+3.3 A Factory Recipe II
+
+Now that you know about factories, let's clean up the controller a bit by moving that $http() call into its own factory.
+
+js/services/note.js
+
+angular.module('NoteWrangler')
+.factory('Note', [function NoteFactory() {
+  
+}]);
+
+
+js/controllers/notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', ['$scope', '$http', function($scope, $http) {
+  $http({method: 'GET', url: '/notes'}).success(function(data){
+    $scope.notes = data;
+  });
+}]);
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en" ng-app="NoteWrangler">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Note Wrangler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/application.css" />
+  </head>
+
+  <body>
+    <div class="nav-wrapper has-dropdown">
+      <div class="nav-content">
+        <div class="wrapper">
+          <div class="nav-content-layout">
+            <div class="nav-list">
+
+              <a href="#/"
+                 class="list-item"
+                 ng-click="selected = 'notes'"
+                 ng-class="{'active': selected == 'notes'}"> Notes </a>
+
+              <a href="#/users"
+                 class="list-item"
+                 ng-click="selected = 'users'"
+                 ng-class="{'active': selected == 'users'}"> Users </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero"></div>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+        <div ng-view></div>
+    </div>
+
+    <!-- Load Js libs -->
+    <script src="./js/vendor/jquery.js"></script>
+    <script src="./js/vendor/angular.js"></script>
+    <script src="./js/vendor/angular-route.js"></script>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/routes.js"></script>
+
+    <!-- Controllers -->
+    <script src="./js/controllers/notes-create-controller.js"></script>
+    <script src="./js/controllers/notes-edit-controller.js"></script>
+    <script src="./js/controllers/notes-index-controller.js"></script>
+    <script src="./js/controllers/notes-show-controller.js"></script>
+    <script src="./js/controllers/users-index-controller.js"></script>
+    <script src="./js/controllers/users-show-controller.js"></script>
+
+    <!-- Directives -->
+    <script src="./js/directives/nw-card.js"></script>
+
+
+    <!-- Services -->
+    <script src="./js/services/note.js"></script>
+
+
+  </body>
+</html>
+
+templates/directives/new-card.html
+
+<div class="card" title="{{title}}">
+  <h2 class="h3">{{header}}</h2>
+  <p>{{description}}</p>
+</div>
+
+js/directives/new-card.js
+
+angular.module('NoteWrangler')
+.directive('nwCard', [function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-card.html',
+    scope: {
+      header: '=',
+      description: '=',
+      tweeted: '='
+    },
+    link: function(scope, element) {
+      if(scope.tweeted) {
+        element.addClass('tweeted');
+      }
+    }
+  };
+}]);
+
+1. Return an object from the NoteFactory() function that has a method named all.
+
+Answer: 
+
+js/services/note.js
+
+angular.module('NoteWrangler')
+.factory('Note', function NoteFactory() {
+  return{
+    all: function(){},
+  };
+});
+
+2. Move the $http() call from the controller into the all() function in our Note factory and return the resulting promise. Don't forget to inject the $http service!
+
+Answer: 
+
+js/services/note.js
+
+angular.module('NoteWrangler')
+.factory('Note', function NoteFactory($http) {
+  return {
+    all: function() {
+     return $http({method: 'GET', url: '/notes'});      	     
+    },    
+  };
+});
+
+js/controllers/note-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', function($scope){});
+
+
+3. Inject the Note factory into the controller and use the new all() method instead of calling $http() directly.
+
+js/controllers/notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', function($scope, Note) {
+  Note.all()
+  .success(function(data){
+      $scope.notes = data;
+  }); 
+});

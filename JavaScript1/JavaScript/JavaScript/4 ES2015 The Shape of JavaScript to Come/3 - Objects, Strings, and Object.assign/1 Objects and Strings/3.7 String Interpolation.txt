@@ -1,0 +1,17 @@
+3.7 String Interpolation
+
+
+Complete the code on the right so that it uses the variable replyCount from inside the template string. You`ll need to use the syntax for string interpolation.
+
+total-replies.js
+
+let replyCount = 21;
+let message = `This topic has a total of   replies`;
+
+
+Answer:
+
+total-replies.js
+
+let replyCount = 21;
+let message = `This topic has a total of ${replyCount} replies`;

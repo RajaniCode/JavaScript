@@ -1,0 +1,108 @@
+nodejs-connect-rest-sample
+
+Prerequisites
+To use the Microsoft Graph Connect Sample for Node.js, you need the following:
+• Node.js [********/] version 4 or 5.
+• Either a Microsoft account [https://www.outlook.com/] or a work or school account [http://dev.office.com/devprogram]
+
+[https://www.outlook.com/]
+#####@outlook.com
+********
+
+
+[https://apps.dev.microsoft.com/]
+rajani@rajanis.onmicrosoft.com
+********
+
+Register the application
+
+1. Sign into the App Registration Portal [https://apps.dev.microsoft.com/] using either your personal or work or school account.
+
+2. Choose Add an app.
+
+3. Enter a name for the app, and choose Create application.
+
+The registration page displays, listing the properties of your app.
+
+4. Copy the Application Id. This is the unique identifier for your app.
+
+5. Under Application Secrets, choose Generate New Password. Copy the password from the New password generated dialog.
+
+You'll use the application ID and password (secret) to configure the sample app in the next section.
+
+6. Under Platforms, choose Add Platform.
+
+7. Choose Web.
+
+8. Enter http://localhost:3000/token as the Redirect URI.
+
+Choose Save.
+
+
+[https://apps.dev.microsoft.com/] [msgraph-nodejs-connect-sample]
+rajani@rajanis.onmicrosoft.com
+********
+
+Properties
+
+Name 
+msgraph-nodejs-connect-sample
+
+Application Id
+########-****-####-****-#############
+
+[Generated New Password]
+********
+
+Platforms
+Web
+
+Redirect URI  
+Allow Implicit Flow
+# http://localhost:3000/token
+http://localhost:3000/login
+
+Microsoft Graph Permissions
+
+Delegated Permissions
+Mail.Send 
+User.Read 
+
+Application Permissions
+
+
+Advanced Options
+Live SDK support [Unselected]
+
+
+# nodejs-connect-rest-sample-master/package.json
+// "name": "o365-nodejs-microsoft-graph-connect",
+  
+"name": "nodejs-connect-rest-sample"
+
+
+# nodejs-connect-rest-sample-master/authHelper.js
+scope: 'User.Read Mail.Send offline_access'
+
+# nodejs-connect-rest-sample-master/authHelper.js
+var credentials = {
+  authority: 'https://login.microsoftonline.com/common',
+  authorize_endpoint: '/oauth2/v2.0/authorize',
+  token_endpoint: '/oauth2/v2.0/token',
+  client_id: '########-****-####-****-#############',
+  client_secret: '********',
+  redirect_uri: 'http://localhost:3000/login',
+  scope: 'User.Read Mail.Send offline_access'
+};
+
+Hi, Rajani S!
+
+You're now connected to Office 365. Click the button below to send a message from your account using the Microsoft Graph.
+
+#####@gmail.com
+  
+Send mail
+
+#####@outlook.com
+
+Send mail

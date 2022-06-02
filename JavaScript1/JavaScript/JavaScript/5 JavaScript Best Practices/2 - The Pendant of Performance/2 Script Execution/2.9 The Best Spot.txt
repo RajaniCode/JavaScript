@@ -1,0 +1,15 @@
+2.9 The Best Spot
+
+As you exit the Inverted Peninsula, Aiedra floats beside you.
+
+    "Tell me, Dhuun, of your knowledge of the script execution. What is the best location for a script tag, if it is a very large script file that will take much time to load and process."
+
+Select your response.
+
+    The top, just after the body of the page begins.
+
+    The middle, but after other scripts have loaded.
+
+    The bottom, just before the final body tag.
+
+Answer: The bottom, just before the final body tag.

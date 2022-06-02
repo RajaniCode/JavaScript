@@ -1,0 +1,69 @@
+2.4 Replacing Object With Named Parameters
+
+
+Let's refactor the loadProfiles() function to use named parameters with default values.
+
+load-profiles.js
+
+function loadProfiles(userNames = [], options = {}) {
+  let profilesClass = options.profilesClass || ".user-profile";
+  let reverseSort   = options.reverseSort   || false;
+
+  if (reverseSort) {
+    userNames = _reverse(userNames);
+  }
+
+  _loadProfilesToSideBar(userNames, profilesClass);
+}
+
+
+1. First, in the function signature, replace the options argument with the named parameters profilesClass and reverseSort.
+
+Answer:
+
+load-profiles.js
+
+function loadProfiles(userNames = [], {profilesClass, reverseSort}) {
+  let profilesClass = options.profilesClass || ".user-profile";
+  let reverseSort   = options.reverseSort   || false;
+
+  if (reverseSort) {
+    userNames = _reverse(userNames);
+  }
+
+  _loadProfilesToSideBar(userNames, profilesClass);
+}
+
+2. Now in the function body, replace calls to the old options object with references to the newly declared variables. Keep the default values, but remember, we no longer need to declare option variables using let on the function body.
+
+Answer:
+
+load-profiles.js
+
+function loadProfiles(userNames = [], {profilesClass, reverseSort}) {
+  profilesClass = profilesClass || ".user-profile";
+  reverseSort = reverseSort   || false;
+
+  if (reverseSort) {
+    userNames = _reverse(userNames);
+  }
+
+  _loadProfilesToSideBar(userNames, profilesClass);
+}
+
+3. Now in the function body, replace calls to the old options object with references to the newly declared variables. Keep the default values, but remember, we no longer need to declare option variables using let on the function body.
+
+Answer:
+
+load-profiles.js
+
+function loadProfiles(userNames = [], {profilesClass, reverseSort} = {}) {
+  profilesClass = profilesClass || ".user-profile";
+  reverseSort = reverseSort   || false;
+
+  if (reverseSort) {
+    userNames = _reverse(userNames);
+  }
+
+  _loadProfilesToSideBar(userNames, profilesClass);
+}

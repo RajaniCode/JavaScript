@@ -1,0 +1,2 @@
+For a full list of React’s lifecycle methods, visit
+http://go.codeschool.com/react-lifecycle-methods

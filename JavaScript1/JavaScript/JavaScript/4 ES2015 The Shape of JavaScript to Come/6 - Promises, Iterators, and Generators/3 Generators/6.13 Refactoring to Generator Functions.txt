@@ -1,0 +1,76 @@
+6.13 Refactoring to Generator Functions
+
+
+Let's finish converting our custom iterator object to use a generator function.
+
+user.js
+
+let user = {
+  name: "sam", totalReplies: 17, isBlocked: false
+};
+
+user[Symbol.iterator] = function  (){
+
+  let properties = Object.keys(this);
+  let count = 0;
+  let isDone = false;
+
+  for(let p of properties){
+    this[p];
+  }
+};
+
+for(let p of user){
+  console.log( p );
+}
+
+
+1. Add a special character to the function signature for the Symbol.iterator in order to make it a generator function.
+
+Answer:
+
+user.js
+
+let user = {
+  name: "sam", totalReplies: 17, isBlocked: false
+};
+
+user[Symbol.iterator] = function *(){
+
+  let properties = Object.keys(this);
+  let count = 0;
+  let isDone = false;
+
+  for(let p of properties){
+    this[p];
+  }
+};
+
+for(let p of user){
+  console.log( p );
+}
+
+2. Inside the for…of loop, add the missing keyword that generates the next iterator object with its value property set to this[p].
+
+Answer:
+
+user.js
+
+let user = {
+  name: "sam", totalReplies: 17, isBlocked: false
+};
+
+user[Symbol.iterator] = function *(){
+
+  let properties = Object.keys(this);
+  let count = 0;
+  let isDone = false;
+
+  for(let p of properties){
+    yield this[p];
+  }
+};
+
+for(let p of user){
+  console.log( p );
+}

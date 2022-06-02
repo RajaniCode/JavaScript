@@ -1,0 +1,33 @@
+2.10 Script Spirits
+
+Script spirits have placed a magic lock on the position of the script tag in the nearby file, and as soon as you try to move it, it pops right back into place.
+
+A low murmur comes from the Script spirits, clearly a mocking sound.
+
+Modify the tag without moving it, in order to allow the page to continue to load without too much delay.
+
+app.html
+
+<html>
+  <head>z
+    <script type="text/javascript" src="https://www.fourlands.com/takesForever.js" ></script>
+  </head>
+  <body>
+    /* Mystical Page body html */
+  </body>
+</html>
+
+Answer: <script type="text/javascript" src="https://www.fourlands.com/takesForever.js" async></script>
+
+app.html
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.fourlands.com/takesForever.js" async></script>
+  </head>
+  <body>
+    /* Mystical Page body html */
+  </body>
+</html>
+
+

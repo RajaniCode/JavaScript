@@ -1,0 +1,29 @@
+4.4 Enter the Caves
+
+"Behold," says Aiedra, "the cavesofclarity.js file!"
+
+"The data within is currently global, and vulnerable to evil. Convert this file to contain a single object that protects the data"
+
+cavesofclarity.js
+
+var stalactites = 4235;
+var stalagmites = 3924;
+var bats = 345;
+var treasureChests = 3;
+var openChest = function(){
+    treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+};
+
+Answer:
+
+var GLOBAL = {
+  stalactites : 4235,
+  stalagmites : 3924,
+  bats : 345,
+  treasureChests : 3,
+  openChest : function(){
+    this.treasureChests--;
+    alert("DA DADADA DAAAAAAA!");
+	}
+};

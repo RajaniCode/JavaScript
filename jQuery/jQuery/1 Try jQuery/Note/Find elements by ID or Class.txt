@@ -1,0 +1,5 @@
+CSS: p { ... } jQuery: $("p");
+
+CSS: #container { ... } jQuery: $("#container");
+
+CSS: .articles { ... } jQuery: $(".articles");

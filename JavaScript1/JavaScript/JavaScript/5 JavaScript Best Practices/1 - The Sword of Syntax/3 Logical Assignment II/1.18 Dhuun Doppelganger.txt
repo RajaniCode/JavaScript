@@ -1,0 +1,32 @@
+1.18 Dhuun Doppelganger
+
+In another time, in another world, a very different Dhuun meets such a trial once more. In this alternate drama, what happened? Look closely.
+
+var strength = true;
+var fear = true;
+var pack = {
+  food: [ "carrot",
+          "mystery meat",
+          "apple",
+          "crust of bread",
+          "spicy dried sausage",
+          "carrot",
+          "wedge of sharp cheese",
+          "jug of milk",
+          "mystery meat",
+          "carrot"
+        ],
+  addFood: function(foodItem){
+    this.food = this.food || [];
+    this.food.push(foodItem);
+  },
+  enoughFood:function(amount){
+    return(this.food.length >= amount);
+  }
+};
+
+var surviveThisTrial = strength && !fear && pack.enoughFood(10);
+
+
+Answer: The fear variable will short-circuit the logical assignment, and enoughFood will not be called at all. Dhuun falls.
+

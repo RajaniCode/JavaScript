@@ -1,0 +1,10 @@
+Start the History
+
+
+Before we can start to use our Router we have to make sure Backbone starts watching for history changes.
+
+Go ahead and start history now, and make sure pushState is on.
+
+APPLICATION.JS
+
+Answer: Backbone.history.start({pushState: true});

@@ -1,0 +1,4 @@
+Resources
+
+• babel.js template strings docs [https://babeljs.io/learn-es2015/]
+• More videos about ES2015 [https://www.emberscreencasts.com/tags/esnext]

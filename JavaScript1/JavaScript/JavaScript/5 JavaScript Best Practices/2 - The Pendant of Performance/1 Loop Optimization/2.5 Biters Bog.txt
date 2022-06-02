@@ -1,0 +1,46 @@
+2.5 Biters Bog
+
+The critters confer with Aeidra in the shadows. She floats back to you through the quiet mist.
+
+    "It seems the critters have only one use for that cache variable you've built: that single loop itself. They've asked you to relocate the cache so that it will be found nearer to where it is used. Thus will clarity ensue."
+
+To optimize organization and memory efficiency, relocate your cached variable creation to a spot more pertinent to its creation. Think carefully about the syntax that will be necessary.
+
+bitersBog.js
+
+var bitersBog = {
+  critters: ["Nipping Global Variable", 
+             "Sneaky For-in", 
+             "Bulging Blocking Script"]
+};
+
+populationGetter(bitersBog); 
+
+function populationGetter( location ){
+  var list = "";
+  var numCritters = location.critters.length;
+  for(var i = 0, ; i < numCritters; i++){
+    list += location.critters[i];
+  }
+  return list.trim();
+}
+
+Answer: for(var i = 0, numCritters = location.critters.length; i < numCritters; i++){
+
+bitersBog.js
+
+var bitersBog = {
+  critters: ["Nipping Global Variable", 
+             "Sneaky For-in", 
+             "Bulging Blocking Script"]
+};
+
+populationGetter(bitersBog); 
+
+function populationGetter( location ){
+  var list = "";
+  for(var i = 0, numCritters = location.critters.length; i < numCritters; i++){
+    list += location.critters[i];
+  }
+  return list.trim();
+}

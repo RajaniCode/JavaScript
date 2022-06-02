@@ -1,0 +1,152 @@
+
+$ npm test
+
+> code-breaker-project@1.0.0 test E:\Working\JavaScript\JavaScript\Code School\Projects\Build-a-Code-Breaker-Game-With-JavaScript\CodeBreakerProject
+> mocha -t 20000 test/*.spec.js
+
+
+
+  CodeBreaker :
+    setHiddenFields()
+      v should set the `value` of element `answer` to a random whole number between 0 and 9999. @randomNumber
+      v should set the `value` of element `answer` to a number exactly 4 characters long. @answerLength
+      v should set the `value` of element `attempt` to 0. @setAttempt
+      v should only run if the `value` of elements `attempt` or `answer` are empty. @preventClearing
+    setMessage()
+      v should accept one parameter and set the `innerHTML` of element `message` to that parameter. @setMessage
+    validateInput()
+      v should accept one parameter and return `true` only when that parameter's `length` is 4. @validateInput
+      v should run when `guess` runs @runValidation
+    getResults() @getResults
+      v should accept one parameter and add to the `results` element's `innerHTML` based on how close the parameter is to the value of element `answer`. Each result should begin with `<div class="row"><span class="col-md-6">' + input + '</span><div class="col-md-6">` where `input` is the function's parameter. Foreach character in `input`: add `<span class="glyphicon glyphicon-ok"></span>` if the character is in the element `answer`s `value` and in the correct position, add `<span class="glyphicon glyphicon-transfer"></span>` if the character is in element `answer``s `value`, but is not in the correct position, and add `<span class="glyphicon glyphicon-remove"></span>` if the character is not in `answer`'s `value` at all. @getResults
+      v should return `true` if element `answer`'s `value` and parameter match, otherwise return `false` @correctGuess
+    guess()
+      v should call `setMessage` with value "You Win! :)" when `getResults` returns `true`. @winCondition
+      v should call `setMessage` with the value "You Lose! :(" when element `attempt`'s `value` is 10 or more and `getResurts` returns false. @loseCondition (44ms)
+      v should call `setMessage` with the value "Incorrect, try again." when element `answer`'s `value` does not match user input, but `attempt`'s `value` is less than 10. @tryAgain
+    showAnswer()
+      v should accept one parameter and set the `innerHTML` of element `code` to match element `answer`'s value. If parameter is `true` element `code` should have ` success` added to it's `className` otherwise ` failure` should be added to it`s `className`. (Note: the spaces before ` success` and ` failure` are required) @showAnswer
+    showReplay()
+      v should set element `guessing-div`'s `style` to "display:none" element `replay-div`'s `style` to "display:block". @showReplay
+    guess()
+      v should call `showAnswer` and `showReplay` when either the player guesses correctly, or runs out of attempts. If player wins provide `true` to the `showAnswer` call, otherwise `false`. @winLoseConditions (64ms)
+
+
+  15 passing (7s)
+
+
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   src/assets/main.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git branch
+* master
+
+$ git add .
+
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   src/assets/main.js
+
+
+$ git branch
+* master
+
+$ git commit -a -m "Project Solution"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(NULL)>) not allowed
+
+$ git config
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+
+
+$ git config user.email "rajanicode@gmail.com"
+
+$ git config user.name "RajaniCode"
+
+$ git commit -a -m "Project Solution"
+[master 53d8c65] Project Solution
+ 1 file changed, 86 insertions(+), 1 deletion(-)
+
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+$ git branch
+* master
+
+$ git push origin master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.21 KiB | 0 bytes/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/RajaniCode/CodeBreakerProject.git
+   4d81e4d..53d8c65  master -> master
+
+$ git branch
+* master
+
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean

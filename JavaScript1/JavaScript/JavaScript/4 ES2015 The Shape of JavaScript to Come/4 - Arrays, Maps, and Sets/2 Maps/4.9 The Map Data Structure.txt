@@ -1,0 +1,13 @@
+4.9 The Map Data Structure
+
+
+Complete the following statement about the Map data structure.
+
+In the Map data structure, each [ ] is associated with one [ ].
+
+
+Answer:
+key
+value
+
+In the Map data structure, each [key] is associated with one [value].

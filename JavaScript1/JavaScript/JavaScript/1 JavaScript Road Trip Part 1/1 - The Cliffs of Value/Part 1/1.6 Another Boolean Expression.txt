@@ -1,0 +1,11 @@
+1.6 Another Boolean Expression
+
+Write a Boolean expression that tests whether two numbers are not equal, and whose answer evaluates to true.
+
+Answer: 
+
+1 != 2
+
+or
+
+0 != 1

@@ -1,0 +1,24 @@
+Collection View
+
+
+It's finally time to start building out our Appointment app. We're going to be using a collection and a collection view to display a list of appointments to the ornery but brilliant Dr. Goodparts.
+
+Let's start by creating a View Class named AppointmentListView and then create an instance of that class, passing in our collection instance appointments
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+ 
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment
+});
+
+APPLICATION.JS
+
+var appointments = new AppointmentList();
+
+Answer:
+
+var appointments = new AppointmentList();
+var AppointmentListView = Backbone.View.extend({});
+var appointmentListView = new AppointmentListView({collection: appointments});

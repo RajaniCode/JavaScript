@@ -1,0 +1,5 @@
+3.16 Take Action
+
+Whether errors occur or not, one can use a [ ] block to ensure some particular action is always taken…so long as it does not contain an error itself.
+
+Answer: finally

@@ -1,0 +1,93 @@
+Watch those @'s
+
+Fix the bug on the code below, which is causing the @linkClicked variable to not be properly set when a link is clicked.
+
+HTML Source
+<section>
+  <h2>Calculate your Caffeine Level</h2>
+ 
+  <div class="menu">
+    <h3>Coffee</h3>
+    <p id="newCoffee"><a href="#">Add Coffee</a></p>
+    <ul class="drink">
+      <li><a href="#" data-level="1">American</a><span class="tooltip">Level 1 Caffeine</span></li>
+      <li><a href="#" data-level="2">Colombian</a><span class="tooltip">Level 2 Caffeine</span></li>
+      <li><a href="#" data-level="3">Brazilian</a><span class="tooltip">Level 3 Caffeine</span></li>
+      <li><a href="#" data-level="10">Espresso</a><span class="tooltip">Level CRAZY Caffeine</span></li>
+    </ul>
+    <label for="total">Total:</label>
+    <input type="text" id="total" size="3" value="0"/>
+    <input type="button" id="clear" size="3" value="Clear"/>
+    <div id="warning"></div>
+    <div id="notice"></div>
+    <div id="advertisement">
+      <p>
+        How about you try our new <a href="#">EnvyLabs Coffee!</a> ?
+      </p>
+    </div>
+  </div>
+</section>
+<section>
+  <h3>Store Locations</h3>
+  <ul class="locations">
+  </ul>
+</section>
+<section>
+  <article>
+    <h3>Top Pick of the Week</h3>
+    <p id="topPick"></p>
+  </article>
+  <article>
+    <h3>Other Suggested Coffee</h3>
+    <ul class="suggested"></ul>
+  </article>
+</section>
+
+CoffeeScript:
+class DrinkLink
+  constructor: (@linkClicked=false) ->
+  watchClick: ->
+    $('.drink a').click (event) ->
+      $(event.target).css('color', '#F00')
+      @linkClicked = true
+
+JavaScript:
+var DrinkLink;
+DrinkLink = (function() {
+  function DrinkLink(linkClicked) {
+    this.linkClicked = linkClicked != null ? linkClicked : false;
+  }
+  DrinkLink.prototype.watchClick = function() {
+    return $('.drink a').click(function(event) {
+      $(event.target).css('color', '#F00');
+      return this.linkClicked = true;
+    });
+  };
+  return DrinkLink;
+})();
+
+Answer:
+
+CoffeeScript:
+class DrinkLink
+  constructor: (@linkClicked=false) ->
+  watchClick: ->
+    $('.drink a').click (event) =>
+      $(event.target).css('color', '#F00')
+      @linkClicked = true
+
+JavaScript:
+var DrinkLink;
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+DrinkLink = (function() {
+  function DrinkLink(linkClicked) {
+    this.linkClicked = linkClicked != null ? linkClicked : false;
+  }
+  DrinkLink.prototype.watchClick = function() {
+    return $('.drink a').click(__bind(function(event) {
+      $(event.target).css('color', '#F00');
+      return this.linkClicked = true;
+    }, this));
+  };
+  return DrinkLink;
+})();

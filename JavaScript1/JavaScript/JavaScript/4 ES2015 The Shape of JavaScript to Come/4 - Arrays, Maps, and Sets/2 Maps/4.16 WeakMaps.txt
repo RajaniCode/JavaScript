@@ -1,0 +1,14 @@
+4.16 WeakMaps
+
+
+Complete the following statement about WeakMaps.
+
+The WeakMap is a more memory efficient type of Map where only [ ] can be passed as keys. Primitive data types such as strings, numbers, booleans, etc. are not allowed.
+
+
+Answer: object
+
+Note:
+
+The WeakMap is a more memory efficient type of Map where only [object] can be passed as keys. Primitive data types such as strings, numbers, booleans, etc. are not allowed.
+

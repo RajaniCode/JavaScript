@@ -1,0 +1,72 @@
+﻿2.6 Reading Props
+
+Even though we passed props to the Comment component, we still aren't reading in those props. Let’s fix that!
+
+components.js
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">
+          Anne Droid
+        </p>
+        <p className="comment-body">
+          I wanna know what love is...
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+1. Replace the hard-coded text within the <p> tag that has the class comment-header to read in the author prop instead.
+
+Answer:
+
+components.js
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">
+          {this.props.author}
+        </p>
+        <p className="comment-body">
+          I wanna know what love is...
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+2. Now let's replace the hard-coded text within the <p> tag that has the class comment-body to read in the body prop.
+
+Answer:
+
+components.js
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <p className="comment-header">
+          {this.props.author}
+        </p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}

@@ -1,0 +1,17 @@
+Adding a class
+
+
+Make sure every AppointmentView top-level element is created with a class of appointment.
+
+APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+  tagName: 'li'
+});
+
+Answer:
+
+var AppointmentView = Backbone.View.extend({
+  tagName: 'li',
+  className: 'appointment'
+});

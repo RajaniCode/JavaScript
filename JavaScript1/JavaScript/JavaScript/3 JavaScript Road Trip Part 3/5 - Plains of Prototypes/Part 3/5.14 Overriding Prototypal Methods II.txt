@@ -1,0 +1,115 @@
+5.14 Overriding Prototypal Methods II
+
+The cowboy-devs have asked for an improved toString method for their fence posts. Here is an example of the string message they want to generate:
+
+Fence post #10:
+Connected to posts:
+11
+12
+13
+Distance from ranch: 5 yards
+
+    Begin by creating a function to override the toString method on the Fencepost prototype. The function won’t need to take any parameters.
+    Inside the function, initialize a list variable to an empty string. We can use list to keep track of connected posts.
+    Loop through the connectionsTo array with a for loop.
+    Inside your for loop, concatenate every postNum in the connectionsTo array on to the list string.
+    Lastly, return a string message in the format above with the correct postNum, connections list, and distance value. The constructor and all of your previous prototype additions are provided for you as a reference for property names and procedures.
+
+posts.js
+
+function Fencepost(x, y, postNum) {
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+}
+
+Fencepost.prototype = {
+  sendRopeTo: function(connectedPost) {
+    this.connectionsTo.push(connectedPost);
+  },
+  removeRope: function(removeTo) {
+    var temp = [];
+    for (var i = 0; i < this.connectionsTo.length; i++) {
+      if (this.connectionsTo[i].postNum != removeTo) {
+        temp.push(this.connectionsTo[i]);
+      }
+    }
+    this.connectionsTo = temp;
+  },
+  movePost: function(x, y) {
+    this.x = x;
+    this.y = y;
+  },
+  valueOf: function() {
+  return Math.sqrt(this.x * this.x +
+                   this.y * this.y);
+  }
+};
+
+// override the toString method
+
+Answer:
+
+Fencepost.prototype.toString = function () {
+    var distance = 0;
+    var x1 = this.x;
+    var x2 = 0;
+    var y1 = this.y;
+    var y2 = 0;
+    var list = "";
+    for (var i = 0; i < this.connectionsTo.length; i++)
+    {
+        list += this.connectionsTo[i] + "\n";
+    }
+    distance = Math.sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
+    return "Fence post #" + this.postNum + ":\nConnected to posts:\n" + list + "Distance from ranch: " + distance + " yards";
+};
+
+posts.js
+
+function Fencepost(x, y, postNum) {
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+}
+
+Fencepost.prototype = {
+  sendRopeTo: function(connectedPost) {
+    this.connectionsTo.push(connectedPost);
+  },
+  removeRope: function(removeTo) {
+    var temp = [];
+    for (var i = 0; i < this.connectionsTo.length; i++) {
+      if (this.connectionsTo[i].postNum != removeTo) {
+        temp.push(this.connectionsTo[i]);
+      }
+    }
+    this.connectionsTo = temp;
+  },
+  movePost: function(x, y) {
+    this.x = x;
+    this.y = y;
+  },
+  valueOf: function() {
+  return Math.sqrt(this.x * this.x +
+                   this.y * this.y);
+  }
+};
+
+// override the toString method
+Fencepost.prototype.toString = function () {
+    var distance = 0;
+    var x1 = this.x;
+    var x2 = 0;
+    var y1 = this.y;
+    var y2 = 0;
+    var list = "";
+    for (var i = 0; i < this.connectionsTo.length; i++)
+    {
+        list += this.connectionsTo[i] + "\n";
+    }
+    distance = Math.sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));
+    return "Fence post #" + this.postNum + ":\nConnected to posts:\n" + list + "Distance from ranch: " + distance + " yards";
+};

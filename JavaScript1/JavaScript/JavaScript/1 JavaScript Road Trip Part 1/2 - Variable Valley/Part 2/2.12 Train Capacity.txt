@@ -1,0 +1,22 @@
+2.12 Train Capacity
+
+Now, a person gets off the train at the Yellowstone National Park station.
+
+    1. Build a trainCapacity variable and set it to 60.
+    2. Decrement your numPassengers variable using the simple decrement syntax.
+    3. Construct a String called occupancy in the following format:
+
+2 passengers present, with 58 seats remaining.
+
+In creating this String, use only your numPassengers and trainCapacity variables to create the numerical values.
+
+var numPassengers = 0
+numPassengers += 3
+
+Answer: 
+
+var numPassengers = 0
+numPassengers += 3
+var trainCapacity = 60;
+numPassengers--;
+var occupancy = numPassengers + ' passengers present, with ' + (trainCapacity - numPassengers) + ' seats remaining.';

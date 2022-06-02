@@ -1,0 +1,50 @@
+1.3 Using Function Expressions with Parameters
+
+The devs at the Death-Defying Dogwoods have determined a specific formula for the quantifiable amount of fear generated at the theme park. Their formula is based on the amount of people, the amount of rain, and the amount of sharks. Yes. Sharks.
+
+var fearGenerated = function(numPeeps, rainInInches, numSharks) {
+  var rainFear = numPeeps * rainInInches;
+  var sharkFear = numSharks * numSharks * numSharks;
+  var totalFear = sharkFear + rainFear;
+  return totalFear;
+};
+
+    Analyze the fearGenerated formula.
+    Assign appropriate values to the people, rain, and sharks variables so that the amount of fear generated will be no less than 100, but no more than 400.
+    Call the fearGenerated function and pass in the variables as arguments.
+    Store the result of that function in a new variable called fear.
+
+Note: You do not need to change the existing fearGenerated function.
+
+hauntedHickoryHouse.js
+
+var people = /*//fill this in//*/;
+var rain = /*//fill this in//*/;
+var sharks = /*//fill this in//*/;
+
+var fearGenerated = function(numPeeps, rainInInches, numSharks) {
+  var rainFear = numPeeps * rainInInches;
+  var sharkFear = numSharks * numSharks * numSharks;
+  var totalFear = sharkFear + rainFear;
+  return totalFear;
+};
+
+Answer:
+
+hauntedHickoryHouse.js
+
+var people = 5;
+var rain = 6;
+var sharks = 7;
+
+var fearGenerated = function (numPeeps, rainInInches, numSharks) {
+    var rainFear = numPeeps * rainInInches;
+    var sharkFear = numSharks * numSharks * numSharks;
+    var totalFear = sharkFear + rainFear;
+    return totalFear;
+};
+
+var fear = fearGenerated(people, rain, sharks);
+
+
+

@@ -1,0 +1,12 @@
+3.2 DOM Manipulation in React
+
+In React, this is how we modify the DOM:
+
+[Single Answer]
+
+Directly, by accessing DOM elements and changing properties on them
+Indirectly, by updating each component's state and letting React handle updates to the DOM
+We must use other libraries, like jQuery, in order to modify the DOM
+
+
+Answer: Indirectly, by updating each component's state and letting React handle updates to the DOM

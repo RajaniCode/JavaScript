@@ -1,0 +1,36 @@
+5.14 Exporting Constants
+
+
+We've moved the constants used on the validators module over to their own module called validation-constants.
+
+validators.js
+
+import { MAX_TITLE_LENGTH, EMAIL_DOMAIN } from "./validation-constants";
+
+export function isTopicValid(topic){
+  let isValid = !(topic.title.length > MAX_TITLE_LENGTH || topic.author.isBlocked);
+  return isValid;
+}
+
+export function isEmailAuthorized(email){
+  return email.indexOf(EMAIL_DOMAIN) > 0;
+}
+
+export { isTopicValid, isEmailAuthorized };
+
+validation-constants.js
+
+const MAX_TITLE_LENGTH = 20;
+const EMAIL_DOMAIN = "@codeschool.com";
+
+
+Using the single line export statement, export the 2 constants found on this module.
+
+Answer:
+
+validation-constants.js
+
+const MAX_TITLE_LENGTH = 20;
+const EMAIL_DOMAIN = "@codeschool.com";
+export {MAX_TITLE_LENGTH , EMAIL_DOMAIN };
+

@@ -1,0 +1,162 @@
+date
+
+export PATH=$PATH:"/C/Users/Rajani/Downloads/Node.js/node-v16.13.0-win-x64/"
+
+node --version
+
+npm --version
+
+npx --version
+
+npm -g list
+
+[
+npm view npm version
+
+npm view npm
+
+npm show npm version
+
+npm show npm
+
+npm view corepack
+
+npm view corepack version
+
+npm show corepack
+
+npm show corepack version
+]
+
+npx create-react-app my-app
+
+cd my-app
+
+cd src
+
+rm -f *
+
+cd ..
+
+touch src/index.css
+
+# src/index.css
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+cat src/index.css
+
+touch src/index.js
+
+# src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square" onClick={function() { console.log('click'); }}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square value={i} />;
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+
+cat src/index.js
+
+npm start
+
+[
+http://localhost:3000/
+]

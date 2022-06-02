@@ -1,0 +1,24 @@
+JS to CS - Part VI
+
+Convert the commented jQuery code below to CoffeeScript
+
+# $('.drink li').hover(function() {
+#   $(this).find('span').show();
+# }, function() {
+#   $(this).find('span').hide();
+# });
+
+Answer:
+
+CoffeeScript:
+$('.drink li').hover ->
+  ($(@).find('span').show()
+  ->
+  $(@).find('span').hide())
+
+JavaScript:
+$('.drink li').hover(function() {
+  $(this).find('span').show();
+  (function() {});
+  return $(this).find('span').hide();
+});

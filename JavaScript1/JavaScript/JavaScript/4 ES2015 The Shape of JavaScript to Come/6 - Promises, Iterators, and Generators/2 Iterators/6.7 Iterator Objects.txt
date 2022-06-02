@@ -1,0 +1,13 @@
+6.7 Iterator Objects
+
+
+An iterator object has a method called next(). Each time next() is called, it returns an object with 2 specific properties. These are:
+
+[Single Answer]
+
+done and value
+head and tail
+reject and resolve
+
+
+Answer: done and value

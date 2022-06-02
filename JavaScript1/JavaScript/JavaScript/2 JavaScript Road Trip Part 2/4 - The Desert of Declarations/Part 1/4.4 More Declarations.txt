@@ -1,0 +1,16 @@
+4.4 More Declarations
+
+Build a function declaration called maxOf2 that takes in two numbers and returns the greater value. Be careful to think about the possibility of equality as well and return one of the numbers.
+
+Answer:
+
+uniqueMath.js
+
+function maxOf2(number1, number2) {
+    if(number1 >= number2) {
+    	return number1;
+    }
+    else {
+	return number2;
+    }    
+}

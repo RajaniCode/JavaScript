@@ -1,0 +1,26 @@
+2.22 Do Not Test Her
+
+Aiedra asks in a calm tone,
+
+    "Test how long it will take the join to run."
+
+Careful not to test her though; you must place console.time() just so.
+
+app.js
+
+var array = ["Inverted Peninsula", ",", "Inverted Peninsula", ", ", "I", "—", "P", "...", "hmmm", "."];
+var internalThoughts = "";
+
+internalThoughts = array.join(" ");
+
+console.log(internalThoughts);
+
+Answer:
+
+var array = ["Inverted Peninsula", ",", "Inverted Peninsula", ", ", "I", "—", "P", "...", "hmmm", "."];
+var internalThoughts = "";
+console.time("Time: ");
+internalThoughts = array.join(" ");
+console.time("Joined: ");
+console.log(internalThoughts);
+console.timeEnd("Time: ");

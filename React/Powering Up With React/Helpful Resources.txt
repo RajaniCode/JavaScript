@@ -1,0 +1,9 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• Pluralsight Course: Styling React Components [https://www.pluralsight.com/courses/react-styling-components]
+• Egghead series: React Fundamentals [https://egghead.io/series/react-fundamentals]
+• Tutorial: React in 15ish minutes [https://youtu.be/PGUMRVowdv8]
+• Official React Documentation [https://facebook.github.io/react/index.html]
+• Demo App Code [https://github.com/codeschool/WatchUsBuildReact]

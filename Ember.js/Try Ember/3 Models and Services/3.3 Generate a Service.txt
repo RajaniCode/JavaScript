@@ -1,0 +1,15 @@
+3.3 Generate a Service
+
+Use an Ember CLI generator to create a new service called store.
+
+
+Type help to see the help menu
+
+quiz$  ember generate service store
+version: 1.13.13
+installing service
+  create app/services/store.js
+installing service-test
+  create tests/unit/services/store-test.js
+Success!
+quiz$

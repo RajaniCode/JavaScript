@@ -1,0 +1,32 @@
+Parse II
+
+
+Great! Now let's take care of that pesky spelling error.
+
+Change 'cankelled' to 'cancelled' and make sure to remove the 'cankelled' property.
+
+Make sure to refer to the JSON below and to the right.
+
+JSON RESPONSE
+
+// Get /appointments/1
+{ "appointment": { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+
+APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({
+  parse: function(response){
+    return response.appointment;
+  }
+});
+
+Answer:
+
+var Appointment = Backbone.Model.extend({
+  parse: function(response){
+    response = response.appointment;
+    response.cancelled = response.cankelled;
+    delete response.cankelled;
+    return response;
+  }
+});

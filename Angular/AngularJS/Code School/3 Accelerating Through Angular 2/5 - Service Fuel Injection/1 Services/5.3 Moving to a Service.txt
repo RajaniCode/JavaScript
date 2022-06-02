@@ -1,0 +1,446 @@
+5.3 Moving to a Service
+
+It's time to move our mocks into services for our racing schedule app. We've gone ahead and started creating a race.service.ts file for you. Please note that this is a RaceService class, not RacingDataService class like in the slides. We need your help hooking it all up.
+
+races.component.html
+
+<main class="container" role="main">
+<h2>Money for racing: <input type="text" class="cash" [(ngModel)]="cash"></h2>
+<ul>
+  <li class="card" *ngFor="let race of races" [class.racing]="race.isRacing" >
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="race.image" [alt]="race.imageDescription">
+      </div>
+      <table class="race-info">
+        <tr>
+          <td>
+            <h3>{{race.name}}</h3>
+            <p class="date">{{race.date | date:'MMM d, y, h:MM a'}}</p>
+            <p class="description">{{race.about}}</p>
+          </td>
+          <td>
+            <p class="price">{{race.entryFee | currency:'USD':true}}</p>
+          </td>
+          <td>
+            <button class="button" *ngIf="!race.isRacing" (click)="enterRace(race)">Enter Race</button>
+            <div *ngIf="race.isRacing">
+              <p class="status">Racing</p>
+              <button class="button-cancel" (click)="cancelRace(race)">Cancel Race</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+<div class="price-total">
+  <h3>Total cost:</h3>
+  <p>{{totalCost() | currency:'USD':true}}</p>
+</div>
+</main>
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  
+  ngOnInit() {
+    
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header class="container">
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+  `,
+  directives: [RacesComponent],
+  
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+}
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+
+export class RaceService {
+  getRaces() {
+    return RACES;
+  }
+}
+
+1. First, in the race.service.ts file, import the Injectable decorator and use it properly with our RaceService class.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  
+  ngOnInit() {
+    
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header class="container">
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+  `,
+  directives: [RacesComponent],
+  
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+}
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+@Injectable()
+export class RaceService {
+  getRaces() {
+    return RACES;
+  }
+}
+
+2. Great! Now, in the app.component.ts, import our RaceService and let our injector know about it.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  
+  ngOnInit() {
+    
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header class="container">
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+  `,
+  directives: [RacesComponent],
+  providers: [RaceService]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+}
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+@Injectable()
+export class RaceService {
+  getRaces() {
+    return RACES;
+  }
+}
+
+3. Good job! Now, in the races.component.ts, import the service and create the constructor that will allow it to be injected.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+  ngOnInit() {
+    
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header class="container">
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+  `,
+  directives: [RacesComponent],
+  providers: [RaceService]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+}
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+@Injectable()
+export class RaceService {
+  getRaces() {
+    return RACES;
+  }
+}
+
+4. Lastly, finish implementing our ngOnInit() to call our new service and fetch our races using the getRaces() method.
+
+Answer:
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RaceService } from './race.service';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+
+  constructor(private raceService: RaceService) { }
+  ngOnInit() {
+    this.races = this.raceService.getRaces()
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+  enterRace(race) {
+    if (this.cashLeft() > race.entryFee) {
+      race.isRacing = true;
+    } else {
+      alert("You don't have enough cash");
+    }
+  }
+
+  cancelRace(race) {
+    race.isRacing = false;
+  }
+
+} 
+
+app/app.component.ts
+
+import { Component } from '@angular/core';
+import { RacesComponent } from './races.component';
+import { RaceService } from './race.service';
+@Component({
+  selector: 'racing-app',
+  template: `
+    <header class="container">
+      <h1>{{heading}}</h1>
+    </header>
+    <my-races></my-races>
+  `,
+  directives: [RacesComponent],
+  providers: [RaceService]
+})
+export class AppComponent {
+  heading = "Ultra Racing Schedule"
+}
+
+app/race.service.ts
+
+import { RACES } from './mocks';
+import { Injectable } from '@angular/core';
+@Injectable()
+export class RaceService {
+  getRaces() {
+    return RACES;
+  }
+}

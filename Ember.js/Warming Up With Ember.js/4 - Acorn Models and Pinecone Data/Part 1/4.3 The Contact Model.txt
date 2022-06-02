@@ -1,0 +1,985 @@
+4.3 The Contact Model
+
+While we’re thinking about Ember Data, let’s also convert our CONTACTS array to use it. Follow the tasks below to convert it to using Ember Data.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'products' tagName='li'}}Products{{/link-to}}
+          {{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class='jumbotron'>
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class='tagline'>
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>
+        {{#link-to 'products' class='btn btn-primary btn-lg'}}
+          Browse All {{productsCount}} Items &raquo;
+        {{/link-to}}
+      </p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='contacts/index'>
+    <div class='row'>
+      <img {{bind-attr src='avatar'}} alt='Avatar' class='img-thumbnail col-sm-4'/>
+      <div class='col-sm-8'>
+        <h1>About The Fire Sprites</h1>
+        <p>Contact {{contactName}} for more info!</p>
+        <p>Current Status: {{open}}.</p>
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='products'>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <div class='list-group'>
+          {{#each}}
+            {{#link-to 'product' this classNames='list-group-item'}}
+              {{title}}
+            {{/link-to}}
+          {{/each}}
+        </div>
+      </div>
+      <div class='col-sm-9'>
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='product'>
+    <div class='row'>
+      <div class='col-sm-7'>
+        <h2>{{title}}</h2>
+        <h3 class='text-success'>${{price}}</h3>
+        <p class='text-muted'>{{description}}</p>
+      </div>
+      <div class='col-sm-5'>
+        <img {{bind-attr src='image'}} class='img-thumbnail img-rounded'/>
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='products/index'>
+    <p class='text-muted'>Choose a product from those on the left!</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='contacts'>
+    <div class='row'>
+      <div class='col-sm-9'>
+        {{outlet}}
+      </div>
+      <div class='col-sm-3'>
+        <div class='list-group'>
+          {{#each}}
+            {{#link-to 'contact' this classNames='list-group-item'}}
+              {{name}}
+            {{/link-to}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='contact'>
+    <div class='row'>
+      <div class='col-sm-5'>
+        <img {{bind-attr src='avatar' alt='name'}} class='img-thumbnail img-rounded'/>
+      </div>
+      <div class='col-sm-7'>
+        <h2>{{name}}</h2>
+        <p>{{about}}</p>
+      </div>
+    </div>
+  </script>
+</body>
+</html>
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:name' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+1. Create a new model for Contact.
+
+Answer: App.Contact = DS.Model.extend({ });
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:name' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ });
+
+2. Create attributes on Contact for each one we’re using in the App.CONTACTS array.
+
+Answer: 
+
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:name' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+
+3. Rename the App.CONTACTS variable to provide fixture data. Make sure it’s defined after the model you’re providing fixture data for.
+
+Answer: 
+
+App.Contact.FIXTURES = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:name' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+App.Contact.FIXTURES = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+4. Add a unique identifier to each Contact.
+
+Answer: 
+
+App.Contact.FIXTURES = [
+  {
+    id: 1,
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    id: 2,
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:name' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+App.Contact.FIXTURES = [
+  {
+    id: 1,
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    id: 2,
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+5. Change the dynamic segment for the contact route to use an identifier that Ember Data expects.
+
+Answer: 
+
+this.resource('contacts', function() {
+  this.resource('contact', { path: '/:contact_id' });
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:contact_id' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+App.Contact.FIXTURES = [
+  {
+    id: 1,
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    id: 2,
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+6. When we hit the contacts route, our Route is still looking in our old fixture. Update it to find all contacts using Ember Data.
+
+Answer: 
+
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('contact');
+  }
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:contact_id' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('contact');
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return App.CONTACTS.findBy('name', params.name);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+App.Contact.FIXTURES = [
+  {
+    id: 1,
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    id: 2,
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+
+7. Our contact route is still looking for its model using our old fixtures too! Update this route to work with our new setup either by changing the model or using the default.
+
+Answer: 
+
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('contact', params.contact_id);
+  }
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:product_id' });
+  });
+  this.resource('contacts', function() {
+    this.resource('contact', { path: '/:contact_id' });
+  });
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.ContactsIndexController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('product');
+  }
+});
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.findAll('contact');
+  }
+});
+App.ContactRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('contact', params.contact_id);
+  }
+});
+
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.Product = DS.Model.extend({
+  title: DS.attr('string'),
+  price: DS.attr('number'),
+  description: DS.attr('string'),
+  isOnSale: DS.attr('boolean'),
+  image: DS.attr('string')
+});
+App.Product.FIXTURES = [
+  {
+    id: 1,
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    id: 2,
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+App.CONTACTS = [
+  {
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];
+App.Contact = DS.Model.extend({ 
+  name: DS.attr('string'),
+  about: DS.attr('string'),
+  avatar: DS.attr('string'),
+});
+App.Contact.FIXTURES = [
+  {
+    id: 1,
+    name: 'Giamia',
+    about: 'Although Giamia came from a humble spark of lightning, he quickly grew to be a great craftsman, providing all the warming instruments needed by those close to him.',
+    avatar: 'images/contacts/giamia.png'
+  },
+  {
+    id: 2,
+    name: 'Anostagia',
+    about: 'Knowing there was a need for it, Anostagia drew on her experience and spearheaded the Flint & Flame storefront. In addition to coding the site, she also creates a few products available in the store.',
+    avatar: 'images/contacts/anostagia.png'
+  }
+];

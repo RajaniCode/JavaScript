@@ -1,0 +1,24 @@
+1.4 Ready to Go
+
+var allPacked = true;
+var readyToGo = true;
+var adventureTime;
+
+adventureTime = allPacked && readyToGo ?
+
+  function( ){
+    return "Adventure time is now!" ;
+  }()
+  :
+  function( ){
+    return "Adventuring has been postponed!" ;
+  }() ;
+
+console.log(adventureTime);
+
+After this lovely ternary has run, what will adventureTime contain?
+
+
+Answer: "Adventure time is now!"
+
+   

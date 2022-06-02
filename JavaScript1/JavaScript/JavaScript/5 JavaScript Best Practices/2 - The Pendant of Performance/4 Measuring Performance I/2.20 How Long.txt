@@ -1,0 +1,5 @@
+2.20 How Long
+
+[ ] is the opening statement to a timer method that will help us measure how long our code is taking to perform.
+
+Answer: console.time();

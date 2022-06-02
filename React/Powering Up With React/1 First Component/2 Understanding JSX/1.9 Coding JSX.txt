@@ -1,0 +1,48 @@
+1.9 Coding JSX
+
+Let's finish coding our RobotBox component.
+
+components.js
+
+class RobotBox extends React.Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    );
+  }
+}
+
+1. Add an <h3> tag as a child node to the existing <div> with the following content: McCircuit is my name
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>McCircuit is my name</h3>
+      </div>
+    );
+  }
+}
+
+2. Add a <p> element as a child node of the existing <div> and after the <h3> tag. Give it the CSS class name message and the following content: I am here to help.
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>McCircuit is my name</h3>
+        <p className="message">I am here to help.</p>
+      </div>
+    );
+  }
+}

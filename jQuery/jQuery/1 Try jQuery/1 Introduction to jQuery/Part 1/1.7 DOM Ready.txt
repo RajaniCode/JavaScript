@@ -1,0 +1,16 @@
+1.7 DOM Ready
+
+Great! Now we just have to make sure the code runs after the web page has finished loading (when the DOM is ready), go ahead and do that now.
+
+HTML
+
+<div class="homepage-wrapper">
+  <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+  <p>Fly to New York today for as little as <span>$299.99</span></p>
+</div>
+
+Answer:
+
+$(document).ready(function() {
+  $("span").text("$100"); 
+});

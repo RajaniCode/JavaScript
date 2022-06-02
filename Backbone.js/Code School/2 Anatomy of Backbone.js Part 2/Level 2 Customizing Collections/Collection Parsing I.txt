@@ -1,0 +1,33 @@
+Collection Parsing I
+
+
+The server team is at it again, but this time they at least have a good reason: they want to start paginating appointments instead of just returning all of them when we fetch the Appointments collection. No problem. We've been here before. Take a look at the JSON the server is responding with below, and then modify the parse function to set properties on the collection instance for per_page, total, and page.
+
+JSON RESPONSE
+
+// Get /appointments
+{
+  "per_page": 10, "page": 1, "total": 50,
+  "appointments": [
+    { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+  ]
+}
+
+APPLICATION.JS
+
+var Appointments = Backbone.Collection.extend({
+  parse: function(response){
+    return response;
+  }
+});
+
+Answer:
+
+var Appointments = Backbone.Collection.extend({
+  parse: function(response){
+    this.perPage = response.per_page;
+	this.page = response.page;
+	this.total = response.total;
+    return response.appointments;
+  }
+});

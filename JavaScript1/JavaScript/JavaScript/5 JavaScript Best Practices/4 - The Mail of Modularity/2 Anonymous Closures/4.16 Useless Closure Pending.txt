@@ -1,0 +1,30 @@
+4.16 Useless Closure Pending
+
+var CAVESOFCLARITY = function () {
+
+  var treasureChests = 3;
+  var bats = 345;
+
+  return {
+    stalactites: 4235,
+    stalagmites: 3924,
+    openChest: function () {
+        treasureChests--;
+        alert("DA DADADA DAAAAAAA!");
+    }
+  };
+}();
+
+    Though you have effectively made the number of bats private, I wonder if you can see the problem that has ensued.
+
+Aiedra waits patiently for your analysis. What happened?
+
+    With multiple variable declarations, the public properties are now unable to access any private properties.
+
+    Because of hoisting, the object is returned before the closure can be built.
+
+    The data is no longer present within the closure because it is never used.
+
+    Since it's never referenced through the public methods, the private bats datum holds no functional purpose.
+
+Answer: Since it's never referenced through the public methods, the private bats datum holds no functional purpose.

@@ -1,0 +1,54 @@
+3.25 Number Nonsense I
+
+Make sure that getFeed returns a number rounded to the first decimal place.
+
+dhuun.js
+
+var birdFeeder = {
+  totalFeed: 4,
+  getFeed: function(feedRequested){
+    var returnedFeed = 0;
+    if(this.totalFeed >= feedRequested) {
+      returnedFeed = feedRequested;
+      this.totalFeed -= feedRequested;
+    } else {
+      returnedFeed = this.totalFeed;
+      this.totalFeed = 0;
+    }
+    
+    return returnedFeed;
+  },
+  fillFeed: function(additionalFeed){
+    this.totalFeed += additionalFeed;
+  }          
+};
+
+
+1. Modify the getFeed() function to return a value rounded to the first decimal.
+
+Answer: return returnedFeed.toFixed(1);
+
+2. Ensure the value returned by getFeed() is a number.
+
+Answer: return parseFloat(returnedFeed.toFixed(1));
+
+dhuun.js
+
+var birdFeeder = {
+  totalFeed: 4,
+  getFeed: function(feedRequested){
+    var returnedFeed = 0;
+    if(this.totalFeed >= feedRequested) {
+      returnedFeed = feedRequested;
+      this.totalFeed -= feedRequested;
+    } else {
+      returnedFeed = this.totalFeed;
+      this.totalFeed = 0;
+    }
+    
+    return parseFloat(returnedFeed.toFixed(1));
+  },
+  fillFeed: function(additionalFeed){
+    this.totalFeed += additionalFeed;
+  }          
+};

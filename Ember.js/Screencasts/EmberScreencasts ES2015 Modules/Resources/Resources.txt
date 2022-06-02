@@ -1,0 +1,5 @@
+Resources
+
+• babel.js modules system docs [https://babeljs.io/docs/learn-es2015/#modules] [https://babeljs.io/learn-es2015/] [https://babeljs.io/learn-es2015/#ecmascript-2015-features-modules]
+• ember-cli docs on modules and the Resolver [http://ember-cli.com/using-modules/] [https://ember-cli.com/] [https://ember-cli.com/#modules]
+• More videos about ES2015 [https://www.emberscreencasts.com/tags/esnext]

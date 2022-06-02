@@ -1,0 +1,298 @@
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ node -v
+v10.9.0
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ npm -v
+6.2.0
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ cd "D:\RajaniS Master Folder\Node.js\SQL Server\tedious"
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/tedious
+$ node t.js
+internal/modules/cjs/loader.js:583
+    throw err;
+    ^
+
+Error: Cannot find module 'tedious'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (D:\RajaniS Master Folder\Node.js\SQL Server\tedious\t.js:1:80)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/tedious
+$ npm install tedious
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN saveError ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\tedious\package.json'
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN enoent ENOENT: no such file or directory, open 'D:\RajaniS Master Folder\Node.js\SQL Server\tedious\package.json'
+npm WARN tedious No description
+npm WARN tedious No repository field.
+npm WARN tedious No README data
+npm WARN tedious No license field.
+
++ tedious@8.0.1
+added 85 packages from 188 contributors and audited 122 packages in 6.121s
+found 0 vulnerabilities
+
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/tedious
+$ node t.js
+23
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023859/0
+2019-10-16T18:20:41.000Z
+0023859
+PERMISSION
+APPLICATION FINALISED
+07/01/2000
+06/03/2000
+07/01/2000
+Conditional
+03/03/2000
+JOHN BURKE
+EXTENSION TO EXISTING APARTMENTS
+12 ANGLESEA ST
+ANGLESEA STREET
+None
+03/03/2000
+972/00
+Conditional
+06/04/2000
+EXTENSION TO EXISTING APARTMENTS
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023859
+24
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023853/0
+2019-10-16T19:03:58.000Z
+0023853
+PERMISSION
+APPLICATION FINALISED
+04/01/2000
+03/03/2000
+04/01/2000
+Conditional
+25/02/2000
+PATRICK MCCARTHY
+DETACHED HOUSE
+PARKHOLOHAN, TOGHER RD
+TOGHER ROAD
+None
+25/02/2000
+816/00
+Conditional
+28/03/2000
+DETACHED HOUSE
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023853
+25
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023854/0
+2019-10-16T19:03:58.000Z
+0023854
+PERMISSION
+APPLICATION FINALISED
+04/01/2000
+03/03/2000
+04/01/2000
+Conditional
+25/02/2000
+PEADAR & CHRISTINE DUFFY
+2 STOREY EXTENSION TO EXISTING DWELLING & WIDEN ENTRANCE
+GLEANN CARRAIG, BALLYHOOLY NEW RD
+BALLYHOOLY ROAD
+None
+25/02/2000
+831/00
+Conditional
+28/03/2000
+2 STOREY EXTENSION TO EXISTING DWELLING & WIDEN ENTRANCE
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023854
+26
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023855/0
+2019-10-16T19:03:58.000Z
+0023855
+PERMISSION
+APPLICATION FINALISED
+06/01/2000
+05/03/2000
+06/01/2000
+Conditional
+21/02/2000
+MARIE O&#39;MULLANE
+RETAIN ALTERED ROOF
+TREETOPS, WOODHILL PARK, LOVERS WALK
+WOODHILL PARK
+None
+21/02/2000
+706/00
+Conditional
+24/03/2000
+23/03/2005
+RETAIN ALTERED ROOF
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023855
+27
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023856/0
+2019-10-16T19:03:58.000Z
+0023856
+PERMISSION
+APPLICATION FINALISED
+07/01/2000
+06/03/2000
+07/01/2000
+Conditional
+23/02/2000
+CORK VOCATIONAL EDUCATION COMMITTEE
+NEW GROUND LEVEL ELECTRICAL SUBSTATION
+COLLEGE OF COMMERCE, MORRISONS QUAY
+MORRISON&#39;S QUAY
+None
+23/02/2000
+765/00
+Conditional
+27/03/2000
+NEW GROUND LEVEL ELECTRICAL SUBSTATION
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023856
+28
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023860/0
+2019-10-16T19:03:58.000Z
+0023860
+PERMISSION
+DECISION MADE
+11/01/2000
+10/03/2000
+11/01/2000
+Refused
+25/02/2000
+DAVID ALLEN HOLDINGS LTD
+RETAIN A 4M x 3M GABLE MOUNTED ADVERTISING PANEL
+16 OLD YOUGHAL RD
+OLD YOUGHAL ROAD
+None
+25/02/2000
+817/00
+Refused
+RETAIN A 4M x 3M GABLE MOUNTED ADVERTISING PANEL
+16/03/2000
+28/118745
+APPLICANT
+15/04/2000
+REFUSED
+14/07/2000
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023860
+29
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023862/0
+2019-10-16T19:03:58.000Z
+0023862
+PERMISSION
+APPLICATION FINALISED
+14/01/2000
+13/03/2000
+14/01/2000
+Conditional
+25/02/2000
+MR & MRS DAVID O&#39;REGAN
+RETAIN HIPPED TILED ROOF, RETAIN EXTENSION & RETENTION OF CHANGE OF USE OF GARAGE TO BEDROOM AND UTILITY ROOM
+63 HALLDENE DRIVE, BISHOPSTOWN
+HALLDENE DRIVE
+None
+25/02/2000
+830/00
+Conditional
+28/03/2000
+RETAIN HIPPED TILED ROOF, RETAIN EXTENSION & RETENTION OF CHANGE OF USE OF GARAGE TO BEDROOM AND UTILITY ROOM
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023862
+30
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023863/0
+2019-10-16T19:03:58.000Z
+0023863
+PERMISSION
+APPLICATION FINALISED
+14/01/2000
+13/03/2000
+14/01/2000
+Conditional
+07/03/2000
+PATRICK PETERS
+ALTERATIONS & EXTENSIONS
+THE VISCOUNT, CURRAHEEN RD, BISHOPSTOWN
+CURRAHEEN ROAD
+None
+07/03/2000
+1011/00
+Conditional
+10/04/2000
+ALTERATIONS & EXTENSIONS
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023863
+31
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023864/0
+2019-10-16T19:03:58.000Z
+0023864
+PERMISSION
+APPLICATION FINALISED
+14/01/2000
+13/03/2000
+14/01/2000
+Conditional
+29/02/2000
+LIAM RYAN
+EXTEND THE EXISTING GROUND FLOOR SUPERMARKET AND EXTEND THE 1ST FLOOR OFFICE AREA AT THE LOUGH SHOPPING CENTRE
+SHOPPING CENTRE, TOGHER RD
+TOGHER ROAD
+None
+29/02/2000
+866/00
+Conditional
+05/04/2000
+EXTEND THE EXISTING GROUND FLOOR SUPERMARKET AND EXTEND THE 1ST FLOOR OFFICE AREA AT THE LOUGH SHOPPING CENTRE
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023864
+32
+1119
+Cork City Council
+http://planning.corkcity.ie/AppFileRefDetails/0023866/0
+2019-10-16T19:03:58.000Z
+0023866
+PERMISSION
+APPLICATION FINALISED
+17/01/2000
+16/03/2000
+17/01/2000
+Conditional
+23/02/2000
+A. & P. BARRETT
+ROOF WINDOWS TO FRONT & REAR AND RETENTION OF VEHICULAR DRIVEWAY
+11 CONNOLLY RD, BALLYPHEHANE
+CONNOLLY ROAD
+None
+23/02/2000
+767/00
+Conditional
+27/03/2000
+ROOF WINDOWS TO FRONT & REAR AND RETENTION OF VEHICULAR DRIVEWAY
+http://planning.corkcity.ie/idocsWebDpss/copyright.aspx?catalog=planning&id=0023866
+10 rows
+
+rajanis@MSSPLLAP165 MINGW64 /d/RajaniS Master Folder/Node.js/SQL Server/tedious
+$

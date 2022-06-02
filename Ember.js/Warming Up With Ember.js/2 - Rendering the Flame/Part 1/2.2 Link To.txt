@@ -1,0 +1,214 @@
+2.2 Link To
+
+It looks like our HTML is hardcoding some URLs to routes in our Ember Application. Follow the tasks below to clean up these links.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+        <ul class='nav navbar-nav navbar-right'>
+          <li href='#' class='active'>Home</li>
+          <li href='#/about'>About</li>
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'><a href='#/credits'>Credits</a></p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits');
+  this.route('about');
+});
+
+1. Using a Handlebars Helper, update the Home link to go to the homepage. Also make sure it keeps the same HTML tag type.
+
+Answer: {{#link-to 'index' tagName='li'}}Homepage{{/link-to}}
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          <li href='#/about'>About</li>
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'><a href='#/credits'>Credits</a></p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+
+2. Also update the About link in the same way, leading to the About page.
+
+Answer: {{#link-to 'about' tagName='li'}}About{{/link-to}}
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Homepage{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'><a href='#/credits'>Credits</a></p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>
+
+3. Our logo also is a link! Update it to link to the homepage as well, making sure to keep the same class and inner contents.
+
+Answer: {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Homepage{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'><a href='#/credits'>Credits</a></p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <h1>About The Fire Sprites</h1>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+</body>
+</html>

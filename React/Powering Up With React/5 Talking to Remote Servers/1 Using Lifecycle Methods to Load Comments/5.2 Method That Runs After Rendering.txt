@@ -1,0 +1,6 @@
+5.2 Method That Runs After Rendering
+
+If we want to integrate with other JavaScript frameworks, set timers using setTimeout() or setInterval(), we should use the [ ] lifecycle method.
+
+
+Answer: componentDidMount

@@ -1,0 +1,53 @@
+Building View Next I
+
+
+Dr. Goodparts has requested that we add a link to the application that will show the next 10 appointments. Luckily we already have the ability to paginate through appointments by passing the per_page and page params to the server when we fetch the collection.
+
+Let's start to implement this feature by adding a template to the AppointmentListView below. The template should have a link that looks like this: <a href="#/appointments/p<%= page %>/pp<%= per_page %>">View Next</a>
+
+APPOINTMENTLIST
+
+var AppointmentList = Backbone.Collection.extend({
+  parse: function(response){
+    this.per_page = response.per_page;
+    this.page = response.page;
+    this.total = response.total;
+    
+    return response.appointments;
+  }
+});
+
+APPLICATION.JS
+
+var AppointmentListView = Backbone.View.extend({
+  initialize: function(){
+    this.collection.on('reset', this.render, this);
+  },
+  render: function(){
+    this.$el.empty();
+    this.collection.forEach(this.addOne, this);
+  },
+  addOne: function(model){
+    var appointmentView = new AppointmentView({model: model});
+    appointmentView.render();
+    this.$el.append(appointmentView.el);
+  }
+});
+
+Answer:
+
+var AppointmentListView = Backbone.View.extend({
+  template: _.template('<a href="#/appointments/p<%= page %>/pp<%= per_page %>">View Next</a>'),
+  initialize: function(){
+    this.collection.on('reset', this.render, this);
+  },
+  render: function(){
+    this.$el.empty();
+    this.collection.forEach(this.addOne, this);
+  },
+  addOne: function(model){
+    var appointmentView = new AppointmentView({model: model});
+    appointmentView.render();
+    this.$el.append(appointmentView.el);
+  }
+});

@@ -1,0 +1,15 @@
+2.7 Redoing What was Done
+
+Several new methods have been added as properties to the inhabitants array, and the Inverted Peninsula has been given its own JS file. Refactor the un-natural 'For-In' by using a standard 'For' loop, so that console.log() only logs the inhabitant names.
+
+1. First remove that property-iterating For-In loop.
+
+2. Next create a new loop, that isn't a for in loop to console log the name of each inhabitant.
+
+3. Lastly, console.log the name of each inhabitant.
+
+Answer: 
+
+for(var i = 0, x = invertedPeninsula.inhabitants.length; i < x; i++) {
+  console.log(invertedPeninsula.inhabitants[i].name);
+}

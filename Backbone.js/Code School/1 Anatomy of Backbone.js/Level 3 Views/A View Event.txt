@@ -1,0 +1,30 @@
+A View Event
+
+Dr. Goodparts is just getting the hang of this web thing and thinks it'd be a good idea to alert the user the title of the appointment whenever they click on its view.
+
+See if you can't appease his bad idea and implement this tragic UI interaction using View events.
+
+APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span><%= title %></span>'),
+
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+  }
+});
+
+Answer:
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span><%= title %></span>'),
+  events: {
+	"click": "alertStatus"
+  },
+  alertStatus: function(e){
+	alert(this.model.get('title'));
+  },  
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+  }
+});

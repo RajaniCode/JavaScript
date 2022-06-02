@@ -1,0 +1,15 @@
+Sum Function
+
+Create a function named sum that takes two numbers as arguments and returns the sum of those numbers
+
+Answer:
+
+CoffeeScript:
+sum = (number1, number2) ->
+  number1 + number2
+
+JavaScript:
+var sum;
+sum = function(number1, number2) {
+  return number1 + number2;
+};

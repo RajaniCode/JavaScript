@@ -1,0 +1,529 @@
+3.3 The Contacts Route
+
+We handed the products page over to our special design spirit department and they tweaked the styles of the products template to style it using Twitter Bootstrap. Go ahead and preview it now if you want to see their handywork.
+
+Our About page wasn’t enough to satisfy the curiosity over the site’s owners. Are they really Fire Sprites? We want to create a “Contacts” page which will list out all of the Fire Sprites. Follow the tasks below to create this new page.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+          {{#link-to 'products' tagName='li'}}Products{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class='jumbotron'>
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class='tagline'>
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>
+        {{#link-to 'products' class='btn btn-primary btn-lg'}}
+          Browse All {{productsCount}} Items &raquo;
+        {{/link-to}}
+      </p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <div class='row'>
+      <img {{bind-attr src='avatar'}} alt='Avatar' class='img-thumbnail col-sm-4'/>
+      <div class='col-sm-8'>
+        <h1>About The Fire Sprites</h1>
+        <p>Contact {{contactName}} for more info!</p>
+        <p>Current Status: {{open}}.</p>
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='products'>
+    <h1>Products</h1>
+    <ul class='list-unstyled'>
+    {{#each}}
+      <li class='row'>
+        <img {{bind-attr src='image'}} class='img-thumbnail col-sm-5'/>
+        <div class='col-sm-7'>
+          <h2>{{title}}</h2>
+          <p class='product-description'>{{description}}</p>
+          <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+  </script>
+</body>
+</html>
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+  this.resource('products');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return App.PRODUCTS;
+  }
+});
+App.PRODUCTS = [
+  {
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+1. Create a resource route for our new contacts page.
+
+Answer: this.resource('contacts');
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+  this.resource('products');
+  this.resource('contacts');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return App.PRODUCTS;
+  }
+});
+App.PRODUCTS = [
+  {
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+
+2. Create a link to the contacts route in the navigation bar in the same style as our other links.
+
+Answer: {{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+          {{#link-to 'products' tagName='li'}}Products{{/link-to}}
+          {{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class='jumbotron'>
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class='tagline'>
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>
+        {{#link-to 'products' class='btn btn-primary btn-lg'}}
+          Browse All {{productsCount}} Items &raquo;
+        {{/link-to}}
+      </p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <div class='row'>
+      <img {{bind-attr src='avatar'}} alt='Avatar' class='img-thumbnail col-sm-4'/>
+      <div class='col-sm-8'>
+        <h1>About The Fire Sprites</h1>
+        <p>Contact {{contactName}} for more info!</p>
+        <p>Current Status: {{open}}.</p>
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='products'>
+    <h1>Products</h1>
+    <ul class='list-unstyled'>
+    {{#each}}
+      <li class='row'>
+        <img {{bind-attr src='image'}} class='img-thumbnail col-sm-5'/>
+        <div class='col-sm-7'>
+          <h2>{{title}}</h2>
+          <p class='product-description'>{{description}}</p>
+          <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+  </script>
+</body>
+</html>
+
+3. We’ll need to have some contacts to show on this new contacts page. Create an array of contacts in App.CONTACTS, that contains at least 2 contacts to show. These will be basic JavaScript objects, with properties for name, avatar, about. We have two images you can use for the avatar property: images/contacts/giamia.png and images/contacts/anostagia.png.
+
+Answer: 
+
+App.CONTACTS = [
+  {
+    name: 'giamia',
+    avatar: 'images/contacts/giamia.png',
+    about: 'about giamia'
+  },
+  {
+    name: 'anostagia',
+    avatar: 'images/contacts/anostagia.png',
+    about: 'about anostagia'
+  }
+];
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+  this.resource('products');
+  this.resource('contacts');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return App.PRODUCTS;
+  }
+});
+App.PRODUCTS = [
+  {
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+App.CONTACTS = [
+  {
+    name: 'giamia',
+    avatar: 'images/contacts/giamia.png',
+    about: 'about giamia'
+  },
+  {
+    name: 'anostagia',
+    avatar: 'images/contacts/anostagia.png',
+    about: 'about anostagia'
+  }
+];
+
+4. Create a Route object that will return the contacts for use in the template.
+
+Answer: 
+
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+
+app.js
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
+App.Router.map(function() {
+  this.route('credits', { path: '/thanks' });
+  this.route('about');
+  this.resource('products');
+  this.resource('contacts');
+});
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/logo-small.png',
+  time: function() {
+    return (new Date()).toDateString();
+  }.property()
+});
+App.AboutController = Ember.Controller.extend({
+  contactName: 'Anostagia',
+  avatar: 'images/avatar.png',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
+App.ProductsRoute = Ember.Route.extend({
+  model: function() {
+    return App.PRODUCTS;
+  }
+});
+App.PRODUCTS = [
+  {
+    title: 'Flint',
+    price: 99,
+    description: 'Flint is a hard, sedimentary cryptocrystalline form of the mineral quartz, categorized as a variety of chert.',
+    isOnSale: true,
+    image: 'images/products/flint.png'
+  },
+  {
+    title: 'Kindling',
+    price: 249,
+    description: 'Easily combustible small sticks or twigs used for starting a fire.',
+    isOnSale: false,
+    image: 'images/products/kindling.png'
+  }
+];
+App.CONTACTS = [
+  {
+    name: 'giamia',
+    avatar: 'images/contacts/giamia.png',
+    about: 'about giamia'
+  },
+  {
+    name: 'anostagia',
+    avatar: 'images/contacts/anostagia.png',
+    about: 'about anostagia'
+  }
+];
+App.ContactsRoute = Ember.Route.extend({
+  model: function() {
+    return App.CONTACTS;
+  }
+});
+
+5. Create a template for our contacts page. In it, loop over each of them and output their name, about and avatar properties. Like with the previous challenge, don’t worry about styling – we’ll clean that up for you after you’re done.
+
+Answer: 
+
+<script type='text/x-handlebars' data-template-name='contacts'>
+  <h2>Contacts</h2>
+  {{#each}}
+    <h2>{{name}}</h2>
+    <h2>{{about}}</h2>
+    <img {{bind-attr src='avatar'}} />    
+  {{/each}}
+</script>
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+      <div class='container'>
+        {{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+        <ul class='nav navbar-nav navbar-right'>
+          {{#link-to 'index' tagName='li'}}Home{{/link-to}}
+          {{#link-to 'about' tagName='li'}}About{{/link-to}}
+          {{#link-to 'products' tagName='li'}}Products{{/link-to}}
+          {{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
+  </script>
+  <script type='text/x-handlebars' data-template-name='index'>
+    <div class='jumbotron'>
+      <h1>Welcome to The Flint &amp; Flame!</h1>
+      <p class='tagline'>
+        <img {{bind-attr src='logo'}} alt='Logo' />
+        Everything you need to make it through the winter.
+      </p>
+      <p>
+        {{#link-to 'products' class='btn btn-primary btn-lg'}}
+          Browse All {{productsCount}} Items &raquo;
+        {{/link-to}}
+      </p>
+    </div>
+    <p class='pull-right text-muted'>Rendered on {{time}}</p> 
+  </script>
+  <script type='text/x-handlebars' data-template-name='about'>
+    <div class='row'>
+      <img {{bind-attr src='avatar'}} alt='Avatar' class='img-thumbnail col-sm-4'/>
+      <div class='col-sm-8'>
+        <h1>About The Fire Sprites</h1>
+        <p>Contact {{contactName}} for more info!</p>
+        <p>Current Status: {{open}}.</p>
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='credits'>
+    <h1>Thanks for the Help!</h1>
+    <p>This site would not be possible without the hardworking Ember Core Team!</p>
+  </script>
+  <script type='text/x-handlebars' data-template-name='products'>
+    <h1>Products</h1>
+    <ul class='list-unstyled'>
+    {{#each}}
+      <li class='row'>
+        <img {{bind-attr src='image'}} class='img-thumbnail col-sm-5'/>
+        <div class='col-sm-7'>
+          <h2>{{title}}</h2>
+          <p class='product-description'>{{description}}</p>
+          <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+  </script>
+  <script type='text/x-handlebars' data-template-name='contacts'>
+  <h2>Contacts</h2>
+  {{#each}}
+    <h2>{{name}}</h2>
+    <h2>{{about}}</h2>
+    <img {{bind-attr src='avatar'}} />    
+  {{/each}}
+</script>
+</body>
+</html>

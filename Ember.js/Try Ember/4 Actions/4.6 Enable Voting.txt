@@ -1,0 +1,226 @@
+4.6 Enable Voting
+
+Polls can now be created, but the Wilderness Wanderers still need to cast their votes.
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+  
+  model(params) {
+    return this.get('store').getPollById(params.poll_id);
+  },
+
+  store: Ember.inject.service()
+});
+
+app/templates/polls/poll.hbs
+<header class="header">
+  <h2>Welcome, Woodland Wanderers!</h2>
+  <p>Now that you've completed your training, here's a quick quiz to test your skills.</p>
+</header>
+
+<main class="card card--light">
+  <h3 class="border">{{model.question}}</h3>
+  <div class="border">
+    <div class="grid group">
+
+      <div class="card-content grid-box grid-box--3of5">
+        <ul class="list list--answer">
+          {{#each model.options as |option|}}
+            <li class="list-item">
+              <button class="list-item-checkbox">
+                <b class="srt">Select</b>
+              </button>
+              <span>{{option.value}}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="grid-box grid-box--2of5">
+        <img src="assets/images/icon-flame.svg" alt="" class="icon" width="130">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid group actions">
+    <div class="grid-box grid-box--1of4">
+      {{#link-to "polls.results" model class="btn btn--secondary btn--results"}}Results{{/link-to}}
+    </div>
+  </div>
+</main>
+
+1. Add an action handler to the polls.poll route called voteForOption that accepts two parameters: a poll and an option. In it, use incrementProperty() to increase the option votes by 1.
+
+Answer:
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    voteForOption(poll, option) {
+      option.incrementProperty('votes');      
+    }
+  }, 
+  
+  model(params) {
+    return this.get('store').getPollById(params.poll_id);
+  },
+
+  store: Ember.inject.service()
+});
+
+app/templates/polls/poll.hbs
+<header class="header">
+  <h2>Welcome, Woodland Wanderers!</h2>
+  <p>Now that you've completed your training, here's a quick quiz to test your skills.</p>
+</header>
+
+<main class="card card--light">
+  <h3 class="border">{{model.question}}</h3>
+  <div class="border">
+    <div class="grid group">
+
+      <div class="card-content grid-box grid-box--3of5">
+        <ul class="list list--answer">
+          {{#each model.options as |option|}}
+            <li class="list-item">
+              <button class="list-item-checkbox">
+                <b class="srt">Select</b>
+              </button>
+              <span>{{option.value}}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="grid-box grid-box--2of5">
+        <img src="assets/images/icon-flame.svg" alt="" class="icon" width="130">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid group actions">
+    <div class="grid-box grid-box--1of4">
+      {{#link-to "polls.results" model class="btn btn--secondary btn--results"}}Results{{/link-to}}
+    </div>
+  </div>
+</main>
+
+2. After the option.votes is incremented, transition the user to the polls.results route (passing the poll) to display the voting results.
+
+Answer:
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    voteForOption(poll, option) {
+      option.incrementProperty('votes');
+      this.transitionTo('polls.results', poll);
+    }
+  },  
+  
+  model(params) {
+    return this.get('store').getPollById(params.poll_id);
+  },
+
+  store: Ember.inject.service()
+});
+
+app/templates/polls/poll.hbs
+<header class="header">
+  <h2>Welcome, Woodland Wanderers!</h2>
+  <p>Now that you've completed your training, here's a quick quiz to test your skills.</p>
+</header>
+
+<main class="card card--light">
+  <h3 class="border">{{model.question}}</h3>
+  <div class="border">
+    <div class="grid group">
+
+      <div class="card-content grid-box grid-box--3of5">
+        <ul class="list list--answer">
+          {{#each model.options as |option|}}
+            <li class="list-item">
+              <button class="list-item-checkbox">
+                <b class="srt">Select</b>
+              </button>
+              <span>{{option.value}}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="grid-box grid-box--2of5">
+        <img src="assets/images/icon-flame.svg" alt="" class="icon" width="130">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid group actions">
+    <div class="grid-box grid-box--1of4">
+      {{#link-to "polls.results" model class="btn btn--secondary btn--results"}}Results{{/link-to}}
+    </div>
+  </div>
+</main>
+
+3. Map the voteForOption action onto the voting <button> in the polls/poll template. The action should trigger on "click" and remember to pass the Poll and Option records as arguments (order matters!).
+
+Answer:
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  actions: {
+    voteForOption(poll, option) {
+      option.incrementProperty('votes');
+      this.transitionTo('polls.results', poll);
+    }
+  },  
+  
+  model(params) {
+    return this.get('store').getPollById(params.poll_id);
+  },
+
+  store: Ember.inject.service()
+});
+
+app/templates/polls/poll.hbs
+<header class="header">
+  <h2>Welcome, Woodland Wanderers!</h2>
+  <p>Now that you've completed your training, here's a quick quiz to test your skills.</p>
+</header>
+
+<main class="card card--light">
+  <h3 class="border">{{model.question}}</h3>
+  <div class="border">
+    <div class="grid group">
+
+      <div class="card-content grid-box grid-box--3of5">
+        <ul class="list list--answer">
+          {{#each model.options as |option|}}
+            <li class="list-item">
+              <button class="list-item-checkbox" {{action "voteForOption" model option}}>
+                <b class="srt">Select</b>
+              </button>
+              <span>{{option.value}}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="grid-box grid-box--2of5">
+        <img src="assets/images/icon-flame.svg" alt="" class="icon" width="130">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid group actions">
+    <div class="grid-box grid-box--1of4">
+      {{#link-to "polls.results" model class="btn btn--secondary btn--results"}}Results{{/link-to}}
+    </div>
+  </div>
+</main>

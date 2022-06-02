@@ -1,0 +1,24 @@
+3.2 Carefully Compare
+
+Aiedra indicates the file for a nearby BooleanBiter bird. The poor critter wanders aimlessly, appearing to need some help in retrieving the right sort of food.
+
+var nearbyFood = [1, 4, true, "true", false, "0"];
+function eatBoolean( food ){
+  var x = food.length;
+  for( var i = 0; i<x; i++){
+    if( // Here, the bird needs a condition to check // ){
+      alert("Yummo. Chirp!");
+      nearbyFood.splice(i, 1);
+    }
+  }
+}
+
+When this BooleanBiter's file searches for Boolean values in unknown "food" environments, which comparator should be involved in the condition that is missing above?
+
+===
+
+==
+
+instanceof
+
+Answer: ===

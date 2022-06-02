@@ -1,0 +1,13 @@
+3.19 With Hunt
+
+The keyword 'with' tries and technically does limit __________, but makes us rather unsure about __________.
+
+    scope, security
+
+    redundancy, scope
+
+    runtime errors, error handling
+
+Answer: redundancy, scope
+
+

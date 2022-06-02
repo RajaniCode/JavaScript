@@ -1,0 +1,14 @@
+1.4 Element Selector II
+
+In the following challenges, we'll work our way toward changing the price set in the span tag. Let's first try to select the element containing the price, so that we know how to do it later.
+
+HTML
+
+<div class="homepage-wrapper">
+  <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+  <p>Fly to New York today for as little as <yes><span>$299.99</span></yes></p>
+</div>
+
+Answer:
+
+$("span");

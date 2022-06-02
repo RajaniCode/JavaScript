@@ -1,0 +1,25 @@
+4.5 The for...of Loop
+
+
+Complete the following code using the new for…of loop. For each element in the activeUsers array, pass the current user name as the second argument to the notifyTopicReply()
+
+notifications.js
+
+let topicId = currentTopic();
+let activeUsers = ["Sam", "Tyler", "Brook"];
+
+for(  ){
+  notifyTopicReply(topicId,  );
+}
+
+
+Answer:
+
+notifications.js
+
+let topicId = currentTopic();
+let activeUsers = ["Sam", "Tyler", "Brook"];
+
+for( let user of activeUsers  ){
+  notifyTopicReply(topicId,  user);
+}

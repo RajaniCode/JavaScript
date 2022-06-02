@@ -1,0 +1,75 @@
+5.10 Plugin Event
+
+For each tour that we are using our "photofy" plugin on, we'll want to do a few things.
+
+For starters create an event handler using on, that targets the .see-photos link within each .tour. When this is clicked, run a function that will add a class of is-showing-photofy to the tour. You'll probably want to save a reference to this outside of your event handler, and use that in the click event handler.
+
+HTML
+
+<a href="#" class="show-photos">Show All Photos</a>
+<ul id="tourprices">
+  <li class="tour" data-loc="london,uk">
+    London, UK
+    <ul class="photos">
+      <li><img src="/assets/photos/london.jpg"></li>
+      <li><img src="/assets/photos/london.jpg"></li>
+      <li><img src="/assets/photos/london.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+
+  <li class="tour" data-loc="paris,france">
+    Paris, France
+    <ul class="photos">
+      <li><img src="/assets/photos/paris1.jpg"></li>
+      <li><img src="/assets/photos/paris1.jpg"></li>
+      <li><img src="/assets/photos/paris1.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+
+  <li class="tour" data-loc="New York, NY, USA">
+    New York, NY, USA
+    <ul class="photos">
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+</ul>
+
+application.js
+
+$.fn.photofy = function() {
+  this.each(function() {
+    console.log(this);
+  });
+}
+
+$(document).ready(function() {
+  $('.tour').photofy();
+});
+
+Answer:
+
+application.js
+
+$.fn.photofy = function() {
+  this.each(function() {
+    var tour = $(this);
+    var showPrice = function(event) {
+      tour.addClass('is-showing-photofy');
+      event.preventDefault();
+    };
+    tour.on('click.photofy', '.see-photos', showPrice);    
+    console.log(this);
+  });
+}
+
+$(document).ready(function() {
+  $('.tour').photofy();
+});

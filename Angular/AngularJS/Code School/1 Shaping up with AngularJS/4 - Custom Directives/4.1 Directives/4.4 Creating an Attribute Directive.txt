@@ -1,0 +1,47 @@
+4.4 Creating an Attribute Directive
+
+As you probably have noticed, we have built out more information on the specs tab. Let's refactor the contents of our specs div into an attribute directive.
+
+
+1. Move the contents inside the specs div to the product-specs.html.
+
+Answer: 
+
+product-specs.html
+
+<h4>Specs</h4>
+<ul class="list-unstyled">
+  <li>
+    <strong>Shine</strong>
+    : {{product.shine}}</li>
+  <li>
+    <strong>Faces</strong>
+    : {{product.faces}}</li>
+  <li>
+    <strong>Rarity</strong>
+    : {{product.rarity}}</li>
+  <li>
+    <strong>Color</strong>
+    : {{product.color}}</li>
+</ul>
+
+
+2. Create a new attribute directive for our specs tag called productSpecs. Have it use our new product-specs.html template.
+
+Answer:
+
+app.js
+
+  app.directive("productSpecs", function() {
+    return {
+      restrict: 'A',
+      templateUrl: "product-specs.html"
+    };
+  });
+
+
+3. In index.html, use your new attribute directive to show the product specs.
+
+Answer:
+  <div ng-show="tab.isSet(2)" product-specs>            
+  </div>

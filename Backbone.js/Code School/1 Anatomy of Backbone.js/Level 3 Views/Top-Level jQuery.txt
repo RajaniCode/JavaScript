@@ -1,0 +1,20 @@
+Top-Level jQuery
+
+Refactor the render function below to use the improved jQuery syntax on the top-level element.
+
+APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+  render: function(){
+    $(this.el).html('<li>' + this.model.get('title') + '</li>');
+  }
+});
+
+Answer:
+
+var AppointmentView = Backbone.View.extend({
+  render: function(){
+    var html = '<li>' + this.model.get('title') + '</li>';
+    this.$el.html(html);
+  }
+});

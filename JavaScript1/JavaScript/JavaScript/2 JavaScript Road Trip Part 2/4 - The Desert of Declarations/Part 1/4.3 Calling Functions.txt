@@ -1,0 +1,20 @@
+4.3 Calling Functions
+
+Call your multiplyTrio function from the console using the numbers 8, 4, and 10.
+
+Answer:
+
+multiplyTrio(8, 4, 10);
+
+
+Console
+
+Press Enter to submit, or type 'help' and press Enter for info on using the console
+
+     
+
+> multiplyTrio(8, 4, 10);
+
+320
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

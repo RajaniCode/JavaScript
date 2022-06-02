@@ -1,0 +1,17 @@
+1.7 Redeclaring With let
+
+
+What is the outcome of the following code?
+
+let topic = "The latest news in JavaScript";
+let topic = "The latest news in ES2015";
+console.log( topic );
+
+[Single Answer]
+
+The latest news in JavaScript
+The latest news in ES2015
+This code generates a TypeError
+
+
+Answer: This code generates a TypeError

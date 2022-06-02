@@ -1,0 +1,21 @@
+http://www.typescriptlang.org
+
+https://angular.io/docs/ts/latest/
+
+https://blog.angularjs.org
+
+https://github.com/Gregg/angular2_challenge_app
+
+https://augury.angular.io
+
+Pluralsight
+
+Continue learning this subject and take an even deeper dive with related content in Pluralsight's extensive library.
+	
+Angular 2: First Look [https://www.pluralsight.com/courses/angular-2-first-look]
+	
+Angular 2: Getting Started [https://www.pluralsight.com/courses/angular-2-getting-started]
+	
+Play by Play: Angular 2 Quick Start with John Papa and Ward Bell [https://www.pluralsight.com/courses/play-by-play-angular-2-quick-start-john-papa-ward-bell]
+	
+Preparing for and Migrating Applications to Angular 2 [https://www.pluralsight.com/courses/migrating-applications-angular-2]

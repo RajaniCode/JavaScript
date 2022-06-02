@@ -1,0 +1,76 @@
+5.4 From Function to Class
+
+
+Let's rewrite TagManager from function to a class. You can see the function version on the tag-manager-function.js tab.
+
+tag-manager-class.js
+
+
+tag-manager-function.js
+
+function TagManager(topicId){
+  this.topicId = topicId;
+}
+
+TagManager.prototype.addTag = function(tagName){
+  API.createTag(tagName, this.topicId);
+};
+
+TagManager.prototype.removeTag = function(tagName){
+  API.deleteTag(tagName, this.topicId);
+};
+
+
+1. Create a new class with the name TagManager.
+
+Answer:
+
+tag-manager-class.js
+
+class TagManager { }
+
+2. Create a constructor method for this class that takes 1 argument named topicId. From inside the method body, assign this argument to the this.topicId property of the class.
+
+Answer:
+
+tag-manager-class.js
+
+class TagManager { 
+ constructor(topicId) {
+   this.topicId = topicId;
+ }
+}
+
+3. Create an addTag() instance method that takes 1 argument named tagName. From the method body, call the API.createTag() method with 2 arguments: tagName and this.topicId.
+
+Answer:
+
+tag-manager-class.js
+
+class TagManager { 
+ constructor(topicId) {
+   this.topicId = topicId;
+ }
+  addTag(tagName){
+    API.createTag(tagName, this.topicId);
+  } 
+}
+
+4. Finally, create a removeTag() instance method that takes 1 argument named tagName. From the method body, call the API.deleteTag() method with 2 arguments: tagName and this.topicId.
+
+Answer:
+
+tag-manager-class.js
+
+class TagManager { 
+ constructor(topicId) {
+   this.topicId = topicId;
+ }
+  addTag(tagName){
+    API.createTag(tagName, this.topicId);
+  } 
+    removeTag(tagName){
+    API.deleteTag(tagName, this.topicId);
+  } 
+}
+

@@ -1,0 +1,318 @@
+3.8 Modeling and Mocking
+
+It's time to create a model and a mock file, like we did in the video.
+
+app/races.comp
+
+h2 {
+  color: green;
+}
+p {
+  font-size: small;
+}
+
+app/races.component.html
+
+<h2>Cash left to enter races: {{cashLeft() | currency:'USD':true}} </h2>
+<ul>
+  <li *ngFor="let race of races">
+    <h2>{{race.name}} {{race.entryFee | currency:'USD':true}}</h2>
+    <p>{{race.date | date:'MMM d, y, h:MM a'}}</p>
+    <p>{{race.about}}</p>
+    <button *ngIf="!race.isRacing">Enter Race</button>
+    <h3 *ngIf="race.isRacing">Already Racing</h3>
+  </li>
+</ul>
+<h2>Total cost: {{totalCost() | currency:'USD':true}}</h2>
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+  
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+}
+
+app/mocks.ts
+
+import { Race } from './race';
+
+ [{
+  "id": 1,
+  "name": "Daytona Thunderdome",
+  "date": new Date('2512-01-04T14:00:00'),
+  "about": "Race through the ruins of an ancient Florida battle arena.",
+  "entryFee": 3200,
+  "isRacing": false
+}, {
+  "id": 2,
+  "name": "San Francisco Ruins",
+  "date": new Date('2512-07-03T20:00:00'),
+  "about": "Drift down the streets of a city almost sunk under the ocean.",
+  "entryFee": 4700,
+  "isRacing": true
+}, {
+  "id": 3,
+  "name": "New York City Skyline",
+  "date": new Date('2512-07-12T21:00:00'),
+  "about": "Fly between buildings in the electronic sky.",
+  "entryFee": 4300,
+  "isRacing": true
+}];
+
+app/race.ts
+
+export class Race {
+  id
+  name
+  date
+  about
+  entryFee
+  isRacing
+}
+
+
+1. 
+
+Answer
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+  
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+}
+
+app/mocks.ts
+
+import { Race } from './race';
+
+ [{
+  "id": 1,
+  "name": "Daytona Thunderdome",
+  "date": new Date('2512-01-04T14:00:00'),
+  "about": "Race through the ruins of an ancient Florida battle arena.",
+  "entryFee": 3200,
+  "isRacing": false
+}, {
+  "id": 2,
+  "name": "San Francisco Ruins",
+  "date": new Date('2512-07-03T20:00:00'),
+  "about": "Drift down the streets of a city almost sunk under the ocean.",
+  "entryFee": 4700,
+  "isRacing": true
+}, {
+  "id": 3,
+  "name": "New York City Skyline",
+  "date": new Date('2512-07-12T21:00:00'),
+  "about": "Fly between buildings in the electronic sky.",
+  "entryFee": 4300,
+  "isRacing": true
+}];
+
+app/race.ts
+
+export class Race {
+  id: number
+  name: string
+  date: date
+  about: string
+  entryFee: number
+  isRacing: boolean
+}
+
+2. 
+
+Answer
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+  races: Race[];
+  
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+}
+
+app/mocks.ts
+
+import { Race } from './race';
+
+export const RACES: Race[] = [{
+  "id": 1,
+  "name": "Daytona Thunderdome",
+  "date": new Date('2512-01-04T14:00:00'),
+  "about": "Race through the ruins of an ancient Florida battle arena.",
+  "entryFee": 3200,
+  "isRacing": false
+}, {
+  "id": 2,
+  "name": "San Francisco Ruins",
+  "date": new Date('2512-07-03T20:00:00'),
+  "about": "Drift down the streets of a city almost sunk under the ocean.",
+  "entryFee": 4700,
+  "isRacing": true
+}, {
+  "id": 3,
+  "name": "New York City Skyline",
+  "date": new Date('2512-07-12T21:00:00'),
+  "about": "Fly between buildings in the electronic sky.",
+  "entryFee": 4300,
+  "isRacing": true
+}];
+
+app/race.ts
+
+export class Race {
+  id: number
+  name: string
+  date: date
+  about: string
+  entryFee: number
+  isRacing: boolean
+}
+
+3. 
+
+Answer
+
+app/races.component.ts
+
+import { Component } from '@angular/core';
+import { Race } from './race';
+import { RACES } from './mocks';
+
+@Component({
+  selector: 'my-races',
+  templateUrl: 'app/races.component.html',
+  styleUrls:['app/races.component.css']
+})
+export class RacesComponent {
+  heading = "Ultra Racing Schedule"
+  cash = 10000;
+
+  races: Race[];
+    ngOnInit(){
+    this.races = RACES;
+  }
+
+  totalCost() {
+    let sum = 0;
+    for (let race of this.races) {
+      if (race.isRacing) sum += race.entryFee;
+    }
+    return sum;
+  }
+
+  cashLeft() {
+    return this.cash - this.totalCost();
+  }
+
+}
+
+app/mocks.ts
+
+import { Race } from './race';
+
+export const RACES: Race[] = [{
+  "id": 1,
+  "name": "Daytona Thunderdome",
+  "date": new Date('2512-01-04T14:00:00'),
+  "about": "Race through the ruins of an ancient Florida battle arena.",
+  "entryFee": 3200,
+  "isRacing": false
+}, {
+  "id": 2,
+  "name": "San Francisco Ruins",
+  "date": new Date('2512-07-03T20:00:00'),
+  "about": "Drift down the streets of a city almost sunk under the ocean.",
+  "entryFee": 4700,
+  "isRacing": true
+}, {
+  "id": 3,
+  "name": "New York City Skyline",
+  "date": new Date('2512-07-12T21:00:00'),
+  "about": "Fly between buildings in the electronic sky.",
+  "entryFee": 4300,
+  "isRacing": true
+}];
+
+app/race.ts
+
+export class Race {
+  id: number
+  name: string
+  date: date
+  about: string
+  entryFee: number
+  isRacing: boolean
+}

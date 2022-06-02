@@ -1,0 +1,69 @@
+4.3 The Parent Is Required
+
+The nwNavItem directive needs to be able to communicate with the parent nwNav directive in order to tell when a nav item should be active. Let's go ahead and set that up.
+
+nw-nav-item.js
+
+angular.module('NoteWrangler')
+.directive('nwNavItem', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-nav-item.html',
+    
+  };
+});
+
+nw-nav.js
+
+angular.module('NoteWrangler')
+.directive('nwNav', function() {
+  return {
+    restrict: 'E',
+    controller: function($scope) {
+      $scope.activeNav = 'Notes';
+
+      this.getActiveNav = function() {
+        return $scope.activeNav;
+      };
+
+      this.setActiveNav = function(value) {
+        $scope.activeNav = value;
+      };
+
+      return this;
+    }
+  };
+});
+
+
+1. Within the nwNavItem directive, use the require option to gain access to the controller from the parent nwNav directive.
+
+Answer: require: '^nwNavItem'
+
+nw-nav.js
+
+angular.module('NoteWrangler')
+.directive('nwNavItem', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-nav-item.html',
+    require: '^nwNavItem'
+  };
+});
+
+2. Give the nwNavItem directive a link function. Make sure to fill in all the arguments so that we have access to the controller required from the previous task.
+
+Answer: link: function($scope, $element, attrs, nwNavItemCtrl) {}
+
+Note: The link function has a predefined set of parameters 
+
+angular.module('NoteWrangler')
+.directive('nwNavItem', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-nav-item.html',
+    require: '^nwNavItem',
+    //Note: The link function has a predefined set of parameters
+    link: function($scope, $element, attrs, nwNavItemCtrl) {}
+  };
+});

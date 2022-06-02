@@ -1,0 +1,14 @@
+2.2 Kill Extra Steps
+
+If you need lengthy, repetitive access to a value nested deep within a JS Object, what is the best course of action?
+
+    Make a new call to the Object and its properties each time.
+
+    Break out of the loop earlier, as soon as your target has been reached.
+
+    Cache the necessary value in a local variable.
+
+    All of these choices are of equal performance value in this case.
+
+Answer: Cache the necessary value in a local variable.
+

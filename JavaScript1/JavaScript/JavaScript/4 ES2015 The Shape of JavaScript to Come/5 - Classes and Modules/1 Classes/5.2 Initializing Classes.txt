@@ -1,0 +1,13 @@
+5.2 Initializing Classes
+
+
+Complete the following statement regarding the new class syntax.
+
+When writing JavaScript classes, there's a special method for creating and initializing an object. This method is called the [ ] method.
+
+
+Answer: constructor
+
+Note:
+
+When writing JavaScript classes, there's a special method for creating and initializing an object. This method is called the [constructor] method.

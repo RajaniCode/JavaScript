@@ -1,0 +1,34 @@
+3.10 Merging Properties
+
+
+Given the following objects:
+
+let defaults = {
+  container:       ".main",
+  isActiveClass:   ".is-active"
+};
+
+let options1 = {
+  container:       ".main-container",
+  isActiveClass:   ".is-active-element"
+};
+
+let options2 = {
+  isActiveClass:   ".is-active-content"
+};
+What will be the resulting object assigned to the settings variable when we merge them using Object.assign, like so:
+
+let settings = Object.assign({}, defaults, options1, options2);
+
+[Single Answer]
+
+{ container: '.main-container', isActiveClass: '.is-active-content' }
+
+
+{ container: ".main", isActiveClass: ".is-active-content" }
+
+
+{ container: ".main-container", isActiveClass: ".is-active-element" }
+
+
+Answer: { container: '.main-container', isActiveClass: '.is-active-content' }

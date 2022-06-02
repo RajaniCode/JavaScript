@@ -1,0 +1,11 @@
+4.9 Unknowing
+
+Aiedra smiles down from her floating vantage point.
+
+    "You have succeeded in bringing the Namespace to the Caves. One more question before we head further, down into the dark…"
+
+She floats past you, in front of a solid rock wall.
+
+    "The way is shut, but a single password remains. You may remember that if another file, with another namespace, is needed for the Caves' HTML file, the two files should not know of each other, unless specifically designed to. This useful lack of awareness aids in your data protection…what is the term for this unknowing, Dhuun?"
+
+Answer: agnostic

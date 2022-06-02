@@ -1,0 +1,14 @@
+1.3 Element Selector I
+
+Let's try out a few simple element selectors to start with. Using the jQuery function, go ahead and select the h2 of this simple web page.
+
+HTML:
+
+<div class="homepage-wrapper">
+  <yes><h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2></yes>
+  <p>Fly to New York today for as little as <span>$299.99</span></p>
+</div>
+
+Answer:
+
+$("h2");

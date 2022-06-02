@@ -1,0 +1,70 @@
+4.21 Build Import
+
+"Witness a piece of the file for this, the LexicalLake," says Aiedra. "Inside you'll find it using a global variable explorerAnswer that appears nowhere else in the file…perhaps it belongs to cavesofclarity.js…perhaps it belongs to explorerentries.js…but who knows? In any case, each time it is used, the entire scope chain is checked, and developers aren't immediately aware that it is global."
+
+Aiedra is quiet for a moment as she listens to the swirls and eddies of the lake as the boat glides by.
+
+"The Lake asks you to help it achieve better performance, even though the offending variable is but a trifle. Using your knowledge of global usage in modules, provide it with an import." Aiedra glides on, away into darkness. "Use answer as your new parameter."
+
+app.js
+
+var LexicalLake = function () {
+
+  var depth = 400;
+  var fish = 1200;
+  var unknownSleepers = 3;
+
+  return {
+    getFish: function(){ return fish; },
+    getDepth: function(){ return depth; },
+    getSleepers: function() {return unknownSleepers; },
+    awakenSleeper: function(){
+      alert("Far below, in the deep, something awakens. Row faster.");
+    },
+    summonBoat: function(){
+      if(explorerAnswer === "agnostic"){
+        alert("The boat fades into view.");
+      }
+      else{
+          alert("...the lake is silent.");
+      }
+    }
+  };
+}();
+
+Answer: 
+
+...
+
+if(answer === "agnostic"){
+
+...
+
+}(explorerAnswer);
+
+app.js
+
+var answer = true;
+var LexicalLake = function (answer) {
+
+  var depth = 400;
+  var fish = 1200;
+  var unknownSleepers = 3;
+
+  return {
+    getFish: function(){ return fish; },
+    getDepth: function(){ return depth; },
+    getSleepers: function() {return unknownSleepers; },
+    awakenSleeper: function(){
+      alert("Far below, in the deep, something awakens. Row faster.");
+    },
+    summonBoat: function(){
+      if(answer === "agnostic"){
+        alert("The boat fades into view.");
+      }
+      else{
+          alert("...the lake is silent.");
+      }
+    }
+  };
+}(explorerAnswer);

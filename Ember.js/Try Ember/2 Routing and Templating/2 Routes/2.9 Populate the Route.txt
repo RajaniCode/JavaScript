@@ -1,0 +1,42 @@
+2.9 Populate the Route
+
+Now that the polls route is generated, customize it to return some basic data.
+
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+});
+
+1. Add a model hook to the polls route.
+
+Answer:
+app/routes/polls.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(){
+    return;
+  }
+});
+
+2. Return the following array of data from the polls route's model hook:
+
+[
+  { id: '1', question: 'Which Poisonous Plant Are You?' },
+  { id: '2', question: 'Which Is Your Favorite Woodland Wanderer Way? ' }
+]
+
+Answer:
+app/routes/polls.js
+
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(){
+    return [ { id: '1', question: 'Which Poisonous Plant Are You?' }, 
+            { id: '2', question: 'Which Is Your Favorite Woodland Wanderer Way? ' }
+           ];
+  }
+});

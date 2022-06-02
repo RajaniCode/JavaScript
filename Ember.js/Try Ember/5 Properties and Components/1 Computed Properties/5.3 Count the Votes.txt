@@ -1,0 +1,190 @@
+5.3 Count the Votes
+
+With voting in place, it's time to count the votes and determine a winner.
+
+app/models/poll.js
+import Ember from 'ember';
+
+export default Ember.Object.extend({
+  
+});
+
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade', votes: 1 }),
+      Option.create({ id: '2', value: 'Hemlock', votes: 5 }),
+      Option.create({ id: '3', value: 'Rhubarb', votes: 0 }),
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty', votes: 3 }),
+      Option.create({ id: '5', value: 'Integrity', votes: 4 }),
+      Option.create({ id: '6', value: 'Patience', votes: 2 }),
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  createPoll(poll) {
+    poll.set('id', (polls.length + 1).toString());
+    polls.pushObject(poll);
+    return poll;
+  },
+
+  getPollById(id) {
+    return this.getPolls().findBy('id', id);
+  },
+
+  getPolls() {
+    return polls;
+  },
+
+  newPoll() {
+    return Poll.create({
+      options: [
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 })
+      ]
+    });
+  }
+});
+
+1. Add an optionVotes property to the Poll model. It should return an array of votes from each option record. Use the Ember.computed.mapBy() macro or create your own to create an array of option votes values.
+
+Answer:
+app/models/poll.js
+import Ember from 'ember';
+
+export default Ember.Object.extend({
+  optionVotes: Ember.computed.mapBy('options', 'votes')  
+});
+
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade', votes: 1 }),
+      Option.create({ id: '2', value: 'Hemlock', votes: 5 }),
+      Option.create({ id: '3', value: 'Rhubarb', votes: 0 }),
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty', votes: 3 }),
+      Option.create({ id: '5', value: 'Integrity', votes: 4 }),
+      Option.create({ id: '6', value: 'Patience', votes: 2 }),
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  createPoll(poll) {
+    poll.set('id', (polls.length + 1).toString());
+    polls.pushObject(poll);
+    return poll;
+  },
+
+  getPollById(id) {
+    return this.getPolls().findBy('id', id);
+  },
+
+  getPolls() {
+    return polls;
+  },
+
+  newPoll() {
+    return Poll.create({
+      options: [
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 })
+      ]
+    });
+  }
+});
+
+2. Add a votes property to the Poll model. This should be the total number (summation) of the optionVotes values. Hint: Use the Ember.computed.sum() macro.
+
+Answer:
+app/models/poll.js
+import Ember from 'ember';
+
+export default Ember.Object.extend({
+  optionVotes: Ember.computed.mapBy('options', 'votes'),
+  votes: Ember.computed.sum('optionVotes')  
+});
+
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade', votes: 1 }),
+      Option.create({ id: '2', value: 'Hemlock', votes: 5 }),
+      Option.create({ id: '3', value: 'Rhubarb', votes: 0 }),
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty', votes: 3 }),
+      Option.create({ id: '5', value: 'Integrity', votes: 4 }),
+      Option.create({ id: '6', value: 'Patience', votes: 2 }),
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  createPoll(poll) {
+    poll.set('id', (polls.length + 1).toString());
+    polls.pushObject(poll);
+    return poll;
+  },
+
+  getPollById(id) {
+    return this.getPolls().findBy('id', id);
+  },
+
+  getPolls() {
+    return polls;
+  },
+
+  newPoll() {
+    return Poll.create({
+      options: [
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 })
+      ]
+    });
+  }
+});

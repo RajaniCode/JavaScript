@@ -1,0 +1,27 @@
+3.2 Building Objects With the New Syntax
+
+
+Using the new object initializer shorthand, complete the code on the right to build a user object. This new object should have the properties name, totalReplies, and avatar with values coming from the variables with the same name.
+
+add-user.js
+
+let name = "Brook";
+let totalReplies = 249;
+let avatar = "/users/avatars/brook-user-1.jpg";
+
+let user = ;
+
+addUserToSidebar(user);
+
+
+Answer:
+
+add-user.js
+
+let name = "Brook";
+let totalReplies = 249;
+let avatar = "/users/avatars/brook-user-1.jpg";
+
+let user =  {name, totalReplies, avatar};
+
+addUserToSidebar(user);

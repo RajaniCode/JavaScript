@@ -1,0 +1,119 @@
+1.12 Displaying a Single Note
+
+Use the routeParams service to fetch a single note based on the id given in the URL from the server URL /notes/:id.
+
+An example of a possible URL for this might be: http://example.com/#/notes/42.
+
+    app
+        index.html
+        js
+            app.js
+            controllers
+                notes-create-controller.js
+                notes-show-controller.js
+                notes-edit-controller.js
+                users-show-controller.js
+            vendor
+                jquery.js
+                angular.js
+                angular-route.js
+        templates
+            pages
+                notes
+                    edit.html
+                    new.html
+                    index.html
+                users
+                    index.html
+
+
+app/js/notes-show-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesShowController', [function() {
+
+}]);
+
+app/js/app.js
+
+angular.module('NoteWrangler', ['ngRoute']).config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: function($http){
+        var controller = this;
+        $http({method: 'GET', url: '/notes'}).success(function(data){
+          controller.notes = data;
+        });
+      },
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html',
+      controller: 'NotesCreateController',
+      controllerAs: 'notesEditCtrl'
+    })
+    .when('/notes/:id', {
+      templateUrl: 'templates/pages/notes/show.html',
+      controller: 'NotesShowController'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+app/templates/pages/notes/show.html
+
+<div>
+  <h1>{{ctrl.note.title}}</h1>
+  <h3>Description:</h3>
+  <p>{{ctrl.note.description}}</p>
+  <h3>Contents:</h3>
+  <p>{{ctrl.note.content}}</p>
+</div>
+
+1. Inject the routeParams service into the NotesShowController so that we get access to the id in the URL.
+
+Answer: 
+
+angular.module('NoteWrangler')
+.controller('NotesShowController', [function() {
+
+}]);
+
+2. Inject the $http service into the NotesShowController so we can use it to fetch a note.
+
+Answer: 
+
+function($http, $routeParams) {
+  $http({method: 'GET', url: '/notes/:' + $routeParams.id});
+}
+
+app/js/notes-show-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesShowController', function($http, $routeParams) {
+  $http({method: 'GET', url: '/notes/:' + $routeParams.id});
+});
+
+
+3. Use the $http() function to fetch a note from the /notes/:id URL. Upon success, save the resulting data to a note variable on the controller.
+
+Answer:
+
+app/js/notes-show-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesShowController', function($http, $routeParams) {
+  var controller = this;
+  $http({method: 'GET', url: '/notes/:' + $routeParams.id})
+  .success(function(data){
+    controller.note = data;                         
+  });
+});

@@ -1,0 +1,17 @@
+1.2 All Packed
+
+Three sets of challenges stand in your way during this, the first level of your journey. The first set covers the concept of ternaries in all their terse glory.
+
+Be watchful throughout your visit here, young programmer, and take this Sword of Syntax, for it is dangerous to go alone. Master using this weapon, and you can have it for your very own.
+
+If you make a wrong entry, there's no need for despair: you can click the red 'x' in the entry field to get some feedback that will point you in the right direction.
+
+Consider the following:
+
+var allPacked = false;
+var adventureTime;
+
+adventureTime = allPacked ? "yes" : "no" ;
+
+
+Answer: "no"

@@ -1,0 +1,8 @@
+Resources
+
+• Powering Up With React [https://www.codeschool.com/courses/powering-up-with-react]
+• Source Code [https://github.com/codeschool/WatchUsBuildReact]
+• Babel with Gulp [https://www.codeschool.com/screencasts/es2015-with-babel-and-gulp]
+• React Documentation [https://facebook.github.io/react/docs/hello-world.html]
+• Code School Forum [https://www.codeschool.com/discuss/]
+• ES2015 and the Virtual DOM in a React Application [https://www.codeschool.com/screencasts/es2015-and-the-virtual-dom-in-a-react-application]

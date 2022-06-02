@@ -1,0 +1,159 @@
+4.23 The Sleeper Cometh
+
+The water falls away, and soon the surface is deathly still. A silence descends on the enormous cave, as you reach the opposite shore. Aiedra pauses and looks back at the lake. She stares into the depths, and seems to see something. For the first time, she appears startled.
+
+    "Quickly, explorer, you must add a function to the public properties of the Lake's module. Call your new function stopSleeper. You'll need to import a second variable and establish a new parameter….call it foundShore." The global variable that it takes its value from is madeItAcross. If foundShore is true, your function should alert the spell 'That which has awoken shall now return to slumber.' If not, alert the message 'A Sleeper cometh. Abandon hope.'"
+
+The water begins to bubble very slowly.
+
+    "Now, Dhuun! Tarry no longer! Even I cannot stop what comes!"
+
+app.js
+
+var LEXICALLAKE = function (answer) {
+
+  var depth = 400;
+  var fish = 1200;
+  var unknownSleepers = 3;
+    
+  return {
+    getFish: function(){ return fish; },
+    getDepth: function(){ return depth; },
+    getSleepers: function(){ return unknownSleepers; },
+    awakenSleeper: function(){
+      alert("Far below, in the deep, something awakens. Row faster.");
+    },
+    summonBoat: function(){
+      if(answer === "agnostic"){
+        alert("The boat fades into view.");
+      }
+      else{
+        alert("...the lake is silent.");
+      }
+    },
+
+
+  };
+}(explorerAnswer);
+
+1. First, pass in the global variable madeItAcross, and accept it as the closure parameter foundShore.
+
+Answer: }(explorerAnswer, madeItAcross);
+
+app.js
+
+var LEXICALLAKE = function (answer) {
+
+  var depth = 400;
+  var fish = 1200;
+  var unknownSleepers = 3;
+    
+  return {
+    getFish: function(){ return fish; },
+    getDepth: function(){ return depth; },
+    getSleepers: function(){ return unknownSleepers; },
+    awakenSleeper: function(){
+      alert("Far below, in the deep, something awakens. Row faster.");
+    },
+    summonBoat: function(){
+      if(answer === "agnostic"){
+        alert("The boat fades into view.");
+      }
+      else{
+        alert("...the lake is silent.");
+      }
+    },
+
+
+  };
+}(explorerAnswer, madeItAcross);
+
+2. Next, create the stopSleeper method.
+
+Answer: 
+
+var LEXICALLAKE = function (answer, foundShore) {
+...
+
+stopSleeper: function(madeItAcross) { }
+...
+
+app.js
+
+var LEXICALLAKE = function (answer, foundShore) {
+
+  var depth = 400;
+  var fish = 1200;
+  var unknownSleepers = 3;
+    
+  return {
+    getFish: function(){ return fish; },
+    getDepth: function(){ return depth; },
+    getSleepers: function(){ return unknownSleepers; },
+    awakenSleeper: function(){
+      alert("Far below, in the deep, something awakens. Row faster.");
+    },
+    summonBoat: function(){
+      if(answer === "agnostic"){
+        alert("The boat fades into view.");
+      }
+      else{
+        alert("...the lake is silent.");
+      }
+    },
+    stopSleeper: function(madeItAcross){}
+  };
+}(explorerAnswer, madeItAcross);
+
+3. Now, alert the correct message when foundShore is true. If it's true, 'That which has awoken shall now return to slumber.'. If it's false, alert 'A Sleeper cometh. Abandon hope.'
+
+Answer: 
+
+    stopSleeper: function(madeItAcross){
+    	if (foundShore)
+      {
+        alert('That which has awoken shall now return to slumber.');
+      }
+      else
+      {
+        alert('A Sleeper cometh. Abandon hope.');
+      }
+    }
+
+app.js
+
+var LEXICALLAKE = function (answer, foundShore) {
+
+  var depth = 400;
+  var fish = 1200;
+  var unknownSleepers = 3;
+    
+  return {
+    getFish: function(){ return fish; },
+    getDepth: function(){ return depth; },
+    getSleepers: function(){ return unknownSleepers; },
+    awakenSleeper: function(){
+      alert("Far below, in the deep, something awakens. Row faster.");
+    },
+    summonBoat: function(){
+      if(answer === "agnostic"){
+        alert("The boat fades into view.");
+      }
+      else{
+        alert("...the lake is silent.");
+      }
+    },
+    stopSleeper: function(madeItAcross){
+      if (foundShore)
+      {
+        alert('That which has awoken shall now return to slumber.');
+      }
+      else
+      {
+        alert('A Sleeper cometh. Abandon hope.');
+      }
+    }
+  };
+}(explorerAnswer, madeItAcross);
+
+

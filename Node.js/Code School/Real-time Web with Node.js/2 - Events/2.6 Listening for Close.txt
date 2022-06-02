@@ -1,0 +1,51 @@
+2.6 Listening for Close
+
+Like our parents always used to say, listening is more important than talking! Modify the server so that we know when it's closed down.
+
+1. Listen for the 'close' event on the server. The event listener should take a callback function that accepts no arguments.
+
+Answer: server.on('close', function() {});
+
+app.js
+
+var http = require('http');
+var server = http.createServer();
+
+server.on('request', function(request, response) {
+  response.writeHead(200);
+  response.write("Hello, this is dog");
+  response.end();
+});
+
+server.on('request', function(request, response) {
+  console.log("New request coming in...");
+});
+server.on('close', function() {});
+server.listen(8080);
+
+2. Inside the 'close' callback, log the message "Closing down the server...".
+
+Answer: 
+
+server.on('close', function() {
+	console.log("Closing down the server...");
+});
+
+app.js
+
+var http = require('http');
+var server = http.createServer();
+
+server.on('request', function(request, response) {
+  response.writeHead(200);
+  response.write("Hello, this is dog");
+  response.end();
+});
+
+server.on('request', function(request, response) {
+  console.log("New request coming in...");
+});
+server.on('close', function() {
+	console.log("Closing down the server...");
+});
+server.listen(8080);

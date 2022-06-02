@@ -1,0 +1,37 @@
+1.9 Expressions Inside Arrays
+
+The folks over at Poplar Puzzlers need an array of functions for one of their puzzles. They’ve requested your help in making the array, which they would like to be called puzzlers. The cells of the array should each contain a function, and these functions are listed here in order:
+
+    1. Returns 8 less than 3 times an input.
+    2. Returns the cube of the sum of an input and 2.
+    3. Returns 9 less than the result of an input squared.
+    4. Returns the remainder after an input is divided by 4.
+
+Use your knowledge of arrays and anonymous function expressions to build this array of functions.
+
+Note: Use parentheses with your return statements if you’re having trouble with the order of operations.
+
+Answer: 
+
+var eightLessThan3TimesInput = function (arrayCell) {
+    return ((arrayCell * 3) - 8);
+};
+
+var cubeOfSumOfInputAnd2 = function (arrayCell) {
+    return (Math.pow((arrayCell + 2), 3));
+};
+
+var nineLessThanInputSquared = function (arrayCell) {
+    return  ((arrayCell * arrayCell) - 9);
+};
+
+var remainderInputDividedBy4 = function (arrayCell) {
+    return (arrayCell % 4);
+};
+
+var puzzlers = [
+eightLessThan3TimesInput,
+cubeOfSumOfInputAnd2,
+nineLessThanInputSquared,
+remainderInputDividedBy4
+];

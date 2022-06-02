@@ -1,0 +1,47 @@
+1.6 Rendering a Component
+
+Now let's use ReactDOM to render components to our HTML page.
+
+components.js
+
+class RobotBox extends React.Component {
+  render() {
+    return <div>Hello From React</div>;
+  }
+}
+
+let target = document.getElementById('robot-app');
+
+ReactDOM.render(  );
+
+1. As the first argument to the renderer, invoke the RobotBox component.
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+  render() {
+    return <div>Hello From React</div>;
+  }
+}
+
+let target = document.getElementById('robot-app');
+
+ReactDOM.render( <RobotBox /> );
+
+2. As the second argument, pass the target container element.
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+  render() {
+    return <div>Hello From React</div>;
+  }
+}
+
+let target = document.getElementById('robot-app');
+
+ReactDOM.render( <RobotBox />, target );

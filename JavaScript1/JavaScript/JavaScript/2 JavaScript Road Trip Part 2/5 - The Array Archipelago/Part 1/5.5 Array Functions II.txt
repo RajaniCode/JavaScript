@@ -1,0 +1,14 @@
+5.5 Array Functions II
+
+Now using the specific array function that takes a piece of data off the back of an array, remove the last entry from your values array and store the result in a variable called bool.
+
+Console
+
+Press Enter to submit, or type 'help' and press Enter for info on using the console
+
+> var values = ["Jason", 4, true];
+undefined
+
+>
+
+Answer: var bool = values.pop(); values[2] = bool;

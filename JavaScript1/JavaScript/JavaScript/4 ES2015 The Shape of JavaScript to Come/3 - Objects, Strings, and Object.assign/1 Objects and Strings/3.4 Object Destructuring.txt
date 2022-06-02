@@ -1,0 +1,53 @@
+3.4 Object Destructuring
+
+
+Let's add a new topic to the page. On the first line, call the buildUser() function with 2 arguments: "Tyler" and "Williams". Then, using object destructuring, assign the property fullName from its return object to a local variable with the same name.
+
+
+add-topic.js
+
+let title  = "The New Object Syntax - Good or Bad?";
+let author = fullName;
+let body = "What do you all think of the new syntax? I like it!";
+
+let topic = { title, author, body };
+
+let element = buildTopicElement(topic);
+
+addTopicToPage(element);
+
+
+build-user.js
+
+function buildUser(first, last){
+  let fullName = first + " " + last;
+
+  return { first, last, fullName };
+} 
+
+
+build-topic-element.js
+
+function buildTopicElement(topic){
+  let title = "<h2>" + topic.title + "</h2>";
+  let author = "<small>" + topic.author + "</small>";
+  let body = "<p>" + topic.body + "</p>";
+
+  return { title, author, body };
+}
+
+
+Answer:
+
+add-topic.js
+
+let {first, last, fullName} = buildUser("Tyler", "Williams");
+let title  = "The New Object Syntax - Good or Bad?";
+let author = fullName;
+let body = "What do you all think of the new syntax? I like it!";
+
+let topic = { title, author, body };
+
+let element = buildTopicElement(topic);
+
+addTopicToPage(element);

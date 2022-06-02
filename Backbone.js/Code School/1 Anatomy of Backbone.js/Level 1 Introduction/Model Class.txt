@@ -1,0 +1,7 @@
+Model Class
+
+Welcome to the Anatomy of Backbone.js challenges! We're going to be building a simple Appointment app for our friend, Dr. Goodparts.
+
+So, let's get started and create an Appointment model class.
+
+Answer: var Appointment = Backbone.Model.extend({});

@@ -1,0 +1,31 @@
+4.15 Iterating Maps With for...of
+
+
+Complete the for…of loop on the right so that it properly prints each entry. Remember to use array destructuring in order to assign to user and postTitle at once.
+
+listing-entries.js
+
+let recentPosts = new Map();
+
+recentPosts.set( "Sam", "ES2015" );
+recentPosts.set( "Tyler", "CoffeeScript" );
+recentPosts.set( "Brook",  "TypeScript" );
+
+for(  ){
+  console.log(`${user} = ${postTitle}`);
+}
+
+
+Answer:
+
+listing-entries.js
+
+let recentPosts = new Map();
+
+recentPosts.set( "Sam", "ES2015" );
+recentPosts.set( "Tyler", "CoffeeScript" );
+recentPosts.set( "Brook",  "TypeScript" );
+
+for( let [user, postTitle] of recentPosts){
+  console.log(`${user} = ${postTitle}`);
+}

@@ -1,0 +1,6 @@
+2.2 Building Blocks
+
+In Angular, we add dynamic behavior to HTML using [ ].
+
+
+Answer: directive

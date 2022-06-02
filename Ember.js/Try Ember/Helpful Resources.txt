@@ -1,0 +1,11 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+Ember [http://emberjs.com/]
+Ember Guides [https://guides.emberjs.com/v2.4.0/]
+Ember CLI [http://ember-cli.com/]
+Built With Ember [http://builtwithember.io/]
+Ember Addons [https://www.emberaddons.com/]
+Ember Slack [https://ember-community-slackin.herokuapp.com/]
+Quiz App Repository [https://github.com/codeschool/TryEmberQuizApp]

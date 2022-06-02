@@ -1,0 +1,53 @@
+Building View Next II
+
+
+Great! Now that we have the template, let's add some code in the render function to append the generated HTML from the template into the AppointmentListView $el. Make sure you pass in the page and per_page properties to the template function, getting those values from this.collection.page + 1 and this.collection.per_page respectively.
+
+APPOINTMENTLIST
+
+var AppointmentList = Backbone.Collection.extend({
+  parse: function(response){
+    this.per_page = response.per_page;
+    this.page = response.page;
+    this.total = response.total;
+    
+    return response.appointments;
+  }
+});
+
+APPLICATION.JS
+
+var AppointmentListView = Backbone.View.extend({
+  template: _.template('<a href="#/appointments/p<%= page %>/pp<%= per_page %>">View Next</a>'),
+  initialize: function(){
+    this.collection.on('reset', this.render, this);
+  },
+  render: function(){
+    this.$el.empty();
+    this.collection.forEach(this.addOne, this);
+  },
+  addOne: function(model){
+    var appointmentView = new AppointmentView({model: model});
+    appointmentView.render();
+    this.$el.append(appointmentView.el);
+  }
+});
+
+Answer:
+
+var AppointmentListView = Backbone.View.extend({
+  template: _.template('<a href="#/appointments/p<%= page %>/pp<%= per_page %>">View Next</a>'),
+  initialize: function(){
+    this.collection.on('reset', this.render, this);
+  },
+  render: function(){
+    this.$el.empty();
+    this.collection.forEach(this.addOne, this);
+    this.$el.append(this.template({page: this.collection.page + 1, per_page: this.collection.per_page}));
+  },
+  addOne: function(model){
+    var appointmentView = new AppointmentView({model: model});
+    appointmentView.render();
+    this.$el.append(appointmentView.el);
+  }
+});

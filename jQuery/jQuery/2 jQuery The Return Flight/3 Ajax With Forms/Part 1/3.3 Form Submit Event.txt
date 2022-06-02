@@ -1,0 +1,54 @@
+3.3 Form Submit Event
+
+Here's a form we used in Try jQuery. As you change the number of nights, we show the updated estimate of the trip cost.
+
+What we didn't do was add a way to submit the form! Let's go ahead and add a listener for submit on the form which will run a function. This function should accept one parameter - the form submission event. Call preventDefault on this event to stop the browser from following the form submission. We'll write the ajax call in this event handler later.
+
+HTML
+
+<div class="tour" data-daily-price="357">
+  <h2>Paris, France Tour</h2>
+  <p>$<span id="total">2,499</span> for <span id="nights-count">7</span> Nights</p>
+  <form action="/book" method="POST">
+    <p>
+      <label for="nights">Number of Nights</label>
+    </p>
+    <p>
+      <input name="nights" id="nights" value="7" type="number">
+    </p>
+    <input value="book" type="submit">
+  </form>
+</div>
+
+reference.js
+
+$(document).ready(function() {
+  $('#nights').on('keyup', function() {
+    var nights = +$(this).val();
+    var dailyPrice = +$(this).closest('.tour').data('daily-price');
+    $('#total').text(nights * dailyPrice);
+    $('#nights-count').text($(this).val());
+  });
+  $('#nights').on('focus', function() {
+    $('#nights').val(7);
+  });
+});
+
+application.js
+
+$(document).ready(function() {
+
+});
+
+Answer:
+
+application.js
+
+$('form').on('submit', function(e) {
+  e.preventDefault()
+});
+
+//Note
+$('form').on('submit', function(e) {
+    return false;
+});

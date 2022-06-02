@@ -1,0 +1,10 @@
+4.20 Grabbing Globals
+
+Aiedra calls out, a dim light ahead in the distance,
+
+    "If a module references globally-scoped variables, it's a best practice to bring them into the scope of anonymous closure through the use of a specific technique."
+
+What is the name for this? 
+
+Answer: imports
+

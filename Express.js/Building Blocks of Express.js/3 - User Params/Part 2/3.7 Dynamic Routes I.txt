@@ -1,0 +1,11 @@
+3.7 Dynamic Routes I
+
+Which Express function maps placeholders to callback functions, and is commonly used for running pre-conditions on Dynamic Routes?
+
+    app.use()
+
+    app.get()
+
+    app.param()
+
+Answer: app.param()

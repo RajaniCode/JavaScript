@@ -1,0 +1,14 @@
+4.22 WeakSets
+
+
+Complete the following statement about WeakSets.
+
+The WeakSet is a more memory efficient type of Set where only [ ] are allowed to be stored.
+
+
+Answer: objects
+
+Note:
+
+The WeakSet is a more memory efficient type of Set where only [objects] are allowed to be stored.
+

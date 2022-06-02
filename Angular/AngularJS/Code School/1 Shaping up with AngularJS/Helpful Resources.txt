@@ -1,0 +1,7 @@
+Angular Resources
+
+Angularjs.org [https://docs.angularjs.org/] - Official AngularJS Documentation
+Egghead.io [https://egghead.io/] - Bite-sized web development training.
+Thinkster.io [http://thinkster.io/] - Learn to Build Modern Web Apps.
+Meetup [http://www.meetup.com/] - Find a Local Angular Meetup.
+Dash [http://kapeli.com/dash] - Instant offline access to +130 API Docs!

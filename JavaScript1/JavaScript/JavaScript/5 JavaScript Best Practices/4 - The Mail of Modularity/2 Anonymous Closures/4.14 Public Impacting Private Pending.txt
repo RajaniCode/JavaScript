@@ -1,0 +1,28 @@
+4.14 Public Impacting Private Pending
+
+var CAVESOFCLARITY = function () {
+
+  var treasureChests = 3;
+
+  return {
+    stalactites: 4235,
+    stalagmites: 3924,
+    bats: 345,
+    openChest: function () {
+        treasureChests--;
+        alert("DA DADADA DAAAAAAA!");
+    }
+  };
+}();
+
+Which statement, when executed, causes an impact to a private property after you have made the property private through closure?
+
+    var treasureChests = 3;
+
+    treasureChests--;
+
+    alert("DA DADADA DAAAAAAA!");
+
+    return { ... };
+
+Answer: treasureChests--;

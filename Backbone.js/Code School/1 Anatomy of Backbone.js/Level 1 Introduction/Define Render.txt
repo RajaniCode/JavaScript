@@ -1,0 +1,26 @@
+Define Render
+
+
+Our AppointmentView instance is almost ready, all we have to do is go back and define the AppointmentView render function so we can actually create some HTML. Have the render function add an <li> tag to the top-level element of the view. Use this.model.get('title') as the content of the <li>.
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+var appointment = new Appointment();
+
+APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+
+});
+
+Answer: 
+
+var AppointmentView = Backbone.View.extend({
+  render: function(){
+    var html = '<li>' + this.model.get('title') + '</li>';
+    $(this.el).html(html);
+  }
+});
+
+

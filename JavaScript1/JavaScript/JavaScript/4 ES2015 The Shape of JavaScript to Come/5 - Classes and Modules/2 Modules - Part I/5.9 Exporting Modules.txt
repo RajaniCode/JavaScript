@@ -1,0 +1,24 @@
+5.9 Exporting Modules
+
+
+In the code below, fill in the missing keyword that will allow this function to be exported in the simplest way.
+
+
+export [ ] function isTopicValid(topic){
+  const MAX_TITLE_LENGTH = 20;
+
+  let isValid = !(topic.title.length > MAX_TITLE_LENGTH || topic.author.isBlocked);
+  return isValid;
+}
+
+
+Answer: default
+
+Note:
+
+export [default] function isTopicValid(topic){
+  const MAX_TITLE_LENGTH = 20;
+
+  let isValid = !(topic.title.length > MAX_TITLE_LENGTH || topic.author.isBlocked);
+  return isValid;
+}

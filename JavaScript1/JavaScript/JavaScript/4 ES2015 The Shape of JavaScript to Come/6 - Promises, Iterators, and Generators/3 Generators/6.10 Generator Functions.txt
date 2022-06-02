@@ -1,0 +1,13 @@
+6.10 Generator Functions
+
+
+Complete the statement below about generator functions.
+
+Generator functions are special functions from which we can use the [ ] keyword to return iterator objects.
+
+
+Answer: yield
+
+Note:
+
+Generator functions are special functions from which we can use the [yield] keyword to return iterator objects.

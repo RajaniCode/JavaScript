@@ -1,0 +1,22 @@
+JS to CS - Part II
+
+Convert the commented jQuery code below to CoffeeScript and use CoffeeScript-style string interpolation.
+
+# $('#newCoffee a').click(function() {
+#   var name = prompt('Name of coffee:');
+#   alert("New coffee added: " + name);
+# });
+
+Answer:
+
+CoffeeScript:
+$('#newCoffee a').click -> 
+  name = prompt('Name of coffee:')
+  alert("New coffee added: #{name}")
+
+JavaScript:
+$('#newCoffee a').click(function() {
+  var name;
+  name = prompt('Name of coffee:');
+  return alert("New coffee added: " + name);
+});

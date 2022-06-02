@@ -1,0 +1,12 @@
+2.12 Nested Template Location
+
+After moving the poll route underneath the polls route, into which location did the poll template file move?
+
+[Single Answer]
+
+app/templates/poll.hbs
+app/templates/polls.hbs
+app/templates/polls/poll.hbs
+
+
+Answer: app/templates/polls/poll.hbs

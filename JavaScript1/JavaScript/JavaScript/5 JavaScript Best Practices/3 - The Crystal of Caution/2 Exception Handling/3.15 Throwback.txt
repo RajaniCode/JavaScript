@@ -1,0 +1,5 @@
+3.15 Throwback
+
+As soon as any sort of throw is reached, try passes control to [ ].
+
+Answer: catch

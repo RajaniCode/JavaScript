@@ -1,0 +1,15 @@
+3.22 Tools For The Bug
+
+var toolsForTheBug = '[{"bug":"termite","tool":"trebuchet"}, 
+                       {"bug":"slug","tool":"sling"}, \
+                       {"bug":"caterpillar","tool":"catapult"}]';
+
+This was the old eval way of handling JSON:
+
+var tools = eval(toolsForTheBug);
+
+What method is a more secure way of reading/writing JSON?
+
+var tools = [ ];
+
+Answer: JSON.parse(toolsForTheBug)

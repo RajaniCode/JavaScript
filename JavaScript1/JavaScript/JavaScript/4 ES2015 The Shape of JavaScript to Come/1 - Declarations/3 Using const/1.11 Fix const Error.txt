@@ -1,0 +1,42 @@
+1.11 Fix const Error
+
+
+Fix the syntax error on the following code.
+
+load-profiles.js
+
+function loadProfiles(userNames){
+
+  const MAX_USERS;
+  MAX_USERS = 15;
+
+  if(userNames.length > MAX_USERS){
+  	return false;
+  }
+  
+  for(let i=0; i < userNames.length; i++){
+  	_fetchProfile(userNames[i], function(data){
+    	_addToSidebar(userNames[i], data);
+    });
+  }
+}
+
+
+Answer:
+
+load-profiles.js
+
+function loadProfiles(userNames){
+
+  const MAX_USERS = 15;
+
+  if(userNames.length > MAX_USERS){
+  	return false;
+  }
+  
+  for(let i=0; i < userNames.length; i++){
+  	_fetchProfile(userNames[i], function(data){
+    	_addToSidebar(userNames[i], data);
+    });
+  }
+}

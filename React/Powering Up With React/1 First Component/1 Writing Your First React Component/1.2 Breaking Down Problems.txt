@@ -1,0 +1,13 @@
+1.2 Breaking Down Problems
+
+In React, what do we create in order to solve problems?
+
+[Single Answer]
+
+Widgets
+Controllers
+Components
+Callbacks
+
+
+Answer: Components

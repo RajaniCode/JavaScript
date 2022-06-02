@@ -1,0 +1,69 @@
+2.11 The Slowest In The Bunch
+
+Aeidra eyes a new file.
+
+    "Be careful, for data intensive processes are the ones that will stop the show. Which of these included script tags will take the longest to load?"
+
+app.html
+
+<!DOCTYPE>
+<html>
+  <head>
+    <script type=text/javascript src="inhabitants.js"></script>
+    <script type=text/javascript src="info.js"></script>
+    <script type=text/javascript src="inhabitantsProto.js"></script>
+    <title>JSBP</title>
+  </head>
+  <body>
+
+    <h1>Level 2 Inverted Peninsula of Performance</h1>
+    <h2>Section 3 A blocking <code>script</code> in our path</h2>
+
+    <h4>
+      Inhabitants of the <em>Inverted Peninsula</em>,
+      Popn: <span id="popn"></span>
+    </h4>
+    <ul class="unstyled" id="population"></ul>
+    </aside>
+  </body>
+</html>
+
+inhabitants.js
+
+var invertedPeninsula = {
+  inhabitants: [
+    "Nipping Global Variable",
+    "Sneaky For-in",
+    "Bulging Blocking Script"
+  ]
+}
+
+function populationGetter(){
+  var population = invertedPeninsula.inhabitants;
+  var list = "";
+
+  for(var i = 0, ff = population.length; i < ff; i++){
+    list += (population[i] + " ");
+  }
+  return list.trim();
+}
+
+populationGetter();
+
+info.js
+
+var land = "Inverted Peninsula";
+var character = "Dhuun";
+var lampsLit = 1;
+
+inhabitantsProto.js
+
+Array.prototype.killTheInsolent = function(){};
+Array.prototype.countPopulace = function(){};
+Array.prototype.countUndeadPopulace = function(){};
+Array.prototype.insecticide = function(){};
+Array.prototype.shadowProvider = function(){};
+
+inhabitants.js or info.js or inhabitantsProto.js
+
+Answer: inhabitantsProto.js

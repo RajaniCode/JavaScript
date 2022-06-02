@@ -1,0 +1,11 @@
+2.14 Helps Memory You Say
+
+Moving into the Mountains of Memory, Aiedra appears troubled.
+
+    "Dhuun, the Objects of this land appear to carry many methods and properties that are exactly the same. What could have been done here to ameliorate this burden?"
+
+should be used for shared properties and methods in order to increase memory efficiency.
+
+[] should be used for shared properties and methods in order to increase memory efficiency.
+
+Answer: Inheritance

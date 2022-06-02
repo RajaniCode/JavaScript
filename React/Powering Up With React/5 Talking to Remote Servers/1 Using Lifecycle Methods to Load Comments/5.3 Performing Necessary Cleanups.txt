@@ -1,0 +1,13 @@
+5.3 Performing Necessary Cleanups
+
+Which lifecycle method is responsible for performing any necessary cleanup, such as invalidating timers or cleaning up any DOM elements that were created in componentDidMount?
+
+[Single Answer]
+
+componentWillMount()
+render()
+constructor()
+componentWillUnmount()
+
+
+Answer: componentWillUnmount()

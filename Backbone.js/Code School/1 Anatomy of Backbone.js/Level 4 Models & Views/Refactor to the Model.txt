@@ -1,0 +1,48 @@
+Refactor to the Model
+
+
+Whenever you see too much code dealing with the Model in one of your views, it's probably time for a refactor.
+
+Create a cancel function in the Appointment model that sets the model's cancelled attribute to true, and call that function from the view. (Hint: Make sure to put the code in the correct tabs)
+
+VIEWS/APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span><%= title %></span> <a href="#">x</a>'),
+  events:  { "click a": "cancel" },
+  cancel: function(){
+    this.model.set({cancelled: true});
+  },
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+  }
+});
+
+MODELS/APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({
+
+});
+
+Answer:
+
+VIEWS/APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span><%= title %></span> <a href="#">x</a>'),
+  events:  { "click a": "cancel" },
+  cancel: function(){
+    this.model.cancel();
+  },
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+  }
+});
+
+MODELS/APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({
+  cancel: function(){
+    this.set({cancelled: true});
+  }
+});

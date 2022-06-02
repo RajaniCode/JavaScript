@@ -1,0 +1,85 @@
+1.5 Passing Function Expression Variables as Parameters
+
+Well, it stands to reason that some people might not want to experience the Haunted Hickory House if the fear is significantly elevated on that day.
+
+    Inside the fearMessage function expression, use conditional statements to check the already-generated fear value, and decide whether it is LOW, MEDIUM, or HIGH.
+    Inside each conditional statement, return a specific confirm message in the following formats:
+
+For fear levels less than 200:
+
+Fear Level: LOW
+Still wanna ride?
+
+For fear levels 200 through and including 300:
+
+Fear Level: MEDIUM
+Think you'll make it?
+
+For fear levels above 300 and up to 400:
+
+Fear Level: HIGH
+Have a death wish?
+
+Lastly, call the confirmRide function and pass in the fearMessage variable. Then assign the results of that function in a new variable called startRide.
+
+Note: You do not need to change the existing code that’s provided for you in the challenge editor.
+
+hauntedHickoryHouse.js
+
+var fear = fearGenerated(numPeeps, rainInInches, numSharks);
+
+var fearMessage = function() {
+  // Insert conditional statements here
+
+};
+
+function confirmRide(confirmToGo) {
+  return confirmToGo();
+}
+
+// Call confirmRide here
+
+
+Answer:
+
+Note: Results From Previous challenges
+
+/*
+var people = 5; //var numPeeps = 5;
+var rain = 6;   //var rainInInches = 6;
+var sharks = 7; //var numSharks = 7;
+
+var fearGenerated = function (numPeeps, rainInInches, numSharks) {
+    var rainFear = numPeeps * rainInInches;
+    var sharkFear = numSharks * numSharks * numSharks;
+    var totalFear = sharkFear + rainFear;
+    return totalFear;
+};
+
+//var fear = 100;
+//var fear = fearGenerated(numPeeps, rainInInches, numSharks); 
+var fear = fearGenerated(people, rain, sharks); 
+*/
+
+hauntedHickoryHouse.js
+
+var fear = fearGenerated(numPeeps, rainInInches, numSharks);
+
+var fearMessage = function() {
+   if (fear < 200) {
+     return "Fear Level: LOW\n" + "Still wanna ride?";
+   } 
+  else if (fear > 199 && fear < 301) {
+    return "Fear Level: MEDIUM\n" + "Think you'll make it?";
+  } 
+    else if (fear > 301 && fear <= 400) {
+      return "Fear Level: HIGH\n" + "Have a death wish?";
+    }
+};
+
+function confirmRide(confirmToGo) {
+  return confirmToGo();
+}
+
+var startRide = confirmRide(fearMessage);
+alert(startRide);

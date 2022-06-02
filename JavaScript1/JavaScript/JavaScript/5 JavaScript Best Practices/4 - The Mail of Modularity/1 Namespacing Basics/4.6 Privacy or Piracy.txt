@@ -1,0 +1,9 @@
+4.6 Privacy or Piracy?
+
+Whilst walking deeper still into the cave you come upon a one-legged man. Sitting up against the rough cave wall, he leers up at you and inquires the truth.
+
+    "A Namespace ensures complete privacy of data."
+
+Be this statement True or False? .
+
+Answer: false

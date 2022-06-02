@@ -1,0 +1,89 @@
+3.8 Configurable Bits Need a Provider
+
+We want to be able to configure the characterLength before Tweetable runs. Refactor the Tweetable factory into a provider and expose a setLength() function that will allow us to set a characterLength in our app config.
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.factory('Tweetable', ['$http', function TweetableFactory($http) {
+  var characterLength = 144;
+
+  return function(potentialTweet) {
+    return $http({
+      method: 'POST',
+      url: 'http://gentle-spire-1153.herokuapp.com/tweet',
+      data: {
+        description: potentialTweet,
+        maxLength: characterLength
+      }
+    });
+  };
+}]);
+
+1. Change the factory definition into a provider definition.
+
+Answer:
+
+...
+
+.provider('Tweetable', function TweetableProvider($http) {
+
+...
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.provider('Tweetable', function TweetableProvider() {
+  var characterLength = 144; 
+  return function(potentialTweet) {
+    return $http({ method: 'POST', url: 'http://gentle-spire-1153.herokuapp.com/tweet', data: { description: potentialTweet, maxLength: characterLength }});
+  };
+});
+
+
+2. Wrap the existing function returned by our TweetableProvider() function in a call to the $get() function required by providers. Don't forget to move the $http service injection!
+
+Answer: 
+
+...
+
+this.$get = function($http) {
+
+...
+
+};
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.provider('Tweetable', function TweetableProvider() {
+  var characterLength = 144; 
+  this.$get = function($http){
+    return function(potentialTweet) {
+      return $http({ method: 'POST', url: 'http://gentle-spire-1153.herokuapp.com/tweet', data: { description: potentialTweet, maxLength: characterLength }});
+    };
+  };
+});
+
+3. Create a setLength() function attached to the provider that sets the characterLength variable.
+
+Answer: 
+
+  this.setLength = function(length){
+     characterLength = length;
+  };  
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.provider('Tweetable', function TweetableProvider() {
+  var characterLength = 144; 
+  this.$get = function($http) {
+    return function(potentialTweet) {
+      return $http({ method: 'POST', url: 'http://gentle-spire-1153.herokuapp.com/tweet', data: { description: potentialTweet, maxLength: characterLength }});
+    };
+  };
+  this.setLength = function(length){
+     characterLength = length;
+  };  
+});

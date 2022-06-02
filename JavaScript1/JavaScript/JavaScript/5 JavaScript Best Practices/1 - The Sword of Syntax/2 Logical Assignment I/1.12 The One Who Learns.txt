@@ -1,0 +1,32 @@
+1.12 The One Who Learns
+
+Aiedra has copied your new logical assignment into your very own memories.js file, which took some time to find. Alas, even though there is a diary revealing all of your experiences, your memory refuses to jog and your identity remains unknown. Aiedra shakes her head in sorrow.
+
+    "I may only provide you with clues to your past, Dhuun…I may not correct your very identity. Trace through your memory file, and correct the code that’s blocking you from retrieving your identity."
+
+
+Answer: return identity || "unknown";
+
+app.js
+
+var pocketStuff = ["Dragon Tooth", "Adventure Diary", "Silver Tiger Coin"];
+var cluesToThePast = pocketStuff || [] ;
+getMyIdentity(cluesToThePast);
+
+function getMyIdentity( memories ){
+  var identity = ( memories.indexOf("Adventure Diary") >= 0 ) ? "The One Who Learns" : undefined;
+  return identity || "unknown";
+}
+
+Question:
+
+app.js
+
+var pocketStuff = ["Dragon Tooth", "Adventure Diary", "Silver Tiger Coin"];
+var cluesToThePast = pocketStuff || [] ;
+getMyIdentity(cluesToThePast);
+
+function getMyIdentity( memories ){
+  var identity = ( memories.indexOf("Adventure Diary") >= 0 ) ? "The One Who Learns" : undefined;
+  return "unknown" || identity;
+}

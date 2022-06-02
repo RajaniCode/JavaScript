@@ -1,0 +1,11 @@
+5.5 All HTTP Verbs
+
+What function would you call to match all HTTP verbs?
+
+    app.use()
+
+    app.all()
+
+    app.route()
+
+Answer: app.all()

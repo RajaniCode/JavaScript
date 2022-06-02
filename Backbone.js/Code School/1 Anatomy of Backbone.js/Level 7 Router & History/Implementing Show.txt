@@ -1,0 +1,58 @@
+Implementing Show
+
+
+Time to implement the show action. As you can see you've already created an instance of the Appointment and passed in the id from the URL.
+
+You'll want to create an instance of the AppointmentView, render it, and replace the contents of #app with its top-level element.
+
+Lastly, don't forget to fetch data from the server for the appointment.
+
+VIEWS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span class="<% if(cancelled) print("cancelled") %>"><%= title %></span><a href="#">x</a>'),
+ 
+  initialize: function(){
+    this.model.on('change', this.render, this);
+  },
+    
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
+});
+
+MODELS
+
+var Appointment = Backbone.Model.extend({
+  defaults: function() { 
+    return {
+      'date': new Date(), 
+      'cancelled': false, 
+      'title': 'Checkup'
+    }
+  }
+});
+
+APPLICATION.JS
+
+var AppRouter = Backbone.Router.extend({
+  routes: { "appointments/:id": "show" },
+  show: function(id){
+    var appointment = new Appointment({id: id});
+    
+  }
+});
+
+Answer:
+
+var AppRouter = Backbone.Router.extend({
+  routes: { "appointments/:id": "show" },
+  show: function(id){
+    var appointment = new Appointment({id: id});
+    var appointmentView = new AppointmentView({model: appointment});
+    appointmentView.render(); 
+    $('#app').html(appointmentView.el);
+    appointment.fetch();
+  }
+});

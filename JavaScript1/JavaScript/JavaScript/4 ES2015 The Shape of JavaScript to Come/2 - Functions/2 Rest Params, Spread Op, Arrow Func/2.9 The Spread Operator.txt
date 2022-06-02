@@ -1,0 +1,37 @@
+2.9 The Spread Operator
+
+
+In the call to getActiveUsers(), the 2nd argument is a callback. This callback, an anonymous function, has data as its parameter.
+
+We can pass data.userNames as an argument to the appendUserNames() function. However, this property is an array while the appendUserNames() function expects individual arguments.
+
+Change the call to appendUserNames() to use the syntax that will split the array into individual elements.
+
+get-active-users.js
+
+getActiveUsers(15, function(data){   
+  let userNameDivs = appendUserNames(  );
+  appendToSidebar(".side-bar", userNameDivs);
+});
+
+function getActiveUsers(topicId, cb){
+  _fetchTopicInfo("/topics/" + id, function(data){
+    cb(data);
+  });
+}
+
+
+Answer:
+
+get-active-users.js
+
+getActiveUsers(15, function(data){   
+  let userNameDivs = appendUserNames(...data.userNames);
+  appendToSidebar(".side-bar", userNameDivs);
+});
+
+function getActiveUsers(topicId, cb){
+  _fetchTopicInfo("/topics/" + id, function(data){
+    cb(data);
+  });
+}

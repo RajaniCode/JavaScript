@@ -1,0 +1,20 @@
+4.22 Import Process
+
+Upon adding the global import to the Lake's module, the water churns around the boat. Ripples and waves get choppy, and a surrounding wall of cascading, dark water slowly rises around your small boat. Through the mist, you see broken phrases suspended in the water. Aiedra's voice rings out through the noise of the falling liquid.
+
+    "The Lake seeks your understanding, for the Mail of Modularity is close now. Complete the phrases to reach the other shore."
+
+Your ______ ensures clarity of ______ within a ______.
+By using a ______, you protect the ______ data that might have been ______.
+All imported data becomes ______ scoped to the ______, to be used in ______.
+Thus, when compared with ______ the entire ______, ______ are both clearer and faster.
+
+    import, scope, module, parameter, global, overwritten, locally, anonymous function, closure, searching, scope chain, imports
+
+    module, source, file, global import, local, public, partially, returned object, public references, building, namespace, globals
+
+    namespace, globals, file, parameter, imported, inaccessible, immediately, closure, private data, importing, application, declared variables
+
+    global variable, location, module, local variable, global, already existing, internally, namespace, closure, assigning, list of globals, imports
+
+Answer: import, scope, module, parameter, global, overwritten, locally, anonymous function, closure, searching, scope chain, imports

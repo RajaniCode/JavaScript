@@ -1,0 +1,101 @@
+Classes with jQuery
+
+On the DrinkLink class below, implement the watchClick method so that when any link is clicked, its color is changed to #F00.
+
+HTML Source
+<section>
+  <h2>Calculate your Caffeine Level</h2>
+ 
+  <div class="menu">
+    <h3>Coffee</h3>
+    <p id="newCoffee"><a href="#">Add Coffee</a></p>
+    <ul class="drink">
+      <li><a href="#" data-level="1">American</a><span class="tooltip">Level 1 Caffeine</span></li>
+      <li><a href="#" data-level="2">Colombian</a><span class="tooltip">Level 2 Caffeine</span></li>
+      <li><a href="#" data-level="3">Brazilian</a><span class="tooltip">Level 3 Caffeine</span></li>
+      <li><a href="#" data-level="10">Espresso</a><span class="tooltip">Level CRAZY Caffeine</span></li>
+    </ul>
+    <label for="total">Total:</label>
+    <input type="text" id="total" size="3" value="0"/>
+    <input type="button" id="clear" size="3" value="Clear"/>
+    <div id="warning"></div>
+    <div id="notice"></div>
+    <div id="advertisement">
+      <p>
+        How about you try our new <a href="#">EnvyLabs Coffee!</a> ?
+      </p>
+    </div>
+  </div>
+</section>
+<section>
+  <h3>Store Locations</h3>
+  <ul class="locations">
+  </ul>
+</section>
+<section>
+  <article>
+    <h3>Top Pick of the Week</h3>
+    <p id="topPick"></p>
+  </article>
+  <article>
+    <h3>Other Suggested Coffee</h3>
+    <ul class="suggested"></ul>
+  </article>
+</section>
+
+
+CoffeeScript:
+class DrinkLink
+  watchClick: ->
+
+JavaScript:
+var DrinkLink;
+DrinkLink = (function() {
+  function DrinkLink() {}
+  DrinkLink.prototype.watchClick = function() {};
+  return DrinkLink;
+})();
+
+Answer:
+
+CoffeeScript:
+class DrinkLink
+  watchClick: ->
+    $('a').click (e) =>
+    $(@).css(color: '#F00')
+
+//Note
+class DrinkLink
+  watchClick: ->
+    $('a').click (e) =>
+    e.preventDefault()
+    $(@).css(color: '#F00')
+
+JavaScript:
+var DrinkLink;
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+DrinkLink = (function() {
+  function DrinkLink() {}
+  DrinkLink.prototype.watchClick = function() {
+    $('a').click(__bind(function(e) {}, this));
+    return $(this).css({
+      color: '#F00'
+    });
+  };
+  return DrinkLink;
+})();
+
+//Note
+var DrinkLink;
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+DrinkLink = (function() {
+  function DrinkLink() {}
+  DrinkLink.prototype.watchClick = function() {
+    $('a').click(__bind(function(e) {}, this));
+    e.preventDefault();
+    return $(this).css({
+      color: '#F00'
+    });
+  };
+  return DrinkLink;
+})();

@@ -1,0 +1,50 @@
+2.4 Cache Is King
+
+The local critters are impressed with your decision, and have built a functional for-loop. Aeidra smiles at you approvingly…or at least you think it's a smile. And then her smile fades…
+
+    “It appears that, though the loop accomplishes the desired result, the critters are taking a performance hit by accessing the length of their array through the object at each loop cycle. Let us help them further, Dhuun. As a first step, find a way to store the important value outside the loop. Thus will you begin some progress in avoiding processor burden.”
+
+You heard her! Build a useful cache, and call your variable numCritters.
+
+ip.js
+
+var bitersBog = {
+    critters: ["Nipping Global Variable", 
+               "Sneaky For-in", 
+               "Bulging Blocking Script"]
+};
+
+populationGetter(bitersBog); 
+
+function populationGetter( location ){
+  var list = "";
+  
+  for(var i = 0; i < location.critters.length; i++){
+        list += location.critters[i];
+  }
+  return list.trim();
+}
+
+Answer: 
+
+  var numCritters = location.critters.length;
+  for(var i = 0; i < numCritters; i++){
+
+ip.js
+
+var bitersBog = {
+    critters: ["Nipping Global Variable", 
+               "Sneaky For-in", 
+               "Bulging Blocking Script"]
+};
+
+populationGetter(bitersBog); 
+
+function populationGetter( location ){
+  var list = "";
+  var numCritters = location.critters.length;
+  for(var i = 0; i < numCritters; i++){
+        list += location.critters[i];
+  }
+  return list.trim();
+}

@@ -1,0 +1,35 @@
+5.7 Implement the Option Tally
+
+With an option-tally component available, use it to calculate the option percentage for the results page.
+
+app/components/option-tally.js
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  
+});
+
+1. Create a percentage computed property on the option-tally component. This property will use optionVotes and pollVotes attributes, so ensure that you identify them as dependent properties for the computed function.
+
+Answer:
+app/components/option-tally.js
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  percentage: Ember.computed('optionVotes', 'pollVotes', function () {
+    return this.get('optionVotes') * 100 / this.get('pollVotes');
+  })
+});
+
+2. Return the computed percentage from the percentage property. The formula for calculating the rounded percentage is shown below:
+Math.round(this.get('optionVotes') * 100 / this.get('pollVotes'));
+
+Answer:
+app/components/option-tally.js
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  percentage: Ember.computed('optionVotes', 'pollVotes', function () {
+    return Math.round(this.get('optionVotes') * 100 / this.get('pollVotes'));
+  })
+});

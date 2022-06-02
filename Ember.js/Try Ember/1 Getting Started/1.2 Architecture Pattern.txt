@@ -1,0 +1,12 @@
+1.2 Architecture Pattern
+
+Which type of software architectural pattern does Ember provide?
+
+[Single Answer]
+
+Model-View-Controller (MVC)
+Model-View-Presenter (MVP)
+Naked Objects
+
+
+Answer: Model-View-Controller (MVC)

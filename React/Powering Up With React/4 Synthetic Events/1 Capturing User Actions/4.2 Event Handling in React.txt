@@ -1,0 +1,13 @@
+4.2 Event Handling in React
+
+React offers a cross-browser wrapper around the browser's native event system called:
+
+[Single Answer]
+
+Mechanic Events
+Native Events
+Synthetic Events
+jQuery Events
+
+
+Answer: Synthetic Events

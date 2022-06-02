@@ -1,0 +1,14 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• CoffeeScript Homepage [http://coffeescript.org/]
+• Jeremy Ashkenas Video [https://vimeo.com/27200146]
+• The Little Book on CoffeeScript [http://arcturo.github.com/library/coffeescript/]
+• Smooth CoffeeScript [http://autotelicum.github.com/Smooth-CoffeeScript/]
+• Railscasts on CoffeeScript [http://railscasts.com/episodes/267-coffeescript-basics]
+• Pragmatic CoffeeScript Book [http://pragprog.com/book/tbcoffee/coffeescript]
+• Mark Bates CoffeeScript Book [http://my.safaribooksonline.com/book/programming/coffeescript/9780132946155]
+• CoffeeScript Cookbook [http://coffeescriptcookbook.com/chapters/strings/capitalizing-words]
+• Other CodeSchool Courses [http://www.codeschool.com/courses]
+• Code School on Twitter [http://twitter.com/codeschool]

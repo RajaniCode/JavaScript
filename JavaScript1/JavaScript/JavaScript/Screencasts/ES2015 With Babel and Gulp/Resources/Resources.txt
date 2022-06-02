@@ -1,0 +1,7 @@
+Resources
+
+• Source Code [https://github.com/codeschool/babel-with-gulp]
+• Babel [http://babeljs.io/]
+• Gulp [http://gulpjs.com/]
+• Browserify [http://browserify.org/]
+• ES2015 With Babel [https://www.codeschool.com/screencasts/es2015-with-babel]

@@ -1,0 +1,29 @@
+4.13 Keyup Event
+
+We've made a few changes to our tour page. Now we'll allow travelers to specify how many days they want their vacation to be. Write an event handler that will fire whenever the value within the keyup event is triggered on the #nights form field. The function can be empty now, then we'll implement it later.
+
+HTML
+
+<div class="tour" data-daily-price="357">
+  <h2>Paris, France Tour</h2>
+  <p>$<span id="total">2,499</span> for <span id="nights-count">7</span> Nights</p>
+  <p>
+    <label for="nights">Number of Nights</label>
+  </p>
+  <p>
+    <input id="nights" value="7" type="number">
+  </p>
+</div>
+
+application.js
+
+$(document).ready(function() {
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $('#nights').on('keyup', '#nights', function() {});
+});

@@ -1,0 +1,10 @@
+C:\Users\Rajani\Desktop\Code\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\bin\ASPCS2010JavaScriptVSjQuery.dll
+C:\Users\Rajani\Desktop\Code\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\bin\ASPCS2010JavaScriptVSjQuery.pdb
+C:\Users\Rajani\Desktop\Code\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Rajani\Desktop\Code\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\obj\Debug\ASPCS2010JavaScriptVSjQuery.dll
+C:\Users\Rajani\Desktop\Code\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\obj\Debug\ASPCS2010JavaScriptVSjQuery.pdb
+C:\Users\Rajani\Desktop\Code\jQuery\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\bin\ASPCS2010JavaScriptVSjQuery.dll
+C:\Users\Rajani\Desktop\Code\jQuery\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\bin\ASPCS2010JavaScriptVSjQuery.pdb
+C:\Users\Rajani\Desktop\Code\jQuery\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Rajani\Desktop\Code\jQuery\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\obj\Debug\ASPCS2010JavaScriptVSjQuery.dll
+C:\Users\Rajani\Desktop\Code\jQuery\ASPCS2010JavaScriptVSjQuery\ASPCS2010JavaScriptVSjQuery\obj\Debug\ASPCS2010JavaScriptVSjQuery.pdb

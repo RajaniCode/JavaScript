@@ -1,0 +1,39 @@
+Classes - Part I
+
+Create a Coffee class that will produce coffee objects. In that class, create a constructor that takes name and level as arguments and sets them as instance variables. Also, make sure you create a function called isRussian.
+
+CoffeeScript:
+coffee =
+  name: 'Russian'
+  level: 2
+  isRussian: -> @name is 'Russian'
+
+JavaScript:
+var coffee;
+coffee = {
+  name: 'Russian',
+  level: 2,
+  isRussian: function() {
+    return this.name === 'Russian';
+  }
+};
+
+Answer:
+
+CoffeeScript:
+class Coffee
+  constructor: (@name = 'Russian', @level = 2) ->
+  isRussian: -> @name is 'Russian'
+
+JavaScript:
+var Coffee;
+Coffee = (function() {
+  function Coffee(name, level) {
+    this.name = name != null ? name : 'Russian';
+    this.level = level != null ? level : 2;
+  }
+  Coffee.prototype.isRussian = function() {
+    return this.name === 'Russian';
+  };
+  return Coffee;
+})();

@@ -1,0 +1,54 @@
+2.16 Rampant Var
+
+Aiedra examines one of the old Biters Bog files in her hands.
+
+    "Now that I think of it, we could have made a little assistance in processing in the bitersBog by eliminating a small amount of parser work. The Pendant of Performance calls now to you from afar, wondering if you are worthy. Show it that you are by providing a minor performance improvement here."
+
+Use an alternate syntax to separate the variable declarations, eliminating multiple var keywords.
+
+bitersBog.js
+
+var list = document.getElementById("population");
+var inhabitants = ["Nipping Global Variable", "Sneaky For-in", "Bulging Blocking Script"];
+var fragment = document.createDocumentFragment();
+
+for (var i = 0, x = inhabitants.length; i<x; i++) {
+  var element = document.createElement("li");
+  element.appendChild( document.createTextNode( inhabitants[i]) );
+  fragment.appendChild(element);
+}
+
+list.appendChild(fragment);
+
+index.html
+
+<!DOCTYPE>
+<html>
+  <body>
+    <h1>Level 2 Inverted Peninsula of Performance</h1>
+    <script type="text/javascript" src="inhabitants.js"></script>
+    <h4>Inhabitants of the <em>Inverted Peninsula</em>, Popn: <span id="popn"></span></h4>
+    <ul class="unstlyed" id="population"></ul>
+  </body>
+</html>
+
+
+Answer:
+
+    var list = document.getElementById("population"),
+    inhabitants = ["Nipping Global Variable", "Sneaky For-in", "Bulging Blocking Script"],
+    fragment = document.createDocumentFragment();
+
+bitersBog.js
+
+var list = document.getElementById("population"),
+    inhabitants = ["Nipping Global Variable", "Sneaky For-in", "Bulging Blocking Script"],
+    fragment = document.createDocumentFragment();
+
+for (var i = 0, x = inhabitants.length; i<x; i++) {
+  var element = document.createElement("li");
+  element.appendChild( document.createTextNode( inhabitants[i]) );
+  fragment.appendChild(element);
+}
+
+list.appendChild(fragment);

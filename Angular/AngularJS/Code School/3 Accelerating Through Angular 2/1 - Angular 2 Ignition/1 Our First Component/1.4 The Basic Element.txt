@@ -1,0 +1,6 @@
+1.4 The Basic Element
+
+[ ] are the basic building blocks of Angular 2 applications.
+
+
+Answer: Components

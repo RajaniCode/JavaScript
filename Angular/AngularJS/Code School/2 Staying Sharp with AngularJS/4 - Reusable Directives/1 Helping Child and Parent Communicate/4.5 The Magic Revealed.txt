@@ -1,0 +1,123 @@
+4.5 The Magic Revealed
+
+Now that we have our nav directives working, we need to hook up the templates.
+
+nw-nav-item.html
+
+<a class="list-item" href="#/">  </a>
+
+index.html
+
+<!doctype html>
+<html lang="en" ng-app="notewrangler">
+
+  <head>
+    <meta charset="utf-8">
+    <title>note wrangler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/application.css" />
+  </head>
+
+  <body>
+    <div class="nav-wrapper has-dropdown">
+      <div class="nav-content">
+        <div class="wrapper">
+          <div class="nav-content-layout">
+            <nw-nav class="nav-list">
+              <nw-nav-item name="notes"></nw-nav-item>
+              <nw-nav-item name="users"></nw-nav-item>
+            </nw-nav>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero"></div>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <div ng-view></div>
+    </div>
+
+    <!-- load js libs -->
+    <script src="./js/vendor/jquery.js"></script>
+    <script src="./js/vendor/angular.js"></script>
+    <script src="./js/vendor/angular-route.js"></script>
+    <script src="./js/vendor/angular-resource.js"></script>
+
+    <!-- nw scripts -->
+    <script src="./js/app.js"></script>
+    <script src="./js/routes.js"></script>
+
+    <!-- controllers -->
+    <script src="./js/controllers/notes-create-controller.js"></script>
+    <script src="./js/controllers/notes-edit-controller.js"></script>
+    <script src="./js/controllers/notes-index-controller.js"></script>
+    <script src="./js/controllers/notes-show-controller.js"></script>
+    <script src="./js/controllers/users-index-controller.js"></script>
+    <script src="./js/controllers/users-show-controller.js"></script>
+
+    <!-- directives -->
+    <script src="./js/directives/nw-card.js"></script>
+    <script src="./js/directives/nw-nav-item.js"></script>
+    <script src="./js/directives/nw-nav.js"></script>
+
+
+    <!-- services -->
+    <script src="./js/services/note.js"></script>
+    <script src="./js/services/tweetable.js"></script>
+
+  </body>
+</html>
+
+1. We can see in the index.html that we're already passing Notes and Users to the name attribute of our nav item directive. Use data binding to display the value of scope.name as the content of our a tag.
+
+Answer: <a class="list-item" href="#/">{{item.name}}</a>
+
+nw-nav-item.html
+
+<a class="list-item" href="#/">{{item.name}}</a>
+
+2. Give each nwNavItem a class of active if it isActive().
+
+Answer: <a class="list-item" href="#/" ng-class="{'active': isActive()}">{{item.name}}</a>
+
+nw-nav-item.html
+
+<a class="list-item" href="#/" ng-class="{'active': isActive()}">{{item.name}}</a>
+
+3. On click, call the activate() method.
+
+Answer: <a class="list-item" href="#/" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+nw-nav-item.html
+
+<a class="list-item" href="#/" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+4. Create an href for each nav item with a dynamic path using the name variable. The route should look like: #/value_of_scope_dot_name and use data binding.
+
+Answer: <a class="list-item" href="#/{{name}}" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+nw-nav-item.html
+
+<a class="list-item" href="#/{{name}}" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+5. Notice that routes are case sensitive. When we click on Users, it finds no route for /Users, and therefore redirects to /notes. Solve this issue by using a lowercase filter on the name binding within the route.
+
+Answer: <a class="list-item" href="#/{{name | lowercase}}" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+nw-nav-item.html
+
+<a class="list-item" href="#/{{name | lowercase}}" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+6. Since we've added an expression to the href attribute of our a tag, we need to change it to ng-href attribute. Check out the docs to see why this is important.
+
+Answer: <a class="list-item" ng-href="#/{{name | lowercase}}" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>
+
+nw-nav-item.html
+
+<a class="list-item" ng-href="#/{{name | lowercase}}" ng-class="{'active': isActive()}" ng-click="activate()">{{item.name}}</a>

@@ -1,0 +1,3 @@
+Router		-> 	Routes 				->  		Templates
+Manages State	->	Collect Needed Data		->		Define HTML
+			And Renders Templates

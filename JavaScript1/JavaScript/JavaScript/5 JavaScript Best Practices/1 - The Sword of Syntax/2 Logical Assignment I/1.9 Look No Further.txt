@@ -1,0 +1,8 @@
+1.9 Look No Further
+
+var lost;
+lost = 4 || undefined;
+
+Reflecting on this assignment for a bit, you realize that the undefined value will never even be examined. The name for this phenomenon in logical evaluation is called 
+
+Answer: short-circuit

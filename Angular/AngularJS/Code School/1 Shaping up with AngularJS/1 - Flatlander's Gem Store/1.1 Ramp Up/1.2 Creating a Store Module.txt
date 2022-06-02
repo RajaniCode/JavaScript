@@ -1,0 +1,45 @@
+1.2 Creating a Store Module
+
+The Flatlanders need a store to sell their gems and more! They need it really quick, Angular will do the trick!
+
+They have figured out how to manipulate time and space, allowing them to create three-dimensional gems. The buying and selling of their gems has become a popular Flatlander practice and they believe the next step is taking their wonderful wares to the fourth dimension (the web).
+
+Can you help them reach their online peddling goals?
+
+app.js
+
+1. Create a Module named gemStore so we can get started on this marketing journey.
+
+Answer: var app = angular.module('gemStore', []);
+
+
+index.html
+
+2. Attach the gemStore module to our HTML page with a Directive.
+
+Answer: <html ng-app="gemStore">
+
+3. In index.html, create a simple Expression to display a friendly "Hello, Angular!" message.
+
+Answer: <h1><p>{{"Hello, Angular!"}}</p></h1>
+
+
+
+
+index.html
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body>
+    <h1><p>{{"Hello, Angular!"}}</p></h1>
+  </body>
+</html>
+
+
+app.js
+
+var app = angular.module('gemStore', []);

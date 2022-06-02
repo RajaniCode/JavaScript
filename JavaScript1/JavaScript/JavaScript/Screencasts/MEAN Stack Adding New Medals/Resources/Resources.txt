@@ -1,0 +1,16 @@
+Resources
+
+• Olympics MEAN app Source Code [https://github.com/codeschool/OlympicsMEAN]
+• (M) Magical Marvels of MongoDB [https://www.codeschool.com/courses/the-magical-marvels-of-mongodb]
+• (E) Building Blocks of Express [https://www.codeschool.com/courses/building-blocks-of-express-js]
+• (A) Shaping Up With Angular [https://www.codeschool.com/courses/shaping-up-with-angular-js]
+• (A) Staying Sharp With Angular [https://www.codeschool.com/courses/staying-sharp-with-angular-js]
+• (N) Real-Time Web with Node [https://www.codeschool.com/courses/real-time-web-with-node-js]
+• ES2015: The Shape of JavaScript to Come [https://www.codeschool.com/courses/es2015-the-shape-of-javascript-to-come]
+• Angular UI Router Video on Egghead [https://egghead.io/lessons/angularjs-introduction-ui-router]
+• Angular UI Router Docs [https://angular-ui.github.io/ui-router/site/#/api/ui.router]
+• $http Angular [https://docs.angularjs.org/api/ng/service/$http]
+• Paw - OSX HTTP Client [https://luckymarmot.com/paw]
+• Download MongoDB [https://www.mongodb.com/download-center]
+• MongoDB Node.js Driver [http://mongodb.github.io/node-mongodb-native/]
+• Understanding Angular Controllers [https://docs.angularjs.org/guide/controller]

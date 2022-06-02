@@ -1,0 +1,33 @@
+2.10 Arrow Function Syntax
+
+
+See the function below:
+
+let printName = function(value){
+  console.log( value );
+}
+How could we write its arrow function counterpart?
+
+[Single Answer]
+
+let printName => (value) {
+  console.log( value );
+}
+
+
+printName(value) => {
+  console.log( value );
+}
+
+
+let printName = (value) => {
+  console.log( value );
+}
+
+
+Answer:
+
+let printName = (value) => {
+  console.log( value );
+}
+

@@ -1,0 +1,17 @@
+Conditionals - Part III
+
+Rewrite the javascript below to use an unless conditional.
+
+# if(!coffeeReady){
+#   alert('Please wait 5 more minutes.')
+# }:
+
+Answer:
+
+CoffeeScript:
+alert('Please wait 5 more minutes.') unless coffeeReady
+
+JavaScript:
+if (!coffeeReady) {
+  alert('Please wait 5 more minutes.');
+}

@@ -1,0 +1,178 @@
+4.2 Create a New Poll
+
+Create and return a new Poll record from the store service.
+
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade', votes: 1 }),
+      Option.create({ id: '2', value: 'Hemlock', votes: 5 }),
+      Option.create({ id: '3', value: 'Rhubarb', votes: 0 })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty', votes: 3 }),
+      Option.create({ id: '5', value: 'Integrity', votes: 4 }),
+      Option.create({ id: '6', value: 'Patience', votes: 2 })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  getPollById(id) {
+    return this.getPolls().findBy('id', id);
+  },
+
+  getPolls() {
+    return polls;
+  },
+  
+  
+});
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+  
+  store: Ember.inject.service()
+});
+
+1. Add a newPoll() function to the store service. It should return the following new Poll record:
+
+Poll.create({
+  options: [
+    Option.create({ votes: 0 }),
+    Option.create({ votes: 0 }),
+    Option.create({ votes: 0 })
+  ]
+})
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade', votes: 1 }),
+      Option.create({ id: '2', value: 'Hemlock', votes: 5 }),
+      Option.create({ id: '3', value: 'Rhubarb', votes: 0 })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty', votes: 3 }),
+      Option.create({ id: '5', value: 'Integrity', votes: 4 }),
+      Option.create({ id: '6', value: 'Patience', votes: 2 })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  getPollById(id) {
+    return this.getPolls().findBy('id', id);
+  },
+
+  getPolls() {
+    return polls;
+  },
+  newPoll() {
+    return Poll.create({
+      options: [
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 })
+      ]
+    });
+  } 
+  
+});
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+  
+  store: Ember.inject.service()
+});
+
+2. Return the store's newPoll() result as the index route's model hook.
+
+Answer:
+app/services/store.js
+import Ember from 'ember';
+import Option from 'quiz/models/option';
+import Poll from 'quiz/models/poll';
+
+const polls = [
+  Poll.create({
+    id: '1',
+    question: 'Which Poisonous Plant Are You?',
+    options: [
+      Option.create({ id: '1', value: 'Nightshade', votes: 1 }),
+      Option.create({ id: '2', value: 'Hemlock', votes: 5 }),
+      Option.create({ id: '3', value: 'Rhubarb', votes: 0 })
+    ]
+  }),
+
+  Poll.create({
+    id: '2',
+    question: 'Which Is Your Favorite Woodland Wanderer Way?',
+    options: [
+      Option.create({ id: '4', value: 'Honesty', votes: 3 }),
+      Option.create({ id: '5', value: 'Integrity', votes: 4 }),
+      Option.create({ id: '6', value: 'Patience', votes: 2 })
+    ]
+  })
+];
+
+export default Ember.Service.extend({
+  getPollById(id) {
+    return this.getPolls().findBy('id', id);
+  },
+
+  getPolls() {
+    return polls;
+  },
+  newPoll() {
+    return Poll.create({
+      options: [
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 }),
+        Option.create({ votes: 0 })
+      ]
+    });
+  }
+});
+
+app/routes/index.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+    model () {
+    const store = this.get('store');
+    return store.newPoll();
+  },    
+  store: Ember.inject.service()
+});

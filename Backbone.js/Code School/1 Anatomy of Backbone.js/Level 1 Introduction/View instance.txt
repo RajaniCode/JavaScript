@@ -1,0 +1,14 @@
+View instance
+
+
+The perfect place to put our display code now exists! Now it's time to create our first AppointmentView instance. When doing so, don't forget to include the appointment model instance we just created. Assign the instance to a variable.
+
+APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({});
+var appointment = new Appointment();
+var AppointmentView = Backbone.View.extend({});
+
+JS SOURCE
+
+Answer: var appointmentView = new AppointmentView({model: appointment});

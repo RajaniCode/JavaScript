@@ -1,0 +1,11 @@
+Array Prototype
+
+length
+pop()
+push()
+shift()
+reverse()
+sort()
+join()
+reduce()
+slice()

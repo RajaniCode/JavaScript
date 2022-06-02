@@ -1,0 +1,31 @@
+4.4 Destructuring From Return Values
+
+
+Add a return value for the buildTopicInfo() function that will make the rest of the code function correctly.
+
+app.js
+
+function buildTopicInfo(topic){
+  let title = `<h1>${topic.title}</h1>`;
+  let author = `<small>${topic.author}<small>`;
+
+  
+}
+
+let topic = getCurrentTopic();
+let [topicTitle, topicAuthor] = buildTopicInfo(topic);
+
+
+Answer:
+
+app.js
+
+function buildTopicInfo(topic){
+  let title = `<h1>${topic.title}</h1>`;
+  let author = `<small>${topic.author}<small>`;
+  return [title, author];  
+
+}
+
+let topic = getCurrentTopic();
+let [topicTitle, topicAuthor] = buildTopicInfo(topic);

@@ -1,0 +1,24 @@
+Conditionals - Part II
+
+CoffeeScript does not support ternary operators. Change the code below to use if/then/else.
+
+CoffeeScript:
+caffeineLevel > 5 ? alert('Too High') : alert('OK');
+
+JavaScript:
+Parse error on line 1: Unexpected '{'
+
+Answer:
+
+CoffeeScript:
+if caffeineLevel > 5 
+  alert('Too High') 
+else
+  alert('OK')
+
+JavaScript:
+if (caffeineLevel > 5) {
+  alert('Too High');
+} else {
+  alert('OK');
+}

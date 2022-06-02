@@ -1,0 +1,14 @@
+5.2 Features of Computed Properties
+
+Computed properties provide the following:
+
+[Multiple Answers]
+
+A property value computed from a function call
+Automatic invalidation when dependent properties change
+A mechanism for triggering action handlers
+
+
+Answer:
+A property value computed from a function call
+Automatic invalidation when dependent properties change

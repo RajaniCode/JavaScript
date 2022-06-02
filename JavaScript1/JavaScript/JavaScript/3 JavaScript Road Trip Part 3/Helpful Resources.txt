@@ -1,0 +1,7 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• Closures at the MDN [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures]
+• Prototypes at "JavaScript, JavaScript..." [http://javascriptweblog.wordpress.com/2010/06/07/understanding-javascript-prototypes/]
+• OOP at "Eloquent Javascript" [http://eloquentjavascript.net/chapter8.html]

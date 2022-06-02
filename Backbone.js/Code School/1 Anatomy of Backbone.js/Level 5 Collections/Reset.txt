@@ -1,0 +1,32 @@
+Reset
+
+
+The office assistant has been busy taking appointments and has provided a nice JSON object ready to be loaded in.
+
+Get it all in the appointments collection instance using reset.
+
+JS SOURCE
+
+var Appointment = Backbone.Model.extend({});
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment
+});
+
+APPLICATION.JS
+
+var appointments = new AppointmentList();
+var json = [
+  {title: 'Back pain'},
+  {title: 'Dry mouth'},
+  {title: 'Headache'} 
+];
+
+Answer:
+
+var appointments = new AppointmentList();
+var json = [
+  {title: 'Back pain'},
+  {title: 'Dry mouth'},
+  {title: 'Headache'} 
+];
+appointments.reset(json);

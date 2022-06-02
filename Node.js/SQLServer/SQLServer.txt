@@ -1,0 +1,44 @@
+USE [master];
+GO
+
+--IF EXISTS(SELECT name FROM sys.databases WHERE name = N'sampledb')
+IF DB_ID (N'sampledb') IS NOT NULL
+DROP DATABASE [sampledb];
+GO
+
+CREATE DATABASE sampledb;
+GO
+
+USE [sampledb];
+GO
+
+--IF EXISTS(SELECT name FROM sys.tables WHERE name = N'sample')
+IF OBJECT_ID (N'sample', N'U') IS NOT NULL
+DROP TABLE [sample];
+GO
+
+CREATE TABLE sample
+(
+ id int IDENTITY(1, 1),
+ name nvarchar(max),
+ date datetime2
+);
+GO
+
+SELECT * FROM sample;
+GO
+
+INSERT INTO sample VALUES('ABC', GETDATE());
+GO
+
+INSERT INTO sample (date) VALUES(GETDATE());
+GO
+
+INSERT INTO sample
+SELECT 'Alpha', GETDATE() UNION ALL
+SELECT 'Beta', GETDATE() UNION ALL
+SELECT 'Gamma', GETDATE();
+GO
+
+SELECT * FROM sample;
+GO

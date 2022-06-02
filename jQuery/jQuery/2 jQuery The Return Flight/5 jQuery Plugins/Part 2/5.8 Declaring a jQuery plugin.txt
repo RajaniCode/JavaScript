@@ -1,0 +1,61 @@
+5.8 Declaring a jQuery plugin
+
+Let's revisit our Vacation Photos page from Try jQuery. Previously we wrote some code to show the photos when each link was clicked. We'll see what we can do to refactor this functionality into a jQuery Plugin.
+
+To start off, create a new jQuery plugin named photofy. Call it within your event handler for all .tour elements. Make your plugin call console.log passing in this -- the elements that we are attempting to photofy.
+
+HTML
+
+<a href="#" class="show-photos">Show All Photos</a>
+<ul id="tourprices">
+  <li class="tour" data-loc="london,uk">
+    London, UK
+    <ul class="photos">
+      <li><img src="/assets/photos/london.jpg"></li>
+      <li><img src="/assets/photos/london.jpg"></li>
+      <li><img src="/assets/photos/london.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+
+  <li class="tour" data-loc="paris,france">
+    Paris, France
+    <ul class="photos">
+      <li><img src="/assets/photos/paris1.jpg"></li>
+      <li><img src="/assets/photos/paris1.jpg"></li>
+      <li><img src="/assets/photos/paris1.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+
+  <li class="tour" data-loc="New York, NY, USA">
+    New York, NY, USA
+    <ul class="photos">
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+      <li><img src="/assets/photos/newyork1.jpg"></li>
+    </ul>
+    <a href="#" class="see-photos">See Photos</a>
+    <a href="#" class="hide-tour">Hide Tour</a>
+  </li>
+</ul>
+
+application.js
+
+$(document).ready(function() {
+
+});
+
+Answer:
+
+application.js
+
+$.fn.photofy = function(){
+  console.log(this);
+};
+
+$(document).ready(function() {  
+  $('.tour').photofy();
+});

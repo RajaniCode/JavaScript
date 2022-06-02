@@ -1,0 +1,85 @@
+5.3 Implementing a Method on a Class
+
+
+The following TopicReplyCounter class has an addReply() method, which is unfinished. Follow the tasks to complete this method and finish writing this class.
+
+topic-reply-counter.js
+
+class TopicReplyCounter {
+
+  constructor(topicId, replies){
+    this.topicId = topicId;
+    this.replies = replies || [];
+    this.replyCount = this.replies.length;
+  }
+  
+  addReply(reply){
+    
+    
+  }
+  
+  totalReplies(){
+    return this.replies.filter( reply => !reply.isAbuse );
+  }
+  
+  totalCount(){
+    return this.replyCount;
+  }
+}
+
+
+1. From inside the addReply() method, add the reply argument to the this.replies array. You can use the this.replies.push() method for that.
+
+Answer:
+
+topic-reply-counter.js
+
+class TopicReplyCounter {
+
+  constructor(topicId, replies){
+    this.topicId = topicId;
+    this.replies = replies || [];
+    this.replyCount = this.replies.length;
+  }
+  
+  addReply(reply){
+    this.replies.push(reply);
+    
+  }
+  
+  totalReplies(){
+    return this.replies.filter( reply => !reply.isAbuse );
+  }
+  
+  totalCount(){
+    return this.replyCount;
+  }
+}
+
+2. Assign the total number of replies to the this.replyCount property. We can do that by calling this.totalReplies(), which returns an array of total replies not marked as abuse, and then reading the length property of that array.
+
+Answer:
+
+topic-reply-counter.js
+
+class TopicReplyCounter {
+
+  constructor(topicId, replies){
+    this.topicId = topicId;
+    this.replies = replies || [];
+    this.replyCount = this.replies.length;
+  }
+  
+  addReply(reply){
+    this.replies.push(reply);
+    this.replyCount = this.totalReplies().length;
+  }
+  
+  totalReplies(){
+    return this.replies.filter( reply => !reply.isAbuse );
+  }
+  
+  totalCount(){
+    return this.replyCount;
+  }
+}

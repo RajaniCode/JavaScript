@@ -1,0 +1,5 @@
+4.2 Grouping and Protecting
+
+An object that groups and protects related data and methods in JavaScript files is called a [].
+
+Answer: namespace

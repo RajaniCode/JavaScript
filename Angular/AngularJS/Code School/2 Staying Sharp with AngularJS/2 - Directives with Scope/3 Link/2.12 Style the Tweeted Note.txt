@@ -1,0 +1,116 @@
+2.12 Style the Tweeted Note
+
+Some notes have been altered to have a tweeted property set to a timestamp of when that note was tweeted.
+
+{
+  "tweeted": "603590400"
+}
+
+We want to be able to edit how the card looks if it has been tweeted. Let's use the link function to access the directive's element.
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler')
+.directive('nwCard', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-card.html',
+    scope: {
+      header: '=',
+      description: '=',
+      tweeted: '='
+    },
+    
+  };
+});
+
+templates/directives/nw-card.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notesCtrl.notes">
+        <nw-card header="note.title" description="note.description" tweeted="note.tweeted"></nw-card>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+templates/pages/notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes">
+        <nw-card header="note.title" description="note.description"></nw-card>
+      </a>
+    </div>
+  </div>
+</div>
+
+js/controllers/notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', ['$scope', '$http', function($scope, $http) {
+  $http({method: 'GET', url: '/notes'}).success(function(data) {
+    $scope.notes = data;
+  });
+}]);
+
+1. Create a link function in the directive and include the parameters we will need to grab element.
+
+Answer: link: function(scope, element) {}
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler')
+.directive('nwCard', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-card.html',
+    scope: {
+      header: '=',
+      description: '=',
+      tweeted: '='
+    },
+    link: function(scope, element) {}
+  };
+});
+
+2. Add a class of tweeted to the nw-card element for any card that has a tweeted property on its scope.
+
+Answer:
+
+    link: function(scope, element) {
+      if(scope.tweeted) {
+        element.addClass('tweeted');
+      }
+    }
+
+js/directives/nw-card.js
+
+angular.module('NoteWrangler')
+.directive('nwCard', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-card.html',
+    scope: {
+      header: '=',
+      description: '=',
+      tweeted: '='
+    },
+    link: function(scope, element) {
+      if(scope.tweeted) {
+        element.addClass('tweeted');
+      }
+    }
+  };
+});

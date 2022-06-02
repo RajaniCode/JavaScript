@@ -1,0 +1,87 @@
+5.5 Subclassing
+
+
+Our forum app currently has an Advertisement class that renders a generic widget for an ad (see the code on the advertisement-class.js tab). In order to accommodate a new type of advertisement, we need to change the way this code is rendered. The Advertisement class is being used by other pages on our app, so we want to avoid changing this class. Instead, we'll create a new class and inherit properties from the Advertisement class — also known as subclassing.
+
+sidebar-advertisement-class.js
+
+advertisement-class.js
+
+class Advertisement {
+
+  constructor(title, link){
+    this.title = title;
+    this.link = link;
+  }
+
+  _buildContent(){
+    return `<h1>${this.title}</h1>
+      <a href="${this.link}">${this._linkText()}</a>`;
+  }
+  
+  _linkText(){
+    return "Click Here";
+  }
+  
+  render(){
+    return this._buildContent();
+  }
+}
+
+// Here's an example of how this class is used:
+/*
+  let ad = new Advertisement("CodeSchool", "http://codeschool.com");
+  _appendToPage( targetElement, ad.render() );
+*/
+
+
+1. Create a new class called SidebarAdvertisement and make sure this 
+
+Answer:
+
+advertisement-class.js
+
+1. Create a new class called SidebarAdvertisement and make sure this 
+
+Answer:
+
+advertisement-class.js
+
+class SidebarAdvertisement extends Advertisement { }
+
+2. Inside the SidebarAdvertisement class, write a constructor() method that takes title and link as arguments. 
+
+Answer:
+
+advertisement-class.js
+
+class SidebarAdvertisement extends Advertisement { 
+ constructor(title, link) { }
+}
+
+3. From inside the constructor, invoke the constructor method from the super class, passing in title and link.
+
+Answer:
+
+advertisement-class.js
+
+class SidebarAdvertisement extends Advertisement { 
+ constructor(title, link) {
+   super(title, link);
+ }
+}
+
+4. Finally, create a new _linkText() method on the SidebarAdvertisement class that returns the string "Sign up now!". This is how we can specialize behavior from a parent class on a child class — also known as overriding a method.
+
+Answer:
+
+advertisement-class.js
+
+class SidebarAdvertisement extends Advertisement { 
+ constructor(title, link) {
+   super(title, link);
+ }  
+   _linkText() {
+          return "Sign up now!";
+   }
+}

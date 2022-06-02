@@ -1,0 +1,59 @@
+1.6 Making It Dynamic
+
+We've added a new component property called race inside our class. Fill in the empty template elements using this race property. The name should be in the <h2>, the date in the first <p> tag, and the about in the last <p> tag. Don't forget to click the "Check My Work" button when you think you have it right.
+
+app/main.ts
+
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'racing-app',
+  template: `
+  <h1>{{heading}}</h1>
+  <h2><!-- Name --></h2>
+  <p><!-- Date --></p>
+  <p><!-- About --></p>
+  `
+})
+
+class AppComponent {
+  heading = "Ultra Racing Schedule"
+  race = {
+    "id": 1,
+    "name": "Daytona Thunderdome",
+    "date": new Date('2512-01-04T14:00:00'),
+    "about": "Race through the ruins of an ancient Florida battle arena.",
+    "entryFee": 3200
+  }
+}
+
+bootstrap(AppComponent);
+
+Answer:
+
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'racing-app',
+  template: `
+  <h1>{{heading}}</h1>
+  <h2>{{race.name}}</h2>
+  <p>{{race.date}}</p>
+  <p>{{race.about}}</p>
+  `
+})
+
+class AppComponent {
+  heading = "Ultra Racing Schedule"
+  race = {
+    "id": 1,
+    "name": "Daytona Thunderdome",
+    "date": new Date('2512-01-04T14:00:00'),
+    "about": "Race through the ruins of an ancient Florida battle arena.",
+    "entryFee": 3200
+  }
+}
+
+bootstrap(AppComponent);

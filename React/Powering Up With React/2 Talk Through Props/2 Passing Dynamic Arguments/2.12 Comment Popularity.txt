@@ -1,0 +1,215 @@
+2.12 Comment Popularity
+
+Let's make our app show a message when the current post is getting really popular. We'll write a function that only displays this message in pages that have a certain number of comments.
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        
+        <h4 className="comment-count">{this._getCommentsTitle(comments.length)}</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    
+    
+    
+  }
+
+  _getComments() {
+
+    const commentList = [
+      { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+      { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];
+
+    return commentList.map((comment) => {
+      return (<Comment
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+  
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+}
+
+
+1. Make _getPopularMessage() return the following div if the value of the commentCount argument is greater than POPULAR_COUNT:
+
+<div>
+  This post is getting really popular, don't miss out!
+</div>
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        
+        <h4 className="comment-count">{this._getCommentsTitle(comments.length)}</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    if (commentCount > POPULAR_COUNT) {
+      return (
+        <div>
+          This post is getting really popular, don't miss out!
+        </div>
+      );
+    }
+    
+    
+  }
+
+  _getComments() {
+
+    const commentList = [
+      { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+      { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];
+
+    return commentList.map((comment) => {
+      return (<Comment
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+  
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <img src={this.props.avatarUrl} alt={`${this.props.author}'s picture`} />
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}
+
+2. Now let's call the _getPopularMessage() method from render() right after the <h3> tag, and pass the length of comments as the argument.
+
+Answer:
+
+components.js
+
+class CommentBox extends React.Component {
+  render() {
+    const comments = this._getComments() || [];
+    return(
+      <div className="comment-box">
+        <h3>Comments</h3>
+        {this._getPopularMessage(comments.length)}
+        <h4 className="comment-count">{this._getCommentsTitle(comments.length)}</h4>
+        <div className="comment-list">
+          {comments}
+        </div>
+      </div>
+    );
+  }
+  
+  _getPopularMessage(commentCount) {
+    const POPULAR_COUNT = 10;
+    if (commentCount > POPULAR_COUNT) {
+      return (
+        <div>
+          This post is getting really popular, don't miss out!
+        </div>
+      );
+    }
+    
+    
+  }
+
+  _getComments() {
+
+    const commentList = [
+      { id: 1, author: 'Clu', body: 'Just say no to love!', avatarUrl: 'images/default-avatar.png' },
+      { id: 2, author: 'Anne Droid', body: 'I wanna know what love is...', avatarUrl: 'images/default-avatar.png' }
+    ];
+
+    return commentList.map((comment) => {
+      return (<Comment
+               author={comment.author}
+               body={comment.body}
+               avatarUrl={comment.avatarUrl}
+               key={comment.id} />);
+    });
+  }
+  
+  _getCommentsTitle(commentCount) {
+    if (commentCount === 0) {
+      return 'No comments yet';
+    } else if (commentCount === 1) {
+      return '1 comment';
+    } else {
+      return `${commentCount} comments`;
+    }
+  }
+}
+
+class Comment extends React.Component {
+  render() {
+    return(
+      <div className="comment">
+        <img src={this.props.avatarUrl} alt={`${this.props.author}'s picture`} />
+        <p className="comment-header">{this.props.author}</p>
+        <p className="comment-body">
+          {this.props.body}
+        </p>
+        <div className="comment-actions">
+          <a href="#">Delete comment</a>
+        </div>
+      </div>
+    );
+  }
+}

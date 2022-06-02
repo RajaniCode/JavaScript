@@ -1,0 +1,43 @@
+4.16 Another Event Handler
+
+Let's write another event handler for the form field that will be run when the focus event is triggered. When this occurs, set the number of nights to 7.
+
+HTML
+
+<div class="tour" data-daily-price="357">
+  <h2>Paris, France Tour</h2>
+  <p>$<span id="total">2,499</span> for <span id="nights-count">7</span> Nights</p>
+  <p>
+    <label for="nights">Number of Nights</label>
+  </p>
+  <p>
+    <input id="nights" value="7" type="number">
+  </p>
+</div>
+
+application.js
+
+$(document).ready(function() {
+  $("#nights").on("keyup", function() {
+    var nights = +$(this).val();
+    var dailyPrice = +$(this).closest(".tour").data("daily-price");
+    $("#total").text(nights * dailyPrice);
+    $("#nights-count").text($(this).val());
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $("#nights").on("keyup", function() {
+    var nights = +$(this).val();
+    var dailyPrice = +$(this).closest(".tour").data("daily-price");
+    $("#total").text(nights * dailyPrice);
+    $("#nights-count").text($(this).val());
+  }).on("focus", function() {
+  	$(this).val(7);
+  });
+});
+

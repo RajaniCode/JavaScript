@@ -1,0 +1,91 @@
+6.3 Writing Promises
+
+
+A new function called getReplies() is currently incomplete and it needs our help. Here's an example of how it can be used once it's complete:
+
+import getReplies from "./get-replies";
+
+let topicId = 27;
+let getReplies = getReplies(topicId);
+getReplies.then(function(replies){
+  console.log( replies );
+});
+Follow the tasks in order to finish implementing this function.
+
+get-replies.js
+
+export default function getReplies(topicId){
+  return new Promise(function(  ){
+    _getRepliesForTopic(topicId, function(data){
+      let replies = data.replies;
+      if(replies){
+        
+      }else{
+        let error = new Error("An error occurred");
+        
+      }
+    });
+  });
+}
+
+
+1. Add the missing arguments for resolving and rejecting to the callback function that is passed to the Promises constructor function.
+
+Answer:
+
+get-replies.js
+
+export default function getReplies(topicId){
+  return new Promise(function( resolve, reject ){
+    _getRepliesForTopic(topicId, function(data){
+      let replies = data.replies;
+      if(replies){
+        
+      }else{
+        let error = new Error("An error occurred");
+        
+      }
+    });
+  });
+}
+
+2. Inside the callback passed to the _getRepliesForTopic() function, there's a conditional check for the presence of replies. If there are any replies and the conditional evaluates to true, then call the resolve() handler passing the replies as argument.
+
+Answer:
+
+get-replies.js
+
+export default function getReplies(topicId){
+  return new Promise(function( resolve, reject ){
+    _getRepliesForTopic(topicId, function(data){
+      let replies = data.replies;
+      if(replies){
+        resolve(replies);
+      }else{
+        let error = new Error("An error occurred");
+        
+      }
+    });
+  });
+}
+
+
+3. Otherwise, if there are no replies and the conditional evaluates to false, then call the reject() handler passing the error object as argument.
+
+Answer:
+
+get-replies.js
+
+export default function getReplies(topicId){
+  return new Promise(function( resolve, reject ){
+    _getRepliesForTopic(topicId, function(data){
+      let replies = data.replies;
+      if(replies){
+        resolve(replies);
+      }else{
+        let error = new Error("An error occurred");
+        reject(error);
+      }
+    });
+  });
+}

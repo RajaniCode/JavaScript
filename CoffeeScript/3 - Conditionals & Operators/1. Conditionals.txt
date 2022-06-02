@@ -1,0 +1,23 @@
+Conditionals
+
+Make sure the alert function is called only if caffeineLevel > 5.
+
+CoffeeScript:
+alert('High Caffeine Level')
+
+JavaScript:
+alert('High Caffeine Level');
+
+Answer:
+
+CoffeeScript:
+alert('High Caffeine Level') if caffeineLevel > 5
+
+//Note
+if caffeineLevel > 5 
+  alert('High Caffeine Level')
+
+JavaScript:
+if (caffeineLevel > 5) {
+  alert('High Caffeine Level');
+}

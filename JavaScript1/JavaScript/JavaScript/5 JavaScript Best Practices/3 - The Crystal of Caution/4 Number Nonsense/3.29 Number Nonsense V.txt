@@ -1,0 +1,17 @@
+3.29 Number Nonsense V
+
+If you cannot be assured of browser version, user’s input, or data type use both [ ] and the function [ ] () concurrently as a best practice to ensure you are receiving numbers only.
+
+Answer: 
+
+typeof
+
+isNaN
+
+Note : typeof data === "number" && isNaN(data);
+
+Example:
+
+function isThisActuallyANumber(data) {
+    return typeof data === "number" && isNaN(data);
+}

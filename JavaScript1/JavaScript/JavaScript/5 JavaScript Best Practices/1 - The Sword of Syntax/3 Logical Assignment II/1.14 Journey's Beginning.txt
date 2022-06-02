@@ -1,0 +1,15 @@
+1.14 Journey's Beginning
+
+"The Four Lands are threatened by the coming of Infinite Midnight," says Aiedra. "It is nearly upon us. You, Dhuun, must bring fire to the Legibility Lamps once more…"
+
+Over and over Aiedra insists on your aid, till finally you agree to go on this quest she speaks of…to end the Infinite Midnight.
+
+To begin your journey in this instance, however, there are two circumstances that need to be true.
+
+var aiedraIsConvincing = true;
+var dhuunIsCurious = true;
+
+Use the variables provided above to logically assign a result to the beginJourney variable.
+
+
+Answer: var beginJourney = aiedraIsConvincing && dhuunIsCurious;

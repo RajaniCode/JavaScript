@@ -1,0 +1,5 @@
+Resources
+
+• Official guides on acceptance tests [http://guides.emberjs.com/v1.13.0/testing/acceptance/]
+• An introduction to acceptance testing [http://mariogintili.svbtle.com/acceptance-testing-ember-cli]
+• Ember-CLI mirage [http://www.ember-cli-mirage.com/]

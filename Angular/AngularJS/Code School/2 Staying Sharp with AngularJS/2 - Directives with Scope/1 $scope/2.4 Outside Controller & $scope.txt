@@ -1,0 +1,185 @@
+2.4 Outside Controller & $scope
+
+Now that you are familiar with $scope, let's practice using it with an outside controller.
+
+js/controllers/notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', ['$http', function($http) {
+  var controller = this;
+
+  $http({method: 'GET', url: '/notes'}).success(function(data) {
+    controller.notes = data;
+  });
+}]);
+
+js/routes.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: 'NotesIndexController',
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html',
+      controller: 'NotesCreateController'
+    })
+    .when('/notes/:id', {
+      templateUrl: 'templates/pages/notes/show.html',
+      controller: 'NotesShowController'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+templates/pages/notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notesCtrl.notes">
+        <nw-card></nw-card>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+templates/directives/nw-card.html
+
+<div class="card" title="{{header}}">
+  <h2 class="h3">{{header}}</h2>
+  <p>{{description}}</p>
+</div>
+
+
+1. Attach notes to $scope instead of the controller (this).
+
+Answer:
+
+['$http', '$scope', function($http,  $scope) {
+  var controller = $scope;
+
+js/controllers/notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', ['$http', '$scope', function($http,  $scope) {
+  var controller = $scope;
+
+  $http({method: 'GET', url: '/notes'}).success(function(data) {
+    controller.notes = data;
+  });
+}]);
+
+2. Remove the controllerAs controller alias from routes.js.
+
+js/routes.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: 'NotesIndexController',
+      controllerAs: 'notesCtrl'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html',
+      controller: 'NotesCreateController'
+    })
+    .when('/notes/:id', {
+      templateUrl: 'templates/pages/notes/show.html',
+      controller: 'NotesShowController'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+Answer:
+
+js/routes.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      redirectTo: '/users'
+    })
+    .when('/notes', {
+      templateUrl: 'templates/pages/notes/index.html',
+      controller: 'NotesIndexController'
+    })
+    .when('/users', {
+      templateUrl: 'templates/pages/users/index.html'
+    })
+    .when('/notes/new', {
+      templateUrl: 'templates/pages/notes/edit.html',
+      controller: 'NotesCreateController'
+    })
+    .when('/notes/:id', {
+      templateUrl: 'templates/pages/notes/show.html',
+      controller: 'NotesShowController'
+    })
+    .otherwise({
+      redirectTo: '/notes'
+    });
+}]);
+
+3. Update the notes/index.html template to work with $scope.
+
+templates/directives/nw-card.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notesCtrl.notes">
+        <nw-card></nw-card>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+Answer: <a class="card-notes" ng-repeat="note in notes">
+
+templates/directives/nw-card.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes">
+        <nw-card></nw-card>
+      </a>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+4.7 Array.find()
+
+
+Given the following array:
+
+let recentTopics = [
+  { 
+    title: "Semi-colons: Good or Bad?",
+    isLocked: true 
+  },
+  { 
+    title: "New JavaScript Framework Released", 
+    isLocked: true 
+  },
+  { 
+    title: "ES2015 - The Shape of JavaScript to Come", 
+    isLocked: false 
+  }
+];
+Which of the following options will return the first topic object that is not locked? Check all that apply.
+
+[Multiple Answers]
+
+recentTopics.find( [topic] => !topic.isLocked );
+recentTopics.find( topic => !topic.isLocked );
+recentTopics.find( (topic) => !topic.isLocked );
+recentTopics.find( (topic) => {topic.isLocked});
+
+
+Answer:
+recentTopics.find( topic => !topic.isLocked );
+recentTopics.find( (topic) => !topic.isLocked );

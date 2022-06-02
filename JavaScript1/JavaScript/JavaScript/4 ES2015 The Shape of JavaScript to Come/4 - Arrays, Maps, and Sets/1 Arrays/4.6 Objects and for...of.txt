@@ -1,0 +1,31 @@
+4.6 Objects and for...of
+
+
+What is the outcome of running the following code?
+
+let topicInfo = { 
+  title: "New Features in JS", 
+  replies: 19, 
+  lastReplyFrom: "Tyler"
+};
+
+for(let [k, v] of topicInfo){
+  console.log(`${k} - ${v}`);
+}
+
+[Single Answer]
+
+title - New Features in JS
+replies - 19
+lastReplyFrom - Tyler
+
+New Features in JS - title
+19 - replies
+Tyler - lastReplyFrom
+
+A TypeError
+
+Blank output
+
+
+Answer: A TypeError

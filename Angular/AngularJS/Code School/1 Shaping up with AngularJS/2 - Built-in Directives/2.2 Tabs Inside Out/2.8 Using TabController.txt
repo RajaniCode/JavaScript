@@ -1,0 +1,111 @@
+2.8 Using TabController
+
+To connect our controller to our page, we're going to need a few directives. Try to figure out which ones to use, but if you get stuck we'll give you hints along the way. We've provided all the HTML for you. Try to accomplish the following tasks:
+
+
+
+index.html
+
+1. Attach the TabController to the <section> element with the .tab class. Don't forget to also add an alias.
+
+Answer: <section class="tab" ng-controller="TabController as tab">
+
+
+2. Trigger the setTab method when a link inside a tab is clicked. Add this to each of the tab links. Pass in the number of the tab, in this case 1, 2 or 3.
+
+Answer:
+      <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+          <li>
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li>
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li>
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div>
+          <h4>Description</h4>
+          <blockquote></blockquote>
+        </div>
+        <div>
+          <h4>Specs</h4>
+          <blockquote>Shine: </blockquote>
+        </div>
+        <div>
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section>
+3. Use the isSet method to show the corresponding tab. You'll need to add a directive to each of the <div> elements in .tab.
+
+Answer:
+
+      <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+          <li>
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li>
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li>
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote></blockquote>
+        </div>
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>Shine: </blockquote>
+        </div>
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section>
+
+
+4. Add the active class to the correct <li> when each tab is clicked. You'll need to add a directive to each <li> in .nav.
+
+Answer:
+
+      <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+          <li ng-class="{ active: tab.isSet(1)}">
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li ng-class="{ active: tab.isSet(2)}">
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li ng-class="{ active: tab.isSet(3)}">
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote></blockquote>
+        </div>
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>Shine: </blockquote>
+        </div>
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section>
+
+5. Within the Description tab, output the product's description within the <blockquote> element.
+
+Answer:
+
+<div ng-show="tab.isSet(1)">
+ <h4>Description</h4>
+ <blockquote>{{product.description}}</blockquote>
+</div>
+
+
+6. Within the Specs tab, output the product's shine value. It should look something like this within the <blockquote> element: "Shine: 4".
+
+Answer:
+
+<div ng-show="tab.isSet(2)">
+ <h4>Specs</h4>
+ <blockquote>Shine: {{product.shine}} </blockquote>
+</div>

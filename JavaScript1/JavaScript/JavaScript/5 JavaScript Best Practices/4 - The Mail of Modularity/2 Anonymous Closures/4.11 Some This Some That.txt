@@ -1,0 +1,5 @@
+4.11 Some This Some That
+
+What feature of JavaScript is used to cause some properties to be private, bound only to a surrounding function's local scope, and some properties to be public, accessible by all holders of the namespace?
+
+Answer: closures

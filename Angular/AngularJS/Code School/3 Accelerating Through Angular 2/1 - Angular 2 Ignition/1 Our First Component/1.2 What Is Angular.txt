@@ -1,0 +1,13 @@
+1.2 What Is Angular?
+
+In what part of your application does Angular typically reside?
+
+[Single Answer]
+
+Back-end
+Middleware
+Front-end
+Full stack
+
+
+Answer: Front-end

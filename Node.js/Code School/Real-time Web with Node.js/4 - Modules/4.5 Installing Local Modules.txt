@@ -1,0 +1,15 @@
+4.5 Installing Local Modules
+
+Practice using npm by installing the npm module underscore using the npm install command.
+
+Console:
+
+$ npm install underscore
+
+npm http GET https://registry.npmjs.org/underscore
+npm http 200 https://registry.npmjs.org/underscore
+underscore@1.7.0 node_modules/underscore
+
+Congratulations, you're correct!
+
+$ 

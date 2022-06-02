@@ -1,0 +1,14 @@
+3.6 Birds Of All Feathers
+
+function Bird(){};
+function DatatypeBird(){...};
+DatatypeBird.prototype = Object.create(Bird.prototype);
+
+var NumberNommer = function(){...};
+NumberNommer.prototype = Object.create(DatatypeBird.prototype);
+
+Which method will determine if NumberNommer inherits from the DatatypeBird prototype and return true. Finish the following line of code.
+
+NumberNommer [ ] DatatypeBird
+
+Answer: instanceof

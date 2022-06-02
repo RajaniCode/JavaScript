@@ -1,0 +1,40 @@
+6.4 Listening For Questions
+
+In our client below, listen for 'question' events from the server and call the insertQuestion function whenever the event fires.
+
+1. First, listen for 'question' events from the server.
+
+Answer: server.on('question', function(data){});
+
+index.html
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/insertQuestion.js"></script>
+
+<script>
+  var server = io.connect('http://localhost:8080');
+
+  // Insert code here
+  server.on('question', function(data){});       
+</script>
+
+2. Now, have the event callback function call the insertQuestion function. The insertQuestion function is already created for you, and it's placed in its own file. It expects exactly one argument - the question.
+
+Answer: 
+
+  server.on('question', function(data){
+		insertQuestion(data);  
+  }); 
+
+index.html
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/insertQuestion.js"></script>
+
+<script>
+  var server = io.connect('http://localhost:8080');
+  // Insert code here
+  server.on('question', function(data){
+		insertQuestion(data);  
+  });       
+</script>

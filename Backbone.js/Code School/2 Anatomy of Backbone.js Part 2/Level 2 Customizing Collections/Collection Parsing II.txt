@@ -1,0 +1,38 @@
+Collection Parsing II
+
+
+Fantastic work! Now to finish the job, just return the appointments array from the parse function, instead of the entire response.
+
+JSON RESPONSE
+
+// Get /appointments
+{
+  "per_page": 10, "page": 1, "total": 50,
+  "appointments": [
+    { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+  ]
+}
+
+APPLICATION.JS
+
+var Appointments = Backbone.Collection.extend({
+  parse: function(response){
+    this.perPage = response.per_page;
+    this.page = response.page;
+    this.total = response.total;
+
+    return response;
+  }
+});
+
+Answer:
+
+var Appointments = Backbone.Collection.extend({
+  parse: function(response){
+    this.perPage = response.per_page;
+    this.page = response.page;
+    this.total = response.total;
+	this.appointments = response.appointments;
+    return this.appointments;
+  }
+});

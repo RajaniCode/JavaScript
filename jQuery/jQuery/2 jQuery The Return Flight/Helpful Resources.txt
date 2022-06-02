@@ -1,0 +1,10 @@
+Helpful Resources
+
+Here are a few useful links which are referenced in the course and video. Below, you can find your achievements and awards.
+
+• Source Code Demo [https://github.com/codeschool/jQueryReturnFlightDemos]
+• jQuery [http://jquery.com/]
+• jQuery Ajax Documentation [http://api.jquery.com/jQuery.ajax/]
+• jQuery API Documentation [http://api.jquery.com/]
+• Advanced Plugin Concepts [http://learn.jquery.com/plugins/advanced-plugin-concepts/]
+• Understanding JQuery.Deferred and Promise [http://joseoncode.com/2011/09/26/a-walkthrough-jquery-deferred-and-promise/]

@@ -1,0 +1,238 @@
+
+rajanis@MSSPLLAP165 MINGW64 /
+$ cd "C:\Users\rajanis\Desktop\Angular.io\ng new"
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new
+$ export PATH=$PATH:"/C/Users/rajanis/Downloads/Node.js/node-v14.15.5-win-x64/"
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new
+$ node --version
+v14.15.5
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new
+$ npm install -g @angular/cli
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+C:\Users\rajanis\Downloads\Node.js\node-v14.15.5-win-x64\ng -> C:\Users\rajanis\Downloads\Node.js\node-v14.15.5-win-x64\node_modules\@angular\cli\bin\ng
+
+> @angular/cli@11.1.4 postinstall C:\Users\rajanis\Downloads\Node.js\node-v14.15.5-win-x64\node_modules\@angular\cli
+> node ./bin/postinstall/script.js
+
++ @angular/cli@11.1.4
+added 234 packages from 182 contributors in 46.663s
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new
+$ ng  --version
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+
+
+Angular CLI: 11.1.4
+Node: 14.15.5
+OS: win32 x64
+
+Angular:
+...
+Ivy Workspace:
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1101.4 (cli-only)
+@angular-devkit/core         11.1.4 (cli-only)
+@angular-devkit/schematics   11.1.4 (cli-only)
+@schematics/angular          11.1.4 (cli-only)
+@schematics/update           0.1101.4 (cli-only)
+
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new
+$ ng new angular-tour-of-heroes
+CREATE angular-tour-of-heroes/angular.json (3663 bytes)
+CREATE angular-tour-of-heroes/package.json (1212 bytes)
+CREATE angular-tour-of-heroes/README.md (1028 bytes)
+CREATE angular-tour-of-heroes/tsconfig.json (538 bytes)
+CREATE angular-tour-of-heroes/tslint.json (3185 bytes)
+CREATE angular-tour-of-heroes/.editorconfig (274 bytes)
+CREATE angular-tour-of-heroes/.gitignore (631 bytes)
+CREATE angular-tour-of-heroes/.browserslistrc (703 bytes)
+CREATE angular-tour-of-heroes/karma.conf.js (1439 bytes)
+CREATE angular-tour-of-heroes/tsconfig.app.json (287 bytes)
+CREATE angular-tour-of-heroes/tsconfig.spec.json (333 bytes)
+CREATE angular-tour-of-heroes/src/favicon.ico (948 bytes)
+CREATE angular-tour-of-heroes/src/index.html (305 bytes)
+CREATE angular-tour-of-heroes/src/main.ts (372 bytes)
+CREATE angular-tour-of-heroes/src/polyfills.ts (2830 bytes)
+CREATE angular-tour-of-heroes/src/styles.css (80 bytes)
+CREATE angular-tour-of-heroes/src/test.ts (753 bytes)
+CREATE angular-tour-of-heroes/src/assets/.gitkeep (0 bytes)
+CREATE angular-tour-of-heroes/src/environments/environment.prod.ts (51 bytes)
+CREATE angular-tour-of-heroes/src/environments/environment.ts (662 bytes)
+CREATE angular-tour-of-heroes/src/app/app.module.ts (314 bytes)
+CREATE angular-tour-of-heroes/src/app/app.component.html (25725 bytes)
+CREATE angular-tour-of-heroes/src/app/app.component.spec.ts (988 bytes)
+CREATE angular-tour-of-heroes/src/app/app.component.ts (226 bytes)
+CREATE angular-tour-of-heroes/src/app/app.component.css (0 bytes)
+CREATE angular-tour-of-heroes/e2e/protractor.conf.js (904 bytes)
+CREATE angular-tour-of-heroes/e2e/tsconfig.json (274 bytes)
+CREATE angular-tour-of-heroes/e2e/src/app.e2e-spec.ts (673 bytes)
+CREATE angular-tour-of-heroes/e2e/src/app.po.ts (274 bytes)
+- Installing packages (npm)...
+√ Packages installed successfully.
+warning: LF will be replaced by CRLF in .browserslistrc.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .editorconfig.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in angular.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in e2e/protractor.conf.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in e2e/src/app.e2e-spec.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in e2e/src/app.po.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in e2e/tsconfig.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in karma.conf.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in package-lock.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/app.component.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/app.component.spec.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/app.component.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/app.module.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/environments/environment.prod.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/environments/environment.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/main.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/polyfills.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/styles.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/test.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tsconfig.app.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tsconfig.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tsconfig.spec.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in tslint.json.
+The file will have its original line endings in your working directory
+    Successfully initialized git.
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new
+$ cd angular-tour-of-heroes
+
+rajanis@MSSPLLAP165 MINGW64 ~/Desktop/Angular.io/ng new/angular-tour-of-heroes (master)
+$ ng serve --open
+? Port 4200 is already in use.
+? Port 4200 is already in use.
+Would you like to use a different port? Yes
+Compiling @angular/core : es2015 as esm2015
+Compiling @angular/common : es2015 as esm2015
+Compiling @angular/platform-browser : es2015 as esm2015
+Compiling @angular/platform-browser-dynamic : es2015 as esm2015
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |      Size
+vendor.js             | vendor        |   2.43 MB
+polyfills.js          | polyfills     | 472.85 kB
+styles.css, styles.js | styles        | 346.04 kB
+main.js               | main          |  56.35 kB
+runtime.js            | runtime       |   6.15 kB
+
+| Initial Total |   3.29 MB
+
+Build at: 2021-02-10T07:37:42.467Z - Hash: 80b5375132f320ef7abd - Time: 19637ms
+
+** Angular Live Development Server is listening on localhost:54381, open your browser on http://localhost:54381/ **
+
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names  |      Size
+styles.css, styles.js | styles | 346.04 kB
+
+4 unchanged chunks
+
+Build at: 2021-02-10T07:37:45.332Z - Hash: fd00d74b43c14669610f - Time: 2097ms
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files | Names |     Size
+main.js             | main  | 56.39 kB
+
+4 unchanged chunks
+
+Build at: 2021-02-10T07:39:23.275Z - Hash: f487d1f998e85ebbd345 - Time: 431ms
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files | Names |     Size
+main.js             | main  | 50.18 kB
+
+4 unchanged chunks
+
+Build at: 2021-02-10T07:41:33.397Z - Hash: 92f358d1c3d998301de8 - Time: 306ms
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+5 unchanged chunks
+
+Build at: 2021-02-10T07:41:41.244Z - Hash: 92f358d1c3d998301de8 - Time: 234ms
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+5 unchanged chunks
+
+Build at: 2021-02-10T07:41:55.997Z - Hash: 92f358d1c3d998301de8 - Time: 237ms
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names  |      Size
+styles.css, styles.js | styles | 346.44 kB
+
+4 unchanged chunks
+
+Build at: 2021-02-10T07:43:09.092Z - Hash: a9594ff3d702ddf71306 - Time: 296ms
+
+√ Compiled successfully.
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+5 unchanged chunks
+
+Build at: 2021-02-10T07:44:37.238Z - Hash: 99d679677a1290f9c5db - Time: 488ms
+
+√ Compiled successfully.

@@ -1,0 +1,18 @@
+5.6 2D Arrays I
+
+Check out the following setup. Enter a line of code that declares a variable called infant and uses the array eightiesMovies to access the word "Baby".
+
+var movie1 = [16, "Candles"];
+var movie2 = [3, "Men", "and", "a", "Baby"];
+var eightiesMovies = [movie1, movie2];
+
+Console
+
+Press Enter to submit, or type 'help' and press Enter for info on using the console
+
+> var movie1 = [16, "Candles"];
+> var movie2 = [3, "Men", "and", "a", "Baby"];
+> var eightiesMovies = [movie1, movie2];
+undefined
+
+Answer: var infant = eightiesMovies[1][4];

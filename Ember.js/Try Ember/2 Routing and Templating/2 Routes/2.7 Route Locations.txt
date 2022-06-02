@@ -1,0 +1,8 @@
+2.7 Route Locations
+
+Identify where routes are located.
+
+When using Ember CLI, the routes are located under the app/[ ] directory.
+
+
+Answer: routes

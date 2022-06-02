@@ -1,0 +1,15 @@
+3.2 A Factory Recipe I
+
+Let's try making our own factory.
+
+Create a factory and name it whatever you want. But don't forget to stick to the Angular naming convention for factories!
+
+js/services/note.js
+
+angular.module('NoteWrangler');
+
+Answer: 
+
+js/services/note.js
+
+angular.module('NoteWrangler').factory("Note", function NoteFactory() {});

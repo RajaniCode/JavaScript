@@ -1,0 +1,15 @@
+4.11 The Map Object
+
+
+Complete the following statement about the Map object.
+
+The Map object is a simple key/value data structure. We use the [ ] method to add entries, and the [ ] method to read entries.
+
+
+Answer:
+set
+get
+
+Note:
+
+The Map object is a simple key/value data structure. We use the [set] Correct method to add entries, and the [get] Correct  method to read entries.

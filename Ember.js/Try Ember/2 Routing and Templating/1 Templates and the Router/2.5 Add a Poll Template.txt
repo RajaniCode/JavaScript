@@ -1,0 +1,94 @@
+2.5 Add a Poll Template
+
+Create a new endpoint in the application.
+
+app/templates/poll.hbs
+<!-- The poll template content goes here. -->
+
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  
+});
+
+export default Router;
+
+app/templates/index.hbs
+<!-- The link to poll goes here. -->
+
+1. We've created a poll template for you. Set the content of app/templates/poll.hbs to:
+
+This is a poll.
+
+Answer:
+app/templates/poll.hbs
+This is a poll.
+
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  
+});
+
+export default Router;
+
+app/templates/index.hbs
+<!-- The link to poll goes here. -->
+
+2. Add a new 'poll' mapping in app/router.js.
+
+Answer:
+app/templates/poll.hbs
+This is a poll.
+
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('poll');
+});
+
+export default Router;
+
+app/templates/index.hbs
+<!-- The link to poll goes here. -->
+
+3. Use a {{#link-to}} expression in the app/templates/index.hbs template to instruct Ember to link from index to the "poll".
+
+Answer:
+app/templates/poll.hbs
+This is a poll.
+
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('poll');
+});
+
+export default Router;
+
+app/templates/index.hbs
+{{#link-to "poll"}}poll{{/link-to}}

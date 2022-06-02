@@ -1,0 +1,65 @@
+3.9 Configuring the Tweet Length
+
+Now that our provider is ready to go, let's call the setLength() method of TweetableProvider to configure the acceptable maximum tweet length. Instead of 144 characters, we need to allow for a characterLength of 40.
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+;
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.provider('Tweetable', function TweetableProvider() {
+  var characterLength = 144;
+
+  this.setLength = function(setLength) {
+    characterLength = setLength;
+  };
+
+  this.$get = function($http) {
+    return function(potentialTweet) {
+      return $http({
+        method: 'POST',
+        url: 'http://gentle-spire-1153.herokuapp.com/tweet',
+        data: {
+          description: potentialTweet,
+          maxLength: characterLength
+        }
+      });
+    };
+  };
+});
+
+
+1. Let's call config() on our NoteWrangler module and provide it an anonymous function.
+
+Answer: .config(function () {}
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(function () {}
+);
+
+
+2. Inject TweetableProvider into the config() function.
+
+Answer: .config(function (TweetableProvider){}
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(function (TweetableProvider){}
+);
+
+3. Call the setLength() function of TweetableProvider from within the config() function and pass it a value of 40.
+
+Answer: TweetableProvider.setLength(40);
+
+js/app.js
+
+angular.module('NoteWrangler', ['ngRoute'])
+.config(function (TweetableProvider){
+TweetableProvider.setLength(40);
+});

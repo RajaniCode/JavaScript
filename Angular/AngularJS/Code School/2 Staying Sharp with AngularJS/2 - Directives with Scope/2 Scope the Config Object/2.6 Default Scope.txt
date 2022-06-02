@@ -1,0 +1,9 @@
+2.6 Default Scope
+
+By default, directives use their parents' scope.
+
+    True
+
+    False
+
+Answer: true

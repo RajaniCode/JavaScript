@@ -1,0 +1,53 @@
+Render the Collection
+
+
+Good morning. Last night you were so close to implementing the render function on AppointmentListView but decided to take a nap, and here you are!
+
+Go ahead and implement the addOne function, rendering an AppointmentView for each model in the collection, and appending it to the collection view's top-level element.
+
+Note There is a bug in the forEach call. Make sure and fix it before submitting.
+
+MODELS
+
+var Appointment = Backbone.Model.extend({});
+ 
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment
+});
+
+VIEWS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template('<span class="<%= if(cancelled) print("cancelled") %>">' +
+                        '<%= title %></span>' +
+                        '<a href="#">x</a>'),
+  
+ 
+  render: function(){
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
+});
+
+APPLICATION.JS
+
+var AppointmentListView = Backbone.View.extend({
+  render: function(){
+    this.collection.forEach(this.addOne);
+  },
+  addOne: function(model){
+    
+  }
+});
+
+Answer:
+
+var AppointmentListView = Backbone.View.extend({
+  render: function(){
+    this.collection.forEach(this.addOne, this);
+  },
+  addOne: function(appointmentItem){
+    var appointmentView = new AppointmentView({model: appointmentItem});
+    this.$el.append(appointmentView.render().el);
+  }
+});

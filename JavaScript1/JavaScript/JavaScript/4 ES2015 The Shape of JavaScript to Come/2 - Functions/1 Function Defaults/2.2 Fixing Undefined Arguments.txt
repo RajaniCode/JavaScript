@@ -1,0 +1,34 @@
+2.2 Fixing Undefined Arguments
+
+
+The function displayTopicsPreview() raises an error on the very first line when called with no arguments. Let's fix that!
+
+display-topics-preview.js
+
+function displayTopicsPreview( topics ){
+  var message = "There are currently " + topics.length;
+  _displayPreviewMessage(topics, message);
+}
+
+
+1. Set an empty array as the default value for the topics parameter.
+
+Answer:
+
+display-topics-preview.js
+
+function displayTopicsPreview( topics = [ ] ){
+  var message = "There are currently " + topics.length;
+  _displayPreviewMessage(topics, message);
+}
+
+2. There's no reason why we should still use var, so let's replace that with let.
+
+Answer:
+
+display-topics-preview.js
+
+function displayTopicsPreview( topics = [ ] ){
+  let message = "There are currently " + topics.length;
+  _displayPreviewMessage(topics, message);
+}

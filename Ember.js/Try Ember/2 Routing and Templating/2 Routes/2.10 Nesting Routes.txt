@@ -1,0 +1,172 @@
+2.10 Nesting Routes
+
+Nest the poll route under the new polls route that you've just created.
+
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('poll');
+  this.route('polls');
+});
+
+export default Router;
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+});
+
+1. Convert the polls route into a parent route by adding a function parameter to it.
+
+Answer:
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('poll');
+  this.route('polls', function() {    
+  });
+});
+
+export default Router;
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+});
+
+2. Convert the poll route from the last level into a child route of polls. You should need only to move the definition.
+
+Answer:
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('polls', function() {
+    this.route('poll');
+  });
+});
+
+export default Router;
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+});
+
+3. Customize the poll route's path to accept a poll_id dynamic segment.
+
+Answer:
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('polls', function() {
+    this.route('poll', { path: '/:poll_id' });
+  });
+});
+
+export default Router;
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  
+});
+
+
+4. Add a model hook to the poll route. Remember to capture the params being sent from the router.
+
+Answer:
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('polls', function() {
+    this.route('poll', { path: '/:poll_id' });
+  });
+});
+
+export default Router;
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+  }
+});
+
+5. Return the following object from the poll route's model hook:
+
+{ 
+  id: params.poll_id, 
+  question: 'This is poll #' + params.poll_id
+}
+
+Answer:
+app/router.js
+import Ember from 'ember';
+import config from './config/environment';
+
+const Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+  this.route('polls', function() {
+    this.route('poll', { path: '/:poll_id' });
+  });
+});
+
+export default Router;
+
+app/routes/polls/poll.js
+import Ember from 'ember';
+
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model(params) {
+    return { 
+      id: params.poll_id, 
+      question: 'This is poll #' + params.poll_id
+    };
+  }
+});
+

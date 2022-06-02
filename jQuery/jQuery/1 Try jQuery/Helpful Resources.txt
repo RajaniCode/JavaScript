@@ -1,0 +1,6 @@
+Continue Learning jQuery
+• Learn jQuery [http://learn.jquery.com/]
+• jQuery API Documentation [http://api.jquery.com/]
+• JS Bin [http://jsbin.com/]
+• jsFiddle [http://jsfiddle.net/]
+• jQuery Blog [http://blog.jquery.com/]

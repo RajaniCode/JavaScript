@@ -1,0 +1,13 @@
+Variable Assignment
+
+Assign your name as a string value to a variable named person.
+
+Answer:
+
+CoffeeScript:
+person = "Rajani"
+
+
+JavaScript:
+var person;
+person = "Rajani";

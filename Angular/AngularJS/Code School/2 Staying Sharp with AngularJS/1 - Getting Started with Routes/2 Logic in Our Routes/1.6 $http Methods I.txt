@@ -1,0 +1,13 @@
+1.6 $http Methods I
+
+What $http method is used for updating existing data?
+
+    $http.put
+
+    $http.post
+
+    $http.get
+
+    $http.delete
+
+Answer: $http.put

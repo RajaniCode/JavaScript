@@ -1,0 +1,89 @@
+2.7 Logging Middleware
+
+Help finish the following middleware code in the logger.js file:
+
+logger.js:
+module.exports = function (request, response, next) {
+  var startTime = +new Date();
+  var stream = process.stdout;
+  var duration = null;
+
+  response.on('', function () {
+    
+  });
+  
+  
+};
+
+1. On the response object, listen to the event that's emitted when the response has been handed off from Express to the underlying Operating System.
+
+Answer: response.on('finish', function () {});
+
+logger.js:
+module.exports = function (request, response, next) {
+  var startTime = +new Date();
+  var stream = process.stdout;
+  var duration = null;
+
+  response.on('finish', function () {
+    
+  });
+  
+  
+};
+
+2. Inside of the finish callback, calculate the duration of the request by subtracting the startTime from a new Date object. Store the duration in the duration variable, which has already been declared for you.
+
+Answer: duration = +new Date() - startTime;
+
+logger.js:
+module.exports = function (request, response, next) {
+  var startTime = +new Date();
+  var stream = process.stdout;
+  var duration = null;
+
+  response.on('finish', function () {
+    duration = +new Date() - startTime;
+  });
+  
+  
+};
+
+3. Using the stream object, which holds a reference to standard out, write the following message: "This request took ____ ms", where ____ is the duration for the request.
+
+Answer: 
+
+var message = "This request took " + duration + " ms";
+stream.write(message);
+
+logger.js:
+module.exports = function (request, response, next) {
+  var startTime = +new Date();
+  var stream = process.stdout;
+  var duration = null;
+
+  response.on('finish', function () {
+    duration = +new Date() - startTime;
+    var message = "This request took " + duration + " ms";
+    stream.write(message);
+  });
+  
+};
+
+4. If we run the code as is, the request will be stuck in our middleware. Call the function that moves processing to the next middleware in the stack.
+
+Answer: next();
+
+logger.js:
+module.exports = function (request, response, next) {
+  var startTime = +new Date();
+  var stream = process.stdout;
+  var duration = null;
+
+  response.on('finish', function () {
+    duration = +new Date() - startTime;
+    var message = "This request took " + duration + " ms";
+    stream.write(message);
+  });
+  next();
+};

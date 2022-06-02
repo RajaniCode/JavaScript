@@ -1,0 +1,4 @@
+Resources
+
+• Official page [https://ember-cli.com/]
+• EmberConf 2014 Software Productivity and Ember: Ember CLI by Stef Penner [https://www.youtube.com/watch?v=4D8z3972h64]

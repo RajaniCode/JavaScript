@@ -1,0 +1,10 @@
+Changing the tag
+
+
+Change the AppointmentView to have a top-level li tag (instead of the default div tag).
+
+APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({});
+
+Answer: var AppointmentView = Backbone.View.extend({tagName: 'li'});

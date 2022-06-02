@@ -1,0 +1,12 @@
+Classes - Part II
+
+For an already existing Coffee class, create a new coffee object passing in your name (string) and any number (as the level), then assign it to a variable named coffee.
+
+Answer:
+
+CoffeeScript:
+coffee = new Coffee('Rajani', 100)
+
+JavaScript:
+var coffee;
+coffee = new Coffee('Rajani', 100);

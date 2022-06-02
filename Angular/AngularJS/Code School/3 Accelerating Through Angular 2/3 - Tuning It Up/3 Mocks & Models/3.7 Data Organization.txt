@@ -1,0 +1,6 @@
+3.7 Data Organization
+
+In Angular, with TypeScript, it’s best to specify a class for our data, as well as class property types in a [ ].
+
+
+Answer: model

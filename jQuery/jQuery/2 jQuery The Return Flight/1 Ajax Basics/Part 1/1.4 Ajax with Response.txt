@@ -1,0 +1,51 @@
+1.4 Ajax with Response
+
+Now that we're making a request to the server, we need to do something with the response. Add a success callback handler to your $.ajax call that will insert the contents of the ajax response into the html of the .photos element.
+
+After you set the html of the .photos element, also call fadeIn() on it so that it appears on screen.
+
+HTML
+
+<div id="tour" data-location="london">
+  <button>Get Photos</button>
+  <ul class="photos">
+
+  </ul>
+</div>
+
+AJAX Result
+
+<li>
+  <img src="/assets/photos/paris1.jpg">
+  <span style="display: none;">Arc de Triomphe</span>
+</li>
+<li>
+  <img src="/assets/photos/paris2.jpg">
+  <span style="display: none;">The Eiffel Tower</span>
+</li>
+<li>
+  <img src="/assets/photos/london.jpg">
+  <span style="display: none;">London</span>
+</li>
+
+application.js
+
+$(document).ready(function() { 
+  $("#tour").on("click", "button", function() { 
+    $.ajax('/photos.html');
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() { 
+  $("#tour").on("click", "button", function() { 
+    $.ajax('/photos.html', {
+      success: function(response) {
+      	$('.photos').html(response).fadeIn();
+    	}
+    });
+  });
+});

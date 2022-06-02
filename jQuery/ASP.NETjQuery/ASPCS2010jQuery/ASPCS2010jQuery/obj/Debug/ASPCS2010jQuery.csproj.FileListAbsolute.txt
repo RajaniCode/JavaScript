@@ -1,0 +1,9 @@
+C:\Users\Rajani\Desktop\ASPCS2010jQuery\ASPCS2010jQuery\bin\ASPCS2010jQuery.dll
+C:\Users\Rajani\Desktop\ASPCS2010jQuery\ASPCS2010jQuery\bin\ASPCS2010jQuery.pdb
+C:\Users\Rajani\Desktop\ASPCS2010jQuery\ASPCS2010jQuery\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Rajani\Desktop\ASPCS2010jQuery\ASPCS2010jQuery\obj\Debug\ASPCS2010jQuery.dll
+C:\Users\Rajani\Desktop\ASPCS2010jQuery\ASPCS2010jQuery\obj\Debug\ASPCS2010jQuery.pdb
+H:\R\Code\ASPCS2010jQuery\ASPCS2010jQuery\bin\ASPCS2010jQuery.dll
+H:\R\Code\ASPCS2010jQuery\ASPCS2010jQuery\bin\ASPCS2010jQuery.pdb
+H:\R\Code\ASPCS2010jQuery\ASPCS2010jQuery\obj\Debug\ASPCS2010jQuery.dll
+H:\R\Code\ASPCS2010jQuery\ASPCS2010jQuery\obj\Debug\ASPCS2010jQuery.pdb

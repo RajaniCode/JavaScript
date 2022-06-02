@@ -1,0 +1,12 @@
+4.2 Binding to What?
+
+Property binding allows us to bind component properties to:
+
+[Single Answer]
+
+DOM element attributes
+DOM element values
+DOM element properties
+
+
+Answer: DOM element properties

@@ -1,0 +1,6 @@
+3.4 Where to Set an Initial State
+
+In order to create the initial state for a component, we must declare the property this.state as an object in the class [ ] function.
+
+
+Answer: constructor

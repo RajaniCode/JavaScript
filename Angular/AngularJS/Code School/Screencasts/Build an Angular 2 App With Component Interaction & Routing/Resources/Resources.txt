@@ -1,0 +1,7 @@
+Resources
+
+• Angular CLI [https://cli.angular.io/]
+• Angular 2 Component Communication [https://angular.io/docs/ts/latest/cookbook/component-communication.html]
+• Angular 2 Routing [https://angular.io/docs/ts/latest/guide/router.html]
+• GitHub Repo [https://github.com/codeschool/WatchUsBuild-Angular2Final]
+• Live Demo [https://codeschool.github.io/WatchUsBuild-Angular2Final/races]

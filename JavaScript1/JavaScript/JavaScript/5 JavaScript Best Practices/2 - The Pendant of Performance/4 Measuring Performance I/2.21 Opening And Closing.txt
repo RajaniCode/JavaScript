@@ -1,0 +1,11 @@
+2.21 Opening And Closing
+
+True or False? In the timing of one particular process, the messages must match exactly for the opening .time() and the closing .timeEnd().
+
+True or False
+
+Answer: True
+
+
+
+

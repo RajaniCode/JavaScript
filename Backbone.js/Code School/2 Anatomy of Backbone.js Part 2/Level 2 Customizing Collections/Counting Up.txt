@@ -1,0 +1,26 @@
+Counting Up
+
+
+There has been a rash of cancellations lately (some blame Dr. Goodparts excessive playing of Missy Elliot over the PA system). We aren't here to point fingers, but the good Dr. wants us to implement a function on the collection to count up the number of cancelled appointments. Implement this function in the collection class below and call it cancelledCount.
+
+EXAMPLE MODELS
+
+var Appointment = Backbone.Model.extend({})
+var app1 = new Appointment({cancelled: true})
+var app2 = new Appointment({cancelled: true})
+var app3 = new Appointment({cancelled: true})
+var app4 = new Appointment({cancelled: false})
+
+APPLICATION.JS
+
+var Appointments = Backbone.Collection.extend({
+    
+});
+
+Answer:
+
+var Appointments = Backbone.Collection.extend({
+  cancelledCount: function() {
+    return this.where({cancelled: true}).length;
+  }
+});

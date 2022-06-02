@@ -1,0 +1,42 @@
+4.8 Mouseover I
+
+Our tour page is going great! Let's add a bit more behavior to the page though. Write an event handler that watches for mouseenter on any li elements within our .photos elements and runs an empty function. We'll implement the function later on.
+
+HTML
+
+<div id="tour">
+  <h2>Paris, France Tour</h2>
+  <p>$2,499 for 7 Nights</p>
+  <button>See photos from our last tour</button>
+  <ul class="photos">
+    <li>
+      <img src="/assets/photos/paris1.jpg">
+      <span>Arc de Triomphe</span>
+    </li>
+    <li>
+      <img src="/assets/photos/paris2.jpg">
+      <span>The Eiffel Tower</span>
+    </li>
+    <li>
+      <img src="/assets/photos/paris3.jpg">
+      <span>Notre Dame de Paris</span>
+    </li>
+  </ul>
+</div>
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() { 
+    $(".photos").slideToggle();
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() {});
+   $(".photos").on("mouseenter", "li", function() {});
+});

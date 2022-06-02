@@ -1,0 +1,10 @@
+1.3 Identifying Components
+
+Here is the mockup for a social media feed app that we would like to build with React. Before we start converting this mockup into a real React app, we need to identify what parts of the app will become components.
+
+Select the box that will become the StoryForm component.
+
+Please refer to 1.3 Identifying Components.jpg
+
+
+Answer: Please refer to 1.3 Identifying Components Answer.jpg

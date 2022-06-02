@@ -1,0 +1,119 @@
+1.2 Creating an Ember Application
+
+Time for an in browser challenge! Within these challenges, we値l be building out the Flint & Flame website that you see in the videos, but with a few changes! Sometimes we値l be reimplementing parts of the video, other times we値l be adding new functionality. This is a review challenge (see the little magnifying glass?) meaning we値l be implementing what was shown in the video.
+
+We池e going to start out by converting this simple HTML webpage into an Ember.js application. Follow the tasks below to get Ember.js setup.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <div class='navbar navbar-default'>
+    <div class='container'>
+      <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+      <ul class='nav navbar-nav navbar-right'>
+        <li class='active' href='#/'><a >Home</a></li>
+        <li><a href='#/about'>About</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class='container'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </div>
+  <footer class='container'>
+    <hr />
+    <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+    <p class='pull-right'><a href='#/credits'>Credits</a></p>
+  </footer>
+</body>
+</html>
+
+1. In app.js, create a new Ember.js application and set it to the App variable.
+
+Answer: var App = Ember.Application.create({});
+
+app.js:
+
+var App = Ember.Application.create({});
+
+2. Move all HTML in the body of index.html into a handlebars template.
+
+Answer: 
+
+  <script type='text/x-handlebars'>
+  <div class='navbar navbar-default'>
+    <div class='container'>
+      <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+      <ul class='nav navbar-nav navbar-right'>
+        <li class='active' href='#/'><a >Home</a></li>
+        <li><a href='#/about'>About</a></li>
+  </ul>
+  </div>
+  </div>
+  <div class='container'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </div>
+  <footer class='container'>
+    <hr />
+    <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+    <p class='pull-right'><a href='#/credits'>Credits</a></p>
+  </footer>
+  </script>
+
+index.html:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base href='http://courseware.codeschool.com/ember/' />
+  <link href='bootstrap.css' rel='stylesheet' />
+  <link href='application.css' rel='stylesheet' />
+  <script src='jquery.js'></script>
+  <script src='handlebars.js'></script>
+  <script src='ember.js'></script>
+  <script src='ember-data.js'></script>
+  <script src='app.js'></script>
+</head>
+<body>
+  <script type='text/x-handlebars'>
+  <div class='navbar navbar-default'>
+    <div class='container'>
+      <a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+      <ul class='nav navbar-nav navbar-right'>
+        <li class='active' href='#/'><a >Home</a></li>
+        <li><a href='#/about'>About</a></li>
+  </ul>
+  </div>
+  </div>
+  <div class='container'>
+    <h1>Welcome to The Flint &amp; Flame!</h1>
+  </div>
+  <footer class='container'>
+    <hr />
+    <p class='pull-left'>&copy; 2013 The Flint &amp; Flame</p>
+    <p class='pull-right'><a href='#/credits'>Credits</a></p>
+  </footer>
+  </script>
+</body>
+</html>
+
+3. Setup your application to log to the console when visiting a new page.
+
+Answer: LOG_TRANSITIONS: true
+
+app.js:
+
+var App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});

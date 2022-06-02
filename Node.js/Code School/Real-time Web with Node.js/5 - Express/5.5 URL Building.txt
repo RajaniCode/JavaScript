@@ -1,0 +1,78 @@
+5.5 URL Building
+
+Let's create a page which calls the Twitter search API and displays the last few results for Code School. The first step is to construct the proper URL, which is all you need to do in this challenge.
+
+Complete the URL options which will be sent into the the url module's format method. The URL you'll want to construct is the following: http://search.twitter.com/search.json?q=codeschool
+
+1. Add the protocol attribute to options.
+
+Answer: protocol: 'http:'
+
+app.js
+
+var url = require('url');
+
+options = {
+  // add URL options here
+  protocol: 'http:'  
+};
+
+var searchURL = url.format(options);
+console.log(searchURL);
+
+2. Add the host attribute to options.
+
+Answer: host : 'search.twitter.com',
+
+app.js
+
+var url = require('url');
+
+options = {
+  // add URL options here
+  protocol: 'http:',
+  host : 'search.twitter.com'
+};
+
+var searchURL = url.format(options);
+console.log(searchURL);
+
+3. Add the pathname attribute to options.
+
+Answer: pathname : '/search.json',
+
+app.js
+
+var url = require('url');
+
+options = {
+  // add URL options here
+  protocol: 'http:',
+  host : 'search.twitter.com',
+  pathname : '/search.json',
+};
+
+var searchURL = url.format(options);
+console.log(searchURL);
+
+4. Add an attribute which takes an object of query parameters, in this case we only need q to search Twitter.
+
+Answer: query: {q:'codeschool'}
+
+app.js
+
+var url = require('url');
+
+options = {
+  // add URL options here
+  protocol: 'http:',
+  host : 'search.twitter.com',
+  pathname : '/search.json',
+  query: {q:'codeschool'}
+};
+
+var searchURL = url.format(options);
+console.log(searchURL);
+
+
+

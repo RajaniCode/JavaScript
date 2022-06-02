@@ -1,0 +1,35 @@
+4.19 Using Sets
+
+
+Follow the tasks in order to complete the unfinished code.
+
+entries.js
+
+let tags =  ;
+
+
+
+console.log(`Total items ${tags.size}`);
+
+
+1. Create a new Set object and assign it to the tags variable.
+
+Answer:
+
+entries.js
+
+let tags = new Set() ;
+
+console.log(`Total items ${tags.size}`);
+
+2. Now, let's add the following 3 items to the set: 'JavaScript', 'Programming', and 'Web'.
+
+Answer:
+
+entries.js
+
+let tags = new Set() ;
+tags.add('JavaScript');
+tags.add('Programming');
+tags.add('Web');
+console.log(`Total items ${tags.size}`);

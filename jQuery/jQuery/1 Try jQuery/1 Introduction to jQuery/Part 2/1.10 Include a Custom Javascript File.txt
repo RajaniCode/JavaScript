@@ -1,0 +1,37 @@
+1.10 Include a Custom Javascript File
+
+Now that we have jQuery loaded, we need a place to put all the javascript that we will be working on. Let's load our custom application.js file, make sure it's after jQuery, since we want to use it in our application.js file.
+
+index.html
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="homepage-wrapper">
+      <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+      <p>Fly to New York today for as little as <span>$299.99</span></p>
+    </div>
+    <script src="jquery.min.js"></script>
+  </body>
+</html>
+
+Answer:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="homepage-wrapper">
+      <h2>Welcome to jQuery Travels - Traversing the DOM since 2006</h2>
+      <p>Fly to New York today for as little as <span>$299.99</span></p>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="application.js"></script>
+  </body>
+</html>
+

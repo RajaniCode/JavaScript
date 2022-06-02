@@ -1,0 +1,37 @@
+6.11 Generators and for...of
+
+
+Call the topicList() generator function from the for...of loop and assign its result to a loop variable called topic so that it produces the following output:
+
+ES2015
+Semi-colons: good or bad?
+TypeScript
+
+listing-topics.js
+
+function *topicList(){
+  yield "ES2015";
+  yield "Semi-colons: good or bad?";
+  yield "TypeScript";
+}
+
+for(  ){
+  console.log( topic );
+}
+
+
+Answer:
+
+listing-topics.js
+
+function *topicList(){
+  yield "ES2015";
+  yield "Semi-colons: good or bad?";
+  yield "TypeScript";
+}
+
+for( let topic of topicList() ){
+  console.log( topic );
+}
+
+

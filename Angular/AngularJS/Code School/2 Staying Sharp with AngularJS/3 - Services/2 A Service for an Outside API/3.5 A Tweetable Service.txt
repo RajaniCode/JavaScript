@@ -1,0 +1,194 @@
+3.5 A Tweetable Service
+
+There is an outside Tweet Validator API that we want to use in our NoteWrangler application. We have already created a tweetable.js file and included it in our index.html file. Now, it's factory building time!
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.factory();
+
+js/controllers/note-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', ['$scope', 'Note', function($scope, Note) {
+  Note.all().success(function(data) {
+    $scope.notes = data;
+  });
+  
+}]);
+
+templates/pages/notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes">
+        <nw-card header="note.title" description="note.description" tweeted="note.tweeted" ng-href="#/notes/{{note.id}}"></nw-card>
+        <button class="btn">Tweet It!</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en" ng-app="NoteWrangler">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Note Wrangler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/application.css" />
+  </head>
+
+  <body>
+    <div class="nav-wrapper has-dropdown">
+      <div class="nav-content">
+        <div class="wrapper">
+          <div class="nav-content-layout">
+            <div class="nav-list">
+
+              <a href="#/notes"
+                 class="list-item"
+                 ng-click="selected = 'notes'"
+                 ng-class="{'active': selected == 'notes'}"> Notes </a>
+
+              <a href="#/users"
+                 class="list-item"
+                 ng-click="selected = 'users'"
+                 ng-class="{'active': selected == 'users'}"> Users </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero"></div>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <div ng-view></div>
+    </div>
+
+    <!-- Load Js libs -->
+    <script src="./js/vendor/jquery.js"></script>
+    <script src="./js/vendor/angular.js"></script>
+
+    <!-- NW Scripts -->
+    <script src="./js/app.js"></script>
+    <script src="./js/routes.js"></script>
+
+    <!-- Controllers -->
+    <script src="./js/controllers/notes-create-controller.js"></script>
+    <script src="./js/controllers/notes-edit-controller.js"></script>
+    <script src="./js/controllers/notes-index-controller.js"></script>
+    <script src="./js/controllers/notes-show-controller.js"></script>
+    <script src="./js/controllers/users-index-controller.js"></script>
+    <script src="./js/controllers/users-show-controller.js"></script>
+
+    <!-- Directives -->
+    <script src="./js/directives/nw-card.js"></script>
+
+    <!-- Services -->
+    <script src="./js/services/note.js"></script>
+    <script src="./js/services/tweetable.js"></script>
+
+  </body>
+</html>
+
+
+1. Let's create a Tweetable service to use the Tweet Validator API across our application. To begin, let's name our service ''Tweetable'', inject $http and have our factory function return an anonymous function.
+
+Answer:
+
+js/services/tweetable.js
+
+angular.module('NoteWrangler')
+.factory("Tweetable", function TweetableFactory($http){
+  return function(){};
+});
+
+
+2. Inside the factory, make a POST request with the $http() function to this endpoint:
+
+http://gentle-spire-1153.herokuapp.com/tweet
+
+The service function should accept a single argument, potentialTweet, that will be sent to the external API. Use the Tweet Validator API documentation to determine how to construct the data of our POST request.
+
+Return your $http() call so we can use it later.
+
+Answer:
+
+angular.module('NoteWrangler')
+.factory("Tweetable", function TweetableFactory($http){
+  return function(potentialTweet){
+    return $http({method: "POST", url: "http://gentle-spire-1153.herokuapp.com/tweet", data: {description: potentialTweet}});
+  };
+});
+
+3. Inject our brand spankin' new Tweetable service into NotesIndexController and then define a new tweetThatNote() function on $scope that we can use to query the remote API from our app.
+
+Answer:
+js/controllers/notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', function($scope, Note, NotesIndexController, Tweetable) {
+  Note.all().success(function(data) {
+    $scope.notes = data;
+  });
+  $scope.tweetThatNote = function(){};
+});
+
+4. Within our tweetThatNote() function, invoke the Tweetable service and console.log() the returned status. To use our new Tweetable service, our tweetThatNote() function should accept an argument, the description from a note, that we then pass into Tweetable().
+
+Answer:
+
+    $scope.tweetThatNote = function(description){
+        Tweetable(description).success(function(data) {
+   	    console.log(data);
+  	});
+    };
+
+js/controllers.notes-index-controller.js
+
+angular.module('NoteWrangler')
+.controller('NotesIndexController', function($scope, Note, NotesIndexController, Tweetable) {
+  Note.all().success(function(data) {
+    $scope.notes = data;
+  });
+  $scope.tweetThatNote = function(description){
+    Tweetable(description).success(function(data) {
+      console.log(data);
+    });
+  };
+});
+
+5. Using the button tag within our notes/index.html template, invoke the new method we defined on $scope from NotesIndexController and pass in the note's description attribute.
+
+Answer: <button class="btn" ng-click="tweetThatNote(note.description)">Tweet It!</button>
+
+
+templates/pages/notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes">
+        <nw-card header="note.title" description="note.description" tweeted="note.tweeted" ng-href="#/notes/{{note.id}}"></nw-card>
+        <button class="btn" ng-click="tweetThatNote(note.description)">Tweet It!</button>
+      </a>
+    </div>
+  </div>
+</div>

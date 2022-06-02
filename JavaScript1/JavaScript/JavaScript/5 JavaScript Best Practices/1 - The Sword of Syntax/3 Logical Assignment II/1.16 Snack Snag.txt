@@ -1,0 +1,41 @@
+1.16 Snack Snag
+
+Journeys are tricky, for they require many things. Not just more strength and less fear, but also food.
+
+Extend your logical assignment to ensure that Dhuun needs 10 pieces of food to survive the trial.
+
+Answer: var surviveThisTrial = strength && !fear && pack.enoughFood(10);
+
+app.js
+
+var strength = true;
+var fear = false;
+var pack = {
+  food: [ "carrot",
+          "mystery meat",
+          "apple",
+          "crust of bread",
+          "spicy dried sausage",
+          "carrot",
+          "wedge of sharp cheese",
+          "jug of milk",
+          "mystery meat",
+          "carrot"
+  ],
+  addFood: function(foodItem){
+    this.food = this.food || [];
+    this.food.push(foodItem);
+  },
+  enoughFood:function(amount){
+    return(this.food.length >= amount);
+  }
+};
+
+//Answer
+
+//var surviveThisTrial = strength && !fear;
+var surviveThisTrial = strength && !fear && pack.enoughFood(10);
+
+//
+
+console.log(surviveThisTrial);

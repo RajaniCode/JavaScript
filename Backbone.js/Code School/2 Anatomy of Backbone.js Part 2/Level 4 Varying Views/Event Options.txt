@@ -1,0 +1,46 @@
+Event Options
+
+
+As you can see in the view code below, whenever the model's title attribute changes, we update the title in the view and highlight it to let the user know that it's been updated. Sometimes we want to be able to change the title without highlighting the view, but with still updating it in the view.
+
+To accomplish this, we are passing in {highlight: false}. Update the changedTitle function below to use this extra option to selectively highlight the view.
+
+EXAMPLE
+
+var appointment = new Appointment({title: "Toothache"});
+var appView = new AppointmentView({model: appointment});
+appointment.set({title: "General Cleaning"}, {highlight: false});
+
+APPLICATION.JS
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template("<span><%= title %></span>"),
+  initialize: function(){
+    this.model.on('change:title', this.changedTitle, this);
+  },
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+  },
+  changedTitle: function(model, value){
+    this.$('span').html(value);
+    this.$el.effect('highlight', {}, 1000);
+  }
+});
+
+Answer:
+
+var AppointmentView = Backbone.View.extend({
+  template: _.template("<span><%= title %></span>"),
+  initialize: function(){
+    this.model.on('change:title', this.changedTitle, this);
+  },
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+  },
+  changedTitle: function(model, value, options){
+    if (options.highlight !== false){
+      this.$('span').html(value);
+      this.$el.effect('highlight', {}, 1000);
+    }
+  }
+});

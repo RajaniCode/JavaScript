@@ -1,0 +1,6 @@
+1.6 Ternary Returns
+
+var isHero = true;
+var character = isHero ? "Dhuun" : "Pesky Gnat";
+
+Answer: "Dhuun"

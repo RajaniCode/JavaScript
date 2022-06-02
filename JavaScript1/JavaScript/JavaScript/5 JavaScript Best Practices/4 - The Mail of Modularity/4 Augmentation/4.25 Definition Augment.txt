@@ -1,0 +1,7 @@
+4.25 Definition Augment
+
+Two dark corridors, identical and imposing, loom ahead on a flat wall. No correct direction is indicated, and none appears to come from Aiedra, who floats nearby, patiently.
+
+    "Do you know the term for adding or changing properties in a module after the module has already been built?"
+
+Answer: augmentation

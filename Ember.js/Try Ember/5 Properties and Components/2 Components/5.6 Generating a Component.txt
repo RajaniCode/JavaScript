@@ -1,0 +1,10 @@
+5.6 Generating a Component
+
+Generate a new component named "option-tally" using an Ember CLI generator.
+
+
+Type help to see the help menu
+
+quiz$ ember generate component option-tally
+Success!
+quiz$ 

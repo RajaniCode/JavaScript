@@ -1,0 +1,28 @@
+Navigating
+
+
+Let's test it out and make sure everything is working.
+
+We've gone ahead and created an instance of our AppRouter below. Use the navigate function to go to appointments/1 and make sure you trigger the route when you do.
+
+ROUTER
+
+var AppRouter = Backbone.Router.extend({
+  routes: { 
+    "appointments/:param": "show" 
+  },
+  show: function(id){
+    console.log("heyo we're in show with id %d", id); 
+  }
+});
+
+APPLICATION.JS
+
+var router = new AppRouter();
+
+Answer:
+
+var router = new AppRouter();
+router.navigate("appointments/1", {
+  trigger: true
+});

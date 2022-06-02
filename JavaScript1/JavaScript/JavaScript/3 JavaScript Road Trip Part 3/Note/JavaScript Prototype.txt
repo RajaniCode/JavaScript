@@ -1,0 +1,89 @@
+All lower prototypes inherit from the Object prototype
+
+Array
+String
+Number
+Function
+
+Array Prototype
+
+length
+pop()
+push()
+shift()
+reverse()
+sort()
+join()
+reduce()
+slice()
+
+var myArray = [ "This", "array", "inherits", "properties",
+"from", "the", “Array", "prototype!" ];
+
+myArray.length
+myArray.pop()
+myArray.push()
+myArray.shift()
+myArray.reverse()
+myArray.sort()
+myArray.join()
+myArray.reduce()
+myArray.slice()
+
+Srting Prototype
+
+length
+charAt()
+trim()
+concat()
+indexOf()
+replace()
+toLowerCase()
+toUpperCase()
+substring()
+
+toString()
+valueOf()
+hasOwnProperty()
+toLocaleString()
+isPrototypeOf()
+constructor()
+propertyIsEnumerable()
+
+myString.length
+myString.charAt()
+myString.trim()
+myString.concat()
+myString.indexOf()
+myString.replace()
+myString.toLowerCase()
+myString.toUpperCase()
+myString.substring()
+
+
+Number Prototype
+
+toFixed()
+toExponential()
+toPrecision()
+
+var myNumber = 6;
+
+myNumber.toFixed()
+myNumber.toExponential()
+myNumber.toPrecision()
+
+Function Prototype
+
+call()
+bind() 
+apply()
+
+function myFunction(){
+ return "Functions have secret properties too!”;
+}
+
+myFunction.name 
+myFunction.call()
+myFunction.bind()
+myFunction.apply()

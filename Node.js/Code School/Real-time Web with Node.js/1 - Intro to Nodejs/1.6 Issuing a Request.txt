@@ -1,0 +1,18 @@
+1.6 Issuing a Request
+
+Let's see our new server in action. We've already run node app.js, so in the terminal below use curl to issue a request to http://localhost:8080 and we'll see our server respond with the contents of index.html.
+
+
+Answer: curl http://localhost:8080
+
+Console:
+
+Type help to see the help menu
+
+$ curl http://localhost:8080
+
+<html><p>Hello, this is Dog</p></html>
+
+Congratulations, you're correct!
+
+$ 

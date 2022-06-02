@@ -1,0 +1,16 @@
+1.6 Reassigning With let
+
+
+What is the outcome of the following code?
+
+[Single Answer]
+
+let name = "Jerry Only";
+name = "Glenn Danzig";
+console.log( name );
+Jerry Only
+Glenn Danzig
+This code generates a TypeError
+
+
+Answer: Glenn Danzig

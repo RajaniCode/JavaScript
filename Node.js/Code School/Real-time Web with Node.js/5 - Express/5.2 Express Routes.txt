@@ -1,0 +1,43 @@
+5.2 Express Routes
+
+Let's create an express route that accepts GET requests on '/tweets' and responds by sending back a static HTML file.
+
+1. Create a GET route for '/tweets' and give it the proper callback. The callback function should accept two arguments: the request and the response.
+
+Answer: app.get('/tweets', function(request, response){});
+
+app.js
+
+var express = require('express');
+var app = express();
+app.get('/tweets', function(request, response){});
+
+
+2. Send back the file tweets.html, which lives under the project's root path. Remember to use __dirname to locate tweets.html.
+
+Answer:
+
+app.get('/tweets', function(request, response){
+	response.sendFile(__dirname + "/tweets.html");
+});
+
+app.js
+
+var express = require('express');
+var app = express();
+app.get('/tweets', function(request, response){
+	response.sendFile(__dirname + "/tweets.html");
+});
+
+3. Finally, have the express app listen on port 8080.
+
+Answer: app.listen(8080);
+
+app.js
+
+var express = require('express');
+var app = express();
+app.get('/tweets', function(request, response){
+	response.sendFile(__dirname + "/tweets.html");
+});
+app.listen(8080);

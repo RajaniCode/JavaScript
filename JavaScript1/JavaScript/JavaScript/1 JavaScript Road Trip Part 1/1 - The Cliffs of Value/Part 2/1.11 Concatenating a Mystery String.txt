@@ -1,0 +1,9 @@
+1.11 Concatenating a Mystery String
+
+Concatenate the digits 8 5 6 2 3 7 into a new String where:
+
+    All even digits are spelled in lowercase English.
+    All odd digits stay as regular numbers.
+    All values in the final String are separated by spaces.
+
+Answer: 'eight' + ' ' + 5 + ' ' + 'six' + ' ' + 'two' + ' ' + 3  + ' ' + 7

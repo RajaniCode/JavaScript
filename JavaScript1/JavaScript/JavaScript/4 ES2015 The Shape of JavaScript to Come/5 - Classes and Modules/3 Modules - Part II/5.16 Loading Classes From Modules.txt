@@ -1,0 +1,50 @@
+5.16 Loading Classes From Modules
+
+
+Now let's load and use the TagManager class.
+
+tag-manager-class.js
+
+export default class TagManager {
+  constructor(topicId){
+    this.topicId = topicId;
+  }
+  
+  addTag(tagName){
+    API.createTag(tagName, this.topicId);
+  }
+  
+  removeTag(tagName){
+    API.deleteTag(tagName, this.topicId);
+  }
+}
+
+app.js
+
+
+1. First, import the TagManager class found on the tag-manager-class module.
+
+Answer:
+
+app.js
+
+import TagManager from './tag-manager-class';
+
+2. Create an instance of the TagManager class using the topic id of 20 as the argument for the constructor and assign the returning object to the variable tagManager.
+
+Answer:
+
+app.js
+
+import TagManager from './tag-manager-class';
+let tagManager = new TagManager(20);
+
+3. Call the addTag() method on the new object with the argument "JavaScript";
+
+Answer:
+
+app.js
+
+import TagManager from './tag-manager-class';
+let tagManager = new TagManager(20);
+tagManager.addTag("JavaScript");

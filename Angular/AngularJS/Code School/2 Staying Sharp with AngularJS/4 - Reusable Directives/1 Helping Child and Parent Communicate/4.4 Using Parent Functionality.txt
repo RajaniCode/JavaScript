@@ -1,0 +1,60 @@
+4.4 Using Parent Functionality
+
+We've created the isActive() and activate() functions on the scope of the nwNavItem directive. Within these functions, we'll need to access the controller of the nwNav directive to set and get which nav item is active.
+
+nw-nav-item.js
+
+angular.module('NoteWrangler')
+.directive('nwNavItem', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-nav-item.html',
+    require: '^nwNav',
+    link: function(scope, element, attrs, nwNavCtrl) {
+      scope.isActive = function() {
+
+      };
+
+      scope.activate = function() {
+
+      };
+    },
+    
+  };
+});
+
+1. First, we need a name for the nav item to work. Create a new isolate scope on the nwNavItem directive and allow it to accept an attribute (@) value called name.
+
+Answer:  
+
+...
+
+return nwNavCtrl.getActiveNav() == scope.name;
+
+...
+
+nwNavCtrl.setActiveNav(scope.name);
+
+...
+
+scope: {name: '@'}
+
+nw-nav-item.js
+
+angular.module('NoteWrangler')
+.directive('nwNavItem', function() {
+  return {
+    restrict: 'E',
+    templateUrl: './templates/directives/nw-nav-item.html',
+    require: '^nwNav',
+    link: function(scope, element, attrs, nwNavCtrl) {
+      scope.isActive = function() {
+				 return nwNavCtrl.getActiveNav() == scope.name;
+      };
+      scope.activate = function() {
+         nwNavCtrl.setActiveNav(scope.name);
+      };
+    },
+     scope: {name: '@'}
+  };
+});

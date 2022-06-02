@@ -1,0 +1,38 @@
+Custom toJSON
+
+
+Dr. Goodparts is not happy. He just tried to create a new Appointment and it crashed the server because the JSON sent up to represent the Appointment was in the wrong format. Update toJSON below to return the JSON the server expects. (Make sure you don't modify the model.attributes object)
+
+PARSE
+
+// In the `Appointment` Model
+parse: function(response){
+  var appointment = response.appointment;
+  appointment.cancelled = appointment.cankelled;
+  delete appointment.cankelled;
+  return appointment;
+}
+
+JSON REQUEST
+
+// POST /appointments
+{ "appointment": { "title": "Ms. Kitty Hairball Treatment", "cankelled": false, "identifier": 1 }
+
+APPLICATION.JS
+
+var Appointment = Backbone.Model.extend({
+  toJSON: function(){
+    return _.clone(this.attributes);
+  }
+});
+
+Answer:
+
+var Appointment = Backbone.Model.extend({
+  toJSON: function(){
+    var attributes = _.clone(this.attributes);
+    attributes.cankelled = attributes.cancelled;
+    delete attributes.cancelled;
+    return { appointment: attributes };
+  }
+});

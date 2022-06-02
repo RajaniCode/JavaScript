@@ -1,0 +1,41 @@
+5.10 Importing Modules
+
+
+Follow the tasks to complete the code to the right for our app.js file.
+
+app.js
+
+let topic = {
+  title: "ES2015",
+  author: { name: "Sam", isBlocked: false }
+};
+
+
+1. Import the isTopicValid module from the is-topic-valid file located at the same folder as app.js and assign its resulting function to the isTopicValid variable.
+
+Answer:
+
+app.js
+
+import isTopicValid from './is-topic-valid';
+
+let topic = {
+  title: "ES2015",
+  author: { name: "Sam", isBlocked: false }
+};
+
+
+2. Call the isTopicValid() function, passing the existing topic object as an argument.
+
+Answer:
+
+app.js
+
+import isTopicValid from './is-topic-valid';
+
+let topic = {
+  title: "ES2015",
+  author: { name: "Sam", isBlocked: false }
+};
+
+isTopicValid(topic);

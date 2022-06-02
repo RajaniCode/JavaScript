@@ -1,0 +1,32 @@
+List Comprehension II
+
+Refactor the code below to make use of list comprehension.
+
+CoffeeScript:
+for coffee in coffeeList
+  if not coffee.isRussian?()
+    addCoffee(coffee)
+
+JavaScript:
+var coffee, _i, _len;
+for (_i = 0, _len = coffeeList.length; _i < _len; _i++) {
+  coffee = coffeeList[_i];
+  if (!(typeof coffee.isRussian === "function" ? coffee.isRussian() : void 0)) {
+    addCoffee(coffee);
+  }
+}
+
+Answer:
+
+CoffeeScript:
+addCoffee(coffee) for coffee in coffeeList when not coffee.isRussian?()
+
+JavaScript:
+var coffee, _i, _len;
+for (_i = 0, _len = coffeeList.length; _i < _len; _i++) {
+  coffee = coffeeList[_i];
+  if (!(typeof coffee.isRussian === "function" ? coffee.isRussian() : void 0)) {
+    addCoffee(coffee);
+  }
+}
+

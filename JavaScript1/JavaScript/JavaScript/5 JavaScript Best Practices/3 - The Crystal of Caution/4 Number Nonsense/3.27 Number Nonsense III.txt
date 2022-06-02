@@ -1,0 +1,19 @@
+3.27 Number Nonsense III
+
+But what if the lambs could change and morph? Get the exact number of all lambs using a single function call. Don't forget any lamb bits!
+
+var lambString = "57.98 lazy lambs do bask in the sun.";
+
+Answer: parseFloat("57.98 lazy lambs do bask in the sun.", 10);
+
+Note: radix argument only from 2-36
+
+Console:
+
+> parseFloat("57.98 lazy lambs do bask in the sun.", 10);
+
+57.98
+
+Congratulations, you're correct!
+
+>

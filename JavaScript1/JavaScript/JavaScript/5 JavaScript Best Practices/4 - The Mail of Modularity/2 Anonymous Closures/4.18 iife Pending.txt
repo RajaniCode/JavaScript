@@ -1,0 +1,20 @@
+4.18 iife Pending
+
+"You have done well, so far," Aiedra says, as you approach an underground lake. The water is still and gleams like glass in the light of your torch.
+
+"The answer to a final question will summon the boat that will take you across."
+
+She floats out over the water leaving you on the shore in darkness.
+
+"What enables the CAVESOFCLARITY variable to immediately contain the object that serves as our module, rather than a function?"
+
+    The return statement that sends back an object.
+
+    The parentheses that immediately invoke the function.
+
+    The brackets that signal an object should be returned.
+
+    The lack of parameters being passed to the anonymous function.
+
+Answer: The parentheses that immediately invoke the function.
+

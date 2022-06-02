@@ -1,0 +1,49 @@
+1.3 Ajax
+
+In Try jQuery, we showed how to slideDown some content based on a mouse click, but that was for showing content that was already loaded, but hidden, in the HTML. Now, we'll refactor that code to fetch and show the content using Ajax.
+
+To start off, refactor the code below to make an $.ajax request for the relative URL /photos.html. Don't worry about handling the success or error cases just yet.
+
+HTML
+
+<div id="tour" data-location="london">
+  <button>Get Photos</button>
+  <ul class="photos">
+
+  </ul>
+</div>
+
+
+application.js
+
+$(document).ready(function() {
+  $("#tour").on("click", "button", function() {
+
+  });
+});
+
+AJAX  Result
+
+<li>
+  <img src="/assets/photos/paris1.jpg">
+  <span style="display: none;">Arc de Triomphe</span>
+</li>
+<li>
+  <img src="/assets/photos/paris2.jpg">
+  <span style="display: none;">The Eiffel Tower</span>
+</li>
+<li>
+  <img src="/assets/photos/london.jpg">
+  <span style="display: none;">London</span>
+</li>
+
+
+Answer:
+
+application.js
+
+$(document).ready(function() { 
+  $("#tour").on("click", "button", function() { 
+    $.ajax('/photos.html');
+  });
+});

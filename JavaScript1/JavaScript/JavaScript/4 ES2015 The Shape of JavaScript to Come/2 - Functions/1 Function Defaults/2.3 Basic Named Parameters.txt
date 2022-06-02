@@ -1,0 +1,25 @@
+2.3 Basic Named Parameters
+
+
+Complete the setPageThread() function signature with the missing named parameters. You can check out the body of the function to help discover what options are expected.
+
+set-page-thread.js
+
+function setPageThread(name,  ){
+  let nameElement = _buildNameElement(name);
+  let settings = _parseSettings(popular, expires, activeClass);
+
+  _updateThreadElement(nameElement, settings);
+}
+
+
+Answer:
+
+set-page-thread.js
+
+function setPageThread(name, { popular, expires, activeClass } ){
+  let nameElement = _buildNameElement(name);
+  let settings = _parseSettings(popular, expires, activeClass);
+
+  _updateThreadElement(nameElement, settings);
+}

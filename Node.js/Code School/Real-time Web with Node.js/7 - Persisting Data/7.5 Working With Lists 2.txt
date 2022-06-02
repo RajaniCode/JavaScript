@@ -1,0 +1,29 @@
+7.5 Working With Lists 2
+
+Now that we have seeded the questions list, use the lrange() command to return all of the items and log them.
+
+1. Use the lrange() command to return all of the items from the questions key.
+
+Answer: client.lrange("questions", 0, -1, function(error, value){});
+
+app.js
+
+var redis = require('redis');
+var client = redis.createClient();      
+client.lrange("questions", 0, -1, function(error, value){});
+
+2. Now that we have called lrange(), use console.log to log the result from redis. 
+
+Answer:
+
+client.lrange("questions", 0, -1, function(error, value){
+ console.log(value);
+});
+
+app.js
+
+var redis = require('redis');
+var client = redis.createClient();      
+client.lrange("questions", 0, -1, function(error, value){
+ console.log(value);
+});

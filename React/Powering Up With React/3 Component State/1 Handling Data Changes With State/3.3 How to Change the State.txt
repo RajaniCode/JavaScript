@@ -1,0 +1,15 @@
+﻿3.3 How to Change the State
+
+When writing a component in React that contains data that changes over time, it is considered a best practice to store this data in the component’s state.
+
+Check the option that shows how to properly access a component's state:
+
+[Single Answer]
+
+Running the function React.getState()
+Accessing the window.state object
+Running the function this.getState()
+Accessing the this.state object
+
+
+Answer: Accessing the this.state object

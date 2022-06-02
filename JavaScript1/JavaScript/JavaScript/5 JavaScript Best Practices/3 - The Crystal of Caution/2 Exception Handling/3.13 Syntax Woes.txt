@@ -1,0 +1,33 @@
+3.13 Syntax Woes
+
+The previous line #7 run-time error has been rectified, but still another error was created in the process. Can you fix the new, bothersome syntax error?
+
+bird.js
+
+function Bird(){}
+function DatatypeBird(){}
+function SyntaxBird(){}
+DatatypeBird.prototype = Object.create(Bird.prototype);
+SyntaxBird.prototype = Object.create(Bird.prototype);
+
+var TryCatchTaster fction { } ;
+TryCatchTaster.prototype = Object.create(SyntaxBird.prototype);
+
+var NumberNommer = function(){};
+NumberNommer.prototype = Object.create(DatatypeBird.prototype);
+
+Answer: var TryCatchTaster = function TryCatchTaster() {};
+
+bird.js
+
+function Bird(){}
+function DatatypeBird(){}
+function SyntaxBird(){}
+DatatypeBird.prototype = Object.create(Bird.prototype);
+SyntaxBird.prototype = Object.create(Bird.prototype);
+var TryCatchTaster = function TryCatchTaster() {};
+TryCatchTaster.prototype = Object.create(SyntaxBird.prototype);
+
+var NumberNommer = function(){};
+NumberNommer.prototype = Object.create(DatatypeBird.prototype);
+

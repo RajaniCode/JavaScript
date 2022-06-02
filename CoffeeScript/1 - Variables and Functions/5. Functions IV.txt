@@ -1,0 +1,27 @@
+Functions IV
+
+Change the greet function so that it uses a default value of 'Stranger' for the name parameter
+
+CoffeeScript:
+greet = (name) -> alert name
+
+JavaScript:
+var greet;
+greet = function(name) {
+  return alert(name);
+};
+
+
+Answer:
+
+CoffeeScript:
+greet = (name = 'Stranger') -> alert name
+
+JavaScript:
+var greet;
+greet = function(name) {
+  if (name == null) {
+    name = 'Stranger';
+  }
+  return alert(name);
+};

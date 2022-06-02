@@ -1,0 +1,17 @@
+List Comprehension
+
+Modify the loop below to use a list comprehension.
+
+Answer:
+
+CoffeeScript:
+console.log(person.name) for person in people when person.age > 18
+
+JavaScript:
+var person, _i, _len;
+for (_i = 0, _len = people.length; _i < _len; _i++) {
+  person = people[_i];
+  if (person.age > 18) {
+    console.log(person.name);
+  }
+}

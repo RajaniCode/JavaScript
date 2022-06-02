@@ -1,0 +1,13 @@
+6.6 About Iterables
+
+
+Complete the following statement about iterables.
+
+Iterables return an object called an [ ]. This object knows how to access items from a collection 1 at a time, while keeping track of its current position within the sequence.
+
+
+Answer: iterator
+
+Note:
+
+Iterables return an object called an [iterator]. This object knows how to access items from a collection 1 at a time, while keeping track of its current position within the sequence.

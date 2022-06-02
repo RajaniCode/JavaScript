@@ -1,0 +1,43 @@
+2.4 Add a Header and Footer
+
+Add a header and footer to the application template.
+
+app/templates/application.hbs
+<h2 id="title">Welcome to Ember</h2>
+
+{{outlet}}
+
+1. Replace the default <h2> tag, including attributes, with an HTML5 <header> tag.
+
+Answer:
+app/templates/application.hbs
+<header>Welcome to Ember</header>
+
+{{outlet}}
+
+2. Inside of the new <header> tag, change the text to "Wilderness Safety Quiz".
+
+Answer:
+app/templates/application.hbs
+<header>Wilderness Safety Quiz</header>
+
+{{outlet}}
+
+3. Wrap the {{outlet}} expression with a <main> tag. The outlet should still be in the template when you're done.
+
+Answer:
+app/templates/application.hbs
+<header>Wilderness Safety Quiz</header>
+<main>
+{{outlet}}
+</main>
+
+4. Add the footer to the application template below the {{outlet}} as a <footer> tag with the following content: &copy; Woodland Wanderer Whatchamacallits
+
+Answer:
+app/templates/application.hbs
+<header>Wilderness Safety Quiz</header>
+<main>
+{{outlet}}
+</main>
+<footer>&copy; Woodland Wanderer Whatchamacallits</footer>

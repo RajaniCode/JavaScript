@@ -1,0 +1,25 @@
+4.23 WeakSets in Action
+
+
+Given the following code:
+
+let allPosts = new WeakSet();
+
+let post1 = { title: "ES2015" };
+let post2 = { title: "CoffeeScript" };
+let post3 = { title: "TypeScript" };
+
+allPosts.add( post1 );
+allPosts.add( post2 );
+allPosts.add( post3 );
+
+How can we query the allPosts WeakSet to determine whether it has the post2 object?
+
+[Single Answer]
+
+readPosts.get( post2 );
+readPosts.contains( post2 );
+readPosts.has( post2 );
+
+
+Answer: readPosts.has( post2 );

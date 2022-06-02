@@ -1,0 +1,7 @@
+2.3 Declaring New Components I
+
+The pattern we follow when declaring new components usually includes: declaring a new [ ] and making it extend [ ].
+
+Answer:
+class
+React.Component

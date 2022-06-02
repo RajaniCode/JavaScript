@@ -1,0 +1,57 @@
+3.2 Create Models
+
+Create Poll and Option models. They should both extend from Ember.Object. The model files are already provided for you.
+
+app/models/poll.js
+// Your import statement should go here.
+// import x from 'x';
+
+// Your export statement should go here.
+// export default x;
+
+app/models/option.js
+// Your import statement should go here.
+// import x from 'x';
+
+// Your export statement should go here.
+// export default x;
+
+1. Import Ember into the Poll and Option models.
+
+Answer:
+app/models/poll.js
+// Your import statement should go here.
+// import x from 'x';
+import Ember from 'ember';
+
+// Your export statement should go here.
+// export default x;
+
+app/models/option.js
+// Your import statement should go here.
+// import x from 'x';
+import Ember from 'ember';
+
+// Your export statement should go here.
+// export default x;
+
+2. Export an extended Ember.Object as your Poll and Option models.
+
+Answer:
+app/models/poll.js
+// Your import statement should go here.
+// import x from 'x';
+import Ember from 'ember';
+
+// Your export statement should go here.
+// export default x;
+export default Ember.Object.extend({});
+
+app/models/option.js
+// Your import statement should go here.
+// import x from 'x';
+import Ember from 'ember';
+
+// Your export statement should go here.
+// export default x;
+export default Ember.Object.extend({});

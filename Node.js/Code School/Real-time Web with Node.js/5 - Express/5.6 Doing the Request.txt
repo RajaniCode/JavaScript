@@ -1,0 +1,70 @@
+5.6 Doing the Request
+
+Next, we'll use the request module to make a simple web request and log the response to the console. You can use this example in the README.
+
+1. To start, require the request module and assign the return function to a variable.
+
+Answer: var request = require('request');
+
+app.js
+
+var url = require('url');
+
+var options = {
+  protocol: "http:",
+  host: "search.twitter.com",
+  pathname: '/search.json',
+  query: { q: "codeschool"}
+};
+
+var searchURL = url.format(options);
+var request = require('request');
+
+
+2. Next, issue a request to searchURL. Remember, the callback function for the request function takes three arguments: error, response and body.
+
+Answer: request(searchURL, function(error, response , body){});
+
+app.js
+
+var url = require('url');
+
+var options = {
+  protocol: "http:",
+  host: "search.twitter.com",
+  pathname: '/search.json',
+  query: { q: "codeschool"}
+};
+
+var searchURL = url.format(options);
+var request = require('request');
+request(searchURL, function(error, response , body){});
+3. Finally, log the response body to the console using console.log().
+
+
+Answer: 
+
+request(searchURL, function(error, response , body){
+ console.log(body);
+});
+
+app.js
+
+var url = require('url');
+
+var options = {
+  protocol: "http:",
+  host: "search.twitter.com",
+  pathname: '/search.json',
+  query: { q: "codeschool"}
+};
+
+var searchURL = url.format(options);
+var request = require('request');
+request(searchURL, function(error, response , body){
+ console.log(body);
+});
+
+
+
+

@@ -1,0 +1,87 @@
+2.9 Making Isolation Work for You
+
+Now that the nw-card directive has an isolate scope, the note cards no longer have access to the variables in their expressions. Let's fix that and finish making this Directive reusable for both Notes and Users.
+
+notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes" ng-href="#/notes/{{note.id}}">
+        <nw-card></nw-card>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+users/index.html
+
+<div class="users-wrapper">
+  <h1>Users</h1>
+
+  <div class="users-wrapper">
+    <a class="card-users" ng-repeat="user in users">
+      <nw-card></nw-card>
+    </a>
+  </div>
+</div>
+
+nw-card.html
+
+<div class="card" title="{{header}}">
+  <h2 class="h3">{{header}}</h2>
+  <p>{{description}}</p>
+</div>
+
+nw-card.js
+
+angular.module("NoteWrangler")
+.directive("nwCard", [function() {
+  return {
+    restrict: "E",
+    templateUrl: "templates/directives/nw-card.html"
+  };
+}]);
+
+1. Add attributes for header and description for the nw-card directive in the notes/index.html template.
+
+The note title should be used for the header, and the note description should be used for the description.
+
+Answer: <nw-card title="note.title" header="note.title" description="note.description"></nw-card>
+
+notes/index.html
+
+<div class="note-wrapper">
+  <div class="note-content">
+    <div class="notes-header">
+      <h1 title="Notes">Notes</h1>
+    </div>
+    <div class="note-wrapper">
+      <a class="card-notes" ng-repeat="note in notes" ng-href="#/notes/{{note.id}}">
+        <nw-card title="note.title" header="note.title" description="note.description"></nw-card>
+      </a>
+    </div>
+  </div>
+</div>
+
+2. Add attributes for header and description for the nw-card directive in the users/index.html template.
+
+The user name should be used for the header, and the user bio should be used for the description.
+
+Answer: <nw-card header="user.name" description="user.bio"></nw-card>
+
+users/index.html
+
+<div class="users-wrapper">
+  <h1>Users</h1>
+
+  <div class="users-wrapper">
+    <a class="card-users" ng-repeat="user in users">
+      <nw-card header="user.name" description="user.bio"></nw-card>
+    </a>
+  </div>
+</div>

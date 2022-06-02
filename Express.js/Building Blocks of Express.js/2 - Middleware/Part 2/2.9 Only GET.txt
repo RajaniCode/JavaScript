@@ -1,0 +1,40 @@
+2.9 Only GET
+
+Let's build a middleware that ensures only GET requests are allowed to go through.
+
+1. First, in the only_get.js file, create an anonymous function that uses the middleware signature and assign it to module.exports. Remember, the Express middleware function signature takes three arguments.
+
+Answer: module.exports = function(request, response, next){};
+
+only_get.js:
+
+module.exports = function(request, response, next){};
+
+2. Use the request object to check if the HTTP method used is 'GET' and if it is, then call the function that moves processing to the next middleware in the stack.
+
+Answer:
+
+only_get.js:
+
+module.exports = function(request, response, next){
+  var stream = process.stdout;
+  if(request.method === 'GET')	{
+    next();
+  }
+};
+
+3. If the HTTP method is not 'GET', then complete the request by sending back a message that says 'Method is not allowed'.
+
+Answer:
+
+only_get.js:
+
+module.exports = function(request, response, next){
+  var stream = process.stdout;
+  if(request.method === 'GET')	{
+    next();
+  }
+  else {
+    response.end('Method is not allowed');
+  }
+};

@@ -1,0 +1,12 @@
+Additional Resources
+
+• ES2015: The Shape of JavaScript to Come [https://www.codeschool.com/courses/es2015-the-shape-of-javascript-to-come]
+• Official 5 Minute QuickStart [https://angular.io/docs/ts/latest/quickstart.html]
+• Tour of Heroes [https://angular.io/docs/ts/latest/tutorial/]
+• API Reference [https://angular.io/docs/ts/latest/api/]
+• Angular Official Blog [https://blog.angularjs.org/]
+• Pluralsight Courses [https://www.pluralsight.com/search?q=angular+2&categories=all]
+• Course Challenge App [https://github.com/codeschool/WatchUsBuild-Angular2Final]
+• Augury Dev Tools Extension [https://augury.angular.io/]
+• Code School's Twitter [https://twitter.com/codeschool]
+• Gregg Pollack's Twitter [https://twitter.com/greggpollack]

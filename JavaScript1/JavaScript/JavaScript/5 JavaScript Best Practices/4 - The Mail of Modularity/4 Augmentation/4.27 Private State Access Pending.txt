@@ -1,0 +1,19 @@
+4.27 Private State Access Pending
+
+When you finish augmenting the CAVESOFCLARITY module, a short railing, square and wooden, rises up from the rocky ground. Inside the railing, a thick carpet of white sand creates a sort of sandbox. A round button appears in the floor, just outside the railing. It pulses with green light.
+
+You press the button and the sand in the small sandbox begins to shift and mold under some invisible force. The grains coalesce, part, and dance slowly into a familiar script. The sand-writing reveals broken phrases. In the dim light of the torch, you know what you must do.
+
+In simple ______, the ______ file and the augmentation file ______ share their ______.
+Augmented module ______ may only ______ the ______ data from their file's ______.
+______ data from the ______ closure ______ be lost, and ______ be accessible to all original ______ that referenced it.
+
+    modules, original, sometimes, public data, files, rebuild, module's, namespace, Public, new, will not, will, files
+
+    namespaces, module, will, private data, closures, reference, original, function expression, Private, new, will, will not, properties
+
+    augmentation, module, do not, private state, properties, access, private, closure, Private, original, will not, will, properties
+
+    cross-file private state, module, do not, properties, files, access, public, returned object, Public, original, will, will not, files
+
+Answer: augmentation, module, do not, private state, properties, access, private, closure, Private, original, will not, will, properties

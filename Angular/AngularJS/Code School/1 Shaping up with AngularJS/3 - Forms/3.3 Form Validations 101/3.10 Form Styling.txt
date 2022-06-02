@@ -1,0 +1,18 @@
+3.10 Form Styling
+
+Give the defined classes in your css colors. See the magic of ng-invalid/ng-valid at work!
+
+1. For elements with both the .ng-invalid and .ng-dirty classes, give the border-color of red.
+
+Answer:
+.ng-invalid.ng-dirty{
+  border-color: red
+}
+
+
+2. For ng-valid && ng-dirty, give a green border-color.
+
+Answer:
+.ng-valid.ng-dirty{
+  border-color: green
+}

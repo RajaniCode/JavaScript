@@ -1,0 +1,11 @@
+2.3 Default Middleware
+
+What is the only middleware that's shipped with Express 4?
+
+validations
+
+express-static
+
+body-parser
+
+Answer: express-static

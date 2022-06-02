@@ -1,0 +1,67 @@
+5.4 Namespacing Event Handlers
+
+Turns out another coworker added some functionality to this same button to show photos. We want to keep both button event handlers working separate from each other, but right now our weather handler will remove the event handler for photos when clicked!
+
+Namespace the weather event handler to the weather namespace and update how it is removed to prevent this.
+
+HTML
+
+<ul>
+  <li class="tour" data-loc="london" data-temp="48°">
+    London, UK
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+
+  <li class="tour" data-loc="paris1" data-temp="55°">
+    Paris, France
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+
+  <li class="tour" data-loc="newyork1" data-temp="62°">
+    New York, NY, USA
+    <button>More Info</button>
+    <div class="results"></div>
+  </li>
+</ul>
+
+application.js
+
+$(document).ready(function(){
+  // Get Weather
+  $('button').on('click', function() {
+    var results = $(this).closest('li').find('.results');
+    results.append('<p>Weather: 74&deg;</p>');
+    $(this).off('click');
+  });
+  
+   // Show Photos
+  $('button').on('click.photos', function() {
+    var tour = $(this).closest('li');
+    var results = tour.find('.results');
+    results.append('<p><img src="/assets/photos/'+tour.data('loc')+'.jpg" /></p>');
+    $(this).off('click.photos');
+  });
+});
+
+Answer:
+
+application.js
+
+$(document).ready(function(){
+  // Get Weather
+  $('button').on('click.weather', function() {
+    var results = $(this).closest('li').find('.results');
+    results.append('<p>Weather: 74&deg;</p>');
+    $(this).off('click.weather');
+  });
+  
+   // Show Photos
+  $('button').on('click.photos', function() {
+    var tour = $(this).closest('li');
+    var results = tour.find('.results');
+    results.append('<p><img src="/assets/photos/'+tour.data('loc')+'.jpg" /></p>');
+    $(this).off('click.photos');
+  });
+});

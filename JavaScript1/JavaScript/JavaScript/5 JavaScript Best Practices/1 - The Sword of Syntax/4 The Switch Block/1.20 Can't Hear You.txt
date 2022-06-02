@@ -1,0 +1,20 @@
+1.20 Can't Hear You
+
+Aiedra muttered something under her breath. Examine her muttering function below, and the call to it. What did Aiedra say?
+
+function aiedrasMutterings(lampsLit){
+  var aiedrasWords;
+  switch(lampsLit){
+    case 1 : aiedrasWords = "Darkness, there is so much darkness still shrouding the land.";
+    case 2 : aiedrasWords = "A beacon of hope, these two lamps are, but two more still await.";
+    case 3 : aiedrasWords = "Nearly it is complete, twilight breaking, is that a song I hear?";
+    case 4 : aiedrasWords = "It is done, a new age has begun, a new dawn has risen.";
+  }
+  
+  return aiedrasWords;
+}
+
+alert(aiedrasMutterings(0));
+
+
+Answer: She said none of these.

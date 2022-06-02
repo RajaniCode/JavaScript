@@ -1,0 +1,36 @@
+2.5 Calling a Function With Named Parameters
+
+
+Take the following function:
+
+function fetchReplies(topicId, { displayClass, includeAvatar }){
+    //... 
+}
+Mark all the possible ways this function can be invoked without generating an error.
+
+[Multiple Answers]
+
+fetchReplies(12, {
+  displayClass: "topic-replies"
+});
+
+let options = {
+  displayClass: "topic-replies",
+  includeAvatar: true
+};
+fetchReplies(12, options);
+
+fetchReplies(12);
+
+
+Answer:
+
+fetchReplies(12, {
+  displayClass: "topic-replies"
+});
+
+let options = {
+  displayClass: "topic-replies",
+  includeAvatar: true
+};
+fetchReplies(12, options);

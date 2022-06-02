@@ -1,0 +1,30 @@
+7.2 Simple Redis Commands
+
+Let's start practicing using the redis key-value store from our node application.
+
+1. Require the redis module and assign it to a variable called redis.
+
+Answer: var redis = require('redis');
+
+app.js
+
+var redis = require('redis');
+
+2. On the client, set the name property to your name.
+
+Answer: var client = redis.createClient();
+
+app.js
+
+var redis = require('redis');
+var client = redis.createClient();
+
+3. On the client, set the name property to your name.
+
+Answer: client.set("name", "Rajani");
+
+app.js
+
+var redis = require('redis');
+var client = redis.createClient();
+client.set("name", "Rajani");

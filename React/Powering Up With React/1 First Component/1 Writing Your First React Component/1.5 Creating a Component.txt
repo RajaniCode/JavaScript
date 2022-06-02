@@ -1,0 +1,43 @@
+1.5 Creating a Component
+
+Time to write our first React component.
+
+components.js
+
+class RobotBox  {
+
+}
+
+1. Make the RobotBox class a React component.
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+
+}
+
+2. Now define an instance method responsible for rendering the component.
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+ render() {}
+}
+
+3. Inside the render() instance method, return a div element with the content Hello From React.
+
+Remember: no quotes are needed when markup is returned in React components.
+
+Answer:
+
+components.js
+
+class RobotBox extends React.Component {
+ render() {
+   return (<div>Hello From React</div>)
+ }
+}

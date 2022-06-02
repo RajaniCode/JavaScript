@@ -1,0 +1,31 @@
+4.20 Sets and for...of
+
+
+Using for…of, loop through each element of the tags Set and assign it to a local variable called tag so that it properly prints them to the console from inside the loop.
+
+tags.js
+
+let tags = new Set();
+
+tags.add("JavaScript");
+tags.add("Programming");
+tags.add("Web");
+
+for(  ){
+  console.log(`Tag: ${tag}`);
+}
+
+
+Answer:
+
+tags.js
+
+let tags = new Set();
+
+tags.add("JavaScript");
+tags.add("Programming");
+tags.add("Web");
+
+for( let tag of tags ){
+  console.log(`Tag: ${tag}`);
+}

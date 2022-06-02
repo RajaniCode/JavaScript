@@ -1,0 +1,14 @@
+5.5 Action Handlers
+
+Select the objects below that are capable of capturing and handling actions.
+
+[Multiple Answers]
+
+Models
+Routes
+Components
+
+
+Answer:
+Routes
+Components

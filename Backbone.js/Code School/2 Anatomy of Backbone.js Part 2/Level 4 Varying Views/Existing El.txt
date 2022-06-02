@@ -1,0 +1,44 @@
+Existing El
+
+
+Below we have our AppointmentsView instance rendering and then taking the rendered HTML and inserting into the $('#app') element.
+
+Change the code to instead pass in the $('#app') element into the view constructor to make it the appointmentsView.el.
+
+MODELS
+
+var Appointment = Backbone.Model.extend({});
+
+var Appointments = Backbone.Collection.extend({
+  model: Appointment
+});
+
+var AppointmentsView = Backbone.View.extend({
+  render: function() {
+    var _this = this;
+    this.collection.forEach(function(model) {
+      return _this.$el.append("<h2>" + (model.get('title')) + "</h2><em>" + (model.get('name')) + "</em>");
+    });
+    return this;
+  }
+});
+
+var appointments = new Appointments([
+  {
+    title: "Toothache",
+    name: "Eric"
+  }, {
+    title: "Regular Checkup",
+    name: "Gregg"
+  }
+]);
+
+APPLICATION.JS
+
+var appointmentsView = new AppointmentsView({collection: appointments});
+$('#app').html(appointmentsView.render().el);
+
+Answer:
+
+var appointmentsView = new AppointmentsView({collection: appointments, el:$('.appointment')});
+appointmentsView.render();

@@ -1,0 +1,51 @@
+4.13 Build Private Data
+
+"Instead of using only a nested namespace," remarks Aiedra, "let's create a CAVESOFCLARITY module where the number of treasure chests is made private through anonymous closure."
+
+She looks up at the cave ceiling.
+
+"For now, we shall allow the geological features and creatures, as well as the method to open chests, to stay public, accessed through the name of the namespace."
+
+Pointing to the cavesofclarity.js file, she indicates the location for your careful modifications.
+
+"You must use your knowledge of creating public and private properties in a module to carefully re-arrange the data here. Thus will you bring enhanced security to the caves."
+
+cavesofclarity.js
+
+var CAVESOFCLARITY = {
+  stalactites: 4235,
+  stalagmites: 3924,
+  bats: 345,
+  SECRET: {
+    treasureChests: 3,
+    openChest: function(){
+      this.treasureChests--;
+      alert("DA DADADA DAAAAAAA!");
+    }
+  }
+};
+
+1. In order to make treasureChests private, convert CAVESOFCLARITY into an anonymous closure that returns an object with the original data.
+
+2. In order for CAVESOFCLARITY to be initialized to the result of our closure, make it an immediately invoked closure.
+
+3. Now, make the treasureChests property private by making it a locally declared variable inside the closure.
+
+Answer: 
+
+var CAVESOFCLARITY = function () {
+  var treasureChests = 3;
+  return {
+    stalactites: 4235,
+    stalagmites: 3924,
+    bats: 345,
+    SECRET: {    
+      openChest: function(){
+        treasureChests--;
+        alert("DA DADADA DAAAAAAA!");
+      }
+    }
+  };
+}();
+
+

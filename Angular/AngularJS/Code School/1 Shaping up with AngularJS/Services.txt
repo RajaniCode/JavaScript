@@ -1,0 +1,23 @@
+Services give your Controller additional functionality, like ...
+
+Fetching JSON data from a web service with $http
+
+Logging messages to the JavaScript console with $log
+
+Filtering an array with $filter
+
+The $http Service is how we make an async request to a server ...
+
+By using $http as a function with an option object:
+
+$http({method: 'GET', url: '/store-products.json'});
+
+Or using one of the shortcut methods:
+
+$http.get('/store-products.json',(apiKey: 'store-productsKey'));
+
+• Both return a Promise object with .success() and .error()
+
+• If we tell $http to fetch JSON, the result will be automatically decoded into JavaScript objects and arrays
+
+Note: Specifying the services a controller needs (passing service names as arguments) is called Dependency Injection.

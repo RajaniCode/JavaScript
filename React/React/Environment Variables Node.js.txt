@@ -1,0 +1,6 @@
+# Node.js $ node -v $ npm -v $ npx -v $ npm -g list $ npm view npm version $ npm view npm $ npm show npm version $ npm show npm $ npm view corepack $ npm view corepack version $ npm show corepack $ npm show corepack version
+$ export PATH=$PATH:"/C/Users/Rajani/Downloads/Node.js/node-v16.13.0-win-x64/"
+
+
+# Node.js > node -v > npm -v > npx -v > npm -g list > npm view npm version > npm view npm > npm show npm version > npm show npm > npm view corepack > npm view corepack version > npm show corepack > npm show corepack version
+> set path=%path%;C:\Users\Rajani\Downloads\Node.js\node-v16.13.0-win-x64\

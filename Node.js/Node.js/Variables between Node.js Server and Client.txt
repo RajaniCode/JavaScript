@@ -1,0 +1,116 @@
+Variables between Node.js Server and Client
+
+There is a variety of template engines in node. Example of using one of them - EJS [https://github.com/visionmedia/ejs]:
+
+Install it:
+
+npm install ejs
+server.js:
+
+var http = require('http');
+var ejs = require('ejs');
+var fs = require('fs');
+
+http.createServer(function(req,res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+
+  //since we are in a request handler function
+  //we're using readFile instead of readFileSync
+  fs.readFile('index.html', 'utf-8', function(err, content) {
+    if (err) {
+      res.end('error occurred');
+      return;
+    }
+    var temp = 'some temp';  //here you assign temp variable with needed value
+
+    var renderedHtml = ejs.render(content, {temp: temp});  //get redered HTML code
+    res.end(renderedHtml);
+  });
+}).listen(80);
+Your view might look like this:
+
+<html>
+   <head>
+   </head>
+<body>
+My temperature: <%= temp %>
+</body>
+</html>
+EJS also escapes temp (and other variables you pass to the view) for you, so you don't have to worry about XSS attacks.
+
+Edit
+
+You can also compile the template if you don't want to read the file on each request:
+
+var http = require('http');
+var ejs = require('ejs');
+var fs = require('fs');
+
+//we are not in a request handler so we may use readFileSync
+var content = fs.readFileSync('index.html', 'utf-8');
+var compiled = ejs.compile(content);
+
+http.createServer(function(req,res) {
+    var temp = 'some temp';
+
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end(compiled({temp: temp}));
+}).listen(80);
+Edit 2 (answering your comment question)
+
+Here is a simple example of using Express and AJAX:
+
+server.js:
+
+var http = require('http');
+var express = require('express');
+var app = express();
+
+app.configure(function() {
+    app.set('view engine', 'ejs');  //tell Express we're using EJS
+    app.set('views', __dirname + '/views');  //set path to *.ejs files
+    app.use(app.router);
+    //put your static files (js, css, images) into /public directory
+    app.use('/public', express.static(__dirname + '/public'));
+});
+
+//get some server data for sending it to the client
+var getData = function() {
+    return Math.random().toString();
+}
+
+app.get('/', function(req, res) {
+    //render index.ejs file
+    res.render('index', {val: getData()});
+});
+
+app.get('/ajax', function(req, res) {
+    res.send(getData());
+});
+
+http.createServer(app).listen(80);
+views/index.ejs:
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/public/js/request.js"></script>
+</head>
+<body>
+
+    <h1>Val: <span id="val"><%=val%></span></h1>
+
+    <button id="loadRequest">Refresh</button>
+
+</body>
+</html>
+public/js/request.js:
+
+$(function() {
+    $('#loadRequest').click(function() {
+        $.get('/ajax', function(res) {
+            $('#val').text(res);
+        });
+    });
+});

@@ -1,0 +1,12 @@
+Creating our First Router
+
+
+Dr. Goodparts wants to add a link next to each appointment that will take him to a new page that will show just that single appointment. Easy enough.
+
+He also wants it to be super-snappy and use the new HTML5 pushState API (he's strangely knowledgable of web-trends for a doctor).
+
+So the first thing you have to do is create a new Backbone Router Class and name it AppRouter.
+
+APPLICATION.JS
+
+Answer: var AppRouter = Backbone.Router.extend({});
